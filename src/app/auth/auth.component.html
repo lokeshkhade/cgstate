@@ -1,0 +1,90 @@
+<div class="main-container">
+
+    <mat-toolbar color="primary" class="topbar telative">
+
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">
+                <b>
+                    <img src="assets/images/cglogo.png" alt="homepage" class="light-logo" style="width: 50px;">
+                </b>
+
+                <span fxShow="false" fxShow.gt-xs>
+                    <h4 style="color: #fff;" class="light-logo">CFDA</h4>
+                </span>
+            </a>
+        </div>
+
+
+        <button mat-icon-button (click)="snav.toggle()" value="sidebarclosed">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span fxFlex></span>
+        <span style="flex: 1 1 auto;"></span>
+        <div id="profileImage" [matMenuTriggerFor]="profile">{{currentUser.username.substring(0,1) | uppercase}}
+        </div>
+        <!-- <button [matMenuTriggerFor]="profile" mat-icon-button class="m-r-5"> <img src="assets/images/users/1.jpg"
+                alt="user" class="profile-pic"> </button> -->
+        <mat-menu #profile="matMenu" class="mymegamenu">
+            <button mat-menu-item>
+                <mat-icon>settings</mat-icon> Settings
+            </button>
+            <button mat-menu-item [routerLink]="['/profile']" routerLinkActive="router-link-active">
+                <mat-icon>account_box</mat-icon> Profile
+            </button>
+            <button mat-menu-item (click)="logout()">
+                <mat-icon>exit_to_app</mat-icon> Log Out
+            </button>
+        </mat-menu>
+    </mat-toolbar>
+
+
+    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0">
+        <mat-sidenav #snav id="snav" class="dark-sidebar pl-xs" [mode]="mobileQuery.matches ? 'side' : 'over'" fixedTopGap="0" [opened]="mobileQuery.matches" [disableClose]="mobileQuery.matches">
+
+            <div class="user-profile" style="background: url(assets/images/background/user-info.jpg) no-repeat;">
+                <div class="profile-img">
+                    <!-- <img src="assets/images/users/profile.png" alt="user"> -->
+                    <div class="profileImage">{{currentUser.username.substring(0,1) | uppercase}}
+                    </div>
+                </div>
+
+                <div class="profile-text"><a [matMenuTriggerFor]="sdprofile" class="">
+                        {{currentUser.username |uppercase}} <mat-icon>arrow_drop_down</mat-icon></a></div>
+                <mat-menu #sdprofile="matMenu" class="mymegamenu">
+                    <button mat-menu-item>
+                        <mat-icon>settings</mat-icon> Settings
+                    </button>
+                    <button mat-menu-item [routerLink]="['/profile']" routerLinkActive="router-link-active">
+                        <mat-icon>account_box</mat-icon> Profile
+                    </button>
+
+                    <button mat-menu-item (click)="logout()">
+                        <mat-icon>exit_to_app</mat-icon> Log Out
+                    </button>
+                </mat-menu>
+            </div>
+            <mat-nav-list appAccordion>
+                <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems" routerLinkActive="selected" group="{{menuitem.state}}">
+                    <a class="" appAccordionToggle [routerLink]="[menuitem.state]" *ngIf="menuitem.type === 'link'">
+                        <mat-icon>{{ menuitem.icon }}</mat-icon>
+                        <span>{{ menuitem.name }}</span>
+                        <span fxFlex></span>
+                        <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value
+                            }}</span>
+                    </a>
+                </mat-list-item>
+            </mat-nav-list>
+        </mat-sidenav>
+
+        <mat-sidenav-content class="page-wrapper">
+
+            <div class="page-content">
+
+                <router-outlet>
+                </router-outlet>
+                <app-loader></app-loader>
+            </div>
+
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

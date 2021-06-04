@@ -1,0 +1,261 @@
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="bg-info p-2 text-white text-center">Note: Fields marked with <i class="fa fa-asterisk text-danger" aria-hidden="true"></i> are mandatory.</div>
+        <mat-card>
+
+            <mat-card-title class="text-center"><u>Registration</u> </mat-card-title>
+            <hr>
+            <mat-card-content>
+                <form (ngSubmit)="onSubmit()" [formGroup]="regForm">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Applicant Name <span class="required"></span>
+                                </mat-label>
+                                <input matInput formControlName="ApplicantName">
+                                <mat-error *ngIf="isValidInput('ApplicantName')">
+                                    <mat-error *ngIf="regForm.controls['ApplicantName'].errors.required">
+                                        Applicant Name is <strong>required</strong>.
+                                    </mat-error>
+                                </mat-error>
+
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Firm Name <span class="required"></span>
+                                </mat-label>
+                                <input matInput formControlName="FirmName">
+                                <mat-error *ngIf="isValidInput('FirmName')">
+                                    <mat-error *ngIf="regForm.controls['FirmName'].errors.required">
+                                        Firm Name is <strong>required</strong>.
+                                    </mat-error>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+
+                    </div>
+
+                    <mat-card>
+                        <mat-card-header class="bg-secondary text-white">
+                            <mat-card-subtitle>Address of the firm(Regd office)</mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Premises Type <span class="required"></span>
+                                        </mat-label>
+                                        <mat-select formControlName="Premisestype">
+                                            <mat-option>Clear</mat-option>
+                                            <mat-option value="valid">option</mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="isValidInput('Premisestype')">
+                                            <mat-error *ngIf="regForm.controls['Premisestype'].errors.required">You must make a selection
+                                            </mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <!-- <div class="col-md-4">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>State <span class="required"></span>
+                                        </mat-label>
+                                        <mat-select formControlName="CState">
+                                            <mat-option>Clear</mat-option>
+                                            <mat-option value="valid">option</mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="isValidInput('CState')">
+                                            <mat-error *ngIf="regForm.controls['CState'].errors.required">You must make a selection
+                                            </mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div> -->
+                                <div class="col-md-4">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>District <span class="required"></span>
+                                        </mat-label>
+                                        <mat-select formControlName="CDistrict">
+                                            <mat-option>Clear</mat-option>
+                                            <mat-option value="valid">option</mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="isValidInput('CDistrict')">
+                                            <mat-error *ngIf="regForm.controls['CDistrict'].errors.required">You must make a selection
+                                            </mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Block <span class="required"></span>
+                                        </mat-label>
+                                        <mat-select formControlName="CBlock">
+                                            <mat-option>Clear</mat-option>
+                                            <mat-option value="valid">option</mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="isValidInput('CBlock')">
+                                            <mat-error *ngIf="regForm.controls['CBlock'].errors.required">You must make a selection
+                                            </mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-4">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Address <span class="required"></span>
+                                        </mat-label>
+                                        <textarea matInput formControlName="CAddress" #address maxlength="200"></textarea>
+                                        <mat-hint align="end">{{address.value.length}} / 200</mat-hint>
+                                        <mat-error *ngIf="isValidInput('CAddress')">
+                                            <mat-error *ngIf="regForm.controls['CAddress'].errors.required">
+                                                Address is <strong>required</strong>.
+                                            </mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Pin Code <span class="required"></span>
+                                        </mat-label>
+                                        <input matInput formControlName="CPincode" number #pinCode maxlength="6" placeholder="Ex. 145269">
+                                        <mat-hint align="end">{{pinCode.value.length}} / 6</mat-hint>
+                                        <mat-error *ngIf="isValidInput('CPincode')">
+                                            <mat-error *ngIf="regForm.controls['CPincode'].errors.required">
+                                                Pin code is <strong>required</strong>.
+                                            </mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+
+                    <mat-card>
+                        <mat-card-header class="bg-secondary text-white">
+                            <mat-card-subtitle>Communication Details</mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Phone No
+                                        </mat-label>
+                                        <input matInput formControlName="PhoneNo" number maxlength="11">
+                                        <mat-error *ngIf="isValidInput('PhoneNo')">
+                                            <mat-error *ngIf="regForm.controls['PhoneNo'].errors.required">PhoneNo is
+                                                <strong>required</strong>.
+                                            </mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Fax No
+                                        </mat-label>
+                                        <input matInput formControlName="FaxNo" number maxlength="11">
+                                        <mat-error *ngIf="isValidInput('FaxNo')">
+                                            <mat-error *ngIf="regForm.controls['FaxNo'].errors.required">
+                                                FaxNo is <strong>required</strong>.
+                                            </mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Mobile No <span class="required"></span>
+                                        </mat-label>
+                                        <input matInput formControlName="MobileNo" number #pinCode maxlength="10" placeholder="Ex. 9988775566">
+                                        <mat-error *ngIf="isValidInput('MobileNo')">
+                                            <mat-error *ngIf="regForm.controls['MobileNo'].errors.required">
+                                                Mobile No is <strong>required</strong>.
+                                            </mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Email <span class="required"></span>
+                                        </mat-label>
+                                        <input matInput formControlName="EmailID" maxlength="20">
+                                        <mat-error *ngIf="isValidInput('EmailID')">
+                                            <mat-error *ngIf="regForm.controls['EmailID'].errors.required">Email is
+                                                <strong>required</strong>.
+                                            </mat-error>
+                                            <mat-error *ngIf="regForm.controls['EmailID'].errors.email">Email is
+                                                <strong>invalid</strong>.
+                                            </mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Website
+                                        </mat-label>
+                                        <input matInput formControlName="Website" number maxlength="30">
+
+                                    </mat-form-field>
+                                </div>
+
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                    <mat-card>
+                        <mat-card-header class="bg-secondary text-white">
+                            <mat-card-subtitle>Login Credential Details</mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>User Name<span class="required"></span>
+                                        </mat-label>
+                                        <input matInput formControlName="username" maxlength="10">
+                                        <mat-error *ngIf="isValidInput('username')">
+                                            <mat-error *ngIf="regForm.controls['username'].errors.required">user name is
+                                                <strong>required</strong>.
+                                            </mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Password <span class="required"></span>
+                                        </mat-label>
+                                        <input matInput formControlName="password" maxlength="12" placeholder="Ex. Swift04#&">
+                                        <mat-error *ngIf="isValidInput('password')">
+                                            <mat-error *ngIf="regForm.controls['password'].errors.required">
+                                                Password is <strong>required</strong>.
+                                            </mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Confirm Password <span class="required"></span>
+                                        </mat-label>
+                                        <input matInput formControlName="confirmPassword" maxlength="12" placeholder="Ex. Swift04#&">
+                                        <mat-error *ngIf="isValidInput('confirmPassword')">
+                                            <mat-error *ngIf="regForm.controls['confirmPassword'].errors.required">
+                                                Confirm Password is <strong>required</strong>.
+                                            </mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                        </mat-card-content>
+                    </mat-card>
+                </form>
+            </mat-card-content>
+            <mat-card-header>
+                <div class="row">
+                    <button type="submit" class="btn btn-success">Register</button> &nbsp;&nbsp;
+                    <button type="button" class="btn btn-secondary">Reset</button>
+                </div>
+            </mat-card-header>
+        </mat-card>
+    </div>
+</div>

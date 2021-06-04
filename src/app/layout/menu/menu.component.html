@@ -1,0 +1,95 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <button class="navbar-toggler" type="button" data-toggle="modal" data-target="#login-modal" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        Log In
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav-menu" *ngFor="let menu of menus">
+            <li *ngIf="!menu.submenu.length" [class.active-item]="selectedPath === menu.path" class="nav-item">
+                <a class="nav-link" [routerLink]="[menu.path]" routerLinkActive="router-link-active">{{menu.title}} </a>
+            </li>
+
+            <li *ngIf="menu.submenu.length" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{menu.title}}
+                </a>
+                <div class="dropdown-menu sub-nav col-1" aria-labelledby="navbarDropdown">
+                    <ul class="sub-nav-group">
+                        <li *ngFor="let sub of menu.submenu">
+                            <a class="dropdown-item" [routerLink]="[sub.path]" routerLinkActive="router-link-active">{{sub.title}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+        </ul>
+        <span style="flex: 1 1 auto;"></span>
+        <span style="cursor: pointer;" class="nav-item" data-toggle="modal" data-target="#login-modal">
+            <a class="nav-link">Log In</a>
+        </span>
+    </div>
+</nav>
+<nav class="main-menu clearfix" id="overflow_menu">
+    <ul class="nav-menu clearfix">
+    </ul>
+</nav>
+
+<!-- Login Modal -->
+<div class="modal fade" id="login-modal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header text-center d-block border-bottom-0">
+                <h2 class="modal-title">Log In</h2>
+                <button type="button" #close class="close position-absolute" style="right: 15px; top: 8px;" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form [formGroup]="loginForm" (ngSubmit)="login()">
+                    <div class="form-group">
+                        <label for="login-email">Username: </label>
+                        <input type="text" class="form-control" id="login-email" placeholder="Enter Username" formControlName="username">
+                        <div *ngIf="isValidInput('username')">
+                            <p class="text-danger" *ngIf="loginForm.controls['username'].errors.required">
+                                Username is <strong>required</strong>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="login-pwd">Password:</label>
+                        <input type="{{showPassword ? 'text':'password'}}" class="form-control" id="login-pwd" placeholder="Enter password" formControlName="password">
+                        <div *ngIf="isValidInput('password')">
+                            <p class="text-danger" *ngIf="loginForm.controls['password'].errors.required">
+                                Password is <strong>required</strong>.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label" for="login-rem">
+                            <input class="form-check-input" type="checkbox" (change)="showPassword=!showPassword"
+                                id="login-rem" name="remember"> Show
+                            password
+                        </label>
+                    </div>
+                    <div class="col-md-4" style="padding-left: 0px;padding-right: 0px;">
+                        <div #dataContainer class="svg-img"></div>
+                    </div>
+                    <div class="text-danger text-center" *ngIf="showInvalid"><strong> {{errorText}}</strong></div>
+                    <div class="text-center py-4">
+                        <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary b-btn">Log
+                            In</button>
+                    </div>
+
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+</div>

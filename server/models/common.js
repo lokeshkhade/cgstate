@@ -1,0 +1,58 @@
+var db = require('../dbconnection');
+var common = {
+
+
+    getBlock: function(district_code, callback) {
+        db.query(`SELECT DISTINCT BlockCode,BlockName FROM alldistrictblocksofcgs WHERE DistrictCode=? ORDER BY BlockName ASC`, [district_code], callback);
+    },
+
+    getDistrict: function(callback) {
+        db.query(`SELECT DISTINCT DistrictCode,DistrictName FROM alldistrictblocksofcgs ORDER BY DistrictName ASC`, callback);
+    },
+    getdept: function(callback) {
+        db.query(`select * from mas_dept`, callback);
+    },
+    getuploadmenu: function(callback) {
+        db.query(`select * from mas_menu where  uploadflag = 'Y'  and flag='Y'`, callback);
+    },
+    deptlinks: function(dept_id, callback) {
+        if (dept_id != 0) {
+            db.query(`select *,'' as sn from upload_data where dept_id  = ?`, [dept_id], callback);
+        } else {
+            db.query(`select *,'' as sn from upload_data `, callback);
+        }
+
+    },
+    checkUsernameExist: function(username, callback) {
+        db.query(`SELECT COUNT(*) AS notavail FROM users u WHERE u.username=?`, [username], callback);
+    },
+    getDashboardCount: function(SHC_id, callback) {
+        db.query(`SELECT TH.SHC_id
+        ,(select count(*) from tbl_HomeCare where TH.SHC_id=tbl_HomeCare.SHC_id) AS total
+        ,(select count(*) from tbl_HomeCare where TH.SHC_id=tbl_HomeCare.SHC_id and Kit_given='Y') AS Kit_given
+        ,(select count(*) from tbl_HomeCare where TH.SHC_id=tbl_HomeCare.SHC_id and Untracable='Y') AS Untracable
+        ,(select count(*) from tbl_HomeCare where TH.SHC_id=tbl_HomeCare.SHC_id and HospCcode is not NULL) AS Hospitalize
+         ,(select count(*) from tbl_HomeCare where TH.SHC_id=tbl_HomeCare.SHC_id and Death_date is not NULL) AS Death
+        FROM tbl_HomeCare TH  where TH.SHC_id='${SHC_id}' GROUP BY TH.SHC_id`, callback);
+    },
+
+
+    //#region All USER
+    login: function(username, callback) {
+        db.query(`SELECT * FROM mas_users where user_id=?`, [username], callback);
+    },
+
+    getCurrentPassword: function(UserID, UserTypeCode, callback) {
+
+        return db.query(`select Password from T_lgn WHERE UserID = ${UserID} AND UserTypeCode = ${UserTypeCode}`, callback);
+
+    },
+    changePassword: function(Password, UserID, UserTypeCode, callback) {
+
+        return db.query(
+            `update T_lgn set Password = ${Password} where UserID = ${UserID} AND UserTypeCode = ${UserTypeCode}`,
+            callback);
+    },
+    //#endregion USER
+};
+module.exports = common;

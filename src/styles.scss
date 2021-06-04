@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+@import url(assets/css/base-responsive.css);
+@import url(assets/css/base.css);
+@import url(assets/css/flexslider.css);
+@import url(assets/css/font-awesome.min.css);
+@import url(assets/css/font.css);
+@import url(assets/css/grid.css);
+@import url(assets/css/megamenu.css);
+@import url(assets/css/print.css);
+@import url(assets/css/site.css);
+@import url(assets/css/site-responsive.css);
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
