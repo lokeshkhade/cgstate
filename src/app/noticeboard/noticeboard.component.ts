@@ -11,9 +11,9 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class NoticeboardComponent implements OnInit {
   [x: string]: any;
-  displayedColumns: string[] = ['sn', 'linkname', 'issuedate', 'validitydate', 'menu_tab_linkurl'];
-  dataSource: MatTableDataSource<any>;
   rootUrl = environment.rootUrl;
+  displayedColumns: string[] = ['sn', 'linkname', 'menu_tab_linkurl', 'issuedate', 'validitydate'];
+  dataSource: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   data: any = [];
@@ -29,6 +29,7 @@ export class NoticeboardComponent implements OnInit {
     let index = 0;
     this.commonservice.getFunction('deptlinks/0').subscribe(res => {
       this.data = res;
+      console.log(this.data);
       this.data.forEach(e => {
         this.data[index].sn = index + 1;
         index++;
@@ -47,24 +48,42 @@ export class NoticeboardComponent implements OnInit {
     this.menu_code = menu_code;
   }
   onClick() {
-    let index = 0;
-    this.commonservice.getFunction('deptlinks/' + this.dept_id).subscribe(res => {
-      this.data = res;
-      this.data.forEach(e => {
-        this.data[index].sn = index + 1;
-        index++;
+    if (this.dept_id != 0 && this.menu_code != 0) {
+      console.log("kavita");
+      let index = 0;
+      this.commonservice.getFunction('deptlinksbytype/' + this.dept_id + '/' + this.menu_code).subscribe(res => {
+        this.data = res;
+        this.data.forEach(e => {
+          this.data[index].sn = index + 1;
+          index++;
+        });
+        this.dataSource = new MatTableDataSource(this.data);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
       });
-      this.dataSource = new MatTableDataSource(this.data);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
-    });
+    }
+    else {
+      let index = 0;
+      this.commonservice.getFunction('deptlinks/' + this.dept_id).subscribe(res => {
+        this.data = res;
+        this.data.forEach(e => {
+          this.data[index].sn = index + 1;
+          index++;
+        });
+        this.dataSource = new MatTableDataSource(this.data);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      });
+    }
   }
+
   getDept() {
     this.commonservice.getFunction('dept').subscribe(res => {
       this.dept = res;
     }
     );
   }
+
   getMenu() {
     this.commonservice.getFunction('uploadmenu').subscribe(res => {
       this.menu = res;

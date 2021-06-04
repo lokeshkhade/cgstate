@@ -1,3 +1,4 @@
+import { DirectoryComponent } from './directory/directory.component';
 import { ProfileComponent } from './shared/profile/profile.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AuthComponent } from './auth/auth.component';
@@ -34,6 +35,10 @@ const routes: Routes = [
       {
         path: 'noticeboard',
         component: NoticeboardComponent
+      },
+      {
+        path: 'directory',
+        component: DirectoryComponent
       },
     ]
   },

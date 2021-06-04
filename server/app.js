@@ -13,6 +13,7 @@ var svgCaptcha = require('svg-captcha');
 
 var usersRouter = require('./routes/users');
 const common = require('./routes/common');
+var uploadRouter = require('./routes/upload');
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -26,7 +27,7 @@ app.use('/', express.static(path.join(__dirname, 'dist')));
 app.use(express.static(path.join(__dirname, 'uploads')));
 app.use('/', common);
 app.use('/users', usersRouter);
-
+app.use('/upload', uploadRouter);
 
 app.get('/captcha', function(req, res) {
     var captcha = svgCaptcha.create({ ignoreChars: 'lI' });

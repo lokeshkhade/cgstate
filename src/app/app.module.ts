@@ -22,9 +22,10 @@ import { ProfileComponent } from './shared/profile/profile.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NoticeboardComponent } from './noticeboard/noticeboard.component';
 import { DatePipe } from '@angular/common';
+import { DirectoryComponent } from './directory/directory.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     SpinnerComponent,
     HomeComponent,
@@ -34,8 +35,9 @@ import { DatePipe } from '@angular/common';
     RegistrationComponent,
     AuthComponent,
     ProfileComponent,
-    NoticeboardComponent
-  ],
+    NoticeboardComponent,
+      DirectoryComponent
+   ],
   imports: [
     BrowserModule,
     CarouselModule,

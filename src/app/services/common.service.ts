@@ -13,13 +13,17 @@ export class CommonService {
 
     }
 
-    save(funtionName: any, data: any) {
-        return this.http.post(environment.rootUrl + funtionName, data).pipe(tap(res => { res }),
+    insert(data: any, table_name: any) {
+        const url = `${environment.rootUrl + 'insert'}/${table_name}`;
+        return this.http.post(url, data).pipe(tap(res => { res }),
             catchError(e => {
                 throw new Error(e);
             })
         );
     }
+
+
+
     update(funtionName: any, data: any) {
         return this.http.put(environment.rootUrl + funtionName, data).pipe(tap(res => { res }),
             catchError(e => {

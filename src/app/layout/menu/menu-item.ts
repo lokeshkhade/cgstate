@@ -100,8 +100,8 @@ export const Menus: any[] = [
                 icon: '',
                 submenu: []
             }, {
-                path: '',
-                title: 'Tenders',
+                path: '/directory',
+                title: 'Directory',
                 icon: '',
                 submenu: []
             },
@@ -137,18 +137,6 @@ export const Menus: any[] = [
                 submenu: []
             },
         ]
-    },
-    {
-        path: '',
-        title: 'e-District',
-        icon: '',
-        submenu: []
-    },
-    {
-        path: '',
-        title: 'View Transaction',
-        icon: '',
-        submenu: []
     },
 
 

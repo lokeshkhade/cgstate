@@ -8,6 +8,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -33,7 +34,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatBadgeModule } from '@angular/material/badge';
-import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
+import { MatRippleModule } from '@angular/material/core';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 
 import { CdkTableModule } from '@angular/cdk/table';
@@ -45,7 +46,7 @@ import { PlatformModule } from '@angular/cdk/platform';
 import { ObserversModule } from '@angular/cdk/observers';
 import { PortalModule } from '@angular/cdk/portal';
 import { CommonModule } from '@angular/common';
-
+import { MatFileUploadModule } from 'mat-file-upload';
 
 @NgModule({
     declarations: [HttpLoaderComponent],
@@ -95,7 +96,9 @@ import { CommonModule } from '@angular/common';
         PortalModule,
         ReactiveFormsModule,
         HttpClientModule,
-        HttpLoaderComponent
+        HttpLoaderComponent,
+        MatNativeDateModule,
+        MatFileUploadModule
     ]
 })
 export class MaterialModule { }

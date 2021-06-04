@@ -2,6 +2,7 @@ export const MENUITEMS = {
     // 3=director; 1=User;2=District
     1: [
         { state: '/user/dashboard', name: 'Dashboard', type: 'link', icon: 'av_timer' },
+        { state: '/user/upload', name: 'Upload Noticeboard', type: 'link', icon: 'av_timer' },
     ],
     3: [
         { state: '/admin/dashboard', name: 'Dashboard', type: 'link', icon: 'av_timer' },

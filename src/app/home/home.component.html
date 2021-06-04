@@ -143,11 +143,14 @@
                     <div class="resp-tabs-container tab-content clearfix">
                         <div class="tab-pane active" id="1b">
                             <ul class="list-group">
-                                <li class="list-group-item">तृतिया परिवहन ई-निविदा सूचना - छ.ग. स्टेट सिवि. सप्ला. कार्पो. लि
-                                </li>
-                                <li class="list-group-item">आई एस एस ग्रेड शक्कर एस 30/31 क्रय हेतु निविदा सूचना - छ.ग. स्टेट सिवि. सप्ला. कार्पो. लि</li>
-                                <li class="list-group-item">Order No. एफ 7-1/2021/विमा.वि/45</li>
-                                <li class="list-group-item">छत्तीसगढ़ स्टेट सिविल सप्लाईज़ कार्पोरेशन लिमिटेड कार्यालय हेतु मानव संसाधन भृत्य/चौकीदार की सेवाएँ उपलब्ध कराने हेतु निविदा सूचना - छ.ग. स्टेट सिवि. सप्ला. कार्पो. लि</li>
+                                <div *ngFor="let t of data">
+                                    <li class="list-group-item">{{t.linkname}}
+                                        <a style="cursor: pointer;" target="_blank" href="{{rootUrl + t.menu_tab_linkurl}}">
+                                            <mat-icon>file_download</mat-icon>
+                                            <img src="../../assets/images/pdficon.jpg" alt="">
+                                        </a>
+                                    </li>
+                                </div>
                             </ul>
                             <a class="read-more" routerLink='/noticeboard'>Read more</a>
                         </div>

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { HttpClient } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
+import { CommonService } from '../services/common.service';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -9,7 +11,8 @@ import { DatePipe } from '@angular/common';
 })
 export class HomeComponent implements OnInit {
   news: any = [];
-
+  data: any = [];
+  rootUrl = environment.rootUrl;
   public carousel: any = [
     {
       img: 'assets/images/carousel/01.jpg',
@@ -29,15 +32,16 @@ export class HomeComponent implements OnInit {
       heading: 'Places of Chhattisgarh'
     },
   ]
-  constructor(private http: HttpClient, private dp: DatePipe) { }
+  constructor(private http: HttpClient, private dp: DatePipe, private commonservice: CommonService) { }
 
   ngOnInit(): void {
-
     this.http.get('http://dprcg.gov.in/api/aajKeSamachar?date=' + this.dp.transform(new Date().toISOString(), 'dd/MM/yyyy')).subscribe((res: any) => {
       this.news = res;
       console.log(this.news);
     });
-
+    this.commonservice.getFunction('noticeboard').subscribe(res => {
+      this.data = res;
+    });
   }
 
   customOptions: OwlOptions = {

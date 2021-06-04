@@ -55,15 +55,14 @@ export class MenuComponent implements OnInit {
           console.log(res['role']);
           switch (res['role']) {
             case 1: {
-              console.log('loku');
               this.router.navigate(['/user/dashboard']);
               break;
             }
-            case '2': {
+            case 2: {
               this.router.navigate(['']);
               break;
             }
-            case '3': {
+            case 3: {
               console.log(res['role']);
               this.router.navigate(['/admin/dashboard']);
               break;
@@ -98,5 +97,5 @@ export class MenuComponent implements OnInit {
       (this.loginForm.controls[fieldName].dirty || this.loginForm.controls[fieldName].touched);
   }
 
-  
+
 }

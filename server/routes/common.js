@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const checkAuth = require('../middleware/check-login');
 const CryptoJS = require('crypto-js');
 const key = '&World709rrt';
-
+var db = require('../dbconnection');
 var bcrypt = require('bcryptjs');
 
 router.get('/getBlock/:district_code', function(req, res) {
@@ -46,6 +46,15 @@ router.get('/dept', function(req, res) {
         }
     });
 });
+router.get('/noticeboard', function(req, res) {
+    common.getnoticeboard(function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+});
 
 router.get('/uploadmenu', function(req, res) {
     common.getuploadmenu(function(err, rows) {
@@ -57,7 +66,26 @@ router.get('/uploadmenu', function(req, res) {
     });
 });
 
+router.get('/directory/:designation_id', function(req, res, next) {
+    common.getdirectory(req.params.designation_id, function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
 
+});
+
+router.get('/designation', function(req, res) {
+    common.getdesignation(function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+});
 
 router.get('/deptlinks/:dept_id', function(req, res, next) {
     common.deptlinks(req.params.dept_id, function(err, rows) {
@@ -67,15 +95,18 @@ router.get('/deptlinks/:dept_id', function(req, res, next) {
             res.json(rows);
         }
     });
-    // var dept_id= req.params.dept_id;
+
+});
 
 
-    // db.query(`select * from upload_data where dept_id  = ?`,
-    // [dept_id],function(error,results,field)    
-    // {if (error) throw error;
-    //   res.json(results);
-    // } )
-
+router.get('/deptlinksbytype/:dept_id/:menu_code', function(req, res, next) {
+    common.deptlinksbytype(req.params.dept_id, req.params.menu_code, function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
 });
 
 
@@ -142,7 +173,16 @@ router.put('/updateRevisit', checkAuth, function(req, res) {
     });
 });
 
+router.post('/insert/:table_name', function(req, res, next) {
+    var data = req.body;
+    var query = "insert into ?? set ?";
+    var tablename = req.params.table_name;
+    db.query(query, [tablename, data], function(error, results, fields) {
+        if (error) throw error;
+        res.json(results);
 
+    });
+})
 
 //#region for ALL USERS
 router.post('/login', function(req, res) {
@@ -172,7 +212,12 @@ router.post('/login', function(req, res) {
                         console.log(result);
                         let response = {
                             username: user.user_name,
-                            role: user.role
+                            role: user.role,
+                            dept_id: user.dept_id,
+                            dept_foldername: user.domain_name,
+                            deptname_en: user.deptname_en,
+                            deptname_hn: user.deptname_hn
+
 
                         }
                         const token = jwt.sign(response, 'SECreTIsAlwaYSSecRET');
@@ -215,6 +260,9 @@ router.put('/changepassword', checkAuth, function(req, res) {
     });
 });
 //#endregion ALL USERS
+
+
+
 
 
 module.exports = router;
