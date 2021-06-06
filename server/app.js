@@ -7,18 +7,18 @@ var cors = require('cors')
 const bodyParser = require('body-parser');
 var app = express();
 var svgCaptcha = require('svg-captcha');
-// express.json();
-// express.urlencoded({ extended: false });
+express.json();
+express.urlencoded({ extended: false });
 
 
 var usersRouter = require('./routes/users');
 const common = require('./routes/common');
 var uploadRouter = require('./routes/upload');
 app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({
+//     extended: true
+// }));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

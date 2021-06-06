@@ -52,7 +52,6 @@ export class MenuComponent implements OnInit {
       this.authService.login(this.loginForm.value).subscribe(res => {
         if (res['success'] == 1) {
           this.closeModal.nativeElement.click();
-          console.log(res['role']);
           switch (res['role']) {
             case 1: {
               this.router.navigate(['/user/dashboard']);

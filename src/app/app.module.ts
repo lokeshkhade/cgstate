@@ -1,3 +1,4 @@
+import { FooterComponent } from './layout/footer/footer.component';
 
 import { ErrorInterceptor } from './interceptors/http.interceptor';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
@@ -21,11 +22,11 @@ import { AuthComponent } from './auth/auth.component';
 import { ProfileComponent } from './shared/profile/profile.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NoticeboardComponent } from './noticeboard/noticeboard.component';
-import { DatePipe } from '@angular/common';
+import { DatePipe, HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { DirectoryComponent } from './directory/directory.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     SpinnerComponent,
     HomeComponent,
@@ -36,8 +37,9 @@ import { DirectoryComponent } from './directory/directory.component';
     AuthComponent,
     ProfileComponent,
     NoticeboardComponent,
-      DirectoryComponent
-   ],
+    DirectoryComponent,
+    FooterComponent
+  ],
   imports: [
     BrowserModule,
     CarouselModule,
@@ -61,7 +63,10 @@ import { DirectoryComponent } from './directory/directory.component';
       provide: HTTP_INTERCEPTORS,
       useClass: Spinner,
       multi: true
-    },
+    }, {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+    }, ,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],

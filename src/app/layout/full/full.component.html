@@ -9,7 +9,8 @@
                                     सरकार</span>Government of Chhattisgarh</a>
                         </li>
                         <li class="ministry"><a title="Ministry / Department Name" [routerLink]="['/home']" routerLinkActive="router-link-active" target="_blank"><span
-                                    title="नियंत्रक खाद्य एवं औषधि प्रशासन">राज्य सेवा वितरण प्रशासन</span>State Service Delivery Gateway</a>
+                                    title="नियंत्रक खाद्य एवं औषधि प्रशासन">राज्य सेवा वितरण प्रशासन</span>State Service
+                                Delivery Gateway</a>
                         </li>
 
                     </ul>
@@ -101,7 +102,7 @@
             </div>
         </div>
     </div>
-</div> 
+</div>
 <!--Top-Header Section end-->
 <section class="wrapper header-wrapper">
     <div class="container header-container">
@@ -123,16 +124,14 @@
         </div> -->
     </div>
 </section>
-
 <!--/.header-wrapper-->
 
+
+
 <div class="wrapper megamenu-wraper">
-    <div class="container">
-
+    <div class="container-fluid">
         <app-menu></app-menu>
+        <router-outlet></router-outlet>
+        <app-footer></app-footer>
     </div>
-
 </div>
-
-
-<router-outlet></router-outlet>

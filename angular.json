@@ -21,7 +21,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist/cfda",
+                        "outputPath": "server/dist",
                         "index": "src/index.html",
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
@@ -68,7 +68,7 @@
                                 {
                                     "type": "anyComponentStyle",
                                     "maximumWarning": "6kb",
-                                    "maximumError": "10kb"
+                                    "maximumError": "20kb"
                                 }
                             ]
                         }

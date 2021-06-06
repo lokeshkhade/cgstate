@@ -12,7 +12,7 @@ var common = {
         db.query(`select * from mas_dept`, callback);
     },
     getnoticeboard: function(callback) {
-        db.query(`select * from upload_data LIMIT 5`, callback);
+        db.query(`select * from upload_data LIMIT 3`, callback);
     },
 
     getuploadmenu: function(callback) {

@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
         <div class="loader"></div>
     </div>
 </div>`,
-  styleUrls: ['./my-loader.component.css']
+  styles: ['./my-loader.component.css']
 })
 export class HttpLoaderComponent implements OnInit {
 
