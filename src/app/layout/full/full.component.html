@@ -1,111 +1,6 @@
-<div class="region region-header-top">
-    <div id="block-cmf-content-header-region-block" class="block block-cmf-content first last odd">
-        <div class="wrapper common-wrapper">
-            <div class="container common-container four_content ">
-                <div class="common-left clearfix">
-                    <ul>
-                        <li class="gov-india"><a title="Government of chhattisgarh,External Link that opens in a new window" href="https://www.cgstate.gov.in/" target="_blank"><span
-                                    title="भारत सरकार ( बाहरी वेबसाइट जो एक नई विंडो में खुलती है)">छत्तीसगढ़
-                                    सरकार</span>Government of Chhattisgarh</a>
-                        </li>
-                        <li class="ministry"><a title="Ministry / Department Name" [routerLink]="['/home']" routerLinkActive="router-link-active" target="_blank"><span
-                                    title="नियंत्रक खाद्य एवं औषधि प्रशासन">राज्य सेवा वितरण प्रशासन</span>State Service
-                                Delivery Gateway</a>
-                        </li>
-
-                    </ul>
-
-                </div>
-                <div class="common-right clearfix">
-                    <ul id="header-nav">
-                        <li class="ico-site-search cf">
-                            <a href="javascript:void(0);" id="toggleSearch" title="Site Search">
-
-                                <img class="top" src="assets/images/ico-site-search.png" alt="Site Search"></a>
-
-                            <div class="search-drop both-search" style="display: none;">
-                                <div class="google-find">
-                                    <form method="get" action="http://www.google.com/search" target="_blank">
-                                        <label for="search_key_g" class="notdisplay">Search</label>
-                                        <input type="text" name="q" value="" id="search_key_g">
-                                        <input type="submit" value="Search" class="submit">
-                                        <div class="">
-                                            <input type="radio" name="sitesearch" value="" id="the_web">
-                                            <label for="the_web">The Web</label>
-                                            <input type="radio" name="sitesearch" value="india.gov.in" checked="" id="the_domain"> <label for="the_domain"> INDIA.GOV.IN</label>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="find">
-                                    <form name="searchForm" action="home.html">
-                                        <label for="search_key" class="notdisplay">Search</label>
-                                        <input type="text" name="search_key" id="search_key" onkeyup="autoComplete()" autocomplete="off" required="">
-                                        <input type="submit" value="Search" class="bttn-search">
-                                    </form>
-                                    <div id="auto_suggesion"></div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="ico-accessibility cf">
-                            <a href="javascript:void(0);" id="toggleAccessibility" title="Accessibility Dropdown">
-
-                                <img class="top" src="assets/images/ico-accessibility.png" alt="Accessibility Dropdown">
-
-                            </a>
-                            <ul style="visibility: hidden;">
-                                <li> <a onclick="set_font_size('increase')" title="Increase font size" href="javascript:void(0);">A<sup>+</sup></a> </li>
-                                <li> <a onclick="set_font_size()" title="Reset font size" href="javascript:void(0);">A<sup>&nbsp;</sup></a> </li>
-                                <li> <a onclick="set_font_size('decrease')" title="Decrease font size" href="javascript:void(0);">A<sup>-</sup></a> </li>
-                                <li> <a href="javascript:void(0);" class="high-contrast dark" title="High Contrast">A</a> </li>
-                                <li> <a href="javascript:void(0);" class="high-contrast light" title="Normal Contrast" style="display: none;">A</a> </li>
-
-                            </ul>
-                        </li>
-                        <li class="ico-social cf">
-                            <a href="javascript:void(0);" id="toggleSocial" title="Social Medias">
-                                <img class="top" src="assets/images/ico-social.png" alt="Social Medias"></a>
-                            <ul style="visibility: hidden;">
-                                <li>
-                                    <a target="_blank" title="External Link that opens in a new window" href="http://www.facebook.com/"><img alt="Facebook Page" src="assets/images/ico-facebook.png"></a>
-                                </li>
-                                <li>
-                                    <a target="_blank" title="External Link that opens in a new window" href="http://www.twitter.com/"><img alt="Twitter Page" src="assets/images/ico-twitter.png"></a>
-                                </li>
-                                <li>
-                                    <a target="_blank" title="External Link that opens in a new window" href="http://www.youtube.com/"><img alt="Youtube Page" src="assets/images/ico-youtube.png"></a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="ico-sitemap cf">
-                            <a href="" title="Sitemap">
-
-                                <img class="top" src="assets/images/ico-sitemap.png" alt="Sitemap"></a>
-                        </li>
-                        <li class="hindi cmf_lan d-hide"><span class="de-lag">Language</span>
-                            <label class="de-lag">
-                                <span style="display: none;">Language</span>
-                                <select title="Select Language">
-                                    <option>English</option>
-                                    <option>हिन्दी</option>
-                                </select>
-                            </label>
-                        </li>
-                        <li class="hindi cmf_lan m-hide"><a href="javascript:;" title="Select Language">Language</a>
-                            <ul style="visibility: hidden;">
-                                <li>
-                                    <a target="_blank" href="" lang="hi" class="alink" title="Click here for हिन्दी version.">हिन्दी</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <!--Top-Header Section end-->
 <section class="wrapper header-wrapper">
-    <div class="container header-container">
+    <div class="container-fluid">
         <h1 class="logo">
             <a [routerLink]="['/home']" routerLinkActive="router-link-active" title="Home" rel="home" class="header__logo" id="logo">
                 <img class="" src="assets/images/cglogo.png" style="width: 115px;" alt="Chhattisgarh Emblem Logo">
@@ -114,14 +9,14 @@
             </a>
         </h1>
 
-        <!-- <div class="header-right clearfix">
+        <div class="header-right clearfix">
             <div class="right-content clearfix">
 
                 <div class="float-element">
-                    <a class="sw-logo" target="_blank" href="https://swachhbharat.mygov.in/" title="Swachh Bharat, External link that open in a new windows"><img src="assets/images/swach-bharat.png" alt="Swachh Bharat"></a>
+                    <a class="header__logo"><img src="assets/images/implogo.png" style="width: 115px;" alt="Swachh Bharat"></a>
                 </div>
             </div>
-        </div> -->
+        </div>
     </div>
 </section>
 <!--/.header-wrapper-->

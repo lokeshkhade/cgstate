@@ -7,9 +7,9 @@
             </div>
             <div class="team-content">
                 <h3 class="name">Anusuiya Uikey</h3>
-                <h4 class="title">Hon'ble Governor Chhattisgarh</h4>
+                <h4 class="title">Hon'ble Governor <br> Chhattisgarh</h4>
             </div>
-            <ul class="social">
+            <!-- <ul class="social">
                 <li>
                     <a href="" class="fa fa-facebook" aria-hidden="true"></a>
                 </li>
@@ -22,7 +22,7 @@
                 <li>
                     <a href="" class="fa fa-linkedin" aria-hidden="true"></a>
                 </li>
-            </ul>
+            </ul> -->
         </div>
     </div>
     <div class="col-12 col-sm-6 col-md-2 col-lg-2">
@@ -34,7 +34,7 @@
                 <h3 class="name">Bhupesh Bhagel</h3>
                 <h4 class="title">Hon'ble Chief Minister Chhattisgarh</h4>
             </div>
-            <ul class="social">
+            <!-- <ul class="social">
                 <li>
                     <a href="" class="fa fa-facebook" aria-hidden="true"></a>
                 </li>
@@ -47,7 +47,7 @@
                 <li>
                     <a href="" class="fa fa-linkedin" aria-hidden="true"></a>
                 </li>
-            </ul>
+            </ul> -->
         </div>
     </div>
     <div class="col-md-8">
@@ -95,8 +95,6 @@
 </marquee>
 <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
 </marquee> -->
-
-
 <!-- <section id="fontSize" class="wrapper body-wrapper"> -->
 <!-- <div class="bg-wrapper top-bg-wrapper gray-bg padding-top-bott">
     <div class=" body-container top-body-container padding-top-bott2">
@@ -153,266 +151,218 @@
     </div>
 </div> -->
 
-<div class="row">
-    <div class="card col-md-4 col-sm-6">
-        <div class="card-header text-center">Notice Board</div>
-        <div class="card-body">
-            <ul class="list-group">
-                <div *ngFor="let t of data">
-                    <li class="list-group-item">{{t.linkname}}
-                        <a style="cursor: pointer;" target="_blank" href="{{rootUrl + t.menu_tab_linkurl}}">
-                            <mat-icon>file_download</mat-icon>
-                            <img src="../../assets/images/pdficon.jpg" alt="">
-                        </a>
-                    </li>
+
+<div class="my-5" id="b-homedb">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card col-md-4 col-sm-6">
+                <div class="card-header text-center">Notice Board</div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <div *ngFor="let t of data">
+                            <li class="list-group-item">{{t.linkname}}
+                                <a style="cursor: pointer;" target="_blank" href="{{rootUrl + t.menu_tab_linkurl}}">
+                                    <mat-icon>file_download</mat-icon>
+                                    <img src="../../assets/images/pdficon.jpg" alt="">
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                    <a class="read-more" routerLink='/noticeboard'>Read more</a>
                 </div>
-            </ul>
-            <a class="read-more" routerLink='/noticeboard'>Read more</a>
-        </div>
-    </div>
-    <div class="col-md-8 col-sm-6 item">
-        <div class="card-header text-center">News</div>
-        <div class="card-body">
-            <div class="row" *ngIf="news.length">
-                <div class="col-md-6" *ngFor="let item of [0,1]">
-                    <img [src]="news[item].excerpt" alt="" style="width: 100%;height: 150px;">
-                    <h4>{{news[item].title}}</h4>
-                    <p [innerHtml]="news[item].content.substring(0,200)"></p>
-                </div>
-                <a class="read-more" href="#">Read
-                    more</a>
             </div>
+            <div class="col-md-4 col-sm-6 item">
+                <div class="card-header text-center">News</div>
+                <div class="card-body">
+                    <div class="row" *ngIf="news.length">
+                        <div class="col-md-6" *ngFor="let item of [0,1]">
+                            <img [src]="news[item].excerpt" alt="" style="width: 100%;height: 150px;">
+                            <h4>{{news[item].title}}</h4>
+                            <p [innerHtml]="news[item].content.substring(0,200)"></p>
+                        </div>
+                        <a class="read-more" href="#">Read
+                            more</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card col-md-4 col-sm-6">
+                <div class="card-header text-center">Important Information</div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">Corona Guideline Link, Government Of Chhattisgarh
+                            <a style="cursor: pointer;" target="_blank" href="http://gad.cg.gov.in/cgcorona/">
+                            </a>
+                        </li>
+                        <li class="list-group-item">Chhattisgarh - ESDM Sector Profile - 2015
+                            <a style="cursor: pointer;" target="_blank" href="http://gad.cg.gov.in/cgcorona/">
+                                <mat-icon>file_download</mat-icon>
+                                <img src="../../assets/images/pdficon.jpg" alt="">
+                            </a>
+                        </li>
+                        <li class="list-group-item">Chhattisgarh - ESDM Sector Profile - 2015
+                            <a style="cursor: pointer;" target="_blank" href="http://gad.cg.gov.in/cgcorona/">
+                                <mat-icon>file_download</mat-icon>
+                                <img src="../../assets/images/pdficon.jpg" alt="">
+                            </a>
+                        </li>
+                        <li class="list-group-item">Chhattisgarh - IT & ITeS Sector Profile - 2015
+                            <a style="cursor: pointer;" target="_blank" href="http://gad.cg.gov.in/cgcorona/">
+                                <mat-icon>file_download</mat-icon>
+                                <img src="../../assets/images/pdficon.jpg" alt="">
+                            </a>
+                        </li>
+                        <li class="list-group-item">Chhattisgarh -Electronics & IT ITeS Policy 2014-19
+                            <a style="cursor: pointer;" target="_blank" href="http://gad.cg.gov.in/cgcorona/">
+                                <mat-icon>file_download</mat-icon>
+                                <img src="../../assets/images/pdficon.jpg" alt="">
+                            </a>
+                        </li>
+
+                    </ul>
+                    <a class="read-more" routerLink='/noticeboard'>Read more</a>
+                </div>
+            </div>
+
+
         </div>
     </div>
-
-
 </div>
 
 <div class="my-5" id="b-homedb">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4">
-                <div class="card bg-danger text-white h-100">
-                    <div class="card-header">Header 1</div>
-                    <div class="card-body">
-                        <p class="card-text">Established <span class="float-right"> 1st Nov 2000</span></p>
-                        <p class="card-text">Legislature (seats) <span class="float-right"> 91</span></p>
-                        <p class="card-text">Capital <span class="float-right"> Raipur</span></p>
-                        <p class="card-text">Districts <span class="float-right"> 28</span></p>
-                        <p class="card-text">Area <span class="float-right"> 1,35,194 sq KM </span></p>
-                        <p class="card-text">State animal <span class="float-right"> Van Bhainsa (Wild Buffalo)
-                            </span>
-                        </p>
-                        <p class="card-text">State bird <span class="float-right">Pahari Myna (Hill Myna) </span>
-                        </p>
-                        <p class="card-text">State tree <span class="float-right">Sal or Sarai </span> </p>
-                    </div>
+            <div class="card col-md-4 col-sm-6">
+                <div class="card-header text-center">Chhattisgarh Profile</div>
+                <div class="card-body">
+                    <p>Established <span class="float-right"> 1st Nov 2000</span></p>
+                    <p>Legislature (seats) <span class="float-right"> 91</span></p>
+                    <p>Capital <span class="float-right"> Raipur</span></p>
+                    <p>Districts <span class="float-right"> 28</span></p>
+                    <p>Area <span class="float-right"> 1,35,194 sq KM </span></p>
+                    <p>State animal <span class="float-right"> Van Bhainsa (Wild Buffalo) </span></p>
+                    <p>State bird <span class="float-right">Pahari Myna (Hill Myna) </span>
+                    </p>
+                    <p>State tree <span class="float-right">Sal or Sarai </span> </p>
+
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <div class="card  text-white h-100">
-                    <div class="card-header">Header 2</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Dark card title</h5>
-                        <p class="card-text">Some quick example content.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-md-4">
-                <div class="card  text-white h-100">
-                    <div class="card-header">Chhattisgarh Map</div>
-                    <div class="card-body">
-                        <!-- <img class="img-fluid" src="assets/images/Chhattisgarh_districts_map.svg"> -->
-                    </div>
+            <div class="col-md-4 col-sm-6 item">
+                <div class="card-header text-center">Chhattisgarh Map</div>
+                <div class="card-body">
+                    <img src="assets/images/Chhattisgarh.svg" alt="" style="width: 100%;height: 350px;">
                 </div>
             </div>
+
+            <div class="card col-md-4 col-sm-6">
+                <div class="card-header text-center">Chhattisgarh Census</div>
+                <div class="card-body">
+                    <p>Population <span class="float-right">2,55,40,196</span></p>
+                    <p>Male <span class="float-right"> 1,28,27,915</span></p>
+                    <p>Female <span class="float-right"> 1,27,12,281</span></p>
+                    <p>Sex Ratio <span class="float-right"> 991 for 1000</span></p>
+                    <p>Child Sex Ratio <span class="float-right"> 964 for 1000 </span></p>
+                    <p>Literacy <span class="float-right"> 71.04 %</span></p>
+                    <p>Male Literacy <span class="float-right">81.45 %</span>
+                    </p>
+                    <p>Female Literacy <span class="float-right">60.59 %</span> </p>
+                </div>
+            </div>
+
 
         </div>
-
     </div>
 </div>
 
-<div class="container">
 
-    <div class="row">
-
-        <div class="col-md-4">
-            <div class="card  text-white h-100">
-                <div class="card-header">CMO Facebook Handle</div>
+<div class="my-5" id="b-homedb">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card col-md-3 col-sm-6">
+                <div class="card-header text-center">CMO Facebook</div>
                 <div class="card-body">
-                    <div class="fb-page" data-href="https://www.facebook.com/ChhattisgarhCMO/" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-                        <blockquote cite="https://www.facebook.com/ChhattisgarhCMO/" class="fb-xfbml-parse-ignore">
-                            <a href="https://www.facebook.com/ChhattisgarhCMO/">CMO Chhattisgarh</a>
+                    <div class="fb-page " data-href="https://www.facebook.com/ChhattisgarhCMO/ " data-tabs="timeline " data-width="600px" data-height="400px" data-small-header="false " data-adapt-container-width="true " data-hide-cover="false " data-show-facepile="true ">
+                        <blockquote cite="https://www.facebook.com/ChhattisgarhCMO/ " class="fb-xfbml-parse-ignore ">
+                            <a href="https://www.facebook.com/ChhattisgarhCMO/ ">CMO Chhattisgarh</a>
                         </blockquote>
                     </div>
+                </div>
+            </div>
 
+            <div class="col-md-3 col-sm-6">
+                <div class="card text-white h-100 ">
+                    <div class="card-header text-center">CMO Twitter</div>
+                    <div class="card-body ">
+                        <a class="twitter-timeline " data-width="600px" data-height="400px" data-small-header="false " data-adapt-container-width="true " data-hide-cover="false " data-show-facepile="true " data-theme="light" href="https://twitter.com/ChhattisgarhCMO?ref_src=twsrc%5Etfw ">Tweets by
+                            ChhattisgarhCMO</a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6">
+                <div class="card text-white h-100 ">
+                    <div class="card-header text-center">CMO</div>
+                    <div class="card-body">
+                        <img src="assets/images/CM_Fund_27-Mar-2020.jpg" alt="" style="width: 100%;height: 350px;">
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="col-md-4">
-            <div class="card  text-white h-100">
-                <div class="card-header">CMO Twitter Handle</div>
-                <div class="card-body">
-                    <a class="twitter-timeline" href="https://twitter.com/ChhattisgarhCMO?ref_src=twsrc%5Etfw">Tweets by
-                        ChhattisgarhCMO</a>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card text-white h-100">
-                <div class="card-header">CMO</div>
-                <div class="card-body">
-                    <h5 class="card-title">CMO </h5>
-                    <img class="img-fluid" src="assets/images/CM_Fund_27-Mar-2020.jpg">
-                </div>
-            </div>
-        </div>
-
     </div>
-
-
-
-
-    <br>
-    <hr>
-    <br>
-
-
-
-    <div class="row align-items-stretch">
-
-        <div class="col-md-4">
-            <div class="card bg-success text-white">
-                <div class="card-header">Header 1</div>
-                <div class="card-body">
-                    <h5 class="card-title">Dark card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card bg-success text-white">
-                <div class="card-header">Header 2</div>
-                <div class="card-body">
-                    <h5 class="card-title">Dark card title</h5>
-                    <p class="card-text">Some quick example content.
-                    </p>
-                </div>
-            </div>
-            <div>
-                <p>Some additional text here as example text to build and make up the bulk of content.</p>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card bg-success text-white">
-                <div class="card-header">Header 3</div>
-                <div class="card-body">
-                    <h5 class="card-title">Dark card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card
-                        title and make up the bulk of the card's content.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <br>
-    <hr>
-    <br>
-
-    <h4>vertical centered boxes - alignment class at row (just an easy adaption)</h4>
-
-
-    <div class="row align-items-center">
-
-        <div class="col-md-4">
-            <div class="card bg-info text-white">
-                <div class="card-header">Header 1</div>
-                <div class="card-body">
-                    <h5 class="card-title">Dark card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card bg-info text-white">
-                <div class="card-header">Header 2</div>
-                <div class="card-body">
-                    <h5 class="card-title">Dark card title</h5>
-                    <p class="card-text">Some quick example content.
-                    </p>
-                </div>
-            </div>
-            <div>
-                <p>Some additional text here as example text to build and make up the bulk of content.</p>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card bg-info text-white">
-                <div class="card-header">Header 3</div>
-                <div class="card-body">
-                    <h5 class="card-title">Dark card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card
-                        title and make up the bulk of the card's content.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-
-
 </div>
 
-<div class="imp-img-cir">
-    <div id="flexCarousel" class="flexslider carousel">
-        <owl-carousel-o [options]="customOptions">
-            <ng-template carouselSlide>
-                <div class="card">
-                    <img class="card-img-top" src="assets/images/logo/Chhattisgarh.jpg" alt="Card image cap">
+<!-- <div class="my-5" id="b-homedb">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="card text-white h-100 ">
+                    <div class="card-body">
+                        <img src="assets/images/logo_Mahatma_Gandhi_15_4.jpg" alt="" style=" width: 100%; height: 150px;">
+                    </div>
                 </div>
-            </ng-template>
-            <ng-template carouselSlide>
-                <div class="card">
-                    <img class="card-img-top" src="assets/images/logo/Chips.jpg" alt="Card image cap">
-                </div>
-            </ng-template>
-            <ng-template carouselSlide>
-                <div class="card">
-                    <img class="card-img-top" src="assets/images/logo/Choice.jpg" alt="Card image cap">
-                </div>
-            </ng-template>
-            <ng-template carouselSlide>
-                <div class="card">
-                    <img class="card-img-top" src="assets/images/logo/DigitalIndia.jpg" alt="Card image cap">
-                </div>
-            </ng-template>
-            <ng-template carouselSlide>
-                <div class="card">
-                    <img class="card-img-top" src="assets/images/logo/IAS.jpg" alt="Card image cap">
-                </div>
-            </ng-template>
-            <ng-template carouselSlide>
-                <div class="card">
-                    <img class="card-img-top" src="assets/images/logo/IndiaGov.jpg" alt="Card image cap">
-                </div>
-            </ng-template>
-        </owl-carousel-o>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="container-fluid">
+    <div class="imp-img-cir ">
+        <div id="flexCarousel " class="flexslider carousel ">
+            <owl-carousel-o [options]="customOptions ">
+                <ng-template carouselSlide>
+                    <div class="card ">
+                        <img class="card-img-top " src="assets/images/logo/Chhattisgarh.jpg " alt="Card image cap ">
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="card ">
+                        <img class="card-img-top " src="assets/images/logo/Chips.jpg " alt="Card image cap ">
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="card ">
+                        <img class="card-img-top " src="assets/images/logo/Choice.jpg " alt="Card image cap ">
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="card ">
+                        <img class="card-img-top " src="assets/images/logo/DigitalIndia.jpg " alt="Card image cap ">
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="card ">
+                        <img class="card-img-top " src="assets/images/logo/IAS.jpg " alt="Card image cap ">
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="card ">
+                        <img class="card-img-top " src="assets/images/logo/IndiaGov.jpg " alt="Card image cap ">
+                    </div>
+                </ng-template>
+            </owl-carousel-o>
+        </div>
     </div>
 </div>
 

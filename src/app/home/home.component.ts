@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
     {
       img: 'assets/images/carousel/01.jpg',
       alt: '',
-      heading: 'State Capital Chhattisgarh'
+      heading: 'State Capital Raipur'
     }, {
       img: 'assets/images/carousel/02.jpg',
       alt: '',
