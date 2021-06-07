@@ -41,7 +41,7 @@
     <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0">
         <mat-sidenav #snav id="snav" class="dark-sidebar pl-xs" [mode]="mobileQuery.matches ? 'side' : 'over'" fixedTopGap="0" [opened]="mobileQuery.matches" [disableClose]="mobileQuery.matches">
 
-            <div class="user-profile" style="background: url(assets/images/background/user-info.jpg) no-repeat;">
+            <div class="user-profile" style="background: url() no-repeat;">
                 <div class="profile-img">
                     <!-- <img src="assets/images/users/profile.png" alt="user"> -->
                     <div class="profileImage">{{currentUser.username.substring(0,1) | uppercase}}

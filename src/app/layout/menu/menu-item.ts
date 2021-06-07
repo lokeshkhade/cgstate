@@ -41,7 +41,7 @@ export const Menus: any[] = [
                 submenu: []
             },
             {
-                path: '',
+                path: '/education',
                 title: 'Educational Institutions',
                 icon: '',
                 submenu: []

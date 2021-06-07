@@ -1,3 +1,4 @@
+import { EducationComponent } from './education/education.component';
 import { DistrictsComponent } from './districts/districts.component';
 import { ReachComponent } from './reach/reach.component';
 import { DirectoryComponent } from './directory/directory.component';
@@ -33,6 +34,10 @@ const routes: Routes = [
       {
         path: 'reach',
         component: ReachComponent
+      },
+      {
+        path: 'education',
+        component: EducationComponent
       },
       {
         path: 'districts',
