@@ -24,6 +24,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NoticeboardComponent } from './noticeboard/noticeboard.component';
 import { DatePipe, HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { DirectoryComponent } from './directory/directory.component';
+import { ReachComponent } from './reach/reach.component';
+import { DistrictsComponent } from './districts/districts.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { DirectoryComponent } from './directory/directory.component';
     ProfileComponent,
     NoticeboardComponent,
     DirectoryComponent,
-    FooterComponent
+    FooterComponent,
+    ReachComponent,
+    DistrictsComponent
   ],
   imports: [
     BrowserModule,

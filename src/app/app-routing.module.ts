@@ -1,3 +1,5 @@
+import { DistrictsComponent } from './districts/districts.component';
+import { ReachComponent } from './reach/reach.component';
 import { DirectoryComponent } from './directory/directory.component';
 import { ProfileComponent } from './shared/profile/profile.component';
 import { AuthGuard } from './guards/auth.guard';
@@ -27,6 +29,14 @@ const routes: Routes = [
       {
         path: 'aboutus',
         component: AboutusComponent
+      },
+      {
+        path: 'reach',
+        component: ReachComponent
+      },
+      {
+        path: 'districts',
+        component: DistrictsComponent
       },
       {
         path: 'registration',

@@ -12,30 +12,24 @@ export const Menus: any[] = [
     //     submenu: []
     // },
     {
-        path: '/aboutus',
+        path: '',
         title: 'About Chhattisgarh',
         icon: '',
         submenu: [
             {
-                path: '',
+                path: '/aboutus',
                 title: 'About Chhattisgarh',
                 icon: '',
                 submenu: []
             },
             {
-                path: '',
-                title: 'Important Facts',
-                icon: '',
-                submenu: []
-            },
-            {
-                path: '',
+                path: '/reach',
                 title: 'How to Reach',
                 icon: '',
                 submenu: []
             },
             {
-                path: '',
+                path: '/districts',
                 title: 'Districts',
                 icon: '',
                 submenu: []
