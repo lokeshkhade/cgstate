@@ -35,7 +35,7 @@ export const Menus: any[] = [
                 submenu: []
             },
             {
-                path: '',
+                path: '/census',
                 title: 'Census',
                 icon: '',
                 submenu: []

@@ -87,6 +87,17 @@ router.get('/designation', function(req, res) {
     });
 });
 
+
+router.get('/organization', function(req, res) {
+    common.getorganization(function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+});
+
 router.get('/deptlinks/:dept_id', function(req, res, next) {
     common.deptlinks(req.params.dept_id, function(err, rows) {
         if (err) {

@@ -26,7 +26,7 @@ import { DatePipe, HashLocationStrategy, LocationStrategy } from '@angular/commo
 import { DirectoryComponent } from './directory/directory.component';
 import { ReachComponent } from './reach/reach.component';
 import { DistrictsComponent } from './districts/districts.component';
-import { EducationComponent } from './education/education.component';
+import { CensusComponent } from './census/census.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +44,7 @@ import { EducationComponent } from './education/education.component';
     FooterComponent,
     ReachComponent,
     DistrictsComponent,
-    EducationComponent
+    CensusComponent
   ],
   imports: [
     BrowserModule,
