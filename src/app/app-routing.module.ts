@@ -1,3 +1,5 @@
+import { DepartmentsComponent } from './departments/departments.component';
+import { NewsComponent } from './news/news.component';
 import { EducationComponent } from './education/education.component';
 import { CensusComponent } from './census/census.component';
 import { DistrictsComponent } from './districts/districts.component';
@@ -53,8 +55,16 @@ const routes: Routes = [
         component: NoticeboardComponent
       },
       {
+        path: 'news',
+        component: NewsComponent
+      },
+      {
         path: 'directory',
         component: DirectoryComponent
+      },
+      {
+        path: 'departments',
+        component: DepartmentsComponent
       },
       {
         path: 'census',

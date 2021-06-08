@@ -1,1 +1,21 @@
-<p>news works!</p>
+<div class="my-5" id="b-homedb">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 col-sm-6 item">
+                <div class="card-header text-center">News</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3" *ngFor="let item of news">
+                            <!-- <div class="card-body"> -->
+                            <img id="myImg" [src]="item.excerpt" alt="Snow" style="width:100%;max-width:300px">
+                            <!-- <img [src]="news[item].excerpt" alt="" style="width: 100%;height: 150px;"> -->
+                            <h4>{{item.title}}</h4>
+                            <p [innerHtml]="item.content"></p>
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

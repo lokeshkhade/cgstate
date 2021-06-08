@@ -29,6 +29,7 @@ import { ReachComponent } from './reach/reach.component';
 import { DistrictsComponent } from './districts/districts.component';
 import { CensusComponent } from './census/census.component';
 import { NewsComponent } from './news/news.component';
+import { DepartmentsComponent } from './departments/departments.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { NewsComponent } from './news/news.component';
     DistrictsComponent,
     CensusComponent,
     EducationComponent,
-    NewsComponent
+    NewsComponent,
+    DepartmentsComponent
   ],
   imports: [
     BrowserModule,

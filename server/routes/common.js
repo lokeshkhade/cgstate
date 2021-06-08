@@ -17,6 +17,7 @@ router.get('/getBlock/:district_code', function(req, res) {
         }
     });
 });
+
 router.get('/checkUsernameExist/:username', function(req, res) {
     common.checkUsernameExist(req.params.username, function(err, rows) {
         if (err) {
@@ -26,6 +27,7 @@ router.get('/checkUsernameExist/:username', function(req, res) {
         }
     });
 });
+
 router.get('/getDistrict', function(req, res) {
     common.getDistrict(function(err, rows) {
         if (err) {
@@ -90,6 +92,16 @@ router.get('/designation', function(req, res) {
 
 router.get('/organization', function(req, res) {
     common.getorganization(function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+});
+
+router.get('/impinformation', function(req, res) {
+    common.getimpinformation(function(err, rows) {
         if (err) {
             res.json(err);
         } else {

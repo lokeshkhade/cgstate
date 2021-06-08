@@ -69,7 +69,7 @@ export const Menus: any[] = [
                 icon: '',
                 submenu: []
             }, {
-                path: '',
+                path: '\departments',
                 title: 'Departments',
                 icon: '',
                 submenu: []

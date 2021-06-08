@@ -4,14 +4,17 @@ import { HttpClient } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { CommonService } from '../services/common.service';
 import { environment } from 'src/environments/environment';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
+
 export class HomeComponent implements OnInit {
   news: any = [];
   data: any = [];
+  impldata: any = [];
   rootUrl = environment.rootUrl;
   public carousel: any = [
     {
@@ -39,8 +42,15 @@ export class HomeComponent implements OnInit {
       this.news = res;
       console.log(this.news);
     });
+
     this.commonservice.getFunction('noticeboard').subscribe(res => {
       this.data = res;
+    });
+
+    this.commonservice.getFunction('impinformation').subscribe(res => {
+      this.impldata = res;
+      console.log("KAVITA");
+      console.log(this.impldata);
     });
   }
 

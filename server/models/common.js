@@ -27,6 +27,10 @@ var common = {
         db.query(`select org_name,org_link from main_org_table where org_type = 'E'`, callback);
     },
 
+    getimpinformation: function(callback) {
+        db.query(`select * from main_importantlink`, callback);
+    },
+
     getdirectory: function(designation_id, callback) {
         if (designation_id != 0) {
             db.query(`SELECT '' as sn, cd.name, md.designation_name_hindi, cd.cont_office_no,cd.office_address  FROM contact_details cd INNER JOIN mst_designation md ON cd.department_id = md.department_id WHERE md.is_active='Y' AND  md.designation_id = ?`, [designation_id], callback);
