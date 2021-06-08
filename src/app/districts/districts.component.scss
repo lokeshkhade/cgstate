@@ -189,27 +189,17 @@ body {
 }
 
 ///////////////////////////////////////////////////////
-ol {
-    background: #ff9999;
-    padding: 20px;
-}
-
-ul {
-    background: #3399ff;
+th {
+    background: #0d0952;
     padding: 20px;
     font-size: 20px;
     font-weight: bold;
-    color: rgb(41, 6, 87);
+    color: rgb(252, 252, 253);
 }
 
-ol li {
-    background: #ffe5e5;
-    padding: 5px;
-    margin-left: 35px;
-}
-
-ul li {
-    margin: 5px;
+td {
+    font-size: 16px;
+    font-weight: bold;
 }
 
 p {

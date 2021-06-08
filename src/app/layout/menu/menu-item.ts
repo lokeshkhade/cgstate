@@ -55,11 +55,6 @@ export const Menus: any[] = [
         submenu: [
             {
                 path: '',
-                title: 'Notification',
-                icon: '',
-                submenu: []
-            }, {
-                path: '',
                 title: 'Acts and Rules',
                 icon: '',
                 submenu: []
@@ -75,22 +70,7 @@ export const Menus: any[] = [
                 submenu: []
             }, {
                 path: '',
-                title: 'Government Order',
-                icon: '',
-                submenu: []
-            }, {
-                path: '',
-                title: 'Regulations',
-                icon: '',
-                submenu: []
-            }, {
-                path: '',
                 title: 'Departments',
-                icon: '',
-                submenu: []
-            }, {
-                path: '',
-                title: 'Documents and Reports',
                 icon: '',
                 submenu: []
             }, {
@@ -103,30 +83,12 @@ export const Menus: any[] = [
     },
     {
         path: '',
-        title: 'Notices',
-        icon: '',
-        submenu: [
-            {
-                path: '',
-                title: 'Recruitment',
-                icon: '',
-                submenu: []
-            }, {
-                path: '',
-                title: 'Orders',
-                icon: '',
-                submenu: []
-            },
-        ]
-    },
-    {
-        path: '',
         title: 'Services',
         icon: '',
         submenu: [
             {
                 path: '',
-                title: 'Citizen e-Services',
+                title: 'e-Districts',
                 icon: '',
                 submenu: []
             },

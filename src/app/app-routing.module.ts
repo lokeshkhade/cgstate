@@ -60,6 +60,10 @@ const routes: Routes = [
         path: 'census',
         component: CensusComponent
       },
+      {
+        path: 'education',
+        component: EducationComponent
+      }
     ]
   },
   {

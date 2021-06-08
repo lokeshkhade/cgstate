@@ -29,14 +29,14 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
-import { MatTabsModule } from '@angular/material/tabs';
+
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatRippleModule } from '@angular/material/core';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
-
+import { MatTabsModule } from '@angular/material/tabs';
 import { CdkTableModule } from '@angular/cdk/table';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { A11yModule } from '@angular/cdk/a11y';
@@ -60,6 +60,7 @@ import { MatFileUploadModule } from 'mat-file-upload';
         MatCheckboxModule,
         MatChipsModule,
         MatTableModule,
+        MatTabsModule,
         MatDatepickerModule,
         MatDialogModule,
         MatExpansionModule,

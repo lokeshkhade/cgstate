@@ -54,7 +54,8 @@ export class MenuComponent implements OnInit {
           this.closeModal.nativeElement.click();
           switch (res['role']) {
             case 1: {
-              this.router.navigate(['/user/dashboard']);
+              //this.router.navigate(['/user/dashboard']);
+              this.router.navigate(['/user/upload']);
               break;
             }
             case 2: {

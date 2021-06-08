@@ -1,3 +1,4 @@
+import { EducationComponent } from './education/education.component';
 import { FooterComponent } from './layout/footer/footer.component';
 
 import { ErrorInterceptor } from './interceptors/http.interceptor';
@@ -27,6 +28,7 @@ import { DirectoryComponent } from './directory/directory.component';
 import { ReachComponent } from './reach/reach.component';
 import { DistrictsComponent } from './districts/districts.component';
 import { CensusComponent } from './census/census.component';
+import { NewsComponent } from './news/news.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { CensusComponent } from './census/census.component';
     FooterComponent,
     ReachComponent,
     DistrictsComponent,
-    CensusComponent
+    CensusComponent,
+    EducationComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +56,7 @@ import { CensusComponent } from './census/census.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+
     JwtModule.forRoot({
       config: {
         tokenGetter: function tokenGetter() {
