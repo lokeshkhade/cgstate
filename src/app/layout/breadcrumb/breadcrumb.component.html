@@ -1,0 +1,9 @@
+<div class="page-breadcrumb">
+    <div class="row">
+        <div class="col-12 align-self-center">
+            <h4 class="page-title">
+                <a *ngFor="let item of pageInfo?.urls" [routerLink]="item.url">{{item.title}}&nbsp; / &nbsp;</a> {{pageInfo?.title}}
+            </h4>
+        </div>
+    </div>
+</div>

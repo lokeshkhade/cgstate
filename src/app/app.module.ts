@@ -1,3 +1,4 @@
+import { BreadcrumbComponent } from './layout/breadcrumb/breadcrumb.component';
 import { EducationComponent } from './education/education.component';
 import { FooterComponent } from './layout/footer/footer.component';
 
@@ -48,7 +49,8 @@ import { NewsComponent } from './news/news.component';
     DistrictsComponent,
     CensusComponent,
     EducationComponent,
-    NewsComponent
+    NewsComponent,
+    BreadcrumbComponent
   ],
   imports: [
     BrowserModule,
