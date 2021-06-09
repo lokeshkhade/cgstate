@@ -32,19 +32,47 @@ const routes: Routes = [
       },
       {
         path: 'aboutus',
-        component: AboutusComponent
+        component: AboutusComponent,
+        data: {
+          title: 'About Chhattisgarh',
+          urls: [
+            { title: 'Home', url: '/home' },
+          ]
+        }
+
       },
       {
         path: 'reach',
-        component: ReachComponent
+        component: ReachComponent,
+        data: {
+          title: 'How to Reach',
+          urls: [
+            { title: 'Home', url: '/home' },
+            { title: 'About Chhattisgarh', url: '/aboutus' }
+          ]
+        }
       },
       {
         path: 'education',
-        component: EducationComponent
+        component: EducationComponent,
+        data: {
+          title: 'Education',
+          urls: [
+            { title: 'Home', url: '/home' },
+            { title: 'About Chhattisgarh', url: '/aboutus' }
+          ]
+        }
       },
       {
         path: 'districts',
-        component: DistrictsComponent
+        component: DistrictsComponent,
+        data: {
+          title: 'Districts',
+          urls: [
+            { title: 'Home', url: '/home' },
+            { title: 'About Chhattisgarh', url: '/aboutus' }
+          ]
+        }
       },
       {
         path: 'registration',
@@ -60,7 +88,14 @@ const routes: Routes = [
       },
       {
         path: 'directory',
-        component: DirectoryComponent
+        component: DirectoryComponent,
+        data: {
+          title: 'Directory',
+          urls: [
+            { title: 'Home', url: '/home' },
+            { title: 'Government' }
+          ]
+        }
       },
       {
         path: 'departments',
@@ -68,7 +103,14 @@ const routes: Routes = [
       },
       {
         path: 'census',
-        component: CensusComponent
+        component: CensusComponent,
+        data: {
+          title: 'Census',
+          urls: [
+            { title: 'Home', url: '/home' },
+            { title: 'About Chhattisgarh', url: '/aboutus' }
+          ]
+        }
       },
       {
         path: 'education',

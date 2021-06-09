@@ -1,3 +1,4 @@
+import { BreadcrumbComponent } from './layout/breadcrumb/breadcrumb.component';
 import { EducationComponent } from './education/education.component';
 import { FooterComponent } from './layout/footer/footer.component';
 
@@ -47,10 +48,11 @@ import { DepartmentsComponent } from './departments/departments.component';
     FooterComponent,
     ReachComponent,
     DistrictsComponent,
+    DepartmentsComponent,
     CensusComponent,
     EducationComponent,
     NewsComponent,
-    DepartmentsComponent
+    BreadcrumbComponent
   ],
   imports: [
     BrowserModule,

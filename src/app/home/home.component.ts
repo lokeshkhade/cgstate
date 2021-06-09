@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
   news: any = [];
   data: any = [];
   impldata: any = [];
+  currentdate: any;
+  yesterday: any;
   rootUrl = environment.rootUrl;
   public carousel: any = [
     {
@@ -38,10 +40,10 @@ export class HomeComponent implements OnInit {
   constructor(private http: HttpClient, private dp: DatePipe, private commonservice: CommonService) { }
 
   ngOnInit(): void {
-    this.http.get('http://dprcg.gov.in/api/aajKeSamachar?date=' + this.dp.transform(new Date().toISOString(), 'dd/MM/yyyy')).subscribe((res: any) => {
-      this.news = res;
-      console.log(this.news);
-    });
+    this.currentdate = this.dp.transform(new Date().toISOString(), 'dd/MM/yyyy');
+    this.yesterday = this.dp.transform((d => new Date(d.setDate(d.getDate() - 1)))(new Date).toISOString(), 'dd/MM/yyyy');
+
+    this.getNews(this.currentdate);
 
     this.commonservice.getFunction('noticeboard').subscribe(res => {
       this.data = res;
@@ -49,8 +51,20 @@ export class HomeComponent implements OnInit {
 
     this.commonservice.getFunction('impinformation').subscribe(res => {
       this.impldata = res;
-      console.log("KAVITA");
+
       console.log(this.impldata);
+    });
+  }
+
+  getNews(date: any) {
+    this.http.get('http://dprcg.gov.in/api/aajKeSamachar?date=' + date).subscribe((res: any) => {
+      this.news = res;
+      if (this.news.length == 0) {
+        this.getNews(this.yesterday);
+        //let yesterday = (d => new Date(d.setDate(d.getDate() - 1)))(new Date);
+        console.log("kavita k" + this.yesterday);
+      }
+      console.log(this.news);
     });
   }
 

@@ -81,19 +81,7 @@ export const Menus: any[] = [
             },
         ]
     },
-    {
-        path: '',
-        title: 'Services',
-        icon: '',
-        submenu: [
-            {
-                path: '',
-                title: 'e-Districts',
-                icon: '',
-                submenu: []
-            },
-        ]
-    },
+
 
 
 
