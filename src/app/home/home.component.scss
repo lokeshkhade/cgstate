@@ -1,3 +1,10 @@
+.img-thumbnail {
+    width: 20px;
+    height: 80px;
+    border-style: solid;
+}
+
+////////////////////////////////////
 body {
     background: #8999A8;
 }
@@ -346,7 +353,6 @@ ul {
 }
 
 ol li {
-    background: #ffe5e5;
     padding: 5px;
     margin-left: 35px;
 }

@@ -31,3 +31,9 @@
     border: 1px solid rgba(0, 0, 0, .15);
     border-radius: .25rem
 }
+
+@media (max-width: 767px) {
+    .dropdown-menu.show {
+        display: contents;
+    }
+}

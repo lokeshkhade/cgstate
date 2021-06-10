@@ -100,8 +100,20 @@ router.get('/organization', function(req, res) {
     });
 });
 
+
+
 router.get('/impinformation', function(req, res) {
     common.getimpinformation(function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+});
+
+router.get('/scheme', function(req, res) {
+    common.getscheme(function(err, rows) {
         if (err) {
             res.json(err);
         } else {

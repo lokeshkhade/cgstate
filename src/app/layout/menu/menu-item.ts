@@ -59,17 +59,12 @@ export const Menus: any[] = [
                 icon: '',
                 submenu: []
             }, {
-                path: '',
-                title: 'e-Gazette',
-                icon: '',
-                submenu: []
-            }, {
-                path: '',
+                path: '/scheme',
                 title: 'Schemes',
                 icon: '',
                 submenu: []
             }, {
-                path: '\departments',
+                path: '/departments',
                 title: 'Departments',
                 icon: '',
                 submenu: []
@@ -81,8 +76,4 @@ export const Menus: any[] = [
             },
         ]
     },
-
-
-
-
 ];

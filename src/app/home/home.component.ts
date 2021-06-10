@@ -51,9 +51,8 @@ export class HomeComponent implements OnInit {
 
     this.commonservice.getFunction('impinformation').subscribe(res => {
       this.impldata = res;
-
-      console.log(this.impldata);
     });
+
   }
 
   getNews(date: any) {

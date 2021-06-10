@@ -156,7 +156,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="card col-md-4 col-sm-6">
-                <div class="card-header text-center">Notice Board</div>
+                <div class="card-header text-center"> <i class="fa fa-bell" aria-hidden="true"></i> Notice Board</div>
                 <div class="card-body">
                     <ul class="list-group">
                         <div *ngFor="let t of data">
@@ -172,7 +172,7 @@
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 item">
-                <div class="card-header text-center">News</div>
+                <div class="card-header text-center"> <i class="fa fa-newspaper-o" aria-hidden="true"></i> News</div>
                 <div class="card-body">
                     <div class="row" *ngIf="news.length">
                         <div class="col-md-6" *ngFor="let item of [0,1]">
@@ -186,7 +186,8 @@
             </div>
 
             <div class="card col-md-4 col-sm-6">
-                <div class="card-header text-center">Important Information</div>
+                <div class="card-header text-center"> <i class="fa fa-info-circle" aria-hidden="true"></i> Important Information
+                </div>
                 <div class="card-body">
                     <!-- <marquee direction="up"> -->
                     <ul class="list-group">
@@ -241,7 +242,9 @@
             <div class="col-md-4 col-sm-6 item">
                 <div class="card-header text-center">Chhattisgarh Map</div>
                 <div class="card-body">
-                    <img src="assets/images/Chhattisgarh.svg" alt="" style="width: 100%;height: 350px;">
+                    <img src="assets/images/cg.svg" alt="" style="width: 100%;height: 350px;">
+                    <!-- <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen
+                        src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJrYt6xhYfJjoRlZ0X-xL0I1w&key=AIzaSyBDrzQ0rmz6lhDRFR-BasubOFs8kugnvGo"></iframe> -->
                 </div>
             </div>
 
@@ -274,7 +277,23 @@
         <div class="row">
             <div class="col-md-3 col-sm-6">
                 <div class="card text-white h-100 ">
-                    <div class="card-header text-center">CMO Facebook</div>
+                    <div class="card-header text-center"> <i class="fa fa-external-link" aria-hidden="true"></i> Useful Links
+                    </div>
+                    <div class="card-body">
+                        <!-- 
+                        <a target="_blank" href="http://egazette.cg.nic.in/">e-Gazette</a>
+
+                        <a target="_blank" href="https://edistrict.cgstate.gov.in/PACE/login.do">e-District</a> -->
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="card text-white h-100 ">
+                    <div class="card-header text-center"> <i class="fa fa-facebook" aria-hidden="true"></i> CMO Facebook
+                    </div>
                     <div class="card-body ">
                         <div class="fb-page " data-href="https://www.facebook.com/ChhattisgarhCMO/ " data-tabs="timeline " data-width="600px" data-height="400px" data-small-header="false " data-adapt-container-width="true " data-hide-cover="false " data-show-facepile="true ">
                             <blockquote cite="https://www.facebook.com/ChhattisgarhCMO/ " class="fb-xfbml-parse-ignore ">
@@ -288,7 +307,8 @@
 
             <div class="col-md-3 col-sm-6">
                 <div class="card text-white h-100 ">
-                    <div class="card-header text-center">CMO Twitter</div>
+                    <div class="card-header text-center"> <i class="fa fa-twitter" aria-hidden="true"></i> CMO Twitter
+                    </div>
                     <div class="card-body ">
                         <a class="twitter-timeline " data-width="600px" data-height="400px" data-small-header="false " data-adapt-container-width="true " data-hide-cover="false " data-show-facepile="true " data-theme="light" href="https://twitter.com/ChhattisgarhCMO?ref_src=twsrc%5Etfw ">Tweets by
                             ChhattisgarhCMO</a>
@@ -297,9 +317,9 @@
                 </div>
             </div>
 
-            <div class="col-md-6 col-sm-6">
+            <div class="col-md-3 col-sm-6">
                 <div class="card text-white h-100 ">
-                    <div class="card-header text-center">CMO</div>
+                    <div class="card-header text-center"> <i class="fa fa-file-text-o" aria-hidden="true"></i> CMO</div>
                     <div class="card-body">
                         <img src="assets/images/CM_Fund_27-Mar-2020.jpg" alt="" style="width: 100%;height: 350px;">
                     </div>
@@ -309,19 +329,6 @@
     </div>
 </div>
 
-<!-- <div class="my-5" id="b-homedb">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-body">
-                        <img src="assets/images/logo_Mahatma_Gandhi_15_4.jpg" alt="" style=" width: 100%; height: 150px;">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
 
 <div class="container-fluid">
     <div class="imp-img-cir ">
@@ -329,32 +336,32 @@
             <owl-carousel-o [options]="customOptions ">
                 <ng-template carouselSlide>
                     <div class="card">
-                        <a target="_blank" href="https://www.chhattisgarhtourism.in/"><img class="card-img-top" src="assets/images/logo/Chhattisgarh.png " alt="Card image cap "></a>
+                        <a target="_blank" href="https://www.chhattisgarhtourism.in/"><img class="img-thumbnail" src="assets/images/logo/Chhattisgarh.png " alt="Card image cap "></a>
                     </div>
                 </ng-template>
                 <ng-template carouselSlide>
                     <div class="card">
-                        <a target="_blank" href="https://www.chips.gov.in/"><img class="card-img-top" src="assets/images/logo/Chips.jpg " alt="Card image cap "></a>
+                        <a target="_blank" href="https://www.chips.gov.in/"><img class="img-thumbnail" src="assets/images/logo/Chips.jpg " alt="Card image cap "></a>
                     </div>
                 </ng-template>
                 <ng-template carouselSlide>
                     <div class="card">
-                        <a target="_blank" href="http://gad.cg.gov.in/cgcorona/"><img class="card-img-top" src="assets/images/logo/Choice.jpg " alt="Card image cap "></a>
+                        <a target="_blank" href="http://gad.cg.gov.in/cgcorona/"><img class="img-thumbnail" src="assets/images/logo/Choice.jpg " alt="Card image cap "></a>
                     </div>
                 </ng-template>
                 <ng-template carouselSlide>
                     <div class="card">
-                        <a target="_blank" href="http://gad.cg.gov.in/cgcorona/"><img class="card-img-top" src="assets/images/logo/DigitalIndia.jpg " alt="Card image cap "></a>
+                        <a target="_blank" href="http://gad.cg.gov.in/cgcorona/"><img class="img-thumbnail" src="assets/images/logo/DigitalIndia.jpg " alt="Card image cap "></a>
                     </div>
                 </ng-template>
                 <ng-template carouselSlide>
                     <div class="card">
-                        <a target="_blank" href="http://gad.cg.gov.in/cgcorona/"><img class="card-img-top" src="assets/images/logo/IAS.jpg " alt="Card image cap "></a>
+                        <a target="_blank" href="http://gad.cg.gov.in/cgcorona/"><img class="img-thumbnail" src="assets/images/logo/IAS.jpg " alt="Card image cap "></a>
                     </div>
                 </ng-template>
                 <ng-template carouselSlide>
                     <div class="card">
-                        <a target="_blank" href="http://gad.cg.gov.in/cgcorona/"><img class="card-img-top" src="assets/images/logo/IndiaGov.jpg " alt="Card image cap "></a>
+                        <a target="_blank" href="http://gad.cg.gov.in/cgcorona/"><img class="img-thumbnail" src="assets/images/logo/IndiaGov.jpg " alt="Card image cap "></a>
                     </div>
                 </ng-template>
             </owl-carousel-o>

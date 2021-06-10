@@ -27,8 +27,14 @@ var common = {
         db.query(`select org_name,org_link from main_org_table where org_type = 'E'`, callback);
     },
 
+
     getimpinformation: function(callback) {
         db.query(`select * from main_importantlink`, callback);
+    },
+
+
+    getscheme: function(callback) {
+        db.query(`select * from main_scheme`, callback);
     },
 
     getdirectory: function(designation_id, callback) {

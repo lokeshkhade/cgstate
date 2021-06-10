@@ -1,3 +1,4 @@
+import { SchemeComponent } from './scheme/scheme.component';
 import { DepartmentsComponent } from './departments/departments.component';
 import { NewsComponent } from './news/news.component';
 import { EducationComponent } from './education/education.component';
@@ -80,7 +81,14 @@ const routes: Routes = [
       },
       {
         path: 'noticeboard',
-        component: NoticeboardComponent
+        component: NoticeboardComponent,
+        // data: {
+        //   title: 'Noticeboard',
+        //   urls: [
+        //     { title: 'Home', url: '/home' },
+        //     { title: 'Noticeboard', url: '/noticeboard' }
+        //   ]
+        // }
       },
       {
         path: 'news',
@@ -115,6 +123,10 @@ const routes: Routes = [
       {
         path: 'education',
         component: EducationComponent
+      },
+      {
+        path: 'scheme',
+        component: SchemeComponent
       }
     ]
   },
