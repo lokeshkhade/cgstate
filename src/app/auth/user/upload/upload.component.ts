@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { environment } from 'src/environments/environment';
+
 @Component({
   selector: 'app-upload',
   templateUrl: './upload.component.html',
@@ -19,7 +20,7 @@ export class UploadComponent implements OnInit {
   public seletedfolder: any;
   public menu_code: any;
   public uploadmenu: any = [];
-
+  public today = new Date();
   found: any = false;
   fileupload: any = false;
   file: any = File;
@@ -60,7 +61,6 @@ export class UploadComponent implements OnInit {
     this.user_id = user.user_id;
     this.dept_id = user.dept_id;
     this.dept_foldername = user.dept_foldername;
-    console.log(this.dept_foldername);
     this.getMenu();
   }
 
@@ -81,7 +81,7 @@ export class UploadComponent implements OnInit {
 
     this.seletedfolder = event.value.foldername;
     this.menu_code = event.value.menu_code;
-
+    console.log(this.menu_code);
     //this.uploadForm.patchValue({menu_code:event.value.menu_code})
   }
   addissuedate(type: string, event: MatDatepickerInputEvent<Date>) {

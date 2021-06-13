@@ -1,15 +1,16 @@
-<div class="row">
-
-    <div class="col-12 col-sm-6 col-md-2 col-lg-2">
-        <div class="our-team">
-            <div class="picture">
-                <img class="img-fluid" src="assets/images/AnusuiyaUikey.png">
-            </div>
-            <div class="team-content">
-                <h3 class="name">Anusuiya Uikey</h3>
-                <h4 class="title">Hon'ble Governor <br> Chhattisgarh</h4>
-            </div>
-            <!-- <ul class="social">
+<div class="my-5" id="b-homedb">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-2 col-lg-2">
+                <div class="our-team">
+                    <div class="picture">
+                        <img class="img-fluid" src="assets/images/AnusuiyaUikey.png">
+                    </div>
+                    <div class="team-content">
+                        <h3 class="name">Anusuiya Uikey</h3>
+                        <h4 class="title">Hon'ble Governor <br> Chhattisgarh</h4>
+                    </div>
+                    <!-- <ul class="social">
                 <li>
                     <a href="" class="fa fa-facebook" aria-hidden="true"></a>
                 </li>
@@ -23,18 +24,18 @@
                     <a href="" class="fa fa-linkedin" aria-hidden="true"></a>
                 </li>
             </ul> -->
-        </div>
-    </div>
-    <div class="col-12 col-sm-6 col-md-2 col-lg-2">
-        <div class="our-team">
-            <div class="picture">
-                <img class="img-fluid" src="assets/images/cm-sir_png.png">
+                </div>
             </div>
-            <div class="team-content">
-                <h3 class="name">Bhupesh Bhagel</h3>
-                <h4 class="title">Hon'ble Chief Minister Chhattisgarh</h4>
-            </div>
-            <!-- <ul class="social">
+            <div class="col-12 col-sm-6 col-md-2 col-lg-2">
+                <div class="our-team">
+                    <div class="picture">
+                        <img class="img-fluid" src="assets/images/cm-sir_png.png">
+                    </div>
+                    <div class="team-content">
+                        <h3 class="name">Bhupesh Bhagel</h3>
+                        <h4 class="title">Hon'ble Chief Minister Chhattisgarh</h4>
+                    </div>
+                    <!-- <ul class="social">
                 <li>
                     <a href="" class="fa fa-facebook" aria-hidden="true"></a>
                 </li>
@@ -48,53 +49,54 @@
                     <a href="" class="fa fa-linkedin" aria-hidden="true"></a>
                 </li>
             </ul> -->
-        </div>
-    </div>
-    <div class="col-md-8">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="assets/images/banner/slider-1.jpg" alt="First slide">
-                    <div class="slide-caption text-center">
-                        <div class="h5"></div>
-                        <p>&nbsp;</p>
-                    </div>
-                </div>
-                <div class="carousel-item" *ngFor="let item of carousel">
-
-                    <img class="d-block w-100" [src]="item.img" alt="item.alt">
-                    <div class="slide-caption text-center">
-                        <div class="h5">{{item.heading}}</div>
-                        <p>&nbsp;</p>
-                    </div>
                 </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+            <div class="col-md-8">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="assets/images/banner/slider-1.jpg" alt="First slide">
+                            <div class="slide-caption text-center">
+                                <div class="h5"></div>
+                                <p>&nbsp;</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item" *ngFor="let item of carousel">
+
+                            <img class="d-block w-100" [src]="item.img" alt="item.alt">
+                            <div class="slide-caption text-center">
+                                <div class="h5">{{item.heading}}</div>
+                                <p>&nbsp;</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
         </div>
+        <marquee>
+            <p style="font-family: Impact; font-size: 10pt; color: rgb(32, 11, 126);">
+                <i class='fa fa-bell faa-ring animated fa-2x'></i> This is the new website for CGSTATE-PORTAL
+                <a href="" target="_blank"><b>&nbsp;क्लिक करें</b></a>
+            </p>
+        </marquee>
     </div>
 </div>
-<!-- <marquee>
-    <p style="font-family: Impact; font-size: 10pt; color: rgb(32, 11, 126);">
-        <i class='fa fa-bell faa-ring animated fa-2x'></i> This is the new website for CGSTATE-PORTAL
-        <a href="Home/Android-Apps.html" target="_blank"><b>&nbsp;क्लिक करें</b></a>
-    </p>
-</marquee>
-<marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
-</marquee> -->
+
 <!-- <section id="fontSize" class="wrapper body-wrapper"> -->
 <!-- <div class="bg-wrapper top-bg-wrapper gray-bg padding-top-bott">
     <div class=" body-container top-body-container padding-top-bott2">
@@ -208,112 +210,143 @@
                         </div>
                     </ul>
                     <!-- </marquee> -->
-                    <a class="read-more" routerLink='/noticeboard'>Read more</a>
+                    <a class="read-more" routerLink='/impinfo'>Read more</a>
                 </div>
             </div>
 
 
-        </div>
-    </div>
-</div>
-
-<div class="my-5" id="b-homedb">
-    <div class="container-fluid">
-        <div class="row">
-
-            <div class="col-md-6 col-sm-6 item">
-                <div class="card-header text-center">Chhattisgarh Map</div>
-                <div class="card-body">
-                    <img src="assets/images/cg.svg" alt="" style="width: 100%;height: 550px;">
-                    <!-- <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen
-                                    src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJrYt6xhYfJjoRlZ0X-xL0I1w&key=AIzaSyBDrzQ0rmz6lhDRFR-BasubOFs8kugnvGo"></iframe> -->
-                </div>
-            </div>
-
-            <div class="card col-md-3 col-sm-6">
-                <div class="card-header text-center">Chhattisgarh Profile</div>
-                <div class="card-body">
-                    <p> <i class="fa fa-cubes" aria-hidden="true"></i>Established<span class="float-right">1st Nov
-                            2000</span></p>
-                    <p> <i class="fa fa-building" aria-hidden="true"></i> Capital <span class="float-right">
-                            Raipur</span></p>
-                    <p><i class="fa fa-building-o" aria-hidden="true"></i> Districts <span class="float-right">
-                            28</span></p>
-                    <p><i class="fa fa-street-view" aria-hidden="true"></i> Area <span class="float-right"> 1,35,194 sq
-                            KM </span></p>
-                    <p>State animal <span class="float-right"> Van Bhainsa </span></p>
-                    <p> <i class="fal fa-crow"></i> State bird <span class="float-right">Pahari Myna </span>
-                    </p>
-                    <p>State tree <span class="float-right">Sal or Sarai </span> </p>
-
-                    <p><i class="fa fa-users" aria-hidden="true"></i> Population <span class="float-right">2,55,40,196</span></p>
-                    <p><i class="fa fa-male" aria-hidden="true"></i> Male <span class="float-right"> 1,28,27,915</span>
-                    </p>
-                    <p> <i class="fa fa-female" aria-hidden="true"></i> Female <span class="float-right">
-                            1,27,12,281</span></p>
-                    <p> <i class="fa fa-user" aria-hidden="true"></i> Sex Ratio <span class="float-right"> 991 for
-                            1000</span></p>
-                    <p> <i class="fa fa-child" aria-hidden="true"></i> Child Sex Ratio <span class="float-right"> 964
-                            for 1000 </span></p>
-                    <p> <i class="fa fa-graduation-cap" aria-hidden="true"></i> Literacy <span class="float-right">
-                            71.04 %</span></p>
-                    <p> <i class="fa fa-graduation-cap" aria-hidden="true"></i> Male Literacy <span class="float-right">81.45
-                            %</span>
-                    </p>
-                    <p> <i class="fa fa-graduation-cap" aria-hidden="true"></i> Female Literacy <span class="float-right">60.59
-                            %</span> </p>
-                </div>
-            </div>
-
-            <div class="card col-md-3 col-sm-6">
-                <div class="card-header text-center">Administrative Setup</div>
-                <div class="card-body">
-
-                    <p> <i class="fa fa-university" aria-hidden="true"></i> Legislature (seats) <span class="float-right"> 91</span></p>
-
-                    <p> <i class="fa fa-university" aria-hidden="true"></i> Revenue divisions No. <span class="float-right"> 03</span></p>
-
-                    <p> <i class="fa fa-university" aria-hidden="true"></i> Revenue districts No. <span class="float-right"> 16</span></p>
-
-                    <p> <i class="fa fa-university" aria-hidden="true"></i>Tahsils No. <span class="float-right">
-                            96</span></p>
-
-                    <p> <i class="fa fa-university" aria-hidden="true"></i>Development Blocks No. <span class="float-right"> 146</span></p>
-
-                    <p> <i class="fa fa-university" aria-hidden="true"></i>Tribal Dev. Blocks No. <span class="float-right"> 85</span></p>
-
-                    <p> <i class="fa fa-university" aria-hidden="true"></i>Total Villages No. <span class="float-right">20378</span></p>
-
-                    <p> <i class="fa fa-university" aria-hidden="true"></i>Total Towns No. <span class="float-right">97</span></p>
-
-                    <p> <i class="fa fa-university" aria-hidden="true"></i>Municipal Corporation No. <span class="float-right">06</span></p>
-
-                    <p> <i class="fa fa-university" aria-hidden="true"></i>Nagar Panchyat No. <span class="float-right">49</span></p>
-
-                    <p> <i class="fa fa-university" aria-hidden="true"></i>District Panchyat No. <span class="float-right">16</span></p>
-
-                    <p> <i class="fa fa-university" aria-hidden="true"></i>Janpad Panchyat No. <span class="float-right">146</span></p>
-
-                    <p> <i class="fa fa-university" aria-hidden="true"></i> Gram Panchyat No. <span class="float-right">
-                            9139 </span> </p>
-
-                    <p> <i class="fa fa-university" aria-hidden="true"></i> Police Station No. <span class="float-right"> 263 </span> </p>
-
-                    <p> <i class="fa fa-university" aria-hidden="true"></i> Loksabha constitutions No. <span class="float-right"> 11 </span> </p>
-
-                    <p> <i class="fa fa-university" aria-hidden="true"></i> Rajyasabha constitutions No. <span class="float-right"> 05 </span>
-                    </p>
-
-                    <p> <i class="fa fa-university" aria-hidden="true"></i> Total Electrifies Villages No. <span class="float-right"> 18075 </span>
-                </div>
-            </div>
         </div>
     </div>
 </div>
 
 <div id="cards_landscape_wrap-2">
+
+    <div class="my-5" id="b-homedb">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="card col-md-3 col-sm-6">
+                    <div class="card-header text-center">Chhattisgarh Profile</div>
+                    <div class="card-body">
+                        <p> <i class="fa fa-cubes" aria-hidden="true"></i>Established<span class="float-right">1st Nov
+                                2000</span></p>
+                        <p> <i class="fa fa-building" aria-hidden="true"></i> Capital <span class="float-right">
+                                Raipur</span></p>
+                        <p><i class="fa fa-building-o" aria-hidden="true"></i> Districts <span class="float-right">
+                                28</span></p>
+                        <p><i class="fa fa-street-view" aria-hidden="true"></i> Area <span class="float-right"> 1,35,194
+                                sq
+                                KM </span></p>
+                        <p>State animal <span class="float-right"> Van Bhainsa </span></p>
+                        <p> <i class="fal fa-crow"></i> State bird <span class="float-right">Pahari Myna </span>
+                        </p>
+                        <p>State tree <span class="float-right">Sal or Sarai </span> </p>
+
+                        <p><i class="fa fa-users" aria-hidden="true"></i> Population <span class="float-right">2,55,40,196</span></p>
+                        <p><i class="fa fa-male" aria-hidden="true"></i> Male <span class="float-right">
+                                1,28,27,915</span>
+                        </p>
+                        <p> <i class="fa fa-female" aria-hidden="true"></i> Female <span class="float-right">
+                                1,27,12,281</span></p>
+                        <p> <i class="fa fa-user" aria-hidden="true"></i> Sex Ratio <span class="float-right"> 991 for
+                                1000</span></p>
+                        <p> <i class="fa fa-child" aria-hidden="true"></i> Child Sex Ratio <span class="float-right">
+                                964
+                                for 1000 </span></p>
+                        <p> <i class="fa fa-graduation-cap" aria-hidden="true"></i> Literacy <span class="float-right">
+                                71.04 %</span></p>
+                        <p> <i class="fa fa-graduation-cap" aria-hidden="true"></i> Male Literacy <span class="float-right">81.45
+                                %</span>
+                        </p>
+                        <p> <i class="fa fa-graduation-cap" aria-hidden="true"></i> Female Literacy <span class="float-right">60.59
+                                %</span> </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-6 item">
+                    <div class="card-header text-center">Chhattisgarh Map</div>
+                    <div class="card-body">
+                        <img src="assets/images/cg.svg" alt="" style="width: 100%;height: 550px;">
+                        <!-- <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen
+                                    src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJrYt6xhYfJjoRlZ0X-xL0I1w&key=AIzaSyBDrzQ0rmz6lhDRFR-BasubOFs8kugnvGo"></iframe> -->
+                    </div>
+                </div>
+
+                <div class="card col-md-3 col-sm-6">
+                    <div class="card-header text-center">Administrative Setup</div>
+                    <div class="card-body">
+
+                        <p> <i class="fa fa-university" aria-hidden="true"></i> Vidhan Sabha <span class="float-right">
+                                91</span></p>
+
+                        <p> <i class="fa fa-university" aria-hidden="true"></i> Loksabha constitutions No. <span class="float-right"> 11 </span> </p>
+
+                        <p> <i class="fa fa-university" aria-hidden="true"></i> Rajyasabha constitutions No. <span class="float-right"> 05 </span> </p>
+
+                        <p> <i class="fa fa-money" aria-hidden="true"></i> Revenue divisions No. <span class="float-right">
+                                03</span></p>
+
+                        <p> <i class="fa fa-money" aria-hidden="true"></i> Revenue districts No. <span class="float-right">
+                                16</span></p>
+
+                        <!-- <p> <i class="fa fa-university" aria-hidden="true"></i>Tahsils No. <span class="float-right">
+                            96</span></p> -->
+
+                        <p> <i class="fa fa-gavel" aria-hidden="true"></i> Development Blocks No. <span class="float-right">
+                                146</span></p>
+
+                        <p> <i class="fa fa-home" aria-hidden="true"></i> Tribal Dev. Blocks No. <span class="float-right">
+                                85</span></p>
+
+                        <p> <i class="fa fa-home" aria-hidden="true"></i> Total Villages No. <span class="float-right">20378</span></p>
+
+                        <p> <i class="fa fa-home" aria-hidden="true"></i> Total Towns No. <span class="float-right">97</span></p>
+
+                        <p> <i class="fa fa-home" aria-hidden="true"></i> Municipal Corporation No. <span class="float-right">06</span></p>
+
+                        <p><i class="fa fa-building-o" aria-hidden="true"></i> Nagar Panchyat No. <span class="float-right">49</span></p>
+
+                        <p><i class="fa fa-building-o" aria-hidden="true"></i> District Panchyat No. <span class="float-right">16</span></p>
+
+                        <p> <i class="fa fa-building-o" aria-hidden="true"></i> Janpad Panchyat No. <span class="float-right">146</span></p>
+
+                        <p> <i class="fa fa-home" aria-hidden="true"></i> Gram Panchyat No. <span class="float-right">
+                                9139 </span> </p>
+
+                        <!-- <p> <i class="fa fa-university" aria-hidden="true"></i> Police Station No. <span class="float-right"> 263 </span> </p>
+
+                    <p> <i class="fa fa-university" aria-hidden="true"></i> Total Electrifies Villages No. <span class="float-right"> 18075 </span> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container-fluid">
         <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-12">
+                <div class="card-header text-center">Chhattisgarh' s Pride</div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                <a href="">
+                    <div class="card-flyer">
+                        <div class="text-box">
+                            <div class="image-box">
+                                <img src="assets/images/big/minerals.jpg" alt="" />
+                            </div>
+                            <div class="text-container">
+                                <h6>Mineral Resources of Chhattisgarh</h6>
+                                <p> Chhattisgarh is one of the foremost mineral rich States in the country. Twenty-Eight known varieties of minerals are found in the State including precious stones & diamonds, iron ore, coal, limestone, dolomite, tin ore,
+                                    bauxite and gold.
+                                </p>
+                                <a class="read-more" target="_blank" href="http://chhattisgarhmines.gov.in/en">View
+                                    more</a>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
 
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
                 <a href="">
@@ -326,27 +359,15 @@
                                 <h6>Tribes of Chhattisgarh</h6>
                                 <p>Chhattisgarh is home to several tribal castes with Gonds of Bastar being the prominent among them. The Baiga, Korba, Abhuj Maria, BisonHorn Maria, Muria, Halbaa, Bhatra and Dhurvaa are other major tribes of the region.
                                 </p>
+
+                                <a class="read-more" target="_blank" href="  http://cgtrti.gov.in/AboutCg.html"> View
+                                    More </a>
                             </div>
                         </div>
                     </div>
                 </a>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-                <a href="">
-                    <div class="card-flyer">
-                        <div class="text-box">
-                            <div class="image-box">
-                                <img src="assets/images/big/minerals.jpg" alt="" />
-                            </div>
-                            <div class="text-container">
-                                <h6>Mineral Resources of Chhattisgarh</h6>
-                                <p>Chhattisgarh is the sole producer of tin concentrates and is one of the leading producers of coal, dolomite, bauxite and iron ore. The State accounts for about 36% tin ore, 18% iron ore (hematite), 17% coal and 11% dolomite
-                                    resources of the country.</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
+
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
                 <a href="">
                     <div class="card-flyer">
@@ -361,6 +382,8 @@
                                     with carvings from Indian mythology.
                                     <!-- In the south, the city of Jagdalpur hosts the Sanjay Market on Sundays, a bartering place for local tribes. The huge Chitrakoot Falls lie to the northwest -->
                                 </p>
+                                <a class="read-more" target="_blank" href="https://www.chhattisgarhtourism.in/"> View
+                                    More </a>
                             </div>
                         </div>
                     </div>
@@ -376,8 +399,8 @@
                             <div class="text-container">
                                 <h6>Cultural life of Chhattisgarh</h6>
                                 <p>The cultural life of Chhattisgarh is a mixture of various forms of tribal dances, folk songs, traditional art and crafts, regional festivals, and fairs. The tribal people preserve their rich culture modestly and religiously.
-                                    People of Chhattisgarh are simple and they follow their traditional customs and beliefs.
                                 </p>
+                                <a class="read-more" routerLink='/aboutus'>Read more</a>
                             </div>
                         </div>
                     </div>
@@ -395,12 +418,55 @@
                     <div class="card-header text-center"> <i class="fa fa-external-link" aria-hidden="true"></i> Useful Links
                     </div>
                     <div class="card-body">
-                        <!-- 
-                        <a target="_blank" href="http://egazette.cg.nic.in/">e-Gazette</a>
+                        <p class="text-red blink-hard"> <i class="fa fa-hand-o-right" aria-hidden="true"> </i>
+                            <a target="_blank" href="https://edistrict.cgstate.gov.in/PACE/login.do"> e-District</a>
+                            <span class="float-right"> </span>
+                        </p>
+                        <p class="text-red blink-hard"> <i class="fa fa-hand-o-right" aria-hidden="true"> </i>
+                            <a target="_blank" href="http://egazette.cg.nic.in/"> e-Gazette</a>
+                            <span class="float-right"> </span>
+                        </p>
+                        <p class="text-red blink-hard"> <i class="fa fa-hand-o-right" aria-hidden="true"> </i>
+                            <a target="_blank" href="https://chhattisgarh.nic.in/"> NIC Chhattisgarh</a>
+                            <span class="float-right"> </span>
+                        </p>
 
-                        <a target="_blank" href="https://edistrict.cgstate.gov.in/PACE/login.do">e-District</a> -->
+                        <p class="text-red blink-hard"> <i class="fa fa-hand-o-right" aria-hidden="true"> </i>
+                            <a target="_blank" href="https://www.chhattisgarhtourism.in/"> Tourism Chhattisgarh</a>
+                            <span class="float-right"> </span>
+                        </p>
 
+                        <p class="text-red blink-hard"> <i class="fa fa-hand-o-right" aria-hidden="true"> </i>
+                            <a target="_blank" href=" http://deity.gov.in/"> Digital India</a>
+                            <span class="float-right"> </span>
+                        </p>
 
+                        <p class="text-red blink-hard"> <i class="fa fa-hand-o-right" aria-hidden="true"> </i>
+                            <a target="_blank" href="https://www.india.gov.in/"> National Portal </a>
+                            <span class="float-right"> </span>
+                        </p>
+
+                        <p class="text-red blink-hard"> <i class="fa fa-hand-o-right" aria-hidden="true"> </i>
+                            <a target="_blank" href="http://dprcg.gov.in/"> DPR Chhattisgarh </a>
+                            <span class="float-right"> </span>
+                        </p>
+
+                        <p class="text-red blink-hard"> <i class="fa fa-hand-o-right" aria-hidden="true"> </i>
+                            <a target="_blank" href="http://www.chips.gov.in/"> CHiPS Raipur </a>
+                            <span class="float-right"> </span>
+                        </p>
+
+                        <p class="text-red blink-hard"> <i class="fa fa-hand-o-right" aria-hidden="true"> </i>
+                            <a target="_blank" href="
+                                                    http://mit.gov.in/content/national-e-governance-plan"> National
+                                e-Governance</a>
+                            <span class="float-right"> </span>
+                        </p>
+
+                        <p class="text-red blink-hard"> <i class="fa fa-hand-o-right" aria-hidden="true"> </i>
+                            <a target="_blank" href="https://cg.nic.in/ias/"> IAS Establishment</a>
+                            <span class="float-right"> </span>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -445,44 +511,6 @@
 </div>
 
 
-<div class="container-fluid">
-    <div class="imp-img-cir ">
-        <div id="flexCarousel " class="flexslider carousel ">
-            <owl-carousel-o [options]="customOptions ">
-                <ng-template carouselSlide>
-                    <div class="card">
-                        <a target="_blank" href="https://www.chhattisgarhtourism.in/"><img class="img-thumbnail" src="assets/images/logo/Chhattisgarh.png " alt="Card image cap "></a>
-                    </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                    <div class="card">
-                        <a target="_blank" href="https://www.chips.gov.in/"><img class="img-thumbnail" src="assets/images/logo/Chips.jpg " alt="Card image cap "></a>
-                    </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                    <div class="card">
-                        <a target="_blank" href="http://gad.cg.gov.in/cgcorona/"><img class="img-thumbnail" src="assets/images/logo/Choice.jpg " alt="Card image cap "></a>
-                    </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                    <div class="card">
-                        <a target="_blank" href="http://gad.cg.gov.in/cgcorona/"><img class="img-thumbnail" src="assets/images/logo/DigitalIndia.jpg " alt="Card image cap "></a>
-                    </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                    <div class="card">
-                        <a target="_blank" href="http://gad.cg.gov.in/cgcorona/"><img class="img-thumbnail" src="assets/images/logo/IAS.jpg " alt="Card image cap "></a>
-                    </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                    <div class="card">
-                        <a target="_blank" href="http://gad.cg.gov.in/cgcorona/"><img class="img-thumbnail" src="assets/images/logo/IndiaGov.jpg " alt="Card image cap "></a>
-                    </div>
-                </ng-template>
-            </owl-carousel-o>
-        </div>
-    </div>
-</div>
 
 
 <!-- </section> -->

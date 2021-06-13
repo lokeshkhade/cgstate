@@ -1,3 +1,4 @@
+import { CreatedeptComponent } from './createdept/createdept.component';
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -8,8 +9,7 @@ const routes: Routes = [
 
   { path: 'dashboard', component: DashboardComponent },
   { path: 'totalapplication', component: TotalapplicationComponent },
-
-
+  { path: 'createdept', component: CreatedeptComponent },
 
 ];
 

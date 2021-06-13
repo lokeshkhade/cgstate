@@ -1,6 +1,6 @@
 .img-thumbnail {
-    width: 20px;
-    height: 80px;
+    width: 100px;
+    height: 50px;
     border-style: solid;
 }
 
@@ -381,8 +381,8 @@ h1 {
 /*----  Main Style  ----*/
 
 #cards_landscape_wrap-2 {
-    text-align: center;
-    background: #F7F7F7;
+    text-align: justify;
+    background: #edeff3;
 }
 
 #cards_landscape_wrap-2 .container {
@@ -472,4 +472,20 @@ h1 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     letter-spacing: 1px;
     color: #00acc1;
+}
+
+///////////////////////////////
+.blink-hard {
+    animation: blinker 1s step-end infinite;
+    font-size: 18px;
+}
+
+.blink-soft {
+    animation: blinker 1.5s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
 }

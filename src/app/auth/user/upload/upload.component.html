@@ -48,8 +48,9 @@
                                 <div class="col-md-6">
                                     <mat-form-field appearance="fill">
                                         <mat-label>Choose a Isssue Date</mat-label>
-                                        <input matInput [matDatepicker]="picker" formControlName="issuedate" (dateInput)="addissuedate('input', $event)">
-                                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                        <input matInput [max]="today" [matDatepicker]="picker" formControlName="issuedate" (dateInput)="addissuedate('input', $event)">
+                                        <mat-datepicker-toggle matSuffix [for]="picker">
+                                        </mat-datepicker-toggle>
                                         <mat-datepicker #picker></mat-datepicker>
                                     </mat-form-field>
 
@@ -58,7 +59,7 @@
                                 <div class="col-md-6">
                                     <mat-form-field appearance="fill">
                                         <mat-label>Choose a Validity Date</mat-label>
-                                        <input matInput [matDatepicker]="picker1" formControlName="validitydate" (dateInput)="addvaliditydate('input', $event)">
+                                        <input matInput [matDatepicker]="picker1" [min]="this.uploadForm.get('issuedate').value" formControlName="validitydate" (dateInput)="addvaliditydate('input', $event)">
                                         <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                                         <mat-datepicker #picker1></mat-datepicker>
                                     </mat-form-field>

@@ -4,6 +4,14 @@ var common = {
     getBlock: function(district_code, callback) {
         db.query(`SELECT DISTINCT BlockCode,BlockName FROM alldistrictblocksofcgs WHERE DistrictCode=? ORDER BY BlockName ASC`, [district_code], callback);
     },
+    getuserid: function(dept_id, callback) {
+        db.query(`select * from mas_users where dept_id  = ?`, [dept_id], callback);
+    },
+
+    getdeptdata: function(dept_id, callback) {
+        db.query(`select * from mas_dept where dept_id  = ?`, [dept_id], callback);
+    },
+
 
     getDistrict: function(callback) {
         db.query(`SELECT DISTINCT DistrictCode,DistrictName FROM alldistrictblocksofcgs ORDER BY DistrictName ASC`, callback);

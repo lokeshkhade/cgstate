@@ -89,6 +89,28 @@ router.get('/designation', function(req, res) {
     });
 });
 
+router.get('/userid/:dept_id', function(req, res, next) {
+    common.getuserid(req.params.dept_id, function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+
+});
+
+router.get('/dept/:dept_id', function(req, res, next) {
+    common.getdeptdata(req.params.dept_id, function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+
+});
+
 
 router.get('/organization', function(req, res) {
     common.getorganization(function(err, rows) {
@@ -203,7 +225,7 @@ router.put('/updateRevisit', checkAuth, function(req, res) {
         if (err) {
             res.json(err);
         } else {
-            res.json({ success: true, message: 'Updtaed Success.' });
+            res.json({ success: true, message: 'Updation Success.' });
         }
     });
 });
@@ -217,7 +239,58 @@ router.post('/insert/:table_name', function(req, res, next) {
         res.json(results);
 
     });
-})
+});
+
+router.put('/update/:table_name', function(req, res, next) {
+    var data = req.body;
+    var query = "UPDATE ?? set ? WHERE dept_id=?";
+    var tablename = req.params.table_name;
+
+    console.log(tablename);
+    console.log(data);
+
+    db.query(query, [tablename, data, data.dept_id], function(error, results, fields) {
+        if (error) throw error;
+        res.json(results);
+
+    });
+});
+
+router.post('/insertdept/:table_name', function(req, res, next) {
+    var data = req.body;
+    var query = "insert into ?? set ?";
+    var tablename = req.params.table_name;
+    db.query(query, [tablename, data], function(error, results, fields) {
+        if (error) throw error;
+        res.json(results.insertId);
+        db.query('INSERT INTO mas_users(dept_id,password,role,user_name) VALUES (?,?,?,?)', [results.insertId, '$2y$12$nDVW0JM9PUtfNkZs0o5/f.WBtOvisMisvrxZgxMj/9Rc907h7tQAa', 3, 'Department Admin']),
+            function(error, rows, fields) {
+                if (error) throw error;
+                // let userid=rows.insertId;
+                res.json(rows.insertId);
+            }
+
+    });
+});
+
+
+
+router.post('/insertdept', function(req, res, next) {
+    console.log(req.body);
+    var data = req.body;
+    db.query('INSERT INTO mas_dept(deptname_en,deptname_hn,domain_name) VALUES (?,?,?)', [data.deptname_en, date.deptname_hn, data.domain_name], function(error, results, fields) {
+        if (error) throw error;
+        res.json(results.insertId);
+        db.query('INSERT INTO mas_users(dept_id,password,role) VALUES (?,?,?)', [results.insertId, '$2y$12$nDVW0JM9PUtfNkZs0o5/f.WBtOvisMisvrxZgxMj/9Rc907h7tQAa', 2]),
+            function(error, rows, fields) {
+                if (error) throw error;
+                // let userid=rows.insertId;
+                res.json(rows.insertId);
+            }
+    });
+});
+
+
 
 //#region for ALL USERS
 router.post('/login', function(req, res) {

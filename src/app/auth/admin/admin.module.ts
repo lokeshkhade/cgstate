@@ -4,10 +4,11 @@ import { NgModule } from '@angular/core';
 import { MaterialModule } from 'src/app/material-module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TotalapplicationComponent } from './totalapplication/totalapplication.component';
+import { CreatedeptComponent } from './createdept/createdept.component';
 
 
 @NgModule({
-  declarations: [DashboardComponent, TotalapplicationComponent,],
+  declarations: [DashboardComponent, TotalapplicationComponent, CreatedeptComponent,],
   imports: [
     CommonModule,
     AdminRoutingModule,

@@ -22,6 +22,7 @@ export class MenuComponent implements OnInit {
   public loginForm: FormGroup;
   svg: any = [];
   errorText: string;
+  showCaptchaError: boolean = false;
   constructor(private router: Router, private fb: FormBuilder, private authService: AuthService, private snackBar: SnackBarService, private http: HttpClient) {
     this.router.events.subscribe((event: RouterEvent) => {
       if (event && event.url) {
@@ -30,7 +31,9 @@ export class MenuComponent implements OnInit {
     });
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      captcha: ['', Validators.required],
+      captchaText: ['']
     });
   }
 
@@ -42,30 +45,31 @@ export class MenuComponent implements OnInit {
     this.http.get(environment.rootUrl + 'captcha').subscribe(res => {
       this.svg = res;
       this.dataContainer.nativeElement.innerHTML = this.svg.data;
-      // this.enqcaptcha = this.svg.text;
+      this.loginForm.patchValue({ captchaText: this.svg.text })
     }, error => {
       this.errorText = 'Something bad happened; please try again later.';
     });
   }
   login() {
-    if (this.loginForm.valid) {
+    if (this.loginForm.valid && this.loginForm.get('captcha').value === this.loginForm.get('captchaText').value) {
       this.authService.login(this.loginForm.value).subscribe(res => {
         if (res['success'] == 1) {
           this.closeModal.nativeElement.click();
           switch (res['role']) {
             case 1: {
-              //this.router.navigate(['/user/dashboard']);
-              this.router.navigate(['/user/upload']);
+              this.router.navigate(['/admin/dashboard']);
               break;
             }
             case 2: {
-              this.router.navigate(['']);
+              this.router.navigate(['/user/upload']);
               break;
             }
             case 3: {
-              console.log(res['role']);
-              this.router.navigate(['/admin/dashboard']);
+              this.router.navigate(['/user/deptconfig']);
               break;
+              //   console.log(res['role']);
+              //   this.router.navigate(['/admin/dashboard']);
+              //   break;
             }
 
             default: {
@@ -89,6 +93,11 @@ export class MenuComponent implements OnInit {
           }, 5000);
         }
       });
+    } else {
+      this.showCaptchaError = true;
+      setTimeout(() => {
+        this.showCaptchaError = false;
+      }, 3000);
     }
   }
 

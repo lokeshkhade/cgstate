@@ -1,0 +1,79 @@
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="bg-info p-2 text-white text-center">Note: Fields marked with <i class="fa fa-asterisk text-danger" aria-hidden="true"></i> are mandatory.</div>
+        <mat-card>
+            <mat-card-title class="text-center"><u>Create Department</u> </mat-card-title>
+            <hr>
+            <mat-card-content>
+                <form [formGroup]="createdeptForm" (ngSubmit)="save(createdeptForm.value)">
+                    <mat-card>
+                        <mat-card-header class="bg-secondary text-white">
+                            <mat-card-subtitle>Documents Upload</mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Department Name in English<span class="required"></span>
+                                        </mat-label>
+                                        <input matInput formControlName="deptname_en" #deptname_en maxlength="100">
+                                        <mat-hint align="end">{{deptname_en.value.length}} / 200</mat-hint>
+
+                                        <mat-error *ngIf="isValidInput('deptname_en')">
+                                            <mat-error *ngIf="createdeptForm.controls['deptname_en'].errors.required">
+                                                You must enter department name
+                                            </mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Department Name in Hindi<span class="required"></span>
+                                        </mat-label>
+
+                                        <input matInput formControlName="deptname_hn" #deptname_hn maxlength="100">
+                                        <mat-hint align="end">{{deptname_hn.value.length}} / 200</mat-hint>
+
+                                        <mat-error *ngIf="isValidInput('deptname_hn')">
+                                            <mat-error *ngIf="createdeptForm.controls['deptname_hn'].errors.required">
+                                                You must enter department name
+                                            </mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Domain Name <span class="required"></span>
+                                        </mat-label>
+                                        <input matInput formControlName="domain_name" #domain_name maxlength="100">
+                                        <mat-hint align="end">{{domain_name.value.length}} / 200</mat-hint>
+                                        <mat-error *ngIf="isValidInput('deptname_hn')">
+                                            <mat-error *ngIf="createdeptForm.controls['deptname_hn'].errors.required">
+                                                You must enter department domain
+                                            </mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                        </mat-card-content>
+                    </mat-card>
+
+                    <mat-card-header>
+                        <div class="row">
+                            <button type="submit" class="btn btn-success">Save</button> &nbsp;&nbsp;
+
+                        </div>
+                    </mat-card-header>
+                </form>
+            </mat-card-content>
+            >
+
+        </mat-card>
+
+    </div>
+</div>

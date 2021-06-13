@@ -1,3 +1,4 @@
+import { ImpinfoComponent } from './impinfo/impinfo.component';
 import { SchemeComponent } from './scheme/scheme.component';
 import { DepartmentsComponent } from './departments/departments.component';
 import { NewsComponent } from './news/news.component';
@@ -23,6 +24,8 @@ const routes: Routes = [
     redirectTo: '/home',
     pathMatch: 'full'
   },
+
+  { path: 'dept', loadChildren: () => import('./deptlayout/dept.module').then(m => m.DeptModule) },
   {
     path: '',
     component: FullComponent,
@@ -82,13 +85,22 @@ const routes: Routes = [
       {
         path: 'noticeboard',
         component: NoticeboardComponent,
-        // data: {
-        //   title: 'Noticeboard',
-        //   urls: [
-        //     { title: 'Home', url: '/home' },
-        //     { title: 'Noticeboard', url: '/noticeboard' }
-        //   ]
-        // }
+        data: {
+          title: 'Noticeboard',
+          urls: [
+            { title: 'Home', url: '/home' }
+          ]
+        }
+      },
+      {
+        path: 'impinfo',
+        component: ImpinfoComponent,
+        data: {
+          title: 'Important Information',
+          urls: [
+            { title: 'Home', url: '/home' }
+          ]
+        }
       },
       {
         path: 'news',
@@ -138,6 +150,7 @@ const routes: Routes = [
       { path: 'admin', loadChildren: () => import('./auth/admin/admin.module').then(m => m.AdminModule) },
       { path: 'profile', component: ProfileComponent },
       { path: 'user', loadChildren: () => import('./auth/user/user.module').then(m => m.UserModule) }
+
     ]
   },
 

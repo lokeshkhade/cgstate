@@ -32,6 +32,8 @@ import { CensusComponent } from './census/census.component';
 import { NewsComponent } from './news/news.component';
 import { DepartmentsComponent } from './departments/departments.component';
 import { SchemeComponent } from './scheme/scheme.component';
+import { ImpinfoComponent } from './impinfo/impinfo.component';
+
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { SchemeComponent } from './scheme/scheme.component';
     EducationComponent,
     NewsComponent,
     BreadcrumbComponent,
-    SchemeComponent
+    SchemeComponent,
+    ImpinfoComponent,
+
   ],
   imports: [
     BrowserModule,

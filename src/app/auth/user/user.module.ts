@@ -4,9 +4,10 @@ import { NgModule } from '@angular/core';
 import { UserRoutingModule } from './user-routing.module';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { MaterialModule } from 'src/app/material-module';
+import { DeptconfigComponent } from './deptconfig/deptconfig.component';
 
 @NgModule({
-  declarations: [UserDashboardComponent, UploadComponent],
+  declarations: [UserDashboardComponent, UploadComponent, DeptconfigComponent],
   imports: [
     CommonModule,
     UserRoutingModule,
