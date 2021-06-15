@@ -1,103 +1,122 @@
-<form [formGroup]="deptconfigForm" (ngSubmit)="update(deptconfigForm.value)">
-    <mat-card class="card">
-        <mat-card-content>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="bg-info p-2 text-white text-center">Note: Fields marked with <i class="fa fa-asterisk text-danger" aria-hidden="true"></i> are mandatory.</div>
+        <mat-card>
+            <mat-card-title class="text-center"><u>Department Details Form </u> </mat-card-title>
+            <hr>
+            <mat-card-content>
+                <form [formGroup]="deptconfigForm" (ngSubmit)="update(deptconfigForm.value)">
+                    <mat-card>
+                        <mat-card-header class="bg-secondary text-white">
+                            <mat-card-subtitle>Enter Department Details</mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Department Name (English)</mat-label>
+                                        <input autocomplete="off" maxlength="100" matInput formControlName="deptname_en">
+                                    </mat-form-field>
+                                </div>
+                            </div>
 
-            <mat-card-title> Department Details </mat-card-title>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Department Name (Hindi)</mat-label>
+                                        <input autocomplete="off" maxlength="100" matInput formControlName="deptname_hn">
+                                    </mat-form-field>
+                                </div>
+                            </div>
 
-            <div class="row">
-                <div class="form-group col-md-6">
-                    <mat-form-field class="demo-full-width">
-                        <mat-label>Department Name (English)</mat-label>
-                        <input autocomplete="off" maxlength="100" matInput formControlName="deptname_en">
-                    </mat-form-field>
-                </div>
-                <div class="form-group col-md-6">
-                    <mat-form-field class="demo-full-width">
-                        <mat-label>Department Name (Hindi)</mat-label>
-                        <input autocomplete="off" maxlength="100" matInput formControlName="deptname_hn">
-                    </mat-form-field>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-md-6">
-                    <mat-form-field class="demo-full-width">
-                        <mat-label>Department Minister Name (English)</mat-label>
-                        <input autocomplete="off" maxlength="100" matInput formControlName="dept_minister_name_en">
-                    </mat-form-field>
-                </div>
-                <div class="form-group col-md-6">
-                    <mat-form-field class="demo-full-width">
-                        <mat-label>Department Minister Name (hindi)</mat-label>
-                        <input autocomplete="off" maxlength="100" matInput formControlName="dept_minister_name_hn">
-                    </mat-form-field>
-                </div>
-            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Department Minister Name (English)</mat-label>
+                                        <input autocomplete="off" maxlength="100" matInput formControlName="dept_minister_name_en">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Department Minister Name (hindi)</mat-label>
+                                        <input autocomplete="off" maxlength="100" matInput formControlName="dept_minister_name_hn">
+                                    </mat-form-field>
+                                </div>
+                            </div>
 
-            <div class="row">
-                <div class="form-group col-md-6">
-                    <mat-form-field class="demo-full-width">
-                        <mat-label>Department Minister Post Name (English)</mat-label>
-                        <input autocomplete="off" maxlength="100" matInput formControlName="dept_minister_post_en">
-                    </mat-form-field>
-                </div>
-                <div class="form-group col-md-6">
-                    <mat-form-field class="demo-full-width">
-                        <mat-label>Department Minister Post Name (Hindi)</mat-label>
-                        <input autocomplete="off" maxlength="100" matInput formControlName="dept_minister_post_hn">
-                    </mat-form-field>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-md-6">
-                    <mat-file-upload [labelText]="'Departmental Minister Photo Upload'" [acceptedTypes]="'.png'" [selectButtonText]="'Select File'" [uploadButtonText]="'Upload'" [showUploadButton]="false" (selectedFilesChanged)="upload_DMPIC($event)" class="demo-full-width">
-                    </mat-file-upload>
-                </div>
-                <div class="form-group col-md-6">
-                    <mat-file-upload [labelText]="'Departmental LOGO Upload'" [acceptedTypes]="'.png'" [selectButtonText]="'Select File'" [uploadButtonText]="'Upload'" [showUploadButton]="false" (selectedFilesChanged)="upload_DLOGO($event)" class="demo-full-width">
-                    </mat-file-upload>
-                </div>
-            </div>
-        </mat-card-content>
-    </mat-card>
-    <mat-card class="card">
-        <mat-card-content>
-            <mat-card-title> Chief Minister Details</mat-card-title>
-            <div class="row">
-                <div class="form-group col-md-6">
-                    <mat-form-field class="demo-full-width">
-                        <mat-label>Chhattisgarh CM Name (English)</mat-label>
-                        <input autocomplete="off" maxlength="100" matInput formControlName="cm_name_en">
-                    </mat-form-field>
-                </div>
-                <div class="form-group col-md-6">
-                    <mat-form-field class="demo-full-width">
-                        <mat-label>Chhattisgarh CM Name (Hindi)</mat-label>
-                        <input autocomplete="off" maxlength="100" matInput formControlName="cm_name_hn">
-                    </mat-form-field>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-md-4">
-                    <mat-file-upload [labelText]="'CM Photo Upload'" [acceptedTypes]="'.png'" [selectButtonText]="'Select File'" [uploadButtonText]="'Upload'" [showUploadButton]="false" (selectedFilesChanged)="upload_CMPIC($event)" class="demo-full-width">
-                    </mat-file-upload>
-                </div>
-            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Department Minister Post Name (English)</mat-label>
+                                        <input autocomplete="off" maxlength="100" matInput formControlName="dept_minister_post_en">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Department Minister Post Name (Hindi)</mat-label>
+                                        <input autocomplete="off" maxlength="100" matInput formControlName="dept_minister_post_hn">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-file-upload [labelText]="'Departmental Minister Photo Upload'" [acceptedTypes]="'.png'" [selectButtonText]="'Select File'" [uploadButtonText]="'Upload'" [showUploadButton]="false" (selectedFilesChanged)="upload_DMPIC($event)" appearance="outline">
+                                    </mat-file-upload>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-file-upload [labelText]="'Departmental LOGO Upload'" [acceptedTypes]="'.png'" [selectButtonText]="'Select File'" [uploadButtonText]="'Upload'" [showUploadButton]="false" (selectedFilesChanged)="upload_DLOGO($event)" appearance="outline">
+                                    </mat-file-upload>
+                                </div>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                    <mat-card>
+                        <mat-card-header class="bg-secondary text-white">
+                            <mat-card-subtitle>Chief Minister Details</mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Chhattisgarh CM Name (English)</mat-label>
+                                        <input autocomplete="off" maxlength="100" matInput formControlName="cm_name_en">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Chhattisgarh CM Name (Hindi)</mat-label>
+                                        <input autocomplete="off" maxlength="100" matInput formControlName="cm_name_hn">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <mat-file-upload [labelText]="'CM Photo Upload'" [acceptedTypes]="'.png'" [selectButtonText]="'Select File'" [uploadButtonText]="'Upload'" [showUploadButton]="false" (selectedFilesChanged)="upload_CMPIC($event)" appearance="outline">
+                                    </mat-file-upload>
+                                </div>
+                            </div>
 
-        </mat-card-content>
-    </mat-card>
+                        </mat-card-content>
+                    </mat-card>
 
-    <mat-card class="card">
-        <mat-card-content>
+                    <mat-card class="card">
+                        <mat-card-content>
 
-            <div class="row">
-                <button mat-raised-button color="primary" type="submit">Update</button> &nbsp; &nbsp;
-            </div>
-        </mat-card-content>
-    </mat-card>
-
-
-    <!-- Main Toolbar of an App -->
-
-
-
-</form>
+                            <div class="row">
+                                <button type="submit" class="btn btn-success">Update</button> &nbsp;&nbsp;
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

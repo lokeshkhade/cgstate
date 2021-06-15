@@ -17,7 +17,7 @@ var common = {
         db.query(`SELECT DISTINCT DistrictCode,DistrictName FROM alldistrictblocksofcgs ORDER BY DistrictName ASC`, callback);
     },
     getdept: function(callback) {
-        db.query(`select * from mas_dept`, callback);
+        db.query(`SELECT *, '' as sn from mas_dept`, callback);
     },
     getnoticeboard: function(callback) {
         db.query(`select * from upload_data LIMIT 5`, callback);
