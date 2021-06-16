@@ -32,7 +32,6 @@ export class DirectoryComponent implements OnInit {
     let index = 0;
     this.commonservice.getFunction('directory/0').subscribe(res => {
       this.data = res;
-      console.log(this.data);
       this.data.forEach(e => {
         this.data[index].sn = index + 1;
         index++;

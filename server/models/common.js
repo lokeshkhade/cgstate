@@ -12,7 +12,9 @@ var common = {
         db.query(`select * from mas_dept where dept_id  = ?`, [dept_id], callback);
     },
 
-
+    getdeptidbydomainname: function(domain_name, callback) {
+        db.query(`Select dept_id from mas_dept where domain_name  = ?`, [domain_name], callback);
+    },
     getDistrict: function(callback) {
         db.query(`SELECT DISTINCT DistrictCode,DistrictName FROM alldistrictblocksofcgs ORDER BY DistrictName ASC`, callback);
     },

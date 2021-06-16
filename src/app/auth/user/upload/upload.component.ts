@@ -81,7 +81,7 @@ export class UploadComponent implements OnInit {
 
     this.seletedfolder = event.value.foldername;
     this.menu_code = event.value.menu_code;
-    console.log(this.menu_code);
+
     //this.uploadForm.patchValue({menu_code:event.value.menu_code})
   }
   addissuedate(type: string, event: MatDatepickerInputEvent<Date>) {
