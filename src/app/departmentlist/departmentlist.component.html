@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card-header text-center">
+            <i class="fa fa-building-o" aria-hidden="true"></i> Government Departments
+        </div>
+    </div>
+</div>
+
+<div class="my-5" id="b-homedb">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <h3><strong>Filter Department</strong><br>
+                    <!-- <small class="text-muted">Search for any number between 1 - 6</small> -->
+                </h3>
+            </div>
+            <div class="col-lg-6">
+                <input type="text" #keyword (keyup)="search(keyword.value)" class="form-control" aria-describedby="filterIt" placeholder="Search">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                &nbsp;
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2 col-sm-6" *ngFor="let t of data">
+                <div class="card text-white h-100 " style="background-color:">
+                    <div class="card-header text-center">{{t.deptname_en}}</div>
+                    <div class="card-body">
+                        <a target="_blank" href="{{t.websitelink}}">
+                            <img class="card-img-top" [src]="t.logourl" alt="">
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                    </div>
+                </div>
+            </div>
+            &nbsp;
+        </div>
+    </div>
+</div>

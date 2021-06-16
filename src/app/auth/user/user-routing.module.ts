@@ -1,3 +1,4 @@
+import { SchemeformComponent } from './schemeform/schemeform.component';
 import { DeptconfigComponent } from './deptconfig/deptconfig.component';
 import { DepartmentsComponent } from './../../departments/departments.component';
 import { UploadComponent } from './upload/upload.component';
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'deptconfig',
     component: DeptconfigComponent
+  },
+  {
+    path: 'schemeform',
+    component: SchemeformComponent
   }
 ];
 

@@ -33,6 +33,7 @@ import { NewsComponent } from './news/news.component';
 import { DepartmentsComponent } from './departments/departments.component';
 import { SchemeComponent } from './scheme/scheme.component';
 import { ImpinfoComponent } from './impinfo/impinfo.component';
+import { DepartmentlistComponent } from './departmentlist/departmentlist.component';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import { ImpinfoComponent } from './impinfo/impinfo.component';
     BreadcrumbComponent,
     SchemeComponent,
     ImpinfoComponent,
+    DepartmentlistComponent,
 
   ],
   imports: [

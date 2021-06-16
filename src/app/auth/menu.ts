@@ -3,6 +3,7 @@ export const MENUITEMS = {
     2: [
         { state: '/user/dashboard', name: 'Dashboard', type: 'link', icon: 'av_timer' },
         { state: '/user/upload', name: 'Upload Noticeboard', type: 'link', icon: 'av_timer' },
+        { state: '/user/schemeform', name: 'Scheme Form', type: 'link', icon: 'view_list' },
     ],
     3: [
         { state: '/user/dashboard', name: 'Dashboard', type: 'link', icon: 'av_timer' },

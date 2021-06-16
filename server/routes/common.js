@@ -18,6 +18,8 @@ router.get('/getBlock/:district_code', function(req, res) {
     });
 });
 
+/////////////////////////////////////////////////////////////////////////////////
+
 router.get('/checkUsernameExist/:username', function(req, res) {
     common.checkUsernameExist(req.params.username, function(err, rows) {
         if (err) {
@@ -27,6 +29,8 @@ router.get('/checkUsernameExist/:username', function(req, res) {
         }
     });
 });
+
+/////////////////////////////////////////////////////////////////////////////////
 
 router.get('/getDistrict', function(req, res) {
     common.getDistrict(function(err, rows) {
@@ -38,6 +42,7 @@ router.get('/getDistrict', function(req, res) {
     });
 });
 
+/////////////////////////////////////////////////////////////////////////////////
 
 router.get('/dept', function(req, res) {
     common.getdept(function(err, rows) {
@@ -48,6 +53,9 @@ router.get('/dept', function(req, res) {
         }
     });
 });
+
+/////////////////////////////////////////////////////////////////////////////////
+
 router.get('/noticeboard', function(req, res) {
     common.getnoticeboard(function(err, rows) {
         if (err) {
@@ -58,6 +66,8 @@ router.get('/noticeboard', function(req, res) {
     });
 });
 
+/////////////////////////////////////////////////////////////////////////////////
+
 router.get('/uploadmenu', function(req, res) {
     common.getuploadmenu(function(err, rows) {
         if (err) {
@@ -67,6 +77,8 @@ router.get('/uploadmenu', function(req, res) {
         }
     });
 });
+
+/////////////////////////////////////////////////////////////////////////////////
 
 router.get('/directory/:designation_id', function(req, res, next) {
     common.getdirectory(req.params.designation_id, function(err, rows) {
@@ -79,6 +91,8 @@ router.get('/directory/:designation_id', function(req, res, next) {
 
 });
 
+/////////////////////////////////////////////////////////////////////////////////
+
 router.get('/designation', function(req, res) {
     common.getdesignation(function(err, rows) {
         if (err) {
@@ -88,6 +102,8 @@ router.get('/designation', function(req, res) {
         }
     });
 });
+
+/////////////////////////////////////////////////////////////////////////////////
 
 router.get('/userid/:dept_id', function(req, res, next) {
     common.getuserid(req.params.dept_id, function(err, rows) {
@@ -100,6 +116,8 @@ router.get('/userid/:dept_id', function(req, res, next) {
 
 });
 
+/////////////////////////////////////////////////////////////////////////////////
+
 router.get('/dept/:dept_id', function(req, res, next) {
     common.getdeptdata(req.params.dept_id, function(err, rows) {
         if (err) {
@@ -111,6 +129,7 @@ router.get('/dept/:dept_id', function(req, res, next) {
 
 });
 
+/////////////////////////////////////////////////////////////////////////////////
 
 router.get('/organization', function(req, res) {
     common.getorganization(function(err, rows) {
@@ -122,7 +141,7 @@ router.get('/organization', function(req, res) {
     });
 });
 
-
+/////////////////////////////////////////////////////////////////////////////////
 
 router.get('/impinformation', function(req, res) {
     common.getimpinformation(function(err, rows) {
@@ -134,6 +153,24 @@ router.get('/impinformation', function(req, res) {
     });
 });
 
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+router.get('/deptlist', function(req, res) {
+    common.getdeptlist(function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+});
+
+
+/////////////////////////////////////////////////////////////////////////////////
+
 router.get('/scheme', function(req, res) {
     common.getscheme(function(err, rows) {
         if (err) {
@@ -143,6 +180,8 @@ router.get('/scheme', function(req, res) {
         }
     });
 });
+
+/////////////////////////////////////////////////////////////////////////////////
 
 router.get('/deptlinks/:dept_id', function(req, res, next) {
     common.deptlinks(req.params.dept_id, function(err, rows) {
@@ -155,6 +194,7 @@ router.get('/deptlinks/:dept_id', function(req, res, next) {
 
 });
 
+/////////////////////////////////////////////////////////////////////////////////
 
 router.get('/deptlinksbytype/:dept_id/:menu_code', function(req, res, next) {
     common.deptlinksbytype(req.params.dept_id, req.params.menu_code, function(err, rows) {
@@ -166,7 +206,7 @@ router.get('/deptlinksbytype/:dept_id/:menu_code', function(req, res, next) {
     });
 });
 
-
+/////////////////////////////////////////////////////////////////////////////////
 
 router.get('/getPatientsByDate', checkAuth, function(req, res) {
     common.getPatientsByDate(req.query, function(err, rows) {
@@ -178,6 +218,8 @@ router.get('/getPatientsByDate', checkAuth, function(req, res) {
     });
 });
 
+/////////////////////////////////////////////////////////////////////////////////
+
 router.get('/getCountDetails', checkAuth, function(req, res) {
     common.getCountDetails(req.query, function(err, rows) {
         if (err) {
@@ -188,6 +230,8 @@ router.get('/getCountDetails', checkAuth, function(req, res) {
     });
 });
 
+/////////////////////////////////////////////////////////////////////////////////
+
 router.get('/getHealthCenter/:district_code', checkAuth, function(req, res) {
     common.getHealthCenter(req.params.district_code, function(err, rows) {
         if (err) {
@@ -197,6 +241,9 @@ router.get('/getHealthCenter/:district_code', checkAuth, function(req, res) {
         }
     });
 });
+
+/////////////////////////////////////////////////////////////////////////////////
+
 router.get('/getDashboardCount/:SHC_id', checkAuth, function(req, res) {
     common.getDashboardCount(req.params.SHC_id, function(err, rows) {
         if (err) {
@@ -206,6 +253,8 @@ router.get('/getDashboardCount/:SHC_id', checkAuth, function(req, res) {
         }
     });
 });
+
+/////////////////////////////////////////////////////////////////////////////////
 
 router.put('/updateAction', checkAuth, function(req, res) {
 
@@ -217,6 +266,8 @@ router.put('/updateAction', checkAuth, function(req, res) {
         }
     });
 });
+
+/////////////////////////////////////////////////////////////////////////////////
 
 
 router.put('/updateRevisit', checkAuth, function(req, res) {
@@ -230,6 +281,8 @@ router.put('/updateRevisit', checkAuth, function(req, res) {
     });
 });
 
+/////////////////////////////////////////////////////////////////////////////////
+
 router.post('/insert/:table_name', function(req, res, next) {
     var data = req.body;
     var query = "insert into ?? set ?";
@@ -240,6 +293,8 @@ router.post('/insert/:table_name', function(req, res, next) {
 
     });
 });
+
+/////////////////////////////////////////////////////////////////////////////////
 
 router.put('/update/:table_name', function(req, res, next) {
     var data = req.body;
@@ -255,6 +310,8 @@ router.put('/update/:table_name', function(req, res, next) {
 
     });
 });
+
+/////////////////////////////////////////////////////////////////////////////////
 
 router.post('/insertdept/:table_name', function(req, res, next) {
     var data = req.body;
@@ -273,7 +330,7 @@ router.post('/insertdept/:table_name', function(req, res, next) {
     });
 });
 
-
+/////////////////////////////////////////////////////////////////////////////////
 
 router.post('/insertdept', function(req, res, next) {
     console.log(req.body);
@@ -290,7 +347,7 @@ router.post('/insertdept', function(req, res, next) {
     });
 });
 
-
+/////////////////////////////////////////////////////////////////////////////////
 
 //#region for ALL USERS
 router.post('/login', function(req, res) {
@@ -342,6 +399,8 @@ router.post('/login', function(req, res) {
     });
 
 });
+
+/////////////////////////////////////////////////////////////////////////////////
 
 router.put('/changepassword', checkAuth, function(req, res) {
 

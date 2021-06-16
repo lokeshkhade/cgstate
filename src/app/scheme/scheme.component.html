@@ -1,32 +1,61 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card-header text-center">
-            <i class="fa fa-subway" aria-hidden="true"></i> CG Government Schemes
+            <i class="fa fa-file-text" aria-hidden="true"></i> CG Government Schemes
+        </div>
+    </div>
+</div>
+
+
+<div class="my-5" id="b-homedb">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <h3><strong>Filter Schemes</strong><br>
+                    <!-- <small class="text-muted">Search for any number between 1 - 6</small> -->
+                </h3>
+            </div>
+            <div class="col-lg-6">
+                <input type="text" #keyword (keyup)="search(keyword.value)" class="form-control" aria-describedby="filterIt" placeholder="Search">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                &nbsp;
+            </div>
+        </div>
+
+        <div id="cards_landscape_wrap-2">
+            <div class="row">
+
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" *ngFor="let t of data">
+                    <a href="">
+                        <div class="card-flyer">
+                            <div class="text-box">
+                                <div class="image-box">
+                                    <img [src]="t.img_link" alt="" />
+                                </div>
+                                <div class="text-container">
+                                    <h6>{{t.scheme_name}}</h6>
+                                    <p>{{t.scheme_data}} </p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                &nbsp;
+            </div>
         </div>
     </div>
 </div>
 
 <!-- Topic Cards -->
-<div id="cards_landscape_wrap-2">
+<!-- <div id="cards_landscape_wrap-2">
     <div class="container-fluid">
         <div class="row">
 
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-                <a href="">
-                    <div class="card-flyer">
-                        <div class="text-box">
-                            <div class="image-box">
-                                <img src="assets/images/schemes/nr.jpg" alt="" />
-                            </div>
-                            <div class="text-container">
-                                <h6>नरुवा योजना</h6>
-                                <p>किसानों की आय बढ़ाने की दिशा में सुराजी गांव योजना महत्वपूर्ण कड़ी साबित होगी। राज्य सरकार द्वारा शुरू किए गए इस योजना में नदी-नालों को पुर्नजीवन ने का भी काम किया जा रहा है। नदी-नालों के पुर्नजीवन से किसानों को सिंचाई के
-                                    लिए जहां भरपुर पानी मिलेगा वहीं किसान दोहरी फसल भी ले सकेंगे। </p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
+
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
                 <a href="">
                     <div class="card-flyer">
@@ -79,4 +108,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->

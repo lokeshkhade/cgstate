@@ -41,6 +41,11 @@ var common = {
     },
 
 
+    getdeptlist: function(callback) {
+        db.query(`select * from main_department WHERE isactive='Y'`, callback);
+    },
+
+
     getscheme: function(callback) {
         db.query(`select * from main_scheme`, callback);
     },

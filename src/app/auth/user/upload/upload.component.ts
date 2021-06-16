@@ -16,7 +16,6 @@ import { environment } from 'src/environments/environment';
 })
 export class UploadComponent implements OnInit {
 
-
   public seletedfolder: any;
   public menu_code: any;
   public uploadmenu: any = [];
@@ -28,10 +27,7 @@ export class UploadComponent implements OnInit {
   user_id: any;
   folder_name: any;
   public dept_foldername: any;
-
-
   public dept_id: any;
-
 
   events: string[] = [];
   uploadForm: FormGroup;
@@ -49,6 +45,7 @@ export class UploadComponent implements OnInit {
 
     });
   }
+
   isValidInput(fieldName: any): boolean {
     return this.uploadForm.controls[fieldName].invalid &&
       (this.uploadForm.controls[fieldName].dirty || this.uploadForm.controls[fieldName].touched);
@@ -63,8 +60,6 @@ export class UploadComponent implements OnInit {
     this.dept_foldername = user.dept_foldername;
     this.getMenu();
   }
-
-
 
   save(form: NgForm) {
 
@@ -84,6 +79,7 @@ export class UploadComponent implements OnInit {
     console.log(this.menu_code);
     //this.uploadForm.patchValue({menu_code:event.value.menu_code})
   }
+
   addissuedate(type: string, event: MatDatepickerInputEvent<Date>) {
     this.events.push(`${type}: ${event.value}`);
     this.uploadForm.patchValue({
@@ -106,13 +102,6 @@ export class UploadComponent implements OnInit {
     );
   }
 
-
-
-
-
-  onSubmit() {
-
-  }
 
   upload(event: any) {
     if (event) {
