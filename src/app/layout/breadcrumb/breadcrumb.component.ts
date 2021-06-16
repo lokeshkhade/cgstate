@@ -29,8 +29,6 @@ export class BreadcrumbComponent implements OnInit {
       .pipe(filter(route => route.outlet === 'primary'))
       .pipe(mergeMap(route => route.data))
       .subscribe((event: Data) => {
-        // debugger;
-        console.log(event);
 
         this.titleService.setTitle(event['title']);
         this.pageInfo = event;

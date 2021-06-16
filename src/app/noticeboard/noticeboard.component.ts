@@ -30,7 +30,6 @@ export class NoticeboardComponent implements OnInit {
     let index = 0;
     this.commonservice.getFunction('deptlinks/0').subscribe(res => {
       this.data = res;
-      console.log(this.data);
       this.data.forEach(e => {
         this.data[index].sn = index + 1;
         index++;
@@ -45,12 +44,10 @@ export class NoticeboardComponent implements OnInit {
     this.dept_id = dept_id;
   }
   typeChange(menu_code: any) {
-    console.log(this.menu_code);
     this.menu_code = menu_code;
   }
   onClick() {
     if (this.dept_id != 0 && this.menu_code != 0) {
-      console.log("kavita");
       let index = 0;
       this.commonservice.getFunction('deptlinksbytype/' + this.dept_id + '/' + this.menu_code).subscribe(res => {
         this.data = res;

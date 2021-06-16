@@ -27,10 +27,7 @@ export class NewsComponent implements OnInit {
       this.news = res;
       if (this.news.length == 0) {
         this.getNews(this.yesterday);
-        //let yesterday = (d => new Date(d.setDate(d.getDate() - 1)))(new Date);
-        console.log("kavita k" + this.yesterday);
       }
-      console.log(this.news);
     });
   }
 

@@ -54,8 +54,17 @@ router.get('/dept', function(req, res) {
     });
 });
 
-/////////////////////////////////////////////////////////////////////////////////
 
+
+router.get('/deptidbydomainname/:domain_name', function(req, res) {
+    common.getdeptidbydomainname(req.params.domain_name, function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+});
 router.get('/noticeboard', function(req, res) {
     common.getnoticeboard(function(err, rows) {
         if (err) {
@@ -301,9 +310,6 @@ router.put('/update/:table_name', function(req, res, next) {
     var query = "UPDATE ?? set ? WHERE dept_id=?";
     var tablename = req.params.table_name;
 
-    console.log(tablename);
-    console.log(data);
-
     db.query(query, [tablename, data, data.dept_id], function(error, results, fields) {
         if (error) throw error;
         res.json(results);
@@ -333,7 +339,6 @@ router.post('/insertdept/:table_name', function(req, res, next) {
 /////////////////////////////////////////////////////////////////////////////////
 
 router.post('/insertdept', function(req, res, next) {
-    console.log(req.body);
     var data = req.body;
     db.query('INSERT INTO mas_dept(deptname_en,deptname_hn,domain_name) VALUES (?,?,?)', [data.deptname_en, date.deptname_hn, data.domain_name], function(error, results, fields) {
         if (error) throw error;
@@ -374,7 +379,6 @@ router.post('/login', function(req, res) {
                             message: `Wrong credential.`
                         });
                     } else if (result) {
-                        console.log(result);
                         let response = {
                             username: user.user_name,
                             role: user.role,
@@ -411,7 +415,6 @@ router.put('/changepassword', checkAuth, function(req, res) {
         if (err) {
             res.json(err);
         } else {
-            console.log(rows[0]);
             if (depassword == rows[0].password) {
                 common.changepassword(deNEWpassword, req.body.username, req.body.UserTypeCode, function(err, rows1) {
                     if (err) {

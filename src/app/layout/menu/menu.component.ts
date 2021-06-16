@@ -67,7 +67,6 @@ export class MenuComponent implements OnInit {
             case 3: {
               this.router.navigate(['/user/deptconfig']);
               break;
-              //   console.log(res['role']);
               //   this.router.navigate(['/admin/dashboard']);
               //   break;
             }
