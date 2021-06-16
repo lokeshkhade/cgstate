@@ -1,3 +1,4 @@
+import { ImplinkformComponent } from './implinkform/implinkform.component';
 import { SchemeformComponent } from './schemeform/schemeform.component';
 import { DeptconfigComponent } from './deptconfig/deptconfig.component';
 import { DepartmentsComponent } from './../../departments/departments.component';
@@ -5,6 +6,7 @@ import { UploadComponent } from './upload/upload.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DepartmententryformComponent } from './departmententryform/departmententryform.component';
 
 const routes: Routes = [
   {
@@ -22,6 +24,14 @@ const routes: Routes = [
   {
     path: 'schemeform',
     component: SchemeformComponent
+  },
+  {
+    path: 'departmententryform',
+    component: DepartmententryformComponent
+  },
+  {
+    path: 'implinkform',
+    component: ImplinkformComponent
   }
 ];
 

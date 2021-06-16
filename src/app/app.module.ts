@@ -34,6 +34,7 @@ import { DepartmentsComponent } from './departments/departments.component';
 import { SchemeComponent } from './scheme/scheme.component';
 import { ImpinfoComponent } from './impinfo/impinfo.component';
 import { DepartmentlistComponent } from './departmentlist/departmentlist.component';
+import { SchemedetailsComponent } from './schemedetails/schemedetails.component';
 
 
 @NgModule({
@@ -60,6 +61,7 @@ import { DepartmentlistComponent } from './departmentlist/departmentlist.compone
     SchemeComponent,
     ImpinfoComponent,
     DepartmentlistComponent,
+    SchemedetailsComponent,
 
   ],
   imports: [

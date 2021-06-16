@@ -17,6 +17,8 @@ export class HomeComponent implements OnInit {
   impldata: any = [];
   currentdate: any;
   yesterday: any;
+  public dept_id: any;
+  deptdata: any = [];
   rootUrl = environment.rootUrl;
   public carousel: any = [
     {
@@ -40,6 +42,8 @@ export class HomeComponent implements OnInit {
   constructor(private http: HttpClient, private dp: DatePipe, private commonservice: CommonService) { }
 
   ngOnInit(): void {
+    this.dept_id = 34;
+    this.getDeptData(this.dept_id);
     this.currentdate = this.dp.transform(new Date().toISOString(), 'dd/MM/yyyy');
     this.yesterday = this.dp.transform((d => new Date(d.setDate(d.getDate() - 1)))(new Date).toISOString(), 'dd/MM/yyyy');
 
@@ -49,11 +53,19 @@ export class HomeComponent implements OnInit {
       this.data = res;
     });
 
-    this.commonservice.getFunction('impinformation').subscribe(res => {
+    this.commonservice.paramFunction('impinformation', this.dept_id).subscribe(res => {
       this.impldata = res;
+      console.log(this.impldata);
     });
 
   }
+
+  getDeptData(dept_id: any) {
+    this.commonservice.paramFunction('dept', this.dept_id).subscribe(res => {
+      this.deptdata = res[0];
+    });
+  }
+
 
   getNews(date: any) {
     this.http.get('http://dprcg.gov.in/api/aajKeSamachar?date=' + date).subscribe((res: any) => {

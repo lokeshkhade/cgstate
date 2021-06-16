@@ -34,11 +34,13 @@
                         <div class="card-flyer">
                             <div class="text-box">
                                 <div class="image-box">
-                                    <img [src]="t.img_link" alt="" />
+                                    <img src="{{rootUrl + t.img_link}}" alt="" />
                                 </div>
                                 <div class="text-container">
                                     <h6>{{t.scheme_name}}</h6>
-                                    <p>{{t.scheme_data}} </p>
+                                    <p>{{t.scheme_data}} <a class="read-more" routerLink='/schemedetails'> Read
+                                            More </a> </p>
+
                                 </div>
                             </div>
                         </div>

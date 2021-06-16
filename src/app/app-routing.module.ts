@@ -1,3 +1,4 @@
+import { SchemedetailsComponent } from './schemedetails/schemedetails.component';
 import { ImpinfoComponent } from './impinfo/impinfo.component';
 import { SchemeComponent } from './scheme/scheme.component';
 import { DepartmentsComponent } from './departments/departments.component';
@@ -88,6 +89,16 @@ const routes: Routes = [
         component: NoticeboardComponent,
         data: {
           title: 'Noticeboard',
+          urls: [
+            { title: 'Home', url: '/home' }
+          ]
+        }
+      },
+      {
+        path: 'schemedetails',
+        component: SchemedetailsComponent,
+        data: {
+          title: 'Scheme Details',
           urls: [
             { title: 'Home', url: '/home' }
           ]

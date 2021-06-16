@@ -27,22 +27,23 @@ export class DeptconfigComponent implements OnInit {
   cm_post_hn: any;
   dept_post_hn: any;
   dept_post_en: any;
+  public lable: any;
 
   constructor(private http: HttpClient, private commonservice: CommonService, private fb: FormBuilder, private datePipe: DatePipe, private authservice: AuthService) {
 
     this.deptconfigForm = this.fb.group({
-      deptname_en: [],
-      deptname_hn: [],
-      dept_minister_name_en: [''],
-      dept_minister_name_hn: [],
-      dept_minister_post_en: [],
-      dept_minister_post_hn: [],
+      deptname_en: ['', Validators.required],
+      deptname_hn: ['', Validators.required],
+      dept_minister_name_en: ['', Validators.required],
+      dept_minister_name_hn: ['', Validators.required],
+      dept_minister_post_en: ['', Validators.required],
+      dept_minister_post_hn: ['', Validators.required],
       dept_min_pic: [],
       deptlogo_dark_url: [],
       cm_name_en: ['', Validators.required],
       cm_name_hn: ['', Validators.required],
-      cm_post_en: ['Hon’ble Chief Minister'],
-      cm_post_hn: ['माननीय मुख्यमंत्री'],
+      cm_post_en: ['', Validators.required],
+      cm_post_hn: ['', Validators.required],
       cm_pic_url: [],
       dept_id: []
 
@@ -61,6 +62,13 @@ export class DeptconfigComponent implements OnInit {
     this.dept_id = user.dept_id;
     this.dept_foldername = user.dept_foldername;
     this.deptconfigForm.patchValue({ dept_id: this.dept_id });
+
+    if (this.user_id == 101) {
+
+      this.lable = 'Governor';
+    }
+    else { this.lable = 'Department Minister'; }
+
     this.getDeptData();
   }
 

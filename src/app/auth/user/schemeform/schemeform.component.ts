@@ -20,15 +20,18 @@ export class SchemeformComponent implements OnInit {
   file: any = File;
   filename: any;
   public dept_foldername: any;
+  public deptlist: any = [];
 
   constructor(private http: HttpClient, private commonservice: CommonService, private fb: FormBuilder, private datePipe: DatePipe, private authservice: AuthService) {
 
     this.schemeForm = this.fb.group({
-
-      scheme_name: [],
-      scheme_data: [],
+      dept_id: ['', Validators.required],
+      scheme_name: ['', Validators.required],
+      scheme_data: ['', Validators.required],
+      scheme_desc: ['', Validators.required],
       img_link: [],
-      scheme_namehn: []
+      scheme_namehn: ['', Validators.required],
+      isactive: ['Y']
     });
   }
 
@@ -38,14 +41,17 @@ export class SchemeformComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     let user = this.authservice.currentUser;
-
     this.dept_foldername = user.dept_foldername;
-
-
+    this.getDept();
   }
 
+
+  getDept() {
+    this.commonservice.getFunction('deptlist').subscribe(res => {
+      this.deptlist = res;
+    });
+  }
 
 
   upload_SchemePic(event: any) {

@@ -38,9 +38,7 @@ export class DepartmentlistComponent implements OnInit {
     this.commonservice.getFunction('deptlist').subscribe(res => {
       this.data = res;
       this.temp = res;
-      console.log(this.data);
-    }
-    );
+    });
   }
 
   search(keyword: string) {

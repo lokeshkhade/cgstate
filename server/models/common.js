@@ -15,12 +15,16 @@ var common = {
     getdeptidbydomainname: function(domain_name, callback) {
         db.query(`Select dept_id from mas_dept where domain_name  = ?`, [domain_name], callback);
     },
+
     getDistrict: function(callback) {
         db.query(`SELECT DISTINCT DistrictCode,DistrictName FROM alldistrictblocksofcgs ORDER BY DistrictName ASC`, callback);
     },
+
     getdept: function(callback) {
         db.query(`SELECT *, '' as sn from mas_dept`, callback);
     },
+
+
     getnoticeboard: function(callback) {
         db.query(`select * from upload_data LIMIT 5`, callback);
     },
@@ -38,13 +42,23 @@ var common = {
     },
 
 
-    getimpinformation: function(callback) {
-        db.query(`select * from main_importantlink`, callback);
+    getimpinformation: function(dept_id, callback) {
+        db.query(`select * from main_importantlink where dept_id  = ? order by issuedate LIMIT 5 `, [dept_id], callback);
+    },
+
+
+    getallimpinformation: function(dept_id, callback) {
+        if (dept_id != 0) {
+            db.query(`select *,'' as sn from main_importantlink where dept_id  = ? order by issuedate  `, [dept_id], callback);
+        } else {
+            db.query(`select *,'' as sn from main_importantlink order by issuedate `, callback);
+        }
+
     },
 
 
     getdeptlist: function(callback) {
-        db.query(`select * from main_department WHERE isactive='Y'`, callback);
+        db.query(`select * from main_department WHERE isactive='Y' and display = 'M' ORDER BY dept_id`, callback);
     },
 
 
@@ -77,6 +91,7 @@ var common = {
     checkUsernameExist: function(username, callback) {
         db.query(`SELECT COUNT(*) AS notavail FROM users u WHERE u.username=?`, [username], callback);
     },
+
     getDashboardCount: function(SHC_id, callback) {
         db.query(`SELECT TH.SHC_id
         ,(select count(*) from tbl_HomeCare where TH.SHC_id=tbl_HomeCare.SHC_id) AS total

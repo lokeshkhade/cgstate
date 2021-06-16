@@ -7,9 +7,10 @@ import { MaterialModule } from 'src/app/material-module';
 import { DeptconfigComponent } from './deptconfig/deptconfig.component';
 import { SchemeformComponent } from './schemeform/schemeform.component';
 import { DepartmententryformComponent } from './departmententryform/departmententryform.component';
+import { ImplinkformComponent } from './implinkform/implinkform.component';
 
 @NgModule({
-  declarations: [UserDashboardComponent, UploadComponent, DeptconfigComponent, SchemeformComponent, DepartmententryformComponent],
+  declarations: [UserDashboardComponent, UploadComponent, DeptconfigComponent, SchemeformComponent, DepartmententryformComponent, ImplinkformComponent],
   imports: [
     CommonModule,
     UserRoutingModule,

@@ -152,8 +152,8 @@ router.get('/organization', function(req, res) {
 
 /////////////////////////////////////////////////////////////////////////////////
 
-router.get('/impinformation', function(req, res) {
-    common.getimpinformation(function(err, rows) {
+router.get('/impinformation/:dept_id', function(req, res, next) {
+    common.getimpinformation(req.params.dept_id, function(err, rows) {
         if (err) {
             res.json(err);
         } else {
@@ -162,6 +162,17 @@ router.get('/impinformation', function(req, res) {
     });
 });
 
+
+router.get('/allimpinformation/:dept_id', function(req, res, next) {
+    common.getallimpinformation(req.params.dept_id, function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+
+});
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -382,6 +393,7 @@ router.post('/login', function(req, res) {
                         let response = {
                             username: user.user_name,
                             role: user.role,
+                            user_id: user.user_id,
                             dept_id: user.dept_id,
                             dept_foldername: user.domain_name,
                             deptname_en: user.deptname_en,

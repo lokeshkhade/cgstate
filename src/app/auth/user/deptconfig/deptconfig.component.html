@@ -42,7 +42,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <mat-form-field appearance="outline">
-                                        <mat-label>Department Minister Name (English)</mat-label>
+                                        <mat-label>{{lable}} Name (English)</mat-label>
                                         <input autocomplete="off" maxlength="100" matInput formControlName="dept_minister_name_en">
                                         <mat-error *ngIf="isValidInput('dept_minister_name_en')">
                                             <mat-error *ngIf="deptconfigForm.controls['dept_minister_name_en'].errors.required">
@@ -55,7 +55,8 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <mat-form-field appearance="outline">
-                                        <mat-label>Department Minister Name (hindi)</mat-label>
+                                        <mat-label>{{lable}} Name(Hindi)</mat-label>
+
                                         <input autocomplete="off" maxlength="100" matInput formControlName="dept_minister_name_hn">
                                         <mat-error *ngIf="isValidInput('dept_minister_name_hn')">
                                             <mat-error *ngIf="deptconfigForm.controls['dept_minister_name_hn'].errors.required">
@@ -69,7 +70,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <mat-form-field appearance="outline">
-                                        <mat-label>Department Minister Post Name (English)</mat-label>
+                                        <mat-label>{{lable}} Post Name (English)</mat-label>
                                         <input autocomplete="off" maxlength="100" matInput formControlName="dept_minister_post_en">
                                         <mat-error *ngIf="isValidInput('dept_minister_post_en')">
                                             <mat-error *ngIf="deptconfigForm.controls['dept_minister_post_en'].errors.required">
@@ -82,7 +83,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <mat-form-field appearance="outline">
-                                        <mat-label>Department Minister Post Name (Hindi)</mat-label>
+                                        <mat-label>{{lable}} Post Name (Hindi)</mat-label>
                                         <input autocomplete="off" maxlength="100" matInput formControlName="dept_minister_post_hn">
                                         <mat-error *ngIf="isValidInput('dept_minister_post_hn')">
                                             <mat-error *ngIf="deptconfigForm.controls['dept_minister_post_hn'].errors.required">
@@ -138,7 +139,33 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Chhattisgarh CM Post (English)</mat-label>
+                                        <input autocomplete="off" maxlength="100" matInput formControlName="cm_post_en">
+                                        <mat-error *ngIf="isValidInput('cm_post_en')">
+                                            <mat-error *ngIf="deptconfigForm.controls['cm_post_en'].errors.required">
+                                                You must enter data
+                                            </mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Chhattisgarh CM Post (Hindi)</mat-label>
+                                        <input autocomplete="off" maxlength="100" matInput formControlName="cm_post_hn">
+                                        <mat-error *ngIf="isValidInput('cm_post_hn')">
+                                            <mat-error *ngIf="deptconfigForm.controls['cm_post_hn'].errors.required">
+                                                You must enter data
+                                            </mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
                                     <mat-file-upload [labelText]="'CM Photo Upload'" [acceptedTypes]="'.png'" [selectButtonText]="'Select File'" [uploadButtonText]="'Upload'" [showUploadButton]="false" (selectedFilesChanged)="upload_CMPIC($event)" appearance="outline">
                                     </mat-file-upload>
                                 </div>

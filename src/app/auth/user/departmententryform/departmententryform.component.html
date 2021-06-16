@@ -1,1 +1,107 @@
-<p>departmententryform works!</p>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="bg-info p-2 text-white text-center">Note: Fields marked with <i class="fa fa-asterisk text-danger" aria-hidden="true"></i> are mandatory.</div>
+        <mat-card>
+            <mat-card-title class="text-center"><u>Department Entry Form </u> </mat-card-title>
+            <hr>
+            <mat-card-content>
+                <form [formGroup]="deptentryForm" (ngSubmit)="save(deptentryForm.value)">
+                    <mat-card>
+                        <mat-card-header class="bg-secondary text-white">
+                            <mat-card-subtitle>Enter Department </mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Department Name (English)</mat-label>
+                                        <input autocomplete="off" maxlength="100" matInput formControlName="deptname_en" #deptname_en>
+                                        <mat-hint align="end">{{deptname_en.value.length}} / 100</mat-hint>
+                                        <mat-error *ngIf="isValidInput('deptname_en')">
+                                            <mat-error *ngIf="deptentryForm.controls['deptname_en'].errors.required">
+                                                Department Name is <strong>required</strong>.
+                                            </mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+
+
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Department Name (Hindi)</mat-label>
+                                        <input autocomplete="off" maxlength="100" matInput formControlName="deptname_hn" #deptname_hn>
+                                        <mat-hint align="end">{{deptname_hn.value.length}} / 100</mat-hint>
+                                        <mat-error *ngIf="isValidInput('deptname_hn')">
+                                            <mat-error *ngIf="deptentryForm.controls['deptname_hn'].errors.required">
+                                                Department Name is <strong>required</strong>.
+                                            </mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+
+
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Department Website Link</mat-label>
+                                        <input autocomplete="off" maxlength="500" matInput formControlName="websitelink" #websitelink>
+                                        <mat-hint align="end">{{websitelink.value.length}} / 500</mat-hint>
+                                        <mat-error *ngIf="isValidInput('websitelink')">
+                                            <mat-error *ngIf="deptentryForm.controls['websitelink'].errors.required">
+                                                Department Website is <strong>required</strong>.
+                                            </mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Department Contact No.</mat-label>
+                                        <input autocomplete="off" maxlength="10" matInput formControlName="contactno" #contactno>
+                                        <mat-hint align="end">{{contactno.value.length}} / 10</mat-hint>
+                                        <mat-error *ngIf="isValidInput('contactno')">
+                                            <mat-error *ngIf="deptentryForm.controls['contactno'].errors.required">
+                                                Department Contact No. is <strong>required</strong>.
+                                            </mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Department Address </mat-label>
+                                        <input autocomplete="off" maxlength="500" matInput formControlName="officeaddress" #officeaddress>
+                                        <mat-hint align="end">{{officeaddress.value.length}} / 500</mat-hint>
+                                        <mat-error *ngIf="isValidInput('officeaddress')">
+                                            <mat-error *ngIf="deptentryForm.controls['officeaddress'].errors.required">
+                                                Department Address is <strong>required</strong>.
+                                            </mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-file-upload [labelText]="'Department Logo Upload'" [acceptedTypes]="'.png'" [selectButtonText]="'Select File'" [uploadButtonText]="'Upload'" [showUploadButton]="false" (selectedFilesChanged)="upload_DeptLogo($event)" appearance="outline">
+                                    </mat-file-upload>
+                                </div>
+                            </div>
+
+                        </mat-card-content>
+                    </mat-card>
+
+
+                    <mat-card>
+                        <mat-card-content>
+
+                            <div class="row">
+                                <button type="submit" class="btn btn-success">Save</button> &nbsp;&nbsp;
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
