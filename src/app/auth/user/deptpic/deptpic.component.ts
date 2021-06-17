@@ -35,58 +35,77 @@ export class DeptpicComponent implements OnInit {
 
     this.bannerForm = this.fb.group({
 
-      linkname: ['', Validators.required],
       linkurl: ['', Validators.required],
+      imagetitle_en: ['', Validators.required],
+      imagetitle_hn: ['', Validators.required],
       dept_id: [],
       isactive: ['Y'],
       imagetype: []
-
     });
-
-
   }
 
-  ngOnInit(): void {
+  isValidInput(fieldName: any): boolean {
+    return this.bannerForm.controls[fieldName].invalid &&
+      (this.bannerForm.controls[fieldName].dirty || this.bannerForm.controls[fieldName].touched);
+  }
 
+
+  ngOnInit(): void {
     let user = this.authservice.currentUser;
     this.user_id = user.user_id;
     this.dept_id = user.dept_id;
     this.dept_foldername = user.dept_foldername;
-    this.bannerForm.patchValue({ dept_id: this.dept_id });
-  }
-
-  fileChangeEvent(event: any): void {
-    this.cropped = false;
-    this.imageChangedEvent = event;
-  }
-
-  imageCropped(event: ImageCroppedEvent) {
-    this.croppedImage = event.base64;
   }
 
   getimagetype(event: any) {
     this.imagetype = event.value;
   }
 
-  upload() {
-    const folder_location = './uploads/' + this.dept_foldername + '/' + 'banner' + '/';
-    let formData = {
-      'folder_name': folder_location,
-      'baseImage': this.croppedImage
-    }
-    this.http.post(environment.rootUrl + 'upload/uploadBase', formData).subscribe((res: any) => {
-      this.filename = res;
-      this.bannerForm.patchValue({
-        linkurl: this.filename.filepath,
-        imagetype: this.pictype
-      });
+  upload_Picture(event: any) {
+    if (event) {
+      this.file = event[0];
+
+      const folder_location = './uploads/' + this.dept_foldername + '/' + 'banner' + '/';
+
+      if (this.file.size <= 3072000) {
+        const formData = new FormData();
+        formData.append('file', this.file);
+        formData.append('folder_name', folder_location);
+        this.http.post(environment.rootUrl + 'upload', formData).subscribe(res => {
+          this.filename = res;
+
+          this.bannerForm.patchValue({
+            linkurl: this.filename.filepath,
+            dept_id: this.dept_id
+
+          });
+
+          Swal.fire({
+            icon: 'success',
+            text: 'File Uploaded.',
+            timer: 2000
+          });
+        });
+
+      }
+      else {
+        Swal.fire({
+          icon: 'error',
+          text: 'Picture size should be less than 300KB.'
+        });
+        this.file = null;
+      }
+    } else {
       Swal.fire({
-        icon: 'success',
-        text: 'File Uploaded.',
-        timer: 2000
+        icon: 'error',
+        text: 'Only jpeg/png file accepted.'
       });
-    });
+      this.file = null;
+    }
   }
+
+
+
 
   save(form: NgForm) {
 
@@ -94,7 +113,7 @@ export class DeptpicComponent implements OnInit {
 
       Swal.fire({
         icon: 'success',
-        text: 'Department Details are Entered',
+        text: 'Data are Entered',
         timer: 5000
       });
 

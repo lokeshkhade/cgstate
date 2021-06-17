@@ -20,24 +20,25 @@ export class HomeComponent implements OnInit {
   public dept_id: any;
   deptdata: any = [];
   rootUrl = environment.rootUrl;
+  public gallery: any = [];
   public carousel: any = [
-    {
-      img: 'assets/images/carousel/01.jpg',
-      alt: '',
-      heading: 'State Capital Raipur'
-    }, {
-      img: 'assets/images/carousel/02.jpg',
-      alt: '',
-      heading: 'The Tribes of Chhattisgarh'
-    }, {
-      img: 'assets/images/carousel/03.jpg',
-      alt: '',
-      heading: 'Craft of Chhattisgarh'
-    }, {
-      img: 'assets/images/carousel/04.jpg',
-      alt: '',
-      heading: 'Places of Chhattisgarh'
-    },
+    // {
+    //   img: 'assets/images/carousel/01.jpg',
+    //   alt: '',
+    //   heading: 'State Capital Raipur'
+    // }, {
+    //   img: 'assets/images/carousel/02.jpg',
+    //   alt: '',
+    //   heading: 'The Tribes of Chhattisgarh'
+    // }, {
+    //   img: 'assets/images/carousel/03.jpg',
+    //   alt: '',
+    //   heading: 'Craft of Chhattisgarh'
+    // }, {
+    //   img: 'assets/images/carousel/04.jpg',
+    //   alt: '',
+    //   heading: 'Places of Chhattisgarh'
+    // },
   ]
 
   constructor(private http: HttpClient, private dp: DatePipe, private commonservice: CommonService) { }
@@ -45,6 +46,8 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.dept_id = 34;
     this.getDeptData(this.dept_id);
+    this.getDeptbanner(this.dept_id);
+    this.getDeptgallery(this.dept_id);
     this.currentdate = this.dp.transform(new Date().toISOString(), 'dd/MM/yyyy');
     this.yesterday = this.dp.transform((d => new Date(d.setDate(d.getDate() - 1)))(new Date).toISOString(), 'dd/MM/yyyy');
 
@@ -64,6 +67,19 @@ export class HomeComponent implements OnInit {
   getDeptData(dept_id: any) {
     this.commonservice.paramFunction('dept', this.dept_id).subscribe(res => {
       this.deptdata = res[0];
+    });
+  }
+
+
+  getDeptbanner(dept_id: any) {
+    this.commonservice.paramFunction('banner', this.dept_id).subscribe(res => {
+      this.carousel = res;
+    });
+  }
+
+  getDeptgallery(dept_id: any) {
+    this.commonservice.paramFunction('gallery', this.dept_id).subscribe(res => {
+      this.gallery = res;
     });
   }
 

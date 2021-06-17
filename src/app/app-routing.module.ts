@@ -1,3 +1,4 @@
+import { GalleryComponent } from './gallery/gallery.component';
 import { SchemedetailsComponent } from './schemedetails/schemedetails.component';
 import { ImpinfoComponent } from './impinfo/impinfo.component';
 import { SchemeComponent } from './scheme/scheme.component';
@@ -160,6 +161,16 @@ const routes: Routes = [
         component: SchemeComponent,
         data: {
           title: 'Scheme',
+          urls: [
+            { title: 'Home', url: '/home' }
+          ]
+        }
+      },
+      {
+        path: 'gallery',
+        component: GalleryComponent,
+        data: {
+          title: 'Gallery',
           urls: [
             { title: 'Home', url: '/home' }
           ]

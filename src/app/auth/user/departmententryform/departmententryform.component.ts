@@ -43,7 +43,6 @@ export class DepartmententryformComponent implements OnInit {
 
 
   ngOnInit(): void {
-
     let user = this.authservice.currentUser;
     this.dept_foldername = user.dept_foldername;
   }

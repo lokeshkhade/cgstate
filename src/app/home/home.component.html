@@ -70,9 +70,9 @@
                         </div>
                         <div class="carousel-item" *ngFor="let item of carousel">
 
-                            <img class="d-block w-100" [src]="item.img" alt="item.alt">
+                            <img class="d-block w-100" src="{{rootUrl + item.linkurl}}" alt="item.alt">
                             <div class="slide-caption text-center">
-                                <div class="h5">{{item.heading}}</div>
+                                <div class="h5">{{item.imagetitle_en}}</div>
                                 <p>&nbsp;</p>
                             </div>
                         </div>
@@ -86,7 +86,6 @@
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
-
             </div>
         </div>
         <marquee>
@@ -518,29 +517,10 @@
     <div class="imp-img-cir ">
         <div id="flexCarousel " class="flexslider carousel ">
             <owl-carousel-o [options]="customOptions ">
-                <ng-template carouselSlide>
+                <ng-template carouselSlide *ngFor="let item of gallery">
+                    <div class="card-header text-center">{{item.imagetitle_en}}</div>
                     <div class="card">
-                        <a target="_blank" href="http://www.nitrr.ac.in/"><img class="img-thumbnail" src="assets/images/big/nit.jpg " alt="Card image cap "></a>
-                    </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                    <div class="card">
-                        <a target="_blank" href="https://www.prsu.ac.in/"><img class="img-thumbnail" src="assets/images/big/rsu.jpg" alt="Card image cap "></a>
-                    </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                    <div class="card">
-                        <a target="_blank" href="https://www.aiimsraipur.edu.in/"><img class="img-thumbnail" src="assets/images/big/aiims.jpg " alt="Card image cap "></a>
-                    </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                    <div class="card">
-                        <a target="_blank" href="https://hnlu.ac.in/"><img class="img-thumbnail" src="assets/images/big/hidh.jpg " alt="Card image cap "></a>
-                    </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                    <div class="card">
-                        <a target="_blank" href="https://www.iimraipur.ac.in/"><img class="img-thumbnail" src="assets/images/big/iim.jpg " alt="Card image cap "></a>
+                        <a target="_blank" routerLink='/gallery'><img class="img-thumbnail" src="{{rootUrl + item.linkurl}} " alt="Card image cap "></a>
                     </div>
                 </ng-template>
             </owl-carousel-o>

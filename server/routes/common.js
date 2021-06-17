@@ -138,6 +138,33 @@ router.get('/dept/:dept_id', function(req, res, next) {
 
 });
 
+
+/////////////////////////////////////////////////////////////////////////
+
+router.get('/banner/:dept_id', function(req, res, next) {
+    common.getdeptbanner(req.params.dept_id, function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+
+});
+
+/////////////////////////////////////////////////////////////////////////
+
+router.get('/gallery/:dept_id', function(req, res, next) {
+    common.getdeptgallery(req.params.dept_id, function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+
+});
+
 /////////////////////////////////////////////////////////////////////////////////
 
 router.get('/organization', function(req, res) {

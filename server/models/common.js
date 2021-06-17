@@ -12,6 +12,14 @@ var common = {
         db.query(`select * from mas_dept where dept_id  = ?`, [dept_id], callback);
     },
 
+    getdeptbanner: function(dept_id, callback) {
+        db.query(`select * from main_banner where dept_id  = ? and isactive='Y' and imagetype='B'`, [dept_id], callback);
+    },
+
+    getdeptgallery: function(dept_id, callback) {
+        db.query(`select * from main_banner where dept_id  = ? and isactive='Y' and imagetype='G'`, [dept_id], callback);
+    },
+
     getdeptidbydomainname: function(domain_name, callback) {
         db.query(`Select dept_id from mas_dept where domain_name  = ?`, [domain_name], callback);
     },

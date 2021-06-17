@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card-header text-center">
+            <i class="fa fa-picture-o" aria-hidden="true"></i> Gallery
+        </div>
+    </div>
+</div>
+
+<div class="my-5" id="b-homedb">
+    <div class="container-fluid">
+        <div class="gallery-wrapper">
+            <div *ngFor="let item of gallery">
+                <div class="image-wrapper">
+                    <a href="#lightbox-image-1">
+                        <img src="{{rootUrl + item.linkurl}}" alt="">
+                        <div class="image-title">{{item.imagetitle_en}}</div>
+                    </a>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="gallery-lightboxes">
+            <div class="image-lightbox" id="lightbox-image-1">
+                <div class="image-lightbox-wrapper">
+                    <a href="#" class="close"></a>
+                    <a href="#lightbox-image-3" class="arrow-left"></a>
+                    <a href="#lightbox-image-2" class="arrow-right"></a>
+                    <img src="https://source.unsplash.com/F1Pb4g1C58E/600x500" alt="">
+                    <div class="image-title">Cat staring at me</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

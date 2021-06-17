@@ -24,66 +24,58 @@
                                         </mat-select>
                                     </mat-form-field>
                                 </div>
-
-
-                                <div class="col-md-12">
-
-                                    <mat-card class="card">
-                                        <mat-card-content>
-                                            <mat-card-title> </mat-card-title>
-                                            <div class="row">
-                                                <table>
-                                                    <tr>
-                                                        <td>
-                                                            <mat-form-field class="demo-full-width">
-                                                                <mat-label>Select Menu *</mat-label>
-                                                                <mat-select formControlName="pictype" (selectionChange)="getimagetype($event)">
-                                                                    <mat-option value="B"> Banner </mat-option>
-                                                                    <mat-option value="G"> Gallery </mat-option>
-                                                                </mat-select>
-                                                            </mat-form-field>
-                                                        </td>
-                                                        <td>Crop Image</td>
-                                                        <td>Preview</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <input type="file" (change)="fileChangeEvent($event)" />
-                                                        </td>
-                                                        <td>
-                                                            <image-cropper [imageChangedEvent]="imageChangedEvent" style="height: 450px;" [maintainAspectRatio]="false" [resizeToWidth]="1800" [resizeToHeight]="450" format="png" (imageCropped)="imageCropped($event)">
-                                                            </image-cropper>
-                                                        </td>
-                                                        <td>
-                                                            <img [src]="croppedImage" />
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-
-                                            <div class="row">
-                                                <button mat-raised-button color="primary" *ngIf="!cropped" [disabled]="!croppedImage" (click)="cropped=true; upload();" type="button">Crop</button>
-                                                <button mat-raised-button color="primary" *ngIf="cropped" [disabled]="!pictype" type="submit">Save</button>
-                                            </div>
-                                        </mat-card-content>
-                                    </mat-card>
-
-                                </div>
-
-                                <div class="col-md-12">
-
-
-                                </div>
-
-
                             </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-file-upload [labelText]="'Department Picture Upload'" [acceptedTypes]="'.png'" [selectButtonText]="'Select File'" [uploadButtonText]="'Upload'" [showUploadButton]="false" (selectedFilesChanged)="upload_Picture($event)" appearance="outline">
+                                    </mat-file-upload>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Image Title (English)</mat-label>
+                                        <input autocomplete="off" maxlength="50" matInput formControlName="imagetitle_en" #imagetitle_en>
+                                        <mat-hint align="end">{{imagetitle_en.value.length}} / 50</mat-hint>
+                                        <mat-error *ngIf="isValidInput('imagetitle_en')">
+                                            <mat-error *ngIf="bannerForm.controls['imagetitle_en'].errors.required">
+                                                Image Title is <strong>required</strong>.
+                                            </mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Image Title (Hindi)</mat-label>
+                                        <input autocomplete="off" maxlength="50" matInput formControlName="imagetitle_hn" #imagetitle_hn>
+                                        <mat-hint align="end">{{imagetitle_en.value.length}} / 50</mat-hint>
+                                        <mat-error *ngIf="isValidInput('imagetitle_hn')">
+                                            <mat-error *ngIf="bannerForm.controls['imagetitle_hn'].errors.required">
+                                                Image Title is <strong>required</strong>.
+                                            </mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+
 
                         </mat-card-content>
                     </mat-card>
 
                     <mat-card-header>
                         <div class="row">
-                            <button type="submit" class="btn btn-success" [disabled]="!bannerForm.valid">Save</button> &nbsp;&nbsp;
+                            <button type="submit" class="btn btn-success">Save</button> &nbsp;&nbsp;
                         </div>
                     </mat-card-header>
                 </form>

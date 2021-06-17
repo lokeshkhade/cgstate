@@ -36,6 +36,7 @@ import { ImpinfoComponent } from './impinfo/impinfo.component';
 import { DepartmentlistComponent } from './departmentlist/departmentlist.component';
 import { SchemedetailsComponent } from './schemedetails/schemedetails.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { GalleryComponent } from './gallery/gallery.component';
 
 
 @NgModule({
@@ -63,6 +64,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     ImpinfoComponent,
     DepartmentlistComponent,
     SchemedetailsComponent,
+    GalleryComponent,
 
   ],
   imports: [
