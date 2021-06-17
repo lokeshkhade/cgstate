@@ -53,8 +53,7 @@ const routes: Routes = [
         data: {
           title: 'How to Reach',
           urls: [
-            { title: 'Home', url: '/home' },
-            { title: 'About Chhattisgarh', url: '/aboutus' }
+            { title: 'Home', url: '/home' }
           ]
         }
       },
@@ -64,8 +63,7 @@ const routes: Routes = [
         data: {
           title: 'Education',
           urls: [
-            { title: 'Home', url: '/home' },
-            { title: 'About Chhattisgarh', url: '/aboutus' }
+            { title: 'Home', url: '/home' }
           ]
         }
       },
@@ -75,8 +73,7 @@ const routes: Routes = [
         data: {
           title: 'Districts',
           urls: [
-            { title: 'Home', url: '/home' },
-            { title: 'About Chhattisgarh', url: '/aboutus' }
+            { title: 'Home', url: '/home' }
           ]
         }
       },
@@ -124,18 +121,29 @@ const routes: Routes = [
         data: {
           title: 'Directory',
           urls: [
-            { title: 'Home', url: '/home' },
-            { title: 'Government' }
+            { title: 'Home', url: '/home' }
           ]
         }
       },
       {
         path: 'departments',
-        component: DepartmentsComponent
+        component: DepartmentsComponent,
+        data: {
+          title: 'Departments',
+          urls: [
+            { title: 'Home', url: '/home' }
+          ]
+        }
       },
       {
         path: 'departmentlist',
-        component: DepartmentlistComponent
+        component: DepartmentlistComponent,
+        data: {
+          title: 'Departments',
+          urls: [
+            { title: 'Home', url: '/home' }
+          ]
+        }
       },
       {
         path: 'census',
@@ -143,18 +151,19 @@ const routes: Routes = [
         data: {
           title: 'Census',
           urls: [
-            { title: 'Home', url: '/home' },
-            { title: 'About Chhattisgarh', url: '/aboutus' }
+            { title: 'Home', url: '/home' }
           ]
         }
       },
       {
-        path: 'education',
-        component: EducationComponent
-      },
-      {
         path: 'scheme',
-        component: SchemeComponent
+        component: SchemeComponent,
+        data: {
+          title: 'Scheme',
+          urls: [
+            { title: 'Home', url: '/home' }
+          ]
+        }
       }
     ]
   },

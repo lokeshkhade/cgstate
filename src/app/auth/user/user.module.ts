@@ -8,9 +8,10 @@ import { DeptconfigComponent } from './deptconfig/deptconfig.component';
 import { SchemeformComponent } from './schemeform/schemeform.component';
 import { DepartmententryformComponent } from './departmententryform/departmententryform.component';
 import { ImplinkformComponent } from './implinkform/implinkform.component';
+import { DeptpicComponent } from './deptpic/deptpic.component';
 
 @NgModule({
-  declarations: [UserDashboardComponent, UploadComponent, DeptconfigComponent, SchemeformComponent, DepartmententryformComponent, ImplinkformComponent],
+  declarations: [UserDashboardComponent, UploadComponent, DeptconfigComponent, SchemeformComponent, DepartmententryformComponent, ImplinkformComponent, DeptpicComponent],
   imports: [
     CommonModule,
     UserRoutingModule,

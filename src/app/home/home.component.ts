@@ -39,6 +39,7 @@ export class HomeComponent implements OnInit {
       heading: 'Places of Chhattisgarh'
     },
   ]
+
   constructor(private http: HttpClient, private dp: DatePipe, private commonservice: CommonService) { }
 
   ngOnInit(): void {

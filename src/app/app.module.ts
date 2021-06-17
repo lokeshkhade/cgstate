@@ -35,6 +35,7 @@ import { SchemeComponent } from './scheme/scheme.component';
 import { ImpinfoComponent } from './impinfo/impinfo.component';
 import { DepartmentlistComponent } from './departmentlist/departmentlist.component';
 import { SchemedetailsComponent } from './schemedetails/schemedetails.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 
 @NgModule({
@@ -70,6 +71,7 @@ import { SchemedetailsComponent } from './schemedetails/schemedetails.component'
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+    ImageCropperModule,
 
     JwtModule.forRoot({
       config: {

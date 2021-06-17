@@ -1,3 +1,4 @@
+import { DeptpicComponent } from './deptpic/deptpic.component';
 import { ImplinkformComponent } from './implinkform/implinkform.component';
 import { SchemeformComponent } from './schemeform/schemeform.component';
 import { DeptconfigComponent } from './deptconfig/deptconfig.component';
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'implinkform',
     component: ImplinkformComponent
+  },
+  {
+    path: 'deptpic',
+    component: DeptpicComponent
   }
 ];
 

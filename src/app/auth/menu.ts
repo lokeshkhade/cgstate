@@ -7,11 +7,16 @@ export const MENUITEMS = {
         { state: '/user/departmententryform', name: 'Department Form', type: 'link', icon: 'view_list' },
         { state: '/user/implinkform', name: 'Important Link Form', type: 'link', icon: 'view_list' },
         { state: '/user/schemeform', name: 'Scheme Form', type: 'link', icon: 'view_list' },
+        { state: '/user/deptpic', name: 'Image Upload', type: 'link', icon: 'view_list' },
+
     ],
     3: [
         { state: '/user/dashboard', name: 'Dashboard', type: 'link', icon: 'av_timer' },
         { state: '/user/deptconfig', name: 'Dept. Configuration', type: 'link', icon: 'av_timer' },
         { state: '/user/upload', name: 'Upload Noticeboard', type: 'link', icon: 'av_timer' },
+        { state: '/user/implinkform', name: 'Important Link Form', type: 'link', icon: 'view_list' },
+        { state: '/user/schemeform', name: 'Scheme Form', type: 'link', icon: 'view_list' },
+        { state: '/user/deptpic', name: 'Image Upload', type: 'link', icon: 'view_list' },
 
     ],
     1: [

@@ -1,0 +1,93 @@
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="bg-info p-2 text-white text-center">Note: Fields marked with <i class="fa fa-asterisk text-danger" aria-hidden="true"></i> are mandatory.</div>
+        <mat-card>
+            <mat-card-title class="text-center"><u>Upload Picture/Banner </u> </mat-card-title>
+            <hr>
+            <mat-card-content>
+                <form (ngSubmit)="save(bannerForm.value)" [formGroup]="bannerForm">
+                    <mat-card>
+                        <mat-card-header class="bg-secondary text-white">
+                            <mat-card-subtitle>Picture/Banner Upload</mat-card-subtitle>
+                        </mat-card-header>
+
+                        <mat-card-content>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Select Menu <span class="required"></span>
+                                        </mat-label>
+                                        <mat-select formControlName="imagetype" (selectionChange)="getimagetype($event)">
+                                            <mat-option value="B"> Banner </mat-option>
+                                            <mat-option value="G"> Gallery </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+
+
+                                <div class="col-md-12">
+
+                                    <mat-card class="card">
+                                        <mat-card-content>
+                                            <mat-card-title> </mat-card-title>
+                                            <div class="row">
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            <mat-form-field class="demo-full-width">
+                                                                <mat-label>Select Menu *</mat-label>
+                                                                <mat-select formControlName="pictype" (selectionChange)="getimagetype($event)">
+                                                                    <mat-option value="B"> Banner </mat-option>
+                                                                    <mat-option value="G"> Gallery </mat-option>
+                                                                </mat-select>
+                                                            </mat-form-field>
+                                                        </td>
+                                                        <td>Crop Image</td>
+                                                        <td>Preview</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <input type="file" (change)="fileChangeEvent($event)" />
+                                                        </td>
+                                                        <td>
+                                                            <image-cropper [imageChangedEvent]="imageChangedEvent" style="height: 450px;" [maintainAspectRatio]="false" [resizeToWidth]="1800" [resizeToHeight]="450" format="png" (imageCropped)="imageCropped($event)">
+                                                            </image-cropper>
+                                                        </td>
+                                                        <td>
+                                                            <img [src]="croppedImage" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+
+                                            <div class="row">
+                                                <button mat-raised-button color="primary" *ngIf="!cropped" [disabled]="!croppedImage" (click)="cropped=true; upload();" type="button">Crop</button>
+                                                <button mat-raised-button color="primary" *ngIf="cropped" [disabled]="!pictype" type="submit">Save</button>
+                                            </div>
+                                        </mat-card-content>
+                                    </mat-card>
+
+                                </div>
+
+                                <div class="col-md-12">
+
+
+                                </div>
+
+
+                            </div>
+
+                        </mat-card-content>
+                    </mat-card>
+
+                    <mat-card-header>
+                        <div class="row">
+                            <button type="submit" class="btn btn-success" [disabled]="!bannerForm.valid">Save</button> &nbsp;&nbsp;
+                        </div>
+                    </mat-card-header>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
