@@ -4,54 +4,27 @@
             <div class="col-12 col-sm-6 col-md-2 col-lg-2">
                 <div class="our-team">
                     <div class="picture">
-                        <img class="img-fluid" src="{{rootUrl + deptdata.cm_pic_url}}">
-                    </div>
-                    <div class="team-content">
-                        <h3 class="name">{{deptdata.cm_name_en}}</h3>
-                        <h4 class="title">{{deptdata.cm_post_en}} </h4>
-                    </div>
-                    <!-- <ul class="social">
-                <li>
-                    <a href="" class="fa fa-facebook" aria-hidden="true"></a>
-                </li>
-                <li>
-                    <a href="" class="fa fa-twitter" aria-hidden="true"></a>
-                </li>
-                <li>
-                    <a href="" class="fa fa-google-plus" aria-hidden="true"></a>
-                </li>
-                <li>
-                    <a href="" class="fa fa-linkedin" aria-hidden="true"></a>
-                </li>
-            </ul> -->
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-2 col-lg-2">
-                <div class="our-team">
-                    <div class="picture">
                         <img class="img-fluid" src="{{rootUrl + deptdata.dept_min_pic}}">
                     </div>
                     <div class="team-content">
                         <h3 class="name">{{deptdata.dept_minister_name_en}}</h3>
-                        <h4 class="title">{{deptdata.dept_minister_post_en}}</h4>
+                        <h4 class="title">{{deptdata.dept_minister_post_en}}<br> Chhattisgarh</h4>
                     </div>
-                    <!-- <ul class="social">
-                <li>
-                    <a href="" class="fa fa-facebook" aria-hidden="true"></a>
-                </li>
-                <li>
-                    <a href="" class="fa fa-twitter" aria-hidden="true"></a>
-                </li>
-                <li>
-                    <a href="" class="fa fa-google-plus" aria-hidden="true"></a>
-                </li>
-                <li>
-                    <a href="" class="fa fa-linkedin" aria-hidden="true"></a>
-                </li>
-            </ul> -->
                 </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-12 col-sm-6 col-md-2 col-lg-2">
+                <div class="card-body">
+                    <div class="row" *ngIf="news.length">
+                        <div class="col-md-6">
+                            <img class="img-fluid" src="{{rootUrl + deptdata.dept_min_pic}}">
+                            <h3 class="name">{{deptdata.dept_minister_name_en}}</h3>
+                            <h4 class="title">{{deptdata.dept_minister_post_en}}<br> Chhattisgarh</h4>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class=" col-md-8 ">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -69,10 +42,9 @@
                             </div>
                         </div>
                         <div class="carousel-item" *ngFor="let item of carousel">
-
-                            <img class="d-block w-100" [src]="item.img" alt="item.alt">
+                            <img class="d-block w-100" src="{{rootUrl + item.linkurl}}" alt="item.alt">
                             <div class="slide-caption text-center">
-                                <div class="h5">{{item.heading}}</div>
+                                <div class="h5">{{item.imagetitle_en}}</div>
                                 <p>&nbsp;</p>
                             </div>
                         </div>
@@ -89,341 +61,17 @@
             </div>
         </div>
         <marquee>
-            <p style="font-family: Impact; font-size: 10pt; color: rgb(32, 11, 126);">
+            <p style=" font-family: Impact; font-size: 10pt; color: rgb(32, 11, 126); ">
                 <i class='fa fa-bell faa-ring animated fa-2x'></i> This is the new website for CGSTATE-PORTAL
-                <a href="" target="_blank"><b>&nbsp;क्लिक करें</b></a>
+                <a href=" " target=" _blank "><b>&nbsp;क्लिक करें</b></a>
             </p>
         </marquee>
     </div>
 </div>
 
-<!-- <section id="fontSize" class="wrapper body-wrapper"> -->
-<!-- <div class="bg-wrapper top-bg-wrapper gray-bg padding-top-bott">
-    <div class=" body-container top-body-container padding-top-bott2">
-
-        <div class="row">
 
 
-            <div class="col-12 col-sm-6 col-md-4 col-lg-6">
-                <div class="card h-100">
-                    <div class="card-header">Notice Board</div>
-                    <div class="card-body">
-                        <ul class="list-group">
-                            <div *ngFor="let t of data">
-                                <li class="list-group-item">{{t.linkname}}
-                                    <a style="cursor: pointer;" target="_blank" href="{{rootUrl + t.menu_tab_linkurl}}">
-                                        <mat-icon>file_download</mat-icon>
-                                        <img src="../../assets/images/pdficon.jpg" alt="">
-                                    </a>
-                                </li>
-                            </div>
-                        </ul>
-                        <a class="read-more" routerLink='/noticeboard'>Read more</a>
-                    </div>
-                </div>
 
-            </div>
-        </div>
-
-        <div class="whats-new-maincontainer">
-            <div id="feedTab" class="container">
-                <ul class="nav nav-pills resp-tabs-list clearfix feedTab_1">
-                    <li> <a href="#1b" data-toggle="tab"><i class="fa fa-refresh"></i> Notice Board</a></li>
-                    <li> <a href="#2b" data-toggle="tab"><i class="fa fa-newspaper-o"></i> Important Information</a>
-                    </li>
-
-                </ul>
-                <div class="resp-tabs-container tab-content clearfix">
-                    <div class="tab-pane active" id="1b">
-                        <ul class="list-group">
-                            <div *ngFor="let t of data">
-                                <li class="list-group-item">{{t.linkname}}
-                                    <a style="cursor: pointer;" target="_blank" href="{{rootUrl + t.menu_tab_linkurl}}">
-                                        <mat-icon>file_download</mat-icon>
-                                        <img src="../../assets/images/pdficon.jpg" alt="">
-                                    </a>
-                                </li>
-                            </div>
-                        </ul>
-                        <a class="read-more" routerLink='/noticeboard'>Read more</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-
-<div class="my-5" id="b-homedb">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="card col-md-4 col-sm-6">
-                <div class="card-header text-center"> <i class="fa fa-bell" aria-hidden="true"></i> Notice Board</div>
-                <div class="card-body">
-                    <ul class="list-group">
-                        <div *ngFor="let t of data">
-                            <li class="list-group-item">{{t.linkname}}
-                                <a style="cursor: pointer;" target="_blank" href="{{rootUrl + t.menu_tab_linkurl}}">
-                                    <mat-icon>file_download</mat-icon>
-                                    <img src="../../assets/images/pdficon.jpg" alt="">
-                                </a>
-                            </li>
-                        </div>
-                    </ul>
-                    <a class="read-more" routerLink='/noticeboard'>Read more</a>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 item">
-                <div class="card-header text-center"> <i class="fa fa-newspaper-o" aria-hidden="true"></i> News</div>
-                <div class="card-body">
-                    <div class="row" *ngIf="news.length">
-                        <div class="col-md-6" *ngFor="let item of [0,1]">
-                            <img [src]="news[item].excerpt" alt="" style="width: 100%;height: 150px;">
-                            <h4>{{news[item].title}}</h4>
-                            <p [innerHtml]="news[item].content.substring(0,200)"></p>
-                        </div>
-                        <a class="read-more" routerLink='/news'>Read more</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card col-md-4 col-sm-6">
-                <div class="card-header text-center"> <i class="fa fa-info-circle" aria-hidden="true"></i> Important Information
-                </div>
-                <div class="card-body">
-                    <!-- <marquee direction="up"> -->
-                    <ul class="list-group">
-                        <div *ngFor="let t of impldata">
-                            <div *ngIf="t.flag == 'L'">
-                                <li class="list-group-item">
-                                    <a target="_blank" href="{{t.linkurl}}">{{t.linkname}}</a>
-                                </li>
-                            </div>
-                            <div *ngIf="t.flag == 'P'">
-                                <li class="list-group-item">{{t.linkname}}
-                                    <a target="_blank" href="{{t.linkurl}}">
-                                        <mat-icon>file_download</mat-icon>
-                                        <img src="../../assets/images/pdficon.jpg" alt="">
-                                    </a>
-                                </li>
-                            </div>
-                        </div>
-                    </ul>
-                    <!-- </marquee> -->
-                    <a class="read-more" routerLink='/impinfo'>Read more</a>
-                </div>
-            </div>
-
-
-        </div>
-    </div>
-</div>
-
-<div id="cards_landscape_wrap-2">
-
-    <div class="my-5" id="b-homedb">
-        <div class="container-fluid">
-            <div class="row">
-
-                <div class="card col-md-3 col-sm-6">
-                    <div class="card-header text-center">Chhattisgarh Profile</div>
-                    <div class="card-body">
-                        <p> <i class="fa fa-cubes" aria-hidden="true"></i>Established<span class="float-right">1st Nov
-                                2000</span></p>
-                        <p> <i class="fa fa-building" aria-hidden="true"></i> Capital <span class="float-right">
-                                Raipur</span></p>
-                        <p><i class="fa fa-building-o" aria-hidden="true"></i> Districts <span class="float-right">
-                                28</span></p>
-                        <p><i class="fa fa-street-view" aria-hidden="true"></i> Area <span class="float-right"> 1,35,194
-                                sq
-                                KM </span></p>
-                        <p>State animal <span class="float-right"> Van Bhainsa </span></p>
-                        <p> <i class="fal fa-crow"></i> State bird <span class="float-right">Pahari Myna </span>
-                        </p>
-                        <p>State tree <span class="float-right">Sal or Sarai </span> </p>
-
-                        <p><i class="fa fa-users" aria-hidden="true"></i> Population <span class="float-right">2,55,40,196</span></p>
-                        <p><i class="fa fa-male" aria-hidden="true"></i> Male <span class="float-right">
-                                1,28,27,915</span>
-                        </p>
-                        <p> <i class="fa fa-female" aria-hidden="true"></i> Female <span class="float-right">
-                                1,27,12,281</span></p>
-                        <p> <i class="fa fa-user" aria-hidden="true"></i> Sex Ratio <span class="float-right"> 991 for
-                                1000</span></p>
-                        <p> <i class="fa fa-child" aria-hidden="true"></i> Child Sex Ratio <span class="float-right">
-                                964
-                                for 1000 </span></p>
-                        <p> <i class="fa fa-graduation-cap" aria-hidden="true"></i> Literacy <span class="float-right">
-                                71.04 %</span></p>
-                        <p> <i class="fa fa-graduation-cap" aria-hidden="true"></i> Male Literacy <span class="float-right">81.45
-                                %</span>
-                        </p>
-                        <p> <i class="fa fa-graduation-cap" aria-hidden="true"></i> Female Literacy <span class="float-right">60.59
-                                %</span> </p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-sm-6 item">
-                    <div class="card-header text-center">Chhattisgarh Map</div>
-                    <div class="card-body">
-                        <img src="assets/images/cg.svg" alt="" style="width: 100%;height: 550px;">
-                        <!-- <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen
-                                    src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJrYt6xhYfJjoRlZ0X-xL0I1w&key=AIzaSyBDrzQ0rmz6lhDRFR-BasubOFs8kugnvGo"></iframe> -->
-                    </div>
-                </div>
-
-                <div class="card col-md-3 col-sm-6">
-                    <div class="card-header text-center">Administrative Setup</div>
-                    <div class="card-body">
-
-                        <p> <i class="fa fa-university" aria-hidden="true"></i> Vidhan Sabha <span class="float-right">
-                                91</span></p>
-
-                        <p> <i class="fa fa-university" aria-hidden="true"></i> Loksabha constitutions No. <span class="float-right"> 11 </span> </p>
-
-                        <p> <i class="fa fa-university" aria-hidden="true"></i> Rajyasabha constitutions No. <span class="float-right"> 05 </span> </p>
-
-                        <p> <i class="fa fa-money" aria-hidden="true"></i> Revenue divisions No. <span class="float-right">
-                                03</span></p>
-
-                        <p> <i class="fa fa-money" aria-hidden="true"></i> Revenue districts No. <span class="float-right">
-                                16</span></p>
-
-                        <!-- <p> <i class="fa fa-university" aria-hidden="true"></i>Tahsils No. <span class="float-right">
-                            96</span></p> -->
-
-                        <p> <i class="fa fa-gavel" aria-hidden="true"></i> Development Blocks No. <span class="float-right">
-                                146</span></p>
-
-                        <p> <i class="fa fa-home" aria-hidden="true"></i> Tribal Dev. Blocks No. <span class="float-right">
-                                85</span></p>
-
-                        <p> <i class="fa fa-home" aria-hidden="true"></i> Total Villages No. <span class="float-right">20378</span></p>
-
-                        <p> <i class="fa fa-home" aria-hidden="true"></i> Total Towns No. <span class="float-right">97</span></p>
-
-                        <p> <i class="fa fa-home" aria-hidden="true"></i> Municipal Corporation No. <span class="float-right">06</span></p>
-
-                        <p><i class="fa fa-building-o" aria-hidden="true"></i> Nagar Panchyat No. <span class="float-right">49</span></p>
-
-                        <p><i class="fa fa-building-o" aria-hidden="true"></i> District Panchyat No. <span class="float-right">16</span></p>
-
-                        <p> <i class="fa fa-building-o" aria-hidden="true"></i> Janpad Panchyat No. <span class="float-right">146</span></p>
-
-                        <p> <i class="fa fa-home" aria-hidden="true"></i> Gram Panchyat No. <span class="float-right">
-                                9139 </span> </p>
-
-                        <!-- <p> <i class="fa fa-university" aria-hidden="true"></i> Police Station No. <span class="float-right"> 263 </span> </p>
-
-                    <p> <i class="fa fa-university" aria-hidden="true"></i> Total Electrifies Villages No. <span class="float-right"> 18075 </span> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-</div>
-
-<div class="my-5" id="b-homedb">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center"> <i class="fa fa-external-link" aria-hidden="true"></i> Useful Links
-                    </div>
-                    <div class="card-body">
-                        <p class="text-red blink-hard"> <i class="fa fa-hand-o-right" aria-hidden="true"> </i>
-                            <a target="_blank" href="https://edistrict.cgstate.gov.in/PACE/login.do"> e-District</a>
-                            <span class="float-right"> </span>
-                        </p>
-                        <p class="text-red blink-hard"> <i class="fa fa-hand-o-right" aria-hidden="true"> </i>
-                            <a target="_blank" href="http://egazette.cg.nic.in/"> e-Gazette</a>
-                            <span class="float-right"> </span>
-                        </p>
-                        <p class="text-red blink-hard"> <i class="fa fa-hand-o-right" aria-hidden="true"> </i>
-                            <a target="_blank" href="https://chhattisgarh.nic.in/"> NIC Chhattisgarh</a>
-                            <span class="float-right"> </span>
-                        </p>
-
-                        <p class="text-red blink-hard"> <i class="fa fa-hand-o-right" aria-hidden="true"> </i>
-                            <a target="_blank" href="https://www.chhattisgarhtourism.in/"> Tourism Chhattisgarh</a>
-                            <span class="float-right"> </span>
-                        </p>
-
-                        <p class="text-red blink-hard"> <i class="fa fa-hand-o-right" aria-hidden="true"> </i>
-                            <a target="_blank" href=" http://deity.gov.in/"> Digital India</a>
-                            <span class="float-right"> </span>
-                        </p>
-
-                        <p class="text-red blink-hard"> <i class="fa fa-hand-o-right" aria-hidden="true"> </i>
-                            <a target="_blank" href="https://www.india.gov.in/"> National Portal </a>
-                            <span class="float-right"> </span>
-                        </p>
-
-                        <p class="text-red blink-hard"> <i class="fa fa-hand-o-right" aria-hidden="true"> </i>
-                            <a target="_blank" href="http://dprcg.gov.in/"> DPR Chhattisgarh </a>
-                            <span class="float-right"> </span>
-                        </p>
-
-                        <p class="text-red blink-hard"> <i class="fa fa-hand-o-right" aria-hidden="true"> </i>
-                            <a target="_blank" href="http://www.chips.gov.in/"> CHiPS Raipur </a>
-                            <span class="float-right"> </span>
-                        </p>
-
-                        <p class="text-red blink-hard"> <i class="fa fa-hand-o-right" aria-hidden="true"> </i>
-                            <a target="_blank" href="
-                                                    http://mit.gov.in/content/national-e-governance-plan"> National
-                                e-Governance</a>
-                            <span class="float-right"> </span>
-                        </p>
-
-                        <p class="text-red blink-hard"> <i class="fa fa-hand-o-right" aria-hidden="true"> </i>
-                            <a target="_blank" href="https://cg.nic.in/ias/"> IAS Establishment</a>
-                            <span class="float-right"> </span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center"> <i class="fa fa-facebook" aria-hidden="true"></i> CMO Facebook
-                    </div>
-                    <div class="card-body ">
-                        <div class="fb-page " data-href="https://www.facebook.com/ChhattisgarhCMO/ " data-tabs="timeline " data-width="600px" data-height="400px" data-small-header="false " data-adapt-container-width="true " data-hide-cover="false " data-show-facepile="true ">
-                            <blockquote cite="https://www.facebook.com/ChhattisgarhCMO/ " class="fb-xfbml-parse-ignore ">
-                                <a href="https://www.facebook.com/ChhattisgarhCMO/ ">CMO Chhattisgarh</a>
-                            </blockquote>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center"> <i class="fa fa-twitter" aria-hidden="true"></i> CMO Twitter
-                    </div>
-                    <div class="card-body ">
-                        <a class="twitter-timeline " data-width="600px" data-height="400px" data-small-header="false " data-adapt-container-width="true " data-hide-cover="false " data-show-facepile="true " data-theme="light" href="https://twitter.com/ChhattisgarhCMO?ref_src=twsrc%5Etfw ">Tweets by
-                            ChhattisgarhCMO</a>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center"> <i class="fa fa-file-text-o" aria-hidden="true"></i> CMO</div>
-                    <div class="card-body">
-                        <img src="assets/images/CM_Fund_27-Mar-2020.jpg" alt="" style="width: 100%;height: 350px;">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 
