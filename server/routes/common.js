@@ -65,6 +65,9 @@ router.get('/deptidbydomainname/:domain_name', function(req, res) {
         }
     });
 });
+
+/////////////////////////////////////////////////////////////
+
 router.get('/noticeboard', function(req, res) {
     common.getnoticeboard(function(err, rows) {
         if (err) {
@@ -129,6 +132,19 @@ router.get('/userid/:dept_id', function(req, res, next) {
 
 router.get('/dept/:dept_id', function(req, res, next) {
     common.getdeptdata(req.params.dept_id, function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+
+});
+
+//////////////////////////////////////////////////////////////////////////////
+
+router.get('/deptnoticeboard/:dept_id', function(req, res, next) {
+    common.getdeptnoticeboard(req.params.dept_id, function(err, rows) {
         if (err) {
             res.json(err);
         } else {

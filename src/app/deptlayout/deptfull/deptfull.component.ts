@@ -15,6 +15,7 @@ import { environment } from 'src/environments/environment';
 
 
 export class DeptfullComponent implements OnInit {
+
   public domain_name: any;
 
   news: any = [];
@@ -25,32 +26,16 @@ export class DeptfullComponent implements OnInit {
   yesterday: any;
   public dept_id: any;
   rootUrl = environment.rootUrl;
-  public carousel: any = [
-    {
-      img: 'assets/images/carousel/01.jpg',
-      alt: '',
-      heading: 'State Capital Raipur'
-    }, {
-      img: 'assets/images/carousel/02.jpg',
-      alt: '',
-      heading: 'The Tribes of Chhattisgarh'
-    }, {
-      img: 'assets/images/carousel/03.jpg',
-      alt: '',
-      heading: 'Craft of Chhattisgarh'
-    }, {
-      img: 'assets/images/carousel/04.jpg',
-      alt: '',
-      heading: 'Places of Chhattisgarh'
-    },
-  ]
+
 
   constructor(private http: HttpClient, private dp: DatePipe, private commonservice: CommonService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+
     this.domain_name = this.route.snapshot.paramMap.get('domain_name');
     console.log(this.domain_name);
     this.getDeptID();
+
   }
 
   getDeptID() {

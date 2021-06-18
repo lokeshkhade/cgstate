@@ -30,7 +30,7 @@ export class ImplinkformComponent implements OnInit {
   fileupload: any = false;
   user_id: any;
   folder_name: any;
-  public dept_id: any;
+  dept_id: any;
 
 
   constructor(private http: HttpClient, private commonservice: CommonService, private fb: FormBuilder, private datePipe: DatePipe, private authservice: AuthService) {
@@ -59,7 +59,11 @@ export class ImplinkformComponent implements OnInit {
     let user = this.authservice.currentUser;
     this.user_id = user.user_id;
     this.dept_id = user.dept_id;
+    console.log(this.dept_id);
     this.dept_foldername = user.dept_foldername;
+    this.implinkForm.patchValue({
+      dept_id: this.dept_id
+    });
   }
 
   addissuedate(type: string, event: MatDatepickerInputEvent<Date>) {

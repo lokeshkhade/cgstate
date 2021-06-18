@@ -4,6 +4,7 @@ var common = {
     getBlock: function(district_code, callback) {
         db.query(`SELECT DISTINCT BlockCode,BlockName FROM alldistrictblocksofcgs WHERE DistrictCode=? ORDER BY BlockName ASC`, [district_code], callback);
     },
+
     getuserid: function(dept_id, callback) {
         db.query(`select * from mas_users where dept_id  = ?`, [dept_id], callback);
     },
@@ -35,6 +36,10 @@ var common = {
 
     getnoticeboard: function(callback) {
         db.query(`select * from upload_data LIMIT 5`, callback);
+    },
+
+    getdeptnoticeboard: function(dept_id, callback) {
+        db.query(`select * from upload_data where dept_id  = ? order by issuedate LIMIT 5 `, [dept_id], callback);
     },
 
     getuploadmenu: function(callback) {

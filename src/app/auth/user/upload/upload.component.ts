@@ -106,18 +106,14 @@ export class UploadComponent implements OnInit {
   upload(event: any) {
     if (event) {
       this.file = event[0];
-
-
       const folder_location = './uploads/' + this.dept_foldername + '/' + this.seletedfolder + '/';
-
       if (this.file.type == "application/pdf") {
-        if (this.file.size <= 307200) {
+        if (this.file.size <= 3072000) {
           const formData = new FormData();
           formData.append('file', this.file);
           formData.append('folder_name', folder_location);
           this.http.post(environment.rootUrl + 'upload', formData).subscribe(res => {
             this.filename = res;
-
 
             this.uploadForm.patchValue({
               menu_tab_linkurl: this.filename.filepath,

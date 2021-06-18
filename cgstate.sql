@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `contact_details` (
   KEY `fk_department_id` (`department_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1277 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table cgstate.contact_details: ~1,280 rows (approximately)
+-- Dumping data for table cgstate.contact_details: ~1,249 rows (approximately)
 /*!40000 ALTER TABLE `contact_details` DISABLE KEYS */;
 INSERT INTO `contact_details` (`id`, `department_id`, `designation_id`, `name`, `home_address`, `office_address`, `siting_address`, `cont_personal_no`, `cont_personal_no_two`, `cont_office_no`, `cont_office_two`, `cont_fax`, `cont_fax_two`, `cont_email`, `constituency`, `nigam_city`, `district`, `pbx`, `vidhansabha_contact`) VALUES
 	(1, 1, 1, 'श्री प्रेम कुमार', 'एस-0/14, जे-13 ग्रीन आर्चिड काॅलोनी', 'दलदल सिवनी, मोवा रायपुर', '', '9406479108', '', '2510002', '', '2510622', 0, 'secyfcg@yahoo.com', NULL, NULL, NULL, NULL, NULL),
@@ -1554,7 +1554,7 @@ CREATE TABLE IF NOT EXISTS `main_banner` (
   `imagetitle_hn` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table cgstate.main_banner: ~0 rows (approximately)
+-- Dumping data for table cgstate.main_banner: ~16 rows (approximately)
 /*!40000 ALTER TABLE `main_banner` DISABLE KEYS */;
 INSERT INTO `main_banner` (`dept_id`, `imagetype`, `linkurl`, `isactive`, `imagetitle_en`, `imagetitle_hn`) VALUES
 	(34, 'B', 'cgstate/images/file-1623916240524.jpg', 'Y', 'State Capital Raipur', 'राज्य की राजधानी रायपुर'),
@@ -1568,8 +1568,29 @@ INSERT INTO `main_banner` (`dept_id`, `imagetype`, `linkurl`, `isactive`, `image
 	(50, 'B', 'eng/banner/file-1623929487253.jpg', 'Y', 'Chhattisgarh is the country\'s \'Power Hub\'', 'छत्तीसगढ़ देश का \'पावर हब\''),
 	(50, 'B', 'eng/banner/file-1623929544605.jpg', 'Y', 'Chhattisgarh is the country\'s \'Power Hub\'', 'छत्तीसगढ़ देश का \'पावर हब\''),
 	(50, 'B', 'eng/banner/file-1623929767291.jpg', 'Y', 'Chhattisgarh is the country\'s \'Power Hub\'', 'छत्तीसगढ़ देश का \'पावर हब\''),
-	(50, 'B', 'eng/banner/file-1623929891190.jpg', NULL, 'Chhattisgarh is the country\'s \'Power Hub\'', 'छत्तीसगढ़ देश का \'पावर हब\'');
+	(50, 'B', 'eng/banner/file-1623929891190.jpg', 'Y', 'Chhattisgarh is the country\'s \'Power Hub\'', 'छत्तीसगढ़ देश का \'पावर हब\''),
+	(50, 'G', 'eng/banner/file-1624000080470.jpg', 'Y', 'Energy Department', 'ऊर्जा विभाग'),
+	(50, 'G', 'eng/banner/file-1624000197103.jpg', 'Y', 'Energy Department', 'ऊर्जा विभाग'),
+	(50, 'G', 'eng/banner/file-1624000301143.jpg', 'Y', 'Energy Department', 'ऊर्जा विभाग'),
+	(50, 'G', 'eng/banner/file-1624000345062.jpg', NULL, 'Energy Department', 'ऊर्जा विभाग');
 /*!40000 ALTER TABLE `main_banner` ENABLE KEYS */;
+
+-- Dumping structure for table cgstate.main_card
+CREATE TABLE IF NOT EXISTS `main_card` (
+  `dept_id` int DEFAULT NULL,
+  `cardheader` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `cardflag` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `carddata` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `linkurl` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `isactive` char(1) DEFAULT NULL,
+  `linkname` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `issuedate` timestamp NULL DEFAULT NULL,
+  `validitydate` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Dumping data for table cgstate.main_card: ~0 rows (approximately)
+/*!40000 ALTER TABLE `main_card` DISABLE KEYS */;
+/*!40000 ALTER TABLE `main_card` ENABLE KEYS */;
 
 -- Dumping structure for table cgstate.main_department
 CREATE TABLE IF NOT EXISTS `main_department` (
@@ -1662,7 +1683,7 @@ CREATE TABLE IF NOT EXISTS `main_importantlink` (
   `isactive` char(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table cgstate.main_importantlink: ~10 rows (approximately)
+-- Dumping data for table cgstate.main_importantlink: ~13 rows (approximately)
 /*!40000 ALTER TABLE `main_importantlink` DISABLE KEYS */;
 INSERT INTO `main_importantlink` (`dept_id`, `linkname`, `linkurl`, `doctype`, `issuedate`, `validitydate`, `isactive`) VALUES
 	(NULL, 'Corona Guideline Link, Government Of Chhattisgarh', 'http://gad.cg.gov.in/cgcorona/', 'L', NULL, NULL, 'Y'),
@@ -1674,7 +1695,10 @@ INSERT INTO `main_importantlink` (`dept_id`, `linkname`, `linkurl`, `doctype`, `
 	(NULL, 'Budget 2019-20', 'http://finance.cg.gov.in/budget_doc/main_budget.asp?year1=2019', 'L', NULL, NULL, 'Y'),
 	(NULL, 'wwww', 'wwww', 'L', '2021-06-15 00:00:00', '2021-06-24 00:00:00', 'Y'),
 	(NULL, 'wcd', 'undefined/undefined/file-1623854529291.pdf', 'P', '2021-06-09 00:00:00', '2021-06-24 00:00:00', 'Y'),
-	(34, '15 /2021-2022 EE RWS&S Division, Kendrapara ', 'cgstate/impinfo/file-1623854956759.pdf', 'P', '2021-06-16 00:00:00', '2021-06-24 00:00:00', 'Y');
+	(34, '15 /2021-2022 EE RWS&S Division, Kendrapara ', 'cgstate/impinfo/file-1623854956759.pdf', 'P', '2021-06-16 00:00:00', '2021-06-24 00:00:00', 'Y'),
+	(50, 'Chhattisgarh State Electricity Regulatory Commission', 'http://cserc.gov.in/', 'L', '2021-06-18 00:00:00', '2021-10-30 00:00:00', 'Y'),
+	(50, 'Chhattisgarh State Renewable Energy Development Agency', 'http://www.creda.in/', 'L', '2021-06-18 00:00:00', '2021-07-31 00:00:00', 'Y'),
+	(50, 'Chhattisgarh State Power Distribution Company Limited', 'https://www.cspdcl.co.in/cseb/(S(gjkxzjbxyvtht33j1vv4zsht))/frmHome.aspx', 'L', '2021-06-18 00:00:00', '2021-07-31 00:00:00', 'Y');
 /*!40000 ALTER TABLE `main_importantlink` ENABLE KEYS */;
 
 -- Dumping structure for table cgstate.main_org_table
@@ -1684,7 +1708,7 @@ CREATE TABLE IF NOT EXISTS `main_org_table` (
   `org_type` varchar(1000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table cgstate.main_org_table: ~8 rows (approximately)
+-- Dumping data for table cgstate.main_org_table: ~9 rows (approximately)
 /*!40000 ALTER TABLE `main_org_table` DISABLE KEYS */;
 INSERT INTO `main_org_table` (`org_name`, `org_link`, `org_type`) VALUES
 	('Indian Institute of Technology Raipur', 'https://www.iitbhilai.ac.in/', 'E'),
@@ -1748,7 +1772,7 @@ CREATE TABLE IF NOT EXISTS `master_noticeboard` (
   PRIMARY KEY (`RowId`,`Dept_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table cgstate.master_noticeboard: ~1,522 rows (approximately)
+-- Dumping data for table cgstate.master_noticeboard: ~1,666 rows (approximately)
 /*!40000 ALTER TABLE `master_noticeboard` DISABLE KEYS */;
 INSERT INTO `master_noticeboard` (`RowId`, `Dept_id`, `Category_id`, `Description_E`, `Description_H`, `FilePath`, `FileSize`, `ContentType`, `WebUrl`, `Publishdate`, `PostInCGPortal`, `Status`, `entry_date`, `entry_time`, `entry_by_ip_address`, `entry_by_user_id`, `entry_by_user_name`, `modified_date`, `modified_time`, `modified_by_user_id`, `modified_by_user_name`, `modified_by_ip_address`) VALUES
 	(1, 0, 9, 'सूचना का अधिकार अधिनियम २००५ के तहत विभागीय जानकारी का स्पस्टीकर्ण - वन प्रबंध सूचना प्रणाली वन मंडल | date: 23.02.2013', 'सूचना का अधिकार अधिनियम २००५ के तहत विभागीय जानकारी का स्पस्टीकर्ण - वन प्रबंध सूचना प्रणाली वन मंडल | date: 23.02.2013', '~/CG-State-Portal/Notification/1__Page_Suchnao ka prakatikaran.pdf', '0', '', '', '2013-11-17', 'YES', '1', '2018-04-13', '12:00:00 PM', '', '001', 'Portal Admin', '2018-04-17', '03:23:56 PM', '001', 'Portal Admin', '::1'),
@@ -3456,7 +3480,7 @@ CREATE TABLE IF NOT EXISTS `mas_dept` (
   UNIQUE KEY `domain_name` (`domain_name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
 
--- Dumping data for table cgstate.mas_dept: ~7 rows (approximately)
+-- Dumping data for table cgstate.mas_dept: ~3 rows (approximately)
 /*!40000 ALTER TABLE `mas_dept` DISABLE KEYS */;
 INSERT INTO `mas_dept` (`dept_id`, `deptname_en`, `deptname_hn`, `dept_minister_name_en`, `dept_minister_name_hn`, `dept_minister_post_en`, `dept_minister_post_hn`, `dept_min_pic`, `deptlogo_dark_url`, `cm_pic_url`, `cm_name_hn`, `cm_name_en`, `cm_post_hn`, `cm_post_en`, `domain_name`) VALUES
 	(0, 'CG Portal Super Admin', 'CG Portal Super Admin', '', '', '', '', '', '', '', '', '', '', NULL, 'sup'),
@@ -3524,7 +3548,7 @@ CREATE TABLE IF NOT EXISTS `mas_menu_main` (
   `havechildren` char(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table cgstate.mas_menu_main: ~26 rows (approximately)
+-- Dumping data for table cgstate.mas_menu_main: ~27 rows (approximately)
 /*!40000 ALTER TABLE `mas_menu_main` DISABLE KEYS */;
 INSERT INTO `mas_menu_main` (`menu_code`, `menu_order`, `display_name`, `foldername`, `route`, `children`, `mainmenu_code`, `role`, `flag`, `uploadflag`, `create_date`, `icon`, `end_date`, `havechildren`) VALUES
 	(1, 1, 'Home', NULL, NULL, 0, 1, 1, 'Y', 'N', '2021-05-28 12:22:15', NULL, NULL, 'Y'),
@@ -3572,7 +3596,7 @@ CREATE TABLE IF NOT EXISTS `mas_users` (
   CONSTRAINT `dept_id` FOREIGN KEY (`dept_id`) REFERENCES `mas_dept` (`dept_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=140 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
--- Dumping data for table cgstate.mas_users: ~7 rows (approximately)
+-- Dumping data for table cgstate.mas_users: ~3 rows (approximately)
 /*!40000 ALTER TABLE `mas_users` DISABLE KEYS */;
 INSERT INTO `mas_users` (`user_id`, `password`, `dept_id`, `role`, `user_name`, `create_by`, `status`, `create_date`, `end_date`) VALUES
 	(100, '$2y$12$nDVW0JM9PUtfNkZs0o5/f.WBtOvisMisvrxZgxMj/9Rc907h7tQAa', 0, 1, 'Super Admin', NULL, 1, '2021-05-14 19:16:30', NULL),
@@ -5529,9 +5553,9 @@ CREATE TABLE IF NOT EXISTS `upload_data` (
   `issuedate` datetime DEFAULT NULL,
   `validitydate` datetime DEFAULT NULL,
   PRIMARY KEY (`linkid`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
 
--- Dumping data for table cgstate.upload_data: ~13 rows (approximately)
+-- Dumping data for table cgstate.upload_data: ~14 rows (approximately)
 /*!40000 ALTER TABLE `upload_data` DISABLE KEYS */;
 INSERT INTO `upload_data` (`linkid`, `menu_code`, `dept_id`, `linkname`, `menu_tab_linkurl`, `uploaddate`, `description_hn`, `description_en`, `issuedate`, `validitydate`) VALUES
 	(29, 9, 32, 'Corrigendum No. – 1, Dated 17/05/2021 Vacancy Notice No. CRCL - 17/2021 dated', 'lawdept/tenders/file-1622112574205.pdf', NULL, NULL, NULL, '2021-05-26 00:00:00', '2021-05-28 00:00:00'),
@@ -5545,10 +5569,9 @@ INSERT INTO `upload_data` (`linkid`, `menu_code`, `dept_id`, `linkname`, `menu_t
 	(37, 13, 32, 'Corrigendum No. – 1, Dated 17/05/2021 Vacancy Notice No. CRCL - 17/2021 dated 15.04.2021', 'lawdept/tenders/file-1622112574205.pdf', NULL, NULL, NULL, '2021-05-26 00:00:00', '2021-05-28 00:00:00'),
 	(38, 15, 32, 'Order No. एफ 7-1/2021/विमा.वि/45', 'lawdept/tenders/file-1622112574205.pdf', NULL, NULL, NULL, '2021-05-26 00:00:00', '2021-05-28 00:00:00'),
 	(40, 9, 34, 'Amendment No- 2, (Package -A) Request For Proposal (RFP) of Consultancy Services for Preparation of ', 'cgstate/tenders/file-1622815079545.pdf', NULL, NULL, NULL, '2021-06-22 00:00:00', '2021-06-21 00:00:00'),
-	(41, 13, 34, 'sdfsdfds', 'cgstate/recruitments/file-1622819909481.pdf', NULL, NULL, NULL, '2021-06-16 00:00:00', '2021-06-25 00:00:00'),
-	(42, 9, 0, 'rruyyuy', 'null/tenders/file-1622875637436.pdf', NULL, NULL, NULL, '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
 	(43, 9, 34, 'tender for new building', 'cgstate/tenders/file-1623221399759.pdf', NULL, NULL, NULL, '2021-06-11 00:00:00', '2021-06-25 00:00:00'),
-	(44, 9, 34, '15 /2021-2022 EE RWS&S Division, Kendrap', 'cgstate/tenders/file-1623577948305.pdf', NULL, NULL, NULL, '2021-06-13 00:00:00', '2021-06-18 00:00:00');
+	(44, 9, 34, '15 /2021-2022 EE RWS&S Division, Kendrap', 'cgstate/tenders/file-1623577948305.pdf', NULL, NULL, NULL, '2021-06-13 00:00:00', '2021-06-18 00:00:00'),
+	(45, 9, 50, 'Tender NO. T- 07/2012 for Appointment of Consultant for assistance to Commission in Scrutiny, Analysis and Disposal of Petitions to be filed by CSPGCL, CSPTCL, CSPDCL and SLDC for Truing up of previou', 'eng/tenders/file-1623997779357.pdf', NULL, NULL, NULL, '2021-06-18 00:00:00', '2021-07-31 00:00:00');
 /*!40000 ALTER TABLE `upload_data` ENABLE KEYS */;
 
 -- Dumping structure for table cgstate.upload_pic

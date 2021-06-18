@@ -2,27 +2,14 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-sm-6 col-md-2 col-lg-2">
-                <div class="our-team">
-                    <div class="picture">
-                        <img class="img-fluid" src="{{rootUrl + deptdata.dept_min_pic}}">
-                    </div>
-                    <div class="team-content">
-                        <h3 class="name">{{deptdata.dept_minister_name_en}}</h3>
-                        <h4 class="title">{{deptdata.dept_minister_post_en}}<br> Chhattisgarh</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-2 col-lg-2">
-                <div class="card-body">
-                    <div class="row" *ngIf="news.length">
-                        <div class="col-md-6">
-                            <img class="img-fluid" src="{{rootUrl + deptdata.dept_min_pic}}">
-                            <h3 class="name">{{deptdata.dept_minister_name_en}}</h3>
-                            <h4 class="title">{{deptdata.dept_minister_post_en}}<br> Chhattisgarh</h4>
-                        </div>
+                <div class="card text-center">
+                    <!-- <div class="card-header text-center">{{deptdata.cm_name_en}}</div> -->
+                    <div class="card-body">
+                        <img src="{{rootUrl + deptdata.dept_min_pic}}" alt="">
+                        <h3 class="name">{{deptdata.cm_name_en}}</h3>
+                        <h4 class="title">{{deptdata.cm_post_en}}<br> Chhattisgarh</h4>
                     </div>
                 </div>
-
             </div>
             <div class=" col-md-8 ">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -59,6 +46,16 @@
                     </a>
                 </div>
             </div>
+
+            <div class="col-12 col-sm-6 col-md-2 col-lg-2">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <img src="{{rootUrl + deptdata.dept_min_pic}}" alt="">
+                        <h3 class="name">{{deptdata.dept_minister_name_en}}</h3>
+                        <h4 class="title">{{deptdata.dept_minister_post_en}}</h4>
+                    </div>
+                </div>
+            </div>
         </div>
         <marquee>
             <p style=" font-family: Impact; font-size: 10pt; color: rgb(32, 11, 126); ">
@@ -66,6 +63,138 @@
                 <a href=" " target=" _blank "><b>&nbsp;क्लिक करें</b></a>
             </p>
         </marquee>
+    </div>
+</div>
+
+<div class="my-5" id="b-homedb">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card col-md-4 col-sm-6">
+                <div class="card-header text-center"> <i class="fa fa-bell" aria-hidden="true"></i> Notice Board</div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <div *ngFor="let t of noticeboarddata">
+                            <li class="list-group-item">{{t.linkname}}
+                                <a style="cursor: pointer;" target="_blank" href="{{rootUrl + t.menu_tab_linkurl}}">
+                                    <mat-icon>file_download</mat-icon>
+                                    <img src="../../assets/images/pdficon.jpg" alt="">
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                    <a class="read-more" routerLink='/noticeboard'>Read more</a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 item">
+                <div class="card-header text-center"> <i class="fa fa-newspaper-o" aria-hidden="true"></i> What's New
+                </div>
+                <div class="card-body">
+                    <div class="row" *ngIf="news.length">
+                        <div class="col-md-6" *ngFor="let item of [0,1]">
+
+                        </div>
+                        <a class="read-more" routerLink='/news'>Read more</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card col-md-4 col-sm-6">
+                <div class="card-header text-center"> <i class="fa fa-info-circle" aria-hidden="true"></i> Important Information
+                </div>
+                <div class="card-body">
+                    <!-- <marquee direction="up"> -->
+                    <ul class=" list-group ">
+                        <div *ngFor=" let t of impldata ">
+                            <div *ngIf=" t.doctype=='L' ">
+                                <li class=" list-group-item ">
+                                    <a target=" _blank " href=" {{t.linkurl}} ">{{t.linkname}}</a>
+                                </li>
+                            </div>
+                            <div *ngIf=" t.doctype=='P' ">
+                                <li class=" list-group-item ">{{t.linkname}}
+                                    <a target=" _blank " href=" {{rootUrl + t.linkurl}} ">
+                                        <mat-icon>file_download</mat-icon>
+                                        <img src=" ../../assets/images/pdficon.jpg " alt=" ">
+                                    </a>
+                                </li>
+                            </div>
+                        </div>
+                    </ul>
+                    <!-- </marquee> -->
+                    <a class="read-more" routerLink='/impinfo'>Read more</a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="my-5" id="b-homedb">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="card text-white h-100 ">
+                    <div class="card-header text-center"> <i class="fa fa-external-link" aria-hidden="true"></i> Useful Links
+                    </div>
+                    <div class="card-body">
+                        <p class="text-red blink-hard"> <i class="fa fa-hand-o-right" aria-hidden="true"> </i>
+                            <a target="_blank" href="https://edistrict.cgstate.gov.in/PACE/login.do"> e-District</a>
+                            <span class="float-right"> </span>
+                        </p>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="card text-white h-100 ">
+                    <div class="card-header text-center">
+                        <i class="fa fa-file-text-o" aria-hidden="true"></i> About Us
+                    </div>
+                    <div class="card-body ">
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="card text-white h-100 ">
+                    <div class="card-header text-center"> <i class="fa fa-file-text-o" aria-hidden="true"> </i> Downloads
+                    </div>
+                    <div class="card-body ">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="card text-white h-100 ">
+                    <div class="card-header text-center"> <i class="fa fa-file-text-o" aria-hidden="true"></i> Contact Us </div>
+                    <div class="card-body">
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="imp-img-cir ">
+        <div id="flexCarousel " class="flexslider carousel ">
+            <owl-carousel-o [options]="customOptions ">
+                <ng-template carouselSlide *ngFor="let item of gallery">
+                    <div class="card-header text-center">{{item.imagetitle_en}}</div>
+                    <div class="card">
+                        <a target="_blank" routerLink='/gallery'><img class="img-thumbnail" src="{{rootUrl + item.linkurl}} " alt="Card image cap "></a>
+                    </div>
+                </ng-template>
+            </owl-carousel-o>
+        </div>
     </div>
 </div>
 

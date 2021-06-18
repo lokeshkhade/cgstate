@@ -6,6 +6,8 @@ import { DeptfooterComponent } from './deptfooter/deptfooter.component';
 import { DeptfullComponent } from './deptfull/deptfull.component';
 import { DeptmenuComponent } from './deptmenu/deptmenu.component';
 import { DepthomeComponent } from './depthome/depthome.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+
 
 @NgModule({
   declarations: [DeptfooterComponent, DeptfullComponent, DeptmenuComponent, DepthomeComponent],
@@ -13,6 +15,7 @@ import { DepthomeComponent } from './depthome/depthome.component';
     CommonModule,
     DeptRoutingModule,
     MaterialModule,
+    CarouselModule
   ]
 })
 export class DeptModule { }
