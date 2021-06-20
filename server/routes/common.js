@@ -154,6 +154,19 @@ router.get('/deptnoticeboard/:dept_id', function(req, res, next) {
 
 });
 
+/////////////////////////////////////////////////////////////////////////
+
+router.get('/deptcard/:dept_id', function(req, res, next) {
+    common.getdeptcard(req.params.dept_id, function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+
+});
+
 
 /////////////////////////////////////////////////////////////////////////
 

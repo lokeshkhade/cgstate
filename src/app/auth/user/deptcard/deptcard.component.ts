@@ -22,9 +22,9 @@ export class DeptcardComponent implements OnInit {
   file: any = File;
   filename: any;
   public dept_foldername: any;
-  public showwebsite: any = false;
+  public showwebsite: any = true;
   public showpdf: any = false;
-  public showparagraph: any = true;
+  public showdata: any = false;
   events: string[] = [];
   public seletedfolder: any;
   public today = new Date();
@@ -37,13 +37,15 @@ export class DeptcardComponent implements OnInit {
   constructor(private http: HttpClient, private commonservice: CommonService, private fb: FormBuilder, private datePipe: DatePipe, private authservice: AuthService) {
 
     this.deptcardForm = this.fb.group({
-      linkname: ['', Validators.required],
-      linkurl: ['', Validators.required],
+      linkname: [],
+      linkurl: [],
+      cardheader: ['', Validators.required],
+      carddata: [],
       issuedate: [],
-      dept_id: [],
       validitydate: [],
+      dept_id: [],
       isactive: ['Y'],
-      doctype: []
+      cardflag: []
     });
 
   }
@@ -66,6 +68,52 @@ export class DeptcardComponent implements OnInit {
 
   }
 
+  upload(event: any) {
+
+    if (event) {
+      this.file = event[0];
+
+      this.seletedfolder = 'deptcard';
+      const folder_location = './uploads/' + this.dept_foldername + '/' + this.seletedfolder + '/';
+
+      if (this.file.type == "application/pdf") {
+        if (this.file.size <= 3072000) {
+          const formData = new FormData();
+          formData.append('file', this.file);
+          formData.append('folder_name', folder_location);
+          this.http.post(environment.rootUrl + 'upload', formData).subscribe(res => {
+            this.filename = res;
+
+            this.deptcardForm.patchValue({
+              linkurl: this.filename.filepath,
+              dept_id: this.dept_id
+            });
+
+            Swal.fire({
+              icon: 'success',
+              text: 'File Uploaded.',
+              timer: 2000
+            });
+          });
+
+        }
+        else {
+          Swal.fire({
+            icon: 'error',
+            text: 'Pdf size should be less than 300KB.'
+          });
+          this.file = null;
+        }
+      } else {
+        Swal.fire({
+          icon: 'error',
+          text: 'Only Pdf file accepted.'
+        });
+        this.file = null;
+      }
+    }
+  }
+
   addissuedate(type: string, event: MatDatepickerInputEvent<Date>) {
     this.events.push(`${type}: ${event.value}`);
     this.deptcardForm.patchValue({
@@ -82,10 +130,11 @@ export class DeptcardComponent implements OnInit {
   }
 
   onChange(event: any) {
-    if (event.value == 'L') { this.showwebsite = true; this.showpdf = false; this.showparagraph = false; }
-    if (event.value == 'P') { this.showpdf = true; this.showwebsite = false; this.showparagraph = false; }
-    if (event.value == 'D') { this.showparagraph = true; this.showwebsite = false; this.showpdf = false; }
+    if (event.value == 'L') { this.showwebsite = true; this.showpdf = false; this.showdata = false; }
+    if (event.value == 'P') { this.showpdf = true; this.showwebsite = false; this.showdata = false; }
+    if (event.value == 'D') { this.showdata = true; this.showwebsite = false; this.showpdf = false; }
   }
+
 
   save(form: NgForm) {
 

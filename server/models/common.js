@@ -38,6 +38,10 @@ var common = {
         db.query(`select * from upload_data LIMIT 5`, callback);
     },
 
+    getdeptcard: function(dept_id, callback) {
+        db.query(`select * from main_card where isactive='Y' and dept_id  = ? order by issuedate`, [dept_id], callback);
+    },
+
     getdeptnoticeboard: function(dept_id, callback) {
         db.query(`select * from upload_data where dept_id  = ? order by issuedate LIMIT 5 `, [dept_id], callback);
     },

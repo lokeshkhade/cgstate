@@ -16,6 +16,7 @@ export class DepthomeComponent implements OnInit {
   public domain_name: any;
   news: any = [];
   noticeboarddata: any = [];
+  cardddata: any = [];
   impldata: any = [];
   currentdate: any;
   yesterday: any;
@@ -51,6 +52,8 @@ export class DepthomeComponent implements OnInit {
       this.getDeptbanner(this.dept_id);
       this.getDeptgallery(this.dept_id);
 
+      this.getDeptcard(this.dept_id);
+
 
     });
   }
@@ -83,6 +86,12 @@ export class DepthomeComponent implements OnInit {
   getDeptgallery(dept_id: any) {
     this.commonservice.paramFunction('gallery', this.dept_id).subscribe(res => {
       this.gallery = res;
+    });
+  }
+
+  getDeptcard(dept_id: any) {
+    this.commonservice.paramFunction('deptcard', this.dept_id).subscribe(res => {
+      this.cardddata = res;
     });
   }
 
