@@ -94,15 +94,29 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <mat-file-upload [labelText]="'Departmental Minister Photo Upload'" [acceptedTypes]="'.png'" [selectButtonText]="'Select File'" [uploadButtonText]="'Upload'" [showUploadButton]="false" (selectedFilesChanged)="upload_DMPIC($event)" appearance="outline">
                                     </mat-file-upload>
                                 </div>
+                                <div class="col-md-6">
+                                    <div class="our-team">
+                                        <div class="picture">
+                                            <img class="img-fluid" [src]="dmpreviewimg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <mat-file-upload [labelText]="'Departmental LOGO Upload'" [acceptedTypes]="'.png'" [selectButtonText]="'Select File'" [uploadButtonText]="'Upload'" [showUploadButton]="false" (selectedFilesChanged)="upload_DLOGO($event)" appearance="outline">
                                     </mat-file-upload>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="our-team">
+                                        <div class="picture">
+                                            <img class="img-fluid" [src]="dlpreviewimg" alt="">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </mat-card-content>
@@ -165,9 +179,16 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <mat-file-upload [labelText]="'CM Photo Upload'" [acceptedTypes]="'.png'" [selectButtonText]="'Select File'" [uploadButtonText]="'Upload'" [showUploadButton]="false" (selectedFilesChanged)="upload_CMPIC($event)" appearance="outline">
                                     </mat-file-upload>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="our-team">
+                                        <div class="picture">
+                                            <img class="img-fluid" [src]="cmpreviewimg" alt="">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 

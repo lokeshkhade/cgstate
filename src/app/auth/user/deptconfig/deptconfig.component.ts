@@ -28,7 +28,9 @@ export class DeptconfigComponent implements OnInit {
   dept_post_hn: any;
   dept_post_en: any;
   public lable: any;
-
+  cmpreviewimg: any;
+  dmpreviewimg: any;
+  dlpreviewimg: any;
   constructor(private http: HttpClient, private commonservice: CommonService, private fb: FormBuilder, private datePipe: DatePipe, private authservice: AuthService) {
 
     this.deptconfigForm = this.fb.group({
@@ -88,6 +90,9 @@ export class DeptconfigComponent implements OnInit {
         cm_post_hn: this.deptdata.cm_post_hn,
 
       });
+      this.dmpreviewimg = environment.rootUrl + this.deptdata.dept_min_pic;
+      this.dlpreviewimg = environment.rootUrl + this.deptdata.deptlogo_dark_url;
+      this.cmpreviewimg = environment.rootUrl + this.deptdata.cm_pic_url;
     });
   }
 
@@ -102,45 +107,49 @@ export class DeptconfigComponent implements OnInit {
   }
 
   upload_CMPIC(event: any) {
+    console.log(event);
+
     if (event) {
       this.file = event[0];
-
       const folder_location = './uploads/' + this.dept_foldername + '/' + 'images' + '/';
+      if (this.file.type == 'image/png') {
+        if (this.file.size <= 3072000) {
+          const formData = new FormData();
+          formData.append('file', this.file);
+          formData.append('folder_name', folder_location);
 
-      if (this.file.size <= 3072000) {
-        const formData = new FormData();
-        formData.append('file', this.file);
-        formData.append('folder_name', folder_location);
-        this.http.post(environment.rootUrl + 'upload', formData).subscribe(res => {
-          this.filename = res;
+          this.http.post(environment.rootUrl + 'upload', formData).subscribe(res => {
+            this.filename = res;
 
+            this.cmpreviewimg = environment.rootUrl + this.filename.filepath
+            this.deptconfigForm.patchValue({
+              cm_pic_url: this.filename.filepath,
+              dept_id: this.dept_id
+            });
 
-          this.deptconfigForm.patchValue({
-            cm_pic_url: this.filename.filepath,
-            dept_id: this.dept_id
+            Swal.fire({
+              icon: 'success',
+              text: 'File Uploaded.',
+              timer: 2000
+            });
           });
 
+        } else {
           Swal.fire({
-            icon: 'success',
-            text: 'File Uploaded.',
-            timer: 2000
+            icon: 'error',
+            text: 'PNG size should be less than 300KB.'
           });
-        });
-
-      }
-      else {
+          this.file = null;
+        }
+      } else {
         Swal.fire({
           icon: 'error',
-          text: 'PNG size should be less than 300KB.'
+          text: 'Only png file accepted.'
         });
         this.file = null;
       }
     } else {
-      Swal.fire({
-        icon: 'error',
-        text: 'Only png file accepted.'
-      });
-      this.file = null;
+      this.cmpreviewimg = null;
     }
   }
 
@@ -148,38 +157,44 @@ export class DeptconfigComponent implements OnInit {
     if (event) {
       this.file = event[0];
       const folder_location = './uploads/' + this.dept_foldername + '/' + 'images' + '/';
-      if (this.file.size <= 3072000) {
-        const formData = new FormData();
-        formData.append('file', this.file);
-        formData.append('folder_name', folder_location);
-        this.http.post(environment.rootUrl + 'upload', formData).subscribe(res => {
-          this.filename = res;
-          this.deptconfigForm.patchValue({
-            dept_min_pic: this.filename.filepath,
-            dept_id: this.dept_id
+      if (this.file.type == 'image/png') {
+        if (this.file.size <= 3072000) {
+          const formData = new FormData();
+          formData.append('file', this.file);
+          formData.append('folder_name', folder_location);
+          this.http.post(environment.rootUrl + 'upload', formData).subscribe(res => {
+            this.filename = res;
+            this.dmpreviewimg = environment.rootUrl + this.filename.filepath;
+            this.deptconfigForm.patchValue({
+              dept_min_pic: this.filename.filepath,
+              dept_id: this.dept_id
+            });
+
+            Swal.fire({
+              icon: 'success',
+              text: 'File Uploaded.',
+              timer: 2000
+            });
           });
 
+        }
+        else {
           Swal.fire({
-            icon: 'success',
-            text: 'File Uploaded.',
-            timer: 2000
+            icon: 'error',
+            text: 'PNG size should be less than 300KB.'
           });
-        });
-
-      }
-      else {
+          this.file = null;
+        }
+      } else {
         Swal.fire({
           icon: 'error',
-          text: 'PNG size should be less than 300KB.'
+          text: 'Only png file accepted.'
         });
         this.file = null;
       }
-    } else {
-      Swal.fire({
-        icon: 'error',
-        text: 'Only png file accepted.'
-      });
-      this.file = null;
+    }
+    else {
+      this.dmpreviewimg = null;
     }
   }
 
@@ -187,42 +202,43 @@ export class DeptconfigComponent implements OnInit {
     if (event) {
       this.file = event[0];
       const folder_location = './uploads/' + this.dept_foldername + '/' + 'images' + '/';
-
-      if (this.file.size <= 3072000) {
-        const formData = new FormData();
-        formData.append('file', this.file);
-        formData.append('folder_name', folder_location);
-        this.http.post(environment.rootUrl + 'upload', formData).subscribe(res => {
-          this.filename = res;
-
-
-          this.deptconfigForm.patchValue({
-            deptlogo_dark_url: this.filename.filepath,
-            dept_id: this.dept_id
+      if (this.file.type == 'image/png') {
+        if (this.file.size <= 3072000) {
+          const formData = new FormData();
+          formData.append('file', this.file);
+          formData.append('folder_name', folder_location);
+          this.http.post(environment.rootUrl + 'upload', formData).subscribe(res => {
+            this.filename = res;
+            this.dlpreviewimg = environment.rootUrl + this.filename.filepath;
+            this.deptconfigForm.patchValue({
+              deptlogo_dark_url: this.filename.filepath,
+              dept_id: this.dept_id
+            });
+            Swal.fire({
+              icon: 'success',
+              text: 'File Uploaded.',
+              timer: 2000
+            });
           });
 
+        }
+        else {
           Swal.fire({
-            icon: 'success',
-            text: 'File Uploaded.',
-            timer: 2000
+            icon: 'error',
+            text: 'PNG size should be less than 300KB.'
           });
-        });
-
-      }
-      else {
+          this.file = null;
+        }
+      } else {
         Swal.fire({
           icon: 'error',
-          text: 'PNG size should be less than 300KB.'
+          text: 'Only png file accepted.'
         });
         this.file = null;
       }
-    } else {
-      Swal.fire({
-        icon: 'error',
-        text: 'Only png file accepted.'
-      });
-      this.file = null;
+    }
+    else {
+      this.dlpreviewimg = null;
     }
   }
-
 }
