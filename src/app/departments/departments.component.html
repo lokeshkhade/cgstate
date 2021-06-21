@@ -9,479 +9,61 @@
 <div class="my-5" id="b-homedb">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-black h-100 " style="background-color: rgb(16, 163, 29);">
-                    <div class="card-header text-center">Agriculture Department</div>
-                    <div class="card-body">
-                        <a target="_blank" href="http://agriportal.cg.nic.in/PortHi/"><img class="img-thumbnail" src="assets/images/department/krishi.png " alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-black h-100 " style="background-color: rgb(50, 104, 55);">
-                    <div class="card-header text-center">Animal Husbandary Development Department</div>
-                    <div class="card-body">
-                        <a target="_blank" href="https://agriportal.cg.nic.in/ahd/ahdHi/default.aspx"><img class="img-thumbnail" src="assets/images/department/vetlogo.png " alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
+            <div class="col-md-12">
 
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 " style="background-color: rgb(146, 79, 146);">
-                    <div class="card-header text-center">Chhattisgarh Board of Revenue Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="https://revenue.cg.nic.in/Default.aspx"><img class="img-thumbnail" src="assets/images/department/cglogo.png" alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
+                <mat-card>
+                    <mat-card-content>
+                        <mat-form-field>
+                            <mat-label>Filter</mat-label>
+                            <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+                        </mat-form-field>
 
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 " style="background-color: rgb(240, 222, 240);">
-                    <div class="card-header text-center">Chhattisgarh Professional Examination Board
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="https://vyapam.cgstate.gov.in/"><img class="card-img-top" src="assets/images/department/vyapam.jpg " alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
+                        <div class="mat-elevation-z8">
+                            <table mat-table [dataSource]="dataSource" matSort>
 
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 " style="background-color: rgb(216, 157, 216);">
-                    <div class="card-header text-center">Commerce and Industries Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="https://industries.cg.gov.in/"><img class="card-img-top" src="assets/images/department/cglogo.png" alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
+                                <!-- ID Column -->
+                                <ng-container matColumnDef="sn">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Sn. </th>
+                                    <td mat-cell *matCellDef="let row"> {{row.sn}} </td>
+                                </ng-container>
 
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 " style="background-color: rgb(146, 79, 146);">
-                    <div class="card-header text-center">Culture & Archaeology Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="http://www.cgculture.in/"><img class="card-img-top" src="assets/images/department/cglogo.png " alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                                <ng-container matColumnDef="deptname_en">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Department Name in English
+                                    </th>
+                                    <td mat-cell *matCellDef="let row"> {{row.deptname_en}} </td>
+                                </ng-container>
 
-<div class="my-5" id="b-homedb">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 " style="background-color: rgb(145, 236, 176);">
-                    <div class="card-header text-center">Department of Horticuture and Farm Forestry
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="http://agriportal.cg.nic.in/horticulture/HortiEn/Default.aspx "><img class="card-img-top" src="assets/images/department/hoticulture.png " alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
+                                <ng-container matColumnDef="deptname_hn">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Department Name in Hindi
+                                    </th>
+                                    <td mat-cell *matCellDef="let row"> {{row.deptname_hn}} </td>
+                                </ng-container>
 
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 " style="background-color: rgb(36, 165, 79);">
-                    <div class="card-header text-center">Electronics and Information Technology Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="http://www.chips.gov.in/"><img class="card-img-top" src="assets/images/department/Chips.jpg " alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
+                                <ng-container matColumnDef="domain_name">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Domain Name </th>
+                                    <td mat-cell *matCellDef="let row"> {{row.domain_name}} </td>
+                                </ng-container>
 
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Energy Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="https://www.cgstate.gov.in/web/department-of-energy/home"><img class="card-img-top" src="assets/images/department/cglogo.png " alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Food,Civil Supplies & Consumer Protection Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="http://khadya.cg.nic.in/Index.aspx"><img class="card-img-top" src="assets/images/department/cglogo.png " alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Fisheries Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="http://agriportal.cg.nic.in/fisheries/FishEn/Default.aspx"><img class="card-img-top" src="assets/images/department/logo_fish.jpg " alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
+                                <!-- Row shown when there is no matching data. -->
+                                <tr class="mat-row" *matNoDataRow>
+                                    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                                </tr>
+                            </table>
 
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Forest Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="http://www.cgforest.com/"><img class="card-img-top" src="assets/images/department/cglogo.png " alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="my-5" id="b-homedb">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">General Administration Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="https://gad.cg.gov.in/"><img class="card-img-top" src="assets/images/department/cglogo.png" alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Higher Education Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="http://highereducation.cg.gov.in/"><img class="card-img-top" src="assets/images/department/cglogo.png" alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Health & Family Welfare & Medical Education Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="http://www.cghealth.nic.in/cghealth17/"><img class="card-img-top" src="assets/images/department/cglogo.png" alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Jail Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="http://jail.cg.gov.in/index.html"><img class="card-img-top" src="assets/images/department/jail.gif" alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Labour Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="https://cglabour.nic.in/"><img class="card-img-top" src="assets/images/department/cglogo.png" alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Manpower Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="http://cgemployment.gov.in/"><img class="card-img-top" src="assets/images/department/cglogo.png" alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="my-5" id="b-homedb">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card text-white h-100 ">
-                        <div class="card-header text-center">Mining Department
+                            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
                         </div>
-                        <div class="card-body">
-                            <a target="_blank" href="http://chhattisgarhmines.gov.in//"><img class="card-img-top" src="assets/images/department/cglogo.png" alt="Card image cap "></a>
-                        </div>
-                    </div>
-                </div>
+
+                    </mat-card-content>
+
+
+                </mat-card>
+
             </div>
-
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Panchayat and Rural Development Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="http://prd.cg.gov.in/"><img class="card-img-top" src="assets/images/department/cglogo.png " alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Parliamentary Affairs Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="https://cgparliamentary.cgstate.gov.in/"><img class="card-img-top" src="assets/images/department/cglogo.png " alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Planning, Economics & Statistics Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="http://descg.gov.in/"><img class="card-img-top" src="assets/images/department/cglogo.png " alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Public Health Engineering Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="https://phed.cg.gov.in/en"><img class="card-img-top" src="assets/images/department/cglogo.png " alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Public Relation Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="http://www.dprcg.gov.in/"><img class="card-img-top" src="assets/images/department/cglogo.png " alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="my-5" id="b-homedb">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Public Work Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="https://pwd.cg.nic.in/"><img class="card-img-top" src="assets/images/department/cglogo.png " alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Panchayat and Rural Development Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="http://prd.cg.gov.in/"><img class="card-img-top" src="assets/images/department/cglogo.png " alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Redrassal of Public Grievances Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="https://janshikayat.cg.nic.in/"><img class="card-img-top" src="assets/images/department/cglogo.png" alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Registration and Stamp Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="https://igrs.cgstate.gov.in/"><img class="card-img-top" src="assets/images/department/cglogo.png" alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Resident Commissioner
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="http://rcchhattisgarh.gov.in/"><img class="card-img-top" src="assets/images/department/cglogo.png" alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Revenue and Disaster Management Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="https://revenue.cg.nic.in/"><img class="card-img-top" src="assets/images/department/revenue.jpg" alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="my-5" id="b-homedb">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Real Estate and Regulation Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="https://rera.cgstate.gov.in/#"><img class="card-img-top" src="assets/images/department/cglogo.png" alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Social Welfare Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="https://sw.cg.gov.in/en"><img class="card-img-top" src="assets/images/department/cglogo.png" alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">School Education Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="http://eduportal.cg.nic.in/"><img class="card-img-top" src="assets/images/department/cglogo.png" alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Science & Technology Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="http://cgcost.nic.in/privacy-policy"><img class="card-img-top" src="assets/images/department/cglogo.png" alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Scheduled Tribal and Scheduled Caste Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="http://tribal.cg.gov.in/privacy-policy"><img class="card-img-top" src="assets/images/department/cglogo.png" alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Sports Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="http://www.sportsyw.cg.gov.in/"><img class="card-img-top" src="assets/images/department/cglogo.png" alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="my-5" id="b-homedb">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Technical Education Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="https://cgdteraipur.cgstate.gov.in/"><img class="card-img-top" src="assets/images/department/cglogo.png" alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Tourism Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="https://www.chhattisgarhtourism.in/"><img class="card-img-top" src="assets/images/department/tourism.png" alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Town and Country Planning Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="http://tcp.cg.gov.in/"><img class="card-img-top" src="assets/images/department/cglogo.png" alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Transport Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="http://www.cgtransport.gov.in/"><img class="card-img-top" src="assets/images/department/transport.jpg" alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Urban Development Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="https://uad.cg.gov.in/"><img class="card-img-top" src="assets/images/department/cglogo.png" alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Water Resources Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="https://cgwrd.in/"><img class="card-img-top" src="assets/images/department/cglogo.png" alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="my-5" id="b-homedb">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-2 col-sm-6">
-                <div class="card text-white h-100 ">
-                    <div class="card-header text-center">Women and Child Development Department
-                    </div>
-                    <div class="card-body">
-                        <a target="_blank" href="http://cgwcd.gov.in/"><img class="card-img-top" src="assets/images/department/cglogo.png" alt="Card image cap "></a>
-                    </div>
-                </div>
-            </div>
-
-
         </div>
     </div>
 </div>

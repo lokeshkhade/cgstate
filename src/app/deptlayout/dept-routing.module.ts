@@ -20,11 +20,10 @@ const routes: Routes = [
         component: DepthomeComponent
       },
       {
-        path: '/deptaboutus',
+        path: 'deptaboutus',
         component: DeptaboutusComponent
       }
     ]
-
   },
 
 ];

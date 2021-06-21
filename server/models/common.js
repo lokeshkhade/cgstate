@@ -73,9 +73,12 @@ var common = {
 
     },
 
-
     getdeptlist: function(callback) {
         db.query(`select * from main_department WHERE isactive='Y' and display = 'M' ORDER BY dept_id`, callback);
+    },
+
+    getalldeptlist: function(callback) {
+        db.query(`select * from main_department WHERE isactive='Y' and display = 'O' ORDER BY dept_id`, callback);
     },
 
 

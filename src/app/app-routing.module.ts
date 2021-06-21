@@ -130,9 +130,10 @@ const routes: Routes = [
         path: 'departments',
         component: DepartmentsComponent,
         data: {
-          title: 'Departments',
+          title: 'Departments All',
           urls: [
-            { title: 'Home', url: '/home' }
+            { title: 'Home', url: '/home' },
+            { title: 'Departments', url: '/departmentlist' },
           ]
         }
       },

@@ -1,17 +1,17 @@
 export const Menus: any[] = [
     {
-        path: '/home',
+        path: '/depthome',
         title: 'Home',
         icon: '',
         submenu: []
     },
     {
-        path: '/deptaboutus',
+        path: '',
         title: 'About Us',
         icon: '',
         submenu: [
             {
-                path: '/dept/:domain_name/deptaboutus',
+                path: '/dept/haz/deptaboutus',
                 title: 'About Department',
                 icon: '',
                 submenu: []
@@ -38,7 +38,7 @@ export const Menus: any[] = [
         icon: '',
         submenu: [
             {
-                path: '/deptaboutus',
+                path: '/dept/haz/deptaboutus',
                 title: 'Contact Info.',
                 icon: '',
                 submenu: []

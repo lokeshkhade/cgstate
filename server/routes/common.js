@@ -208,6 +208,18 @@ router.get('/organization', function(req, res) {
 
 /////////////////////////////////////////////////////////////////////////////////
 
+router.get('/alldept', function(req, res) {
+    common.getalldeptlist(function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+});
+
+/////////////////////////////////////////////////////////////////////////////////
+
 router.get('/impinformation/:dept_id', function(req, res, next) {
     common.getimpinformation(req.params.dept_id, function(err, rows) {
         if (err) {
