@@ -5,44 +5,14 @@ export const Menus: any[] = [
         icon: '',
         submenu: []
     },
-    // {
-    //     path: '/registration',
-    //     title: 'Drugs & cosmetics License/Registration',
-    //     icon: '',
-    //     submenu: []
-    // },
     {
-        path: '',
-        title: 'About Chhattisgarh',
+        path: '/deptaboutus',
+        title: 'About Us',
         icon: '',
         submenu: [
             {
-                path: '/aboutus',
-                title: 'About Chhattisgarh',
-                icon: '',
-                submenu: []
-            },
-            {
-                path: '/reach',
-                title: 'How to Reach',
-                icon: '',
-                submenu: []
-            },
-            {
-                path: '/districts',
-                title: 'Districts',
-                icon: '',
-                submenu: []
-            },
-            {
-                path: '/census',
-                title: 'Census',
-                icon: '',
-                submenu: []
-            },
-            {
-                path: '/education',
-                title: 'Educational Institutions',
+                path: '/dept/:domain_name/deptaboutus',
+                title: 'About Department',
                 icon: '',
                 submenu: []
             }
@@ -50,30 +20,30 @@ export const Menus: any[] = [
     },
     {
         path: '',
-        title: 'Government',
+        title: 'Downloads',
         icon: '',
         submenu: [
             {
-                path: '',
-                title: 'Acts and Rules',
+                path: '/dept/haz/deptaboutus',
+                title: 'Forms/Documents',
                 icon: '',
                 submenu: []
-            }, {
-                path: '/scheme',
-                title: 'Schemes',
-                icon: '',
-                submenu: []
-            }, {
-                path: '/departments',
-                title: 'Departments',
-                icon: '',
-                submenu: []
-            }, {
-                path: '/directory',
-                title: 'Directory',
-                icon: '',
-                submenu: []
-            },
+            }
+
         ]
     },
+    {
+        path: '',
+        title: 'Contact Us',
+        icon: '',
+        submenu: [
+            {
+                path: '/deptaboutus',
+                title: 'Contact Info.',
+                icon: '',
+                submenu: []
+            }
+
+        ]
+    }
 ];

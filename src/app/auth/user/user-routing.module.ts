@@ -1,3 +1,4 @@
+import { WhatsnewComponent } from './whatsnew/whatsnew.component';
 import { DeptcardComponent } from './deptcard/deptcard.component';
 import { DeptpicComponent } from './deptpic/deptpic.component';
 import { ImplinkformComponent } from './implinkform/implinkform.component';
@@ -42,6 +43,10 @@ const routes: Routes = [
   {
     path: 'deptcard',
     component: DeptcardComponent
+  },
+  {
+    path: 'whatsnew',
+    component: WhatsnewComponent
   }
 ];
 

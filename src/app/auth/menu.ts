@@ -18,6 +18,7 @@ export const MENUITEMS = {
         { state: '/user/schemeform', name: 'Scheme Form', type: 'link', icon: 'view_list' },
         { state: '/user/deptpic', name: 'Image Upload', type: 'link', icon: 'view_list' },
         { state: '/user/deptcard', name: 'Dept. Card', type: 'link', icon: 'view_list' },
+        { state: '/user/whatsnew', name: 'Whats New', type: 'link', icon: 'view_list' },
 
     ],
     1: [

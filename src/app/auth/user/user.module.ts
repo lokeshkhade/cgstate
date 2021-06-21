@@ -11,9 +11,10 @@ import { ImplinkformComponent } from './implinkform/implinkform.component';
 import { DeptpicComponent } from './deptpic/deptpic.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { DeptcardComponent } from './deptcard/deptcard.component';
+import { WhatsnewComponent } from './whatsnew/whatsnew.component';
 
 @NgModule({
-  declarations: [UserDashboardComponent, UploadComponent, DeptconfigComponent, SchemeformComponent, DepartmententryformComponent, ImplinkformComponent, DeptpicComponent, DeptcardComponent],
+  declarations: [UserDashboardComponent, UploadComponent, DeptconfigComponent, SchemeformComponent, DepartmententryformComponent, ImplinkformComponent, DeptpicComponent, DeptcardComponent, WhatsnewComponent],
   imports: [
     CommonModule,
     UserRoutingModule,

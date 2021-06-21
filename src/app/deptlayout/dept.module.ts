@@ -7,10 +7,11 @@ import { DeptfullComponent } from './deptfull/deptfull.component';
 import { DeptmenuComponent } from './deptmenu/deptmenu.component';
 import { DepthomeComponent } from './depthome/depthome.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { DeptaboutusComponent } from './deptaboutus/deptaboutus.component';
 
 
 @NgModule({
-  declarations: [DeptfooterComponent, DeptfullComponent, DeptmenuComponent, DepthomeComponent],
+  declarations: [DeptfooterComponent, DeptfullComponent, DeptmenuComponent, DepthomeComponent, DeptaboutusComponent],
   imports: [
     CommonModule,
     DeptRoutingModule,

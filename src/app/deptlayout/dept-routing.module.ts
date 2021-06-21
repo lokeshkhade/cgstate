@@ -1,3 +1,4 @@
+import { DeptaboutusComponent } from './deptaboutus/deptaboutus.component';
 import { DepthomeComponent } from './depthome/depthome.component';
 import { DeptfullComponent } from './deptfull/deptfull.component';
 import { NgModule } from '@angular/core';
@@ -17,11 +18,14 @@ const routes: Routes = [
       {
         path: '',
         component: DepthomeComponent
+      },
+      {
+        path: '/deptaboutus',
+        component: DeptaboutusComponent
       }
     ]
 
   },
-
 
 ];
 

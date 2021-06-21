@@ -31,6 +31,7 @@ export class DeptconfigComponent implements OnInit {
   cmpreviewimg: any;
   dmpreviewimg: any;
   dlpreviewimg: any;
+
   constructor(private http: HttpClient, private commonservice: CommonService, private fb: FormBuilder, private datePipe: DatePipe, private authservice: AuthService) {
 
     this.deptconfigForm = this.fb.group({
@@ -157,7 +158,7 @@ export class DeptconfigComponent implements OnInit {
     if (event) {
       this.file = event[0];
       const folder_location = './uploads/' + this.dept_foldername + '/' + 'images' + '/';
-      if (this.file.type == 'image/png') {
+      if (this.file.type == 'image/jpg') {
         if (this.file.size <= 3072000) {
           const formData = new FormData();
           formData.append('file', this.file);
@@ -181,14 +182,14 @@ export class DeptconfigComponent implements OnInit {
         else {
           Swal.fire({
             icon: 'error',
-            text: 'PNG size should be less than 300KB.'
+            text: 'Image size should be less than 300KB.'
           });
           this.file = null;
         }
       } else {
         Swal.fire({
           icon: 'error',
-          text: 'Only png file accepted.'
+          text: 'Only jpg/png file accepted.'
         });
         this.file = null;
       }
