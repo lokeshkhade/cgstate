@@ -62,9 +62,12 @@ export class ImplinkformComponent implements OnInit {
     console.log(this.dept_id);
     this.dept_foldername = user.dept_foldername;
     this.implinkForm.patchValue({
-      dept_id: this.dept_id
+      dept_id: this.dept_id,
+      isactive: 'Y'
     });
   }
+
+  /////////////////////////////////////////
 
   addissuedate(type: string, event: MatDatepickerInputEvent<Date>) {
     this.events.push(`${type}: ${event.value}`);
@@ -81,7 +84,7 @@ export class ImplinkformComponent implements OnInit {
     });
   }
 
-
+  //////////////////////////////////////////
 
   upload(event: any) {
 
@@ -101,7 +104,8 @@ export class ImplinkformComponent implements OnInit {
 
             this.implinkForm.patchValue({
               linkurl: this.filename.filepath,
-              dept_id: this.dept_id
+              dept_id: this.dept_id,
+              isactive: 'Y'
             });
 
             Swal.fire({
@@ -129,6 +133,8 @@ export class ImplinkformComponent implements OnInit {
     }
   }
 
+  /////////////////////////////////////////////////
+
   save(form: NgForm) {
 
     this.commonservice.insert(form, 'main_importantlink').subscribe(res => {
@@ -144,6 +150,8 @@ export class ImplinkformComponent implements OnInit {
     this.implinkForm.reset();
 
   }
+
+  ////////////////////////////////////////////
 
   onChange(event: any) {
     if (event.value == 'L') { this.showwebsite = true; this.showpdf = false; }

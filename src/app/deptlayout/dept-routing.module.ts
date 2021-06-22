@@ -6,6 +6,8 @@ import { DepthomeComponent } from './depthome/depthome.component';
 import { DeptfullComponent } from './deptfull/deptfull.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DeptimpinfoComponent } from './deptimpinfo/deptimpinfo.component';
+import { DeptnewComponent } from './deptnew/deptnew.component';
 
 
 const routes: Routes = [
@@ -37,6 +39,14 @@ const routes: Routes = [
       {
         path: 'deptnotice',
         component: DeptnoticeComponent
+      },
+      {
+        path: 'deptimpinfo',
+        component: DeptimpinfoComponent
+      },
+      {
+        path: 'deptnew',
+        component: DeptnewComponent
       }
     ]
   },
