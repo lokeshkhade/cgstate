@@ -54,7 +54,6 @@ export class UploadComponent implements OnInit {
   ngOnInit(): void {
 
     let user = this.authservice.currentUser;
-
     this.user_id = user.user_id;
     this.dept_id = user.dept_id;
     this.dept_foldername = user.dept_foldername;
@@ -145,7 +144,4 @@ export class UploadComponent implements OnInit {
       }
     }
   }
-
-
-
 }

@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
   constructor(private http: HttpClient, private dp: DatePipe, private commonservice: CommonService) { }
 
   ngOnInit(): void {
-    this.dept_id = 34;
+    this.dept_id = 1;
     this.getDeptData(this.dept_id);
     this.getDeptbanner(this.dept_id);
     this.getDeptgallery(this.dept_id);

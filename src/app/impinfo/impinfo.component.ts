@@ -26,7 +26,7 @@ export class ImpinfoComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.dept_id = 34;
+    this.dept_id = 1;
     this.getimpinfo();
 
   }

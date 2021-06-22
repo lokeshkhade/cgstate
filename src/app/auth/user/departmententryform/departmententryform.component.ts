@@ -95,8 +95,6 @@ export class DepartmententryformComponent implements OnInit {
         dept_id: this.deptdata.dept_id
       });
     });
-
-
   }
 
 
@@ -113,10 +111,8 @@ export class DepartmententryformComponent implements OnInit {
         this.http.post(environment.rootUrl + 'upload', formData).subscribe(res => {
           this.filename = res;
 
-
           this.deptentryForm.patchValue({
             logourl: this.filename.filepath,
-
           });
 
           Swal.fire({
@@ -171,6 +167,7 @@ export class DepartmententryformComponent implements OnInit {
     }
 
     this.deptentryForm.reset();
+    this.getAllDept();
 
   }
 

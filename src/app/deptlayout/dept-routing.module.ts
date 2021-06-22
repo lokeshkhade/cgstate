@@ -1,3 +1,6 @@
+import { DeptnoticeComponent } from './deptnotice/deptnotice.component';
+import { DeptcontactComponent } from './deptcontact/deptcontact.component';
+import { DeptdownloadComponent } from './deptdownload/deptdownload.component';
 import { DeptaboutusComponent } from './deptaboutus/deptaboutus.component';
 import { DepthomeComponent } from './depthome/depthome.component';
 import { DeptfullComponent } from './deptfull/deptfull.component';
@@ -22,6 +25,18 @@ const routes: Routes = [
       {
         path: 'deptaboutus',
         component: DeptaboutusComponent
+      },
+      {
+        path: 'deptdownload',
+        component: DeptdownloadComponent
+      },
+      {
+        path: 'deptcontact',
+        component: DeptcontactComponent
+      },
+      {
+        path: 'deptnotice',
+        component: DeptnoticeComponent
       }
     ]
   },

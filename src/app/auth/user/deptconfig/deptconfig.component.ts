@@ -158,7 +158,7 @@ export class DeptconfigComponent implements OnInit {
     if (event) {
       this.file = event[0];
       const folder_location = './uploads/' + this.dept_foldername + '/' + 'images' + '/';
-      if (this.file.type == 'image/jpg') {
+      if (this.file.type == 'image/png') {
         if (this.file.size <= 3072000) {
           const formData = new FormData();
           formData.append('file', this.file);
