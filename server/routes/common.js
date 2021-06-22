@@ -208,8 +208,8 @@ router.get('/organization', function(req, res) {
 
 /////////////////////////////////////////////////////////////////////////////////
 
-router.get('/alldept', function(req, res) {
-    common.getalldeptlist(function(err, rows) {
+router.get('/alldept/:dept_id', function(req, res) {
+    common.getalldeptlist(req.params.dept_id, function(err, rows) {
         if (err) {
             res.json(err);
         } else {
@@ -386,6 +386,7 @@ router.post('/insert/:table_name', function(req, res, next) {
 
 router.put('/update/:table_name', function(req, res, next) {
     var data = req.body;
+    console.log(data);
     var query = "UPDATE ?? set ? WHERE dept_id=?";
     var tablename = req.params.table_name;
 

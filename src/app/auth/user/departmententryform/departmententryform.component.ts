@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonService } from './../../../services/common.service';
 import { AuthService } from './../../../services/auth.service';
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
@@ -8,6 +8,9 @@ import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { environment } from 'src/environments/environment';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-departmententryform',
@@ -21,6 +24,12 @@ export class DepartmententryformComponent implements OnInit {
   file: any = File;
   filename: any;
   public dept_foldername: any;
+  public data: any = [];
+  public deptdata: any = [];
+  displayedColumns: string[] = ['sn', 'deptname_en', 'deptname_hn', 'websitelink', 'EditData'];
+  dataSource: MatTableDataSource<any>;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(private http: HttpClient, private commonservice: CommonService, private fb: FormBuilder, private datePipe: DatePipe, private authservice: AuthService) {
 
@@ -32,7 +41,8 @@ export class DepartmententryformComponent implements OnInit {
       logourl: [],
       contactno: ['', Validators.required],
       display: ['O'],
-      isactive: ['Y']
+      isactive: ['Y'],
+      dept_id: []
     });
   }
 
@@ -45,8 +55,49 @@ export class DepartmententryformComponent implements OnInit {
   ngOnInit(): void {
     let user = this.authservice.currentUser;
     this.dept_foldername = user.dept_foldername;
+    this.getAllDept();
   }
 
+  getAllDept() {
+    let index = 0;
+    this.commonservice.paramFunction('alldept', '0').subscribe(res => {
+      this.data = res;
+      this.data.forEach(e => {
+        this.data[index].sn = index + 1;
+        index++;
+      });
+      this.dataSource = new MatTableDataSource(this.data);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
+  }
+
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
+  EditDept(dept_id: any) {
+
+    this.commonservice.paramFunction('alldept', dept_id).subscribe(res => {
+      this.deptdata = res[0];
+      this.deptentryForm.patchValue({
+        deptname_en: this.deptdata.deptname_en,
+        deptname_hn: this.deptdata.deptname_hn,
+        websitelink: this.deptdata.websitelink,
+        contactno: this.deptdata.contactno,
+        officeaddress: this.deptdata.officeaddress,
+        dept_id: this.deptdata.dept_id
+      });
+    });
+
+
+  }
 
 
   upload_DeptLogo(event: any) {
@@ -95,16 +146,29 @@ export class DepartmententryformComponent implements OnInit {
 
 
   save(form: NgForm) {
+    console.log(form["dept_id"]);
+    if (form["dept_id"] == null) {
 
-    this.commonservice.insert(form, 'main_department').subscribe(res => {
+      this.commonservice.insert(form, 'main_department').subscribe(res => {
 
-      Swal.fire({
-        icon: 'success',
-        text: 'Department Details are Entered',
-        timer: 5000
+        Swal.fire({
+          icon: 'success',
+          text: 'Department Details are Entered',
+          timer: 5000
+        });
+
       });
 
-    });
+    }
+    else {
+      this.commonservice.update(form, 'main_department').subscribe(res => {
+        Swal.fire({
+          icon: 'success',
+          text: 'Data Saved',
+          timer: 2000
+        });
+      });
+    }
 
     this.deptentryForm.reset();
 

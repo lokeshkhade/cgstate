@@ -11,11 +11,13 @@ import { environment } from 'src/environments/environment';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+
 @Component({
   selector: 'app-createdept',
   templateUrl: './createdept.component.html',
   styleUrls: ['./createdept.component.scss']
 })
+
 export class CreatedeptComponent implements OnInit {
   public createdeptForm: FormGroup;
   public data: any = [];
@@ -24,6 +26,7 @@ export class CreatedeptComponent implements OnInit {
   dataSource: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+
   constructor(private http: HttpClient, private commonservice: CommonService, private fb: FormBuilder, private datePipe: DatePipe, private authservice: AuthService) {
 
     this.createdeptForm = this.fb.group({
