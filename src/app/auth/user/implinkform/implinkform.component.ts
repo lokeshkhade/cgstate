@@ -95,7 +95,7 @@ export class ImplinkformComponent implements OnInit {
       const folder_location = './uploads/' + this.dept_foldername + '/' + this.seletedfolder + '/';
 
       if (this.file.type == "application/pdf") {
-        if (this.file.size <= 307200) {
+        if (this.file.size <= 3072000) {
           const formData = new FormData();
           formData.append('file', this.file);
           formData.append('folder_name', folder_location);
@@ -141,7 +141,7 @@ export class ImplinkformComponent implements OnInit {
 
       Swal.fire({
         icon: 'success',
-        text: 'Department Details are Entered',
+        text: 'Details are Entered',
         timer: 5000
       });
 
@@ -158,6 +158,7 @@ export class ImplinkformComponent implements OnInit {
     if (event.value == 'P') { this.showwebsite = false; this.showpdf = true; }
 
   }
+
 
 
 }

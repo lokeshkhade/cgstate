@@ -73,6 +73,25 @@ var common = {
 
     },
 
+    ////////////////////////////////////////////////////////////
+
+
+    getwhatnew: function(dept_id, callback) {
+        db.query(`select * from main_news where dept_id  = ? order by issuedate LIMIT 3 `, [dept_id], callback);
+    },
+
+
+    getallwhatnew: function(dept_id, callback) {
+        if (dept_id != 0) {
+            db.query(`select *,'' as sn from main_news where dept_id  = ? order by issuedate  `, [dept_id], callback);
+        } else {
+            db.query(`select *,'' as sn from main_news order by issuedate `, callback);
+        }
+
+    },
+
+    //////////////////////////////////////////////////////////////
+
     getdeptlist: function(callback) {
         db.query(`select * from main_department WHERE isactive='Y' and display = 'M' ORDER BY dept_id`, callback);
     },

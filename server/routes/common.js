@@ -243,6 +243,32 @@ router.get('/allimpinformation/:dept_id', function(req, res, next) {
 });
 
 
+/////////////////////////////////////////////////////////////////////////////////
+
+router.get('/whatnew/:dept_id', function(req, res, next) {
+    common.getwhatnew(req.params.dept_id, function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+});
+
+
+router.get('/allwhatnew/:dept_id', function(req, res, next) {
+    common.getallwhatnew(req.params.dept_id, function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+
+});
+
+
+
 ////////////////////////////////////////////////////////////////////////////////
 
 

@@ -6,7 +6,8 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="nav-menu" *ngFor="let menu of menus">
             <li *ngIf="!menu.submenu.length" [class.active-item]="selectedPath === menu.path" class="nav-item">
-                <a class="nav-link" [routerLink]="[menu.path]" routerLinkActive="router-link-active">{{menu.title}} </a>
+
+                <a class="nav-link" [routerLink]="[domain_name + menu.path]" routerLinkActive="router-link-active">{{menu.title}} </a>
             </li>
 
             <li *ngIf="menu.submenu.length" class="nav-item dropdown">
@@ -16,7 +17,7 @@
                 <div class="dropdown-menu sub-nav col-1" aria-labelledby="navbarDropdown">
                     <ul class="sub-nav-group">
                         <li *ngFor="let sub of menu.submenu">
-                            <a class="dropdown-item" [routerLink]="[sub.path]" routerLinkActive="router-link-active">{{sub.title}}</a>
+                            <a class="dropdown-item" [routerLink]="[domain_name + sub.path]" routerLinkActive="router-link-active">{{sub.title}}</a>
                         </li>
                     </ul>
                 </div>

@@ -89,7 +89,9 @@ export class DeptconfigComponent implements OnInit {
         cm_name_hn: this.deptdata.cm_name_hn,
         cm_post_en: this.deptdata.cm_post_en,
         cm_post_hn: this.deptdata.cm_post_hn,
-
+        dept_min_pic: this.deptdata.dept_min_pic,
+        deptlogo_dark_url: this.deptdata.deptlogo_dark_url,
+        cm_pic_url: this.deptdata.cm_pic_url
       });
       this.dmpreviewimg = environment.rootUrl + this.deptdata.dept_min_pic;
       this.dlpreviewimg = environment.rootUrl + this.deptdata.deptlogo_dark_url;

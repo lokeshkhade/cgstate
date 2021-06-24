@@ -22,6 +22,7 @@ export class WhatsnewComponent implements OnInit {
   public dept_foldername: any;
   public showwebsite: any = true;
   public showpdf: any = false;
+  public showimage: any = false;
   events: string[] = [];
   public seletedfolder: any;
   public today = new Date();
@@ -44,10 +45,14 @@ export class WhatsnewComponent implements OnInit {
     });
   }
 
+  ////////////////////////////////////////////////
+
   isValidInput(fieldName: any): boolean {
     return this.mainnewsForm.controls[fieldName].invalid &&
       (this.mainnewsForm.controls[fieldName].dirty || this.mainnewsForm.controls[fieldName].touched);
   }
+
+  ////////////////////////////////////////////
 
   ngOnInit(): void {
     let user = this.authservice.currentUser;
@@ -56,9 +61,12 @@ export class WhatsnewComponent implements OnInit {
     console.log(this.dept_id);
     this.dept_foldername = user.dept_foldername;
     this.mainnewsForm.patchValue({
-      dept_id: this.dept_id
+      dept_id: this.dept_id,
+      isactive: 'Y'
     });
   }
+
+  /////////////////////////////////////////////////
 
   addissuedate(type: string, event: MatDatepickerInputEvent<Date>) {
     this.events.push(`${type}: ${event.value}`);
@@ -68,12 +76,16 @@ export class WhatsnewComponent implements OnInit {
 
   }
 
+  /////////////////////////////////////////////////////////////////////
+
   addvaliditydate(type: string, event: MatDatepickerInputEvent<Date>) {
     this.events.push(`${type}: ${event.value}`);
     this.mainnewsForm.patchValue({
       validitydate: this.datePipe.transform(this.mainnewsForm.get("validitydate")?.value, "yyyy-MM-dd")
     });
   }
+
+  /////////////////////////////////////////////////////////////////
 
   upload(event: any) {
 
@@ -84,7 +96,7 @@ export class WhatsnewComponent implements OnInit {
       const folder_location = './uploads/' + this.dept_foldername + '/' + this.seletedfolder + '/';
 
       if (this.file.type == "application/pdf") {
-        if (this.file.size <= 307200) {
+        if (this.file.size <= 3072000) {
           const formData = new FormData();
           formData.append('file', this.file);
           formData.append('folder_name', folder_location);
@@ -93,7 +105,8 @@ export class WhatsnewComponent implements OnInit {
 
             this.mainnewsForm.patchValue({
               linkurl: this.filename.filepath,
-              dept_id: this.dept_id
+              dept_id: this.dept_id,
+              isactive: 'Y'
             });
 
             Swal.fire({
@@ -121,13 +134,59 @@ export class WhatsnewComponent implements OnInit {
     }
   }
 
+  //////////////////////////////////////////////////////
+
+  upload_Image(event: any) {
+    if (event) {
+      this.file = event[0];
+      const folder_location = './uploads/' + this.dept_foldername + '/' + 'images' + '/';
+      if (this.file.type == 'image/png' || this.file.type == 'image/jpeg') {
+        if (this.file.size <= 30720000) {
+          const formData = new FormData();
+          formData.append('file', this.file);
+          formData.append('folder_name', folder_location);
+          this.http.post(environment.rootUrl + 'upload', formData).subscribe(res => {
+            this.filename = res;
+            this.mainnewsForm.patchValue({
+              linkurl: this.filename.filepath,
+              dept_id: this.dept_id,
+              isactive: 'Y'
+            });
+            Swal.fire({
+              icon: 'success',
+              text: 'File Uploaded.',
+              timer: 2000
+            });
+          });
+
+        }
+        else {
+          Swal.fire({
+            icon: 'error',
+            text: 'PNG size should be less than 300KB.'
+          });
+          this.file = null;
+        }
+      } else {
+        Swal.fire({
+          icon: 'error',
+          text: 'Only png/jpeg file accepted.'
+        });
+        this.file = null;
+      }
+    }
+
+  }
+
+  ///////////////////////////////////////
+
   save(form: NgForm) {
 
     this.commonservice.insert(form, 'main_news').subscribe(res => {
 
       Swal.fire({
         icon: 'success',
-        text: 'Department Details are Entered',
+        text: 'Whats New Details are Entered',
         timer: 5000
       });
 
@@ -137,10 +196,17 @@ export class WhatsnewComponent implements OnInit {
 
   }
 
-  onChange(event: any) {
-    if (event.value == 'L') { this.showwebsite = true; this.showpdf = false; }
-    if (event.value == 'P') { this.showwebsite = false; this.showpdf = true; }
 
+  onChange(event: any) {
+    if (event.value == 'L') { this.showwebsite = true; this.showpdf = false; this.showimage = false; }
+    if (event.value == 'P') { this.showpdf = true; this.showwebsite = false; this.showimage = false; }
+    if (event.value == 'I') { this.showimage = true; this.showwebsite = false; this.showpdf = false; }
   }
+
+
+  // onChange(event: any) {
+  //   if (event.value == 'L') { this.showwebsite = true; this.showpdf = false; }
+  //   if (event.value == 'P') { this.showpdf = true; this.showwebsite = false; }
+  // }
 
 }

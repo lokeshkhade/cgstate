@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-12">
         <div class="bg-info p-2 text-white text-center">Note: Fields marked with <i class="fa fa-asterisk text-danger" aria-hidden="true"></i> are mandatory.</div>
         <mat-card>
             <mat-card-title class="text-center"><u>Department Home Page Card Data</u> </mat-card-title>
@@ -55,8 +55,8 @@
                                     <mat-form-field appearance="outline">
                                         <mat-label>Link Name <span class="required"></span>
                                         </mat-label>
-                                        <input matInput formControlName="linkname" #linkname maxlength="500">
-                                        <mat-hint align="end">{{linkname.value.length}} / 500</mat-hint>
+                                        <input matInput formControlName="linkname" #linkname maxlength="1000">
+                                        <mat-hint align="end">{{linkname.value.length}} / 1000</mat-hint>
                                         <!-- <mat-error *ngIf="isValidInput('linkname')">
                                             <mat-error *ngIf="deptcardForm.controls['linkname'].errors.required">
                                                 Link Name is <strong>required</strong>.
@@ -70,8 +70,8 @@
                                     <mat-form-field appearance="outline" *ngIf="showwebsite">
                                         <mat-label>Website URL <span class="required"></span>
                                         </mat-label>
-                                        <input matInput formControlName="linkurl" #linkurl maxlength="500">
-                                        <mat-hint align="end">{{linkurl.value.length}} /500</mat-hint>
+                                        <input matInput formControlName="linkurl" #linkurl maxlength="1000">
+                                        <mat-hint align="end">{{linkurl.value.length}} /1000</mat-hint>
                                         <!-- <mat-error *ngIf="isValidInput('linkurl')">
                                             <mat-error *ngIf="deptcardForm.controls['linkurl'].errors.required">
                                                 Website URL is <strong>required</strong>.

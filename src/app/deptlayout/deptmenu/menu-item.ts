@@ -1,6 +1,6 @@
 export const Menus: any[] = [
     {
-        path: '/dept/haz/depthome',
+        path: '',
         title: 'Home',
         icon: '',
         submenu: []
@@ -11,7 +11,7 @@ export const Menus: any[] = [
         icon: '',
         submenu: [
             {
-                path: '/dept/haz/deptaboutus',
+                path: '/deptaboutus',
                 title: 'About Department',
                 icon: '',
                 submenu: []
@@ -24,7 +24,7 @@ export const Menus: any[] = [
         icon: '',
         submenu: [
             {
-                path: '/dept/haz/deptdownload',
+                path: '/deptdownload',
                 title: 'Forms/Documents',
                 icon: '',
                 submenu: []
@@ -38,7 +38,7 @@ export const Menus: any[] = [
         icon: '',
         submenu: [
             {
-                path: '/dept/haz/deptcontact',
+                path: '/deptcontact',
                 title: 'Contact Info.',
                 icon: '',
                 submenu: []

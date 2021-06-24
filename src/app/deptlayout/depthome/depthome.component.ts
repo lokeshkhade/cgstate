@@ -18,6 +18,7 @@ export class DepthomeComponent implements OnInit {
   noticeboarddata: any = [];
   cardddata: any = [];
   impldata: any = [];
+  newdata: any = [];
   currentdate: any;
   yesterday: any;
   public dept_id: any;
@@ -31,7 +32,7 @@ export class DepthomeComponent implements OnInit {
   ngOnInit(): void {
 
     this.domain_name = this.route.snapshot.paramMap.get('domain_name');
-    console.log(this.domain_name);
+    console.log(this.domain_name, 'loku');
     this.getDeptID();
 
   }
@@ -48,6 +49,8 @@ export class DepthomeComponent implements OnInit {
       this.getNoticeboard(this.dept_id);
 
       this.getImpInfo(this.dept_id);
+
+      this.getwhatnew(this.dept_id);
 
       this.getDeptbanner(this.dept_id);
       this.getDeptgallery(this.dept_id);
@@ -67,6 +70,12 @@ export class DepthomeComponent implements OnInit {
   getImpInfo(dept_id: any) {
     this.commonservice.paramFunction('impinformation', this.dept_id).subscribe(res => {
       this.impldata = res;
+    });
+  }
+
+  getwhatnew(dept_id: any) {
+    this.commonservice.paramFunction('whatnew', this.dept_id).subscribe(res => {
+      this.newdata = res;
     });
   }
 

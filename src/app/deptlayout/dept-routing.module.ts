@@ -47,6 +47,10 @@ const routes: Routes = [
       {
         path: 'deptnew',
         component: DeptnewComponent
+      },
+      {
+        path: 'depthome',
+        component: DepthomeComponent
       }
     ]
   },

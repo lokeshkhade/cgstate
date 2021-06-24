@@ -4,6 +4,7 @@ import { CommonService } from './../../services/common.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-deptimpinfo',
@@ -20,32 +21,35 @@ export class DeptimpinfoComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   public dept_id: any;
 
-  constructor(private commonservice: CommonService) { }
+  constructor(private commonservice: CommonService, private route: ActivatedRoute, private router: Router) { }
+
 
   ngOnInit(): void {
-    this.domain_name = this.route.snapshot.paramMap.get('domain_name');
-    console.log(this.domain_name);
+    this.domain_name = window.location.href.split('/')[5];
+    console.log(window.location.href.split('/')[5]);
+
+    console.log(this.domain_name, 'yogi');
     this.getDeptID();
+
+    console.log(this.dept_id);
+
   }
+
 
   getDeptID() {
-
-    console.log(".......................");
-
     this.commonservice.paramFunction('deptidbydomainname', this.domain_name).subscribe(res => {
-
       this.dept_id = res[0].dept_id;
+      console.log(this.dept_id);
       this.getimpinfo(this.dept_id);
 
-      console.log(".......................");
-
-      console.log(this.dept_id);
     });
   }
+
 
   getimpinfo(dept_id: any) {
     let index = 0;
     this.commonservice.paramFunction('allimpinformation', this.dept_id).subscribe(res => {
+      console.log(res);
       this.data = res;
       this.data.forEach(e => {
         this.data[index].sn = index + 1;

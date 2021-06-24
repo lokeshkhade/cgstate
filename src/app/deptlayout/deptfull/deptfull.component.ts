@@ -31,6 +31,7 @@ export class DeptfullComponent implements OnInit {
   constructor(private http: HttpClient, private dp: DatePipe, private commonservice: CommonService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    console.log(window.location);
 
     this.domain_name = this.route.snapshot.paramMap.get('domain_name');
     console.log(this.domain_name);

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonService } from './../../../services/common.service';
 import { AuthService } from './../../../services/auth.service';
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
@@ -33,17 +33,7 @@ export class DepartmententryformComponent implements OnInit {
 
   constructor(private http: HttpClient, private commonservice: CommonService, private fb: FormBuilder, private datePipe: DatePipe, private authservice: AuthService) {
 
-    this.deptentryForm = this.fb.group({
-      deptname_hn: ['', Validators.required],
-      deptname_en: ['', Validators.required],
-      officeaddress: ['', Validators.required],
-      websitelink: ['', Validators.required],
-      logourl: [],
-      contactno: ['', Validators.required],
-      display: ['O'],
-      isactive: ['Y'],
-      dept_id: []
-    });
+
   }
 
   isValidInput(fieldName: any): boolean {
@@ -51,8 +41,38 @@ export class DepartmententryformComponent implements OnInit {
       (this.deptentryForm.controls[fieldName].dirty || this.deptentryForm.controls[fieldName].touched);
   }
 
+  patch() {
+    this.file = null;
+    this.filename = null;
+    this.upload_DeptLogo(null);
+    this.deptentryForm.patchValue({
+      deptname_hn: [''],
+      deptname_en: [''],
+      officeaddress: [''],
+      websitelink: [''],
+      logourl: [''],
+      contactno: [''],
+      display: ['O'],
+      isactive: ['Y']
+
+    });
+  }
 
   ngOnInit(): void {
+    this.deptentryForm = this.fb.group({
+      deptname_hn: ['', Validators.required],
+      deptname_en: ['', Validators.required],
+      officeaddress: ['', Validators.required],
+      websitelink: ['', Validators.required],
+      logourl: [],
+      contactno: ['', [Validators.required, Validators.pattern('[56789][0-9]{9}')]],
+      display: ['O'],
+      isactive: ['Y'],
+      dept_id: []
+    });
+  }
+
+  ngAfterViewInit() {
     let user = this.authservice.currentUser;
     this.dept_foldername = user.dept_foldername;
     this.getAllDept();
@@ -103,39 +123,40 @@ export class DepartmententryformComponent implements OnInit {
       this.file = event[0];
 
       const folder_location = './uploads/' + this.dept_foldername + '/' + 'images' + '/';
+      if (this.file.type == 'image/png') {
+        if (this.file.size <= 3072000) {
+          const formData = new FormData();
+          formData.append('file', this.file);
+          formData.append('folder_name', folder_location);
+          this.http.post(environment.rootUrl + 'upload', formData).subscribe(res => {
+            this.filename = res;
 
-      if (this.file.size <= 3072000) {
-        const formData = new FormData();
-        formData.append('file', this.file);
-        formData.append('folder_name', folder_location);
-        this.http.post(environment.rootUrl + 'upload', formData).subscribe(res => {
-          this.filename = res;
+            this.deptentryForm.patchValue({
+              logourl: this.filename.filepath,
+            });
 
-          this.deptentryForm.patchValue({
-            logourl: this.filename.filepath,
+            Swal.fire({
+              icon: 'success',
+              text: 'File Uploaded.',
+              timer: 2000
+            });
           });
 
+        }
+        else {
           Swal.fire({
-            icon: 'success',
-            text: 'File Uploaded.',
-            timer: 2000
+            icon: 'error',
+            text: 'PNG size should be less than 300KB.'
           });
-        });
-
-      }
-      else {
+          this.file = null;
+        }
+      } else {
         Swal.fire({
           icon: 'error',
-          text: 'PNG size should be less than 300KB.'
+          text: 'Only png file accepted.'
         });
         this.file = null;
       }
-    } else {
-      Swal.fire({
-        icon: 'error',
-        text: 'Only png file accepted.'
-      });
-      this.file = null;
     }
   }
 
@@ -146,27 +167,30 @@ export class DepartmententryformComponent implements OnInit {
     if (form["dept_id"] == null) {
 
       this.commonservice.insert(form, 'main_department').subscribe(res => {
-
-        Swal.fire({
-          icon: 'success',
-          text: 'Department Details are Entered',
-          timer: 5000
-        });
+        if (res['affectedRows']) {
+          Swal.fire({
+            icon: 'success',
+            text: 'Department Details are Entered',
+            timer: 5000
+          });
+          this.patch();
+        }
 
       });
 
     }
     else {
       this.commonservice.update(form, 'main_department').subscribe(res => {
-        Swal.fire({
-          icon: 'success',
-          text: 'Data Saved',
-          timer: 2000
-        });
-      });
+        if (res['affectedRows']) {
+          Swal.fire({
+            icon: 'success',
+            text: 'Department Details are Entered',
+            timer: 5000
+          });
+          this.patch();
+        }
+      })
     }
-
-    this.deptentryForm.reset();
     this.getAllDept();
 
   }
