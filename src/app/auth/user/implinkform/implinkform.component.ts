@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { environment } from 'src/environments/environment';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-implinkform',
@@ -15,7 +16,6 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./implinkform.component.scss']
 })
 export class ImplinkformComponent implements OnInit {
-
 
   public implinkForm: FormGroup;
   file: any = File;
@@ -33,7 +33,7 @@ export class ImplinkformComponent implements OnInit {
   dept_id: any;
 
 
-  constructor(private http: HttpClient, private commonservice: CommonService, private fb: FormBuilder, private datePipe: DatePipe, private authservice: AuthService) {
+  constructor(private router: Router, private http: HttpClient, private commonservice: CommonService, private fb: FormBuilder, private datePipe: DatePipe, private authservice: AuthService) {
 
 
     this.implinkForm = this.fb.group({

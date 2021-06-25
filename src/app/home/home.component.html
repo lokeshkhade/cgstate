@@ -161,10 +161,10 @@
                 <div class="card-body">
                     <ul class="list-group">
                         <div *ngFor="let t of data">
-                            <li class="list-group-item">{{t.linkname}}
+                            <li class="list-group-item">{{t.linkname}} {{t.issuedate}}
                                 <a style="cursor: pointer;" target="_blank" href="{{rootUrl + t.menu_tab_linkurl}}">
                                     <mat-icon>file_download</mat-icon>
-                                    <img src="../../assets/images/pdficon.jpg" alt="">
+                                    <!-- <img src="../../assets/images/pdficon.jpg" alt=""> -->
                                 </a>
                             </li>
                         </div>

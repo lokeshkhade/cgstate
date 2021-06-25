@@ -35,7 +35,7 @@ var common = {
 
 
     getnoticeboard: function(callback) {
-        db.query(`select * from upload_data LIMIT 5`, callback);
+        db.query(`select * from upload_data where dept_id = 1  LIMIT 5`, callback);
     },
 
     getdeptcard: function(dept_id, callback) {
@@ -88,6 +88,20 @@ var common = {
             db.query(`select *,'' as sn from main_news order by issuedate `, callback);
         }
 
+    },
+
+    /////////////////////////////////////////////////////
+
+    getdeptaboutus: function(dept_id, callback) {
+        db.query(`select * from main_aboutus where dept_id  = ? order by issuedate `, [dept_id], callback);
+    },
+
+    getdeptcontact: function(dept_id, callback) {
+        db.query(`select * from main_contact where dept_id  = ? order by issuedate `, [dept_id], callback);
+    },
+
+    getdownload: function(dept_id, callback) {
+        db.query(`select * from main_download where dept_id  = ? order by issuedate `, [dept_id], callback);
     },
 
     //////////////////////////////////////////////////////////////

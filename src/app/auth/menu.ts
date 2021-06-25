@@ -2,23 +2,26 @@ export const MENUITEMS = {
     // 3=department; 1=Super Admin;2=CG State Portal
     2: [
         { state: '/user/dashboard', name: 'Dashboard', type: 'link', icon: 'av_timer' },
-        { state: '/user/deptconfig', name: 'Dept. Configuration', type: 'link', icon: 'av_timer' },
+        { state: '/user/deptconfig', name: 'Dept.Configuration', type: 'link', icon: 'av_timer' },
         { state: '/user/upload', name: 'Upload Noticeboard', type: 'link', icon: 'av_timer' },
-        { state: '/user/departmententryform', name: 'Department Form', type: 'link', icon: 'view_list' },
-        { state: '/user/implinkform', name: 'Important Link Form', type: 'link', icon: 'view_list' },
-        { state: '/user/schemeform', name: 'Scheme Form', type: 'link', icon: 'view_list' },
+        { state: '/user/departmententryform', name: 'Department Entry', type: 'link', icon: 'view_list' },
+        { state: '/user/implinkform', name: 'Important Link', type: 'link', icon: 'view_list' },
+        { state: '/user/schemeform', name: 'Scheme Entry', type: 'link', icon: 'view_list' },
         { state: '/user/deptpic', name: 'Image Upload', type: 'link', icon: 'view_list' },
 
     ],
     3: [
         { state: '/user/dashboard', name: 'Dashboard', type: 'link', icon: 'av_timer' },
-        { state: '/user/deptconfig', name: 'Dept. Configuration', type: 'link', icon: 'av_timer' },
+        { state: '/user/deptconfig', name: 'Dept.Configuration', type: 'link', icon: 'av_timer' },
         { state: '/user/upload', name: 'Upload Noticeboard', type: 'link', icon: 'av_timer' },
-        { state: '/user/implinkform', name: 'Important Link Form', type: 'link', icon: 'view_list' },
-        { state: '/user/schemeform', name: 'Scheme Form', type: 'link', icon: 'view_list' },
+        { state: '/user/implinkform', name: 'Important Link', type: 'link', icon: 'view_list' },
+        { state: '/user/schemeform', name: 'Scheme Entry', type: 'link', icon: 'view_list' },
         { state: '/user/deptpic', name: 'Image Upload', type: 'link', icon: 'view_list' },
         { state: '/user/deptcard', name: 'Dept. Card', type: 'link', icon: 'view_list' },
         { state: '/user/whatsnew', name: 'Whats New', type: 'link', icon: 'view_list' },
+        { state: '/user/aboutusentryform', name: 'About Department', type: 'link', icon: 'view_list' },
+        { state: '/user/contactentryform', name: 'Contact Info.', type: 'link', icon: 'view_list' },
+        { state: '/user/downloadentryform', name: 'Downloads', type: 'link', icon: 'view_list' },
 
     ],
     1: [

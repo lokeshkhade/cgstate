@@ -32,8 +32,6 @@ export class DepartmententryformComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(private http: HttpClient, private commonservice: CommonService, private fb: FormBuilder, private datePipe: DatePipe, private authservice: AuthService) {
-
-
   }
 
   isValidInput(fieldName: any): boolean {
@@ -41,22 +39,7 @@ export class DepartmententryformComponent implements OnInit {
       (this.deptentryForm.controls[fieldName].dirty || this.deptentryForm.controls[fieldName].touched);
   }
 
-  patch() {
-    this.file = null;
-    this.filename = null;
-    this.upload_DeptLogo(null);
-    this.deptentryForm.patchValue({
-      deptname_hn: [''],
-      deptname_en: [''],
-      officeaddress: [''],
-      websitelink: [''],
-      logourl: [''],
-      contactno: [''],
-      display: ['O'],
-      isactive: ['Y']
 
-    });
-  }
 
   ngOnInit(): void {
     this.deptentryForm = this.fb.group({
@@ -173,7 +156,7 @@ export class DepartmententryformComponent implements OnInit {
             text: 'Department Details are Entered',
             timer: 5000
           });
-          this.patch();
+
         }
 
       });
@@ -187,7 +170,7 @@ export class DepartmententryformComponent implements OnInit {
             text: 'Department Details are Entered',
             timer: 5000
           });
-          this.patch();
+
         }
       })
     }

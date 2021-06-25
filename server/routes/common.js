@@ -242,6 +242,39 @@ router.get('/allimpinformation/:dept_id', function(req, res, next) {
 
 });
 
+/////////////////////////////////////////////////////////////////////
+
+router.get('/deptaboutus/:dept_id', function(req, res, next) {
+    common.getdeptaboutus(req.params.dept_id, function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+});
+
+router.get('/deptcontact/:dept_id', function(req, res, next) {
+    common.getdeptcontact(req.params.dept_id, function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+});
+
+
+
+router.get('/deptdownload/:dept_id', function(req, res, next) {
+    common.getdownload(req.params.dept_id, function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+});
 
 /////////////////////////////////////////////////////////////////////////////////
 

@@ -1,3 +1,6 @@
+import { DownloadentryformComponent } from './downloadentryform/downloadentryform.component';
+import { ContactentryformComponent } from './contactentryform/contactentryform.component';
+import { AboutusentryformComponent } from './aboutusentryform/aboutusentryform.component';
 import { WhatsnewComponent } from './whatsnew/whatsnew.component';
 import { DeptcardComponent } from './deptcard/deptcard.component';
 import { DeptpicComponent } from './deptpic/deptpic.component';
@@ -47,6 +50,18 @@ const routes: Routes = [
   {
     path: 'whatsnew',
     component: WhatsnewComponent
+  },
+  {
+    path: 'aboutusentryform',
+    component: AboutusentryformComponent
+  },
+  {
+    path: 'contactentryform',
+    component: ContactentryformComponent
+  },
+  {
+    path: 'downloadentryform',
+    component: DownloadentryformComponent
   }
 ];
 

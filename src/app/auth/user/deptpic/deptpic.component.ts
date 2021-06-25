@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
 import { environment } from 'src/environments/environment';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
-
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-deptpic',
@@ -31,7 +31,18 @@ export class DeptpicComponent implements OnInit {
   croppedImage: any;
   public cropped = false;
 
-  constructor(private http: HttpClient, private commonservice: CommonService, private fb: FormBuilder, private datePipe: DatePipe, private authservice: AuthService) {
+  constructor(private router: Router, private http: HttpClient, private commonservice: CommonService, private fb: FormBuilder, private datePipe: DatePipe, private authservice: AuthService) {
+
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
+
+    this.router.events.subscribe((evt) => {
+      if (evt instanceof NavigationEnd) {
+        this.router.navigated = false;
+        window.scrollTo(0, 0);
+      }
+    });
 
     this.bannerForm = this.fb.group({
 
@@ -116,10 +127,11 @@ export class DeptpicComponent implements OnInit {
         text: 'Data are Entered',
         timer: 5000
       });
+      this.router.navigate(['user/deptpic']);
 
     });
 
-    this.bannerForm.reset();
+
 
   }
 

@@ -1,3 +1,4 @@
+import { NumberDirective } from './validations/number.directive';
 import { HttpLoaderComponent } from './my-loader/my-loader.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -47,11 +48,14 @@ import { ObserversModule } from '@angular/cdk/observers';
 import { PortalModule } from '@angular/cdk/portal';
 import { CommonModule } from '@angular/common';
 import { MatFileUploadModule } from 'mat-file-upload';
+import { CharDirective } from './validations/char.directive';
 
 @NgModule({
-    declarations: [HttpLoaderComponent],
+    declarations: [HttpLoaderComponent, NumberDirective, CharDirective],
     imports: [CommonModule],
     exports: [
+        NumberDirective,
+        CharDirective,
         MatAutocompleteModule,
         MatButtonModule,
         MatBottomSheetModule,
