@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `contact_details` (
   KEY `fk_department_id` (`department_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1277 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table cgstate.contact_details: ~1,249 rows (approximately)
+-- Dumping data for table cgstate.contact_details: ~1,280 rows (approximately)
 /*!40000 ALTER TABLE `contact_details` DISABLE KEYS */;
 INSERT INTO `contact_details` (`id`, `department_id`, `designation_id`, `name`, `home_address`, `office_address`, `siting_address`, `cont_personal_no`, `cont_personal_no_two`, `cont_office_no`, `cont_office_two`, `cont_fax`, `cont_fax_two`, `cont_email`, `constituency`, `nigam_city`, `district`, `pbx`, `vidhansabha_contact`) VALUES
 	(1, 1, 1, 'श्री प्रेम कुमार', 'एस-0/14, जे-13 ग्रीन आर्चिड काॅलोनी', 'दलदल सिवनी, मोवा रायपुर', '', '9406479108', '', '2510002', '', '2510622', 0, 'secyfcg@yahoo.com', NULL, NULL, NULL, NULL, NULL),
@@ -1559,17 +1559,32 @@ INSERT INTO `ias_details` (`id`, `ias_id`, `ias_name_en`, `ias_name_hi`, `email_
 	(253, '1111111112', 'test_eng', 'test_hin', 'test1@gmail.com', 'test_post_ias', NULL, '02758a2273f16fa38129834030e08e1af3c14d596adede73b45b750993aa2e22b4da517d89c6b59cdfb6d214c4bc51135ec623dfe31ad97c6c76381f0c2a4cca', 'm1lVRjT', 1, 0, NULL, NULL, '2021-02-11 12:40:14', '2021-02-11 12:40:14', '::1');
 /*!40000 ALTER TABLE `ias_details` ENABLE KEYS */;
 
--- Dumping structure for table cgstate.innerpage_data
-CREATE TABLE IF NOT EXISTS `innerpage_data` (
+-- Dumping structure for table cgstate.main_aboutus
+CREATE TABLE IF NOT EXISTS `main_aboutus` (
   `dept_id` int DEFAULT NULL,
-  `menu_code` int DEFAULT NULL,
-  `display_name` varchar(100) DEFAULT NULL,
-  `details` longtext CHARACTER SET utf8 COLLATE utf8_general_ci
+  `data` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `linkname` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `linkurl` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `isactive` char(1) DEFAULT NULL,
+  `flag` char(1) DEFAULT NULL,
+  `issuedate` timestamp NULL DEFAULT NULL,
+  `validitydate` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table cgstate.innerpage_data: ~0 rows (approximately)
-/*!40000 ALTER TABLE `innerpage_data` DISABLE KEYS */;
-/*!40000 ALTER TABLE `innerpage_data` ENABLE KEYS */;
+-- Dumping data for table cgstate.main_aboutus: ~0 rows (approximately)
+/*!40000 ALTER TABLE `main_aboutus` DISABLE KEYS */;
+INSERT INTO `main_aboutus` (`dept_id`, `data`, `linkname`, `linkurl`, `isactive`, `flag`, `issuedate`, `validitydate`) VALUES
+	(3, NULL, 'Acts', 'http://www.hajcommittee.gov.in/history-and-laws.aspx#verticalTab2', 'Y', 'L', '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
+	(3, NULL, 'Rules', 'haj/deptaboutus/file-1624621147064.pdf', 'Y', 'P', '2021-06-25 00:00:00', '2021-06-25 00:00:00'),
+	(3, NULL, 'Previous Record', 'haj/deptaboutus/file-1624621211204.pdf', 'Y', 'P', '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
+	(3, NULL, 'State Haj Committee Member', 'haj/deptaboutus/file-1624621344366.pdf', 'Y', 'P', '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
+	(3, NULL, 'Practical Guide Tour', 'https://www.youtube.com/watch?v=U5_WrDvtZEs', 'Y', 'L', '2021-06-26 00:00:00', '2022-06-30 00:00:00'),
+	(3, NULL, 'Makkah Map', 'haj/deptaboutus/file-1624646964015.pdf', 'Y', 'P', '2021-06-26 00:00:00', '2022-07-30 00:00:00'),
+	(3, NULL, 'Azizia Map', 'haj/deptaboutus/file-1624647060201.pdf', 'Y', 'P', '2021-06-26 00:00:00', '2022-06-30 00:00:00'),
+	(3, NULL, 'Mina Map', 'haj/deptaboutus/file-1624647144655.pdf', 'Y', 'P', '2021-06-26 00:00:00', '2022-06-30 00:00:00'),
+	(3, NULL, 'Arafat Map', 'haj/deptaboutus/file-1624647190657.pdf', 'Y', 'P', '2021-06-26 00:00:00', '2022-07-31 00:00:00'),
+	(2, 'छ.ग. शासन, ऊर्जा विभाग के अधीन मुख्य विद्युत निरीक्षक, छ.ग. राज्य विद्युत मंडल अंतरण योजना, 2010 के अंतर्गत राज्य में संचालित 05 विद्युत कंपनियों, विद्युत अधिनियम, 2003 के अंतर्गत गठित छ.ग. राज्य विद्युतनियामक आयोग, छ.ग. राज्य अक्षय ऊर्जा विकास अभिकरण (क्रेडा)एवं छ.ग. राज्य बायोफ्यूल विकास प्राधिकरण (सीबीडीए) कार्य रत् हैं। उक्त विभागाध्यक्षों का ऊर्जा विभाग प्रशासकीय विभाग है उक्त विभागाध्यक्षों के शासन स्तर केमामलों से संबंधित निर्णय ऊर्जा विभाग द्वारा लिये जाते हैं।', ' Energy Depatment', NULL, 'Y', 'D', '2021-06-26 00:00:00', '2022-10-31 00:00:00');
+/*!40000 ALTER TABLE `main_aboutus` ENABLE KEYS */;
 
 -- Dumping structure for table cgstate.main_banner
 CREATE TABLE IF NOT EXISTS `main_banner` (
@@ -1603,7 +1618,13 @@ INSERT INTO `main_banner` (`dept_id`, `imagetype`, `linkurl`, `isactive`, `image
 	(3, 'B', 'haz/banner/file-1624261048470.jpg', 'Y', ' ', ' '),
 	(3, 'B', 'haz/banner/file-1624345270927.jpg', 'Y', '', ''),
 	(3, 'B', 'haz/banner/file-1624345287844.jpg', 'Y', '', ''),
-	(3, 'B', 'haz/banner/file-1624345302509.jpg', 'Y', '', '');
+	(3, 'B', 'haz/banner/file-1624345302509.jpg', 'Y', '', ''),
+	(3, 'G', 'haj/banner/file-1624643627008.jpg', 'Y', ' ', ' '),
+	(3, 'G', 'haj/banner/file-1624643652535.jpg', NULL, ' ', ' '),
+	(3, 'G', 'haj/banner/file-1624643909866.jpg', 'Y', ' ', ' '),
+	(3, 'G', 'haj/banner/file-1624643947419.jpg', 'Y', ' ', ' '),
+	(3, 'G', 'haj/banner/file-1624643976178.jpg', 'Y', ' ', ' '),
+	(3, 'G', 'haj/banner/file-1624643995139.jpg', 'Y', '  ', ' ');
 /*!40000 ALTER TABLE `main_banner` ENABLE KEYS */;
 
 -- Dumping structure for table cgstate.main_card
@@ -1611,6 +1632,7 @@ CREATE TABLE IF NOT EXISTS `main_card` (
   `dept_id` int DEFAULT NULL,
   `cardheader` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `cardflag` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `cardno` int DEFAULT NULL,
   `carddata` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `linkurl` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `isactive` char(1) DEFAULT NULL,
@@ -1619,11 +1641,41 @@ CREATE TABLE IF NOT EXISTS `main_card` (
   `validitydate` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table cgstate.main_card: ~1 rows (approximately)
+-- Dumping data for table cgstate.main_card: ~2 rows (approximately)
 /*!40000 ALTER TABLE `main_card` DISABLE KEYS */;
-INSERT INTO `main_card` (`dept_id`, `cardheader`, `cardflag`, `carddata`, `linkurl`, `isactive`, `linkname`, `issuedate`, `validitydate`) VALUES
-	(2, 'About Us', 'D', 'छ.ग. शासन, ऊर्जा विभाग के अधीन मुख्य विद्युत निरीक्षक, छ.ग. राज्य विद्युत मंडल अंतरण योजना, 2010 के अंतर्गत राज्य में संचालित 05 विद्युत कंपनियों, विद्युत अधिनियम, 2003 के अंतर्गत गठित छ.ग. राज्य विद्युतनियामक आयोग, छ.ग. राज्य अक्षय ऊर्जा विकास अभिकरण (क्रेडा)एवं छ.ग. राज्य बायोफ्यूल विकास प्राधिकरण (सीबीडीए) कार्य रत् हैं। उक्त विभागाध्यक्षों का ऊर्जा विभाग प्रशासकीय विभाग है उक्त विभागाध्यक्षों के शासन स्तर केमामलों से संबंधित निर्णय ऊर्जा विभाग द्वारा लिये जाते हैं।', NULL, 'Y', NULL, '2021-06-18 00:00:00', '2021-06-30 00:00:00');
+INSERT INTO `main_card` (`dept_id`, `cardheader`, `cardflag`, `cardno`, `carddata`, `linkurl`, `isactive`, `linkname`, `issuedate`, `validitydate`) VALUES
+	(3, 'Enquiry', 'L', 1, NULL, 'http://www.hajcommittee.gov.in/', 'Y', 'Flight Schedule', '2021-06-23 00:00:00', '2022-06-30 00:00:00'),
+	(3, 'Enquiry', 'L', 2, NULL, 'http://www.hajcommittee.gov.in/', 'Y', 'Waiting list', '2021-06-23 00:00:00', '2022-06-30 00:00:00'),
+	(3, 'Quick Tour', 'P', NULL, NULL, 'haj/deptcard/file-1624645528228.pdf', 'Y', 'Quick Tour', '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
+	(3, 'Glossory', 'P', NULL, NULL, 'haj/deptcard/file-1624645609996.pdf', 'Y', 'Glossory', '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
+	(3, 'Frequently Asked Questions', 'P', NULL, NULL, 'haj/deptcard/file-1624646224718.pdf', 'Y', 'Frequently Asked Questions', '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
+	(3, 'CGI, Accomodation Locator', 'L', NULL, NULL, 'https://play.google.com/store/apps/details?id=com.cgijeddah&hl=en', 'Y', 'CGI, Accomodation Locator', '2021-06-26 00:00:00', '2021-06-30 00:00:00'),
+	(3, 'Haj Mission, Indian Consulate, Jeddah\'s Page - Fac', 'L', NULL, NULL, 'https://www.facebook.com/hajmission/', 'Y', 'Haj Mission, Indian Consulate, Jeddah\'s Page - Facebook', '2021-06-26 00:00:00', '2021-06-30 00:00:00'),
+	(2, 'सूचना का अधिकार अधिनियम 2005 - लोक प्राधिकारियों क', 'P', NULL, NULL, 'eng/deptcard/file-1624647792503.pdf', 'Y', 'सूचना का अधिकार अधिनियम 2005 - लोक प्राधिकारियों की सूची', '2021-06-26 00:00:00', '2022-06-30 00:00:00');
 /*!40000 ALTER TABLE `main_card` ENABLE KEYS */;
+
+-- Dumping structure for table cgstate.main_contact
+CREATE TABLE IF NOT EXISTS `main_contact` (
+  `dept_id` int DEFAULT NULL,
+  `data` varchar(1000) DEFAULT NULL,
+  `linkname` varchar(500) DEFAULT NULL,
+  `linkurl` varchar(1000) DEFAULT NULL,
+  `isactive` char(1) DEFAULT NULL,
+  `flag` char(1) DEFAULT NULL,
+  `issuedate` timestamp NULL DEFAULT NULL,
+  `validitydate` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Dumping data for table cgstate.main_contact: ~2 rows (approximately)
+/*!40000 ALTER TABLE `main_contact` DISABLE KEYS */;
+INSERT INTO `main_contact` (`dept_id`, `data`, `linkname`, `linkurl`, `isactive`, `flag`, `issuedate`, `validitydate`) VALUES
+	(3, '', 'Haj Committee of India ', 'http://hajcommittee.gov.in/contact_us.aspx#verticalTab1', 'Y', 'L', '2021-06-25 00:00:00', '2022-06-30 00:00:00'),
+	(3, NULL, 'Ministry of Minority Affairs, Government Of India.', 'http://hajcommittee.gov.in/contact_us.aspx#verticalTab3', 'Y', 'L', '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
+	(3, 'CHHATTISGARH STATE HAJ COMMITTEE <br>  Govt of Chhattisgarh   <br> Mukharjee Bada, Byron Bazaar  Raipur (Chhattisgarh), India - 492001 <br> Phone- +91-0771-4266646, 4049289<br> Fax - +91-0771-4049289 <br> Email - hajcom.cg@gov.in, cghajcommittee.@gmail.com      <br> Website - hajcommittee.cgstate.gov.in', 'State Haj Committee', NULL, 'Y', 'D', '2021-06-25 00:00:00', '2021-06-10 00:00:00'),
+	(3, NULL, 'Contacts in Saudi Arabia', 'http://hajcommittee.gov.in/contact_us.aspx#verticalTab4', 'Y', 'L', '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
+	(3, 'Your feedback is important to us. <br> It matters a lot.  <br> You can send your feedback in the below Email Address <br> Email :- hajcom.cg@gov.in ;   cghajcommittee.@gmail.com', 'Feedback', NULL, 'Y', 'D', '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
+	(2, 'Department of Energy,  <br> Government of Chhattisgrah Irrigation Colony, Shanti Nagar, <br> Raipur (CG.) Pin-492001 <br> Phone : 91-771-4073555, <br> Fax : 4073553 <br> Email : cserc.sec.cg@nic.in', 'Energy Department Address', NULL, 'Y', 'D', '2021-06-26 00:00:00', '2022-07-31 00:00:00');
+/*!40000 ALTER TABLE `main_contact` ENABLE KEYS */;
 
 -- Dumping structure for table cgstate.main_department
 CREATE TABLE IF NOT EXISTS `main_department` (
@@ -1637,7 +1689,7 @@ CREATE TABLE IF NOT EXISTS `main_department` (
   `contactno` int DEFAULT NULL,
   `display` char(50) DEFAULT NULL,
   PRIMARY KEY (`dept_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table cgstate.main_department: ~60 rows (approximately)
 /*!40000 ALTER TABLE `main_department` DISABLE KEYS */;
@@ -1704,16 +1756,40 @@ INSERT INTO `main_department` (`dept_id`, `deptname_hn`, `deptname_en`, `isactiv
 	(60, 'ग्रामीण यांत्रिकी सेवा', 'Rural Engineering Services', NULL, NULL, NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `main_department` ENABLE KEYS */;
 
--- Dumping structure for table cgstate.main_dept_data
-CREATE TABLE IF NOT EXISTS `main_dept_data` (
+-- Dumping structure for table cgstate.main_download
+CREATE TABLE IF NOT EXISTS `main_download` (
   `dept_id` int DEFAULT NULL,
-  `menu_code` int DEFAULT NULL,
-  `deptdata` varchar(1000) DEFAULT NULL
+  `linkname` varchar(1000) DEFAULT NULL,
+  `linkurl` varchar(1000) DEFAULT NULL,
+  `isactive` char(1) DEFAULT NULL,
+  `doctype` char(1) DEFAULT NULL,
+  `issuedate` timestamp NULL DEFAULT NULL,
+  `validitydate` timestamp NULL DEFAULT NULL,
+  KEY `download_dept_id` (`dept_id`),
+  CONSTRAINT `download_dept_id` FOREIGN KEY (`dept_id`) REFERENCES `mas_dept` (`dept_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table cgstate.main_dept_data: ~0 rows (approximately)
-/*!40000 ALTER TABLE `main_dept_data` DISABLE KEYS */;
-/*!40000 ALTER TABLE `main_dept_data` ENABLE KEYS */;
+-- Dumping data for table cgstate.main_download: ~0 rows (approximately)
+/*!40000 ALTER TABLE `main_download` DISABLE KEYS */;
+INSERT INTO `main_download` (`dept_id`, `linkname`, `linkurl`, `isactive`, `doctype`, `issuedate`, `validitydate`) VALUES
+	(3, ' Advance & Balance Haj Amount- SBI', 'haj/download/file-1624639972402.pdf', 'Y', 'P', '2021-06-25 00:00:00', '2022-06-30 00:00:00'),
+	(3, ' Advance & Balance Haj Amount- UBI', 'haj/download/file-1624640044134.pdf', 'Y', 'P', '2021-06-25 00:00:00', '2022-06-30 00:00:00'),
+	(3, 'District Wise e-Suvidha', 'haj/download/file-1624640126052.pdf', 'Y', 'P', '2021-06-25 00:00:00', '2022-06-30 00:00:00');
+/*!40000 ALTER TABLE `main_download` ENABLE KEYS */;
+
+-- Dumping structure for table cgstate.main_feedback
+CREATE TABLE IF NOT EXISTS `main_feedback` (
+  `dept_id` int DEFAULT NULL,
+  `firstname` varchar(100) DEFAULT NULL,
+  `lastname` varchar(100) DEFAULT NULL,
+  `emailid` varchar(100) DEFAULT NULL,
+  `contactno` int DEFAULT NULL,
+  `message` varchar(1000) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Dumping data for table cgstate.main_feedback: ~0 rows (approximately)
+/*!40000 ALTER TABLE `main_feedback` DISABLE KEYS */;
+/*!40000 ALTER TABLE `main_feedback` ENABLE KEYS */;
 
 -- Dumping structure for table cgstate.main_importantlink
 CREATE TABLE IF NOT EXISTS `main_importantlink` (
@@ -1726,7 +1802,7 @@ CREATE TABLE IF NOT EXISTS `main_importantlink` (
   `isactive` char(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table cgstate.main_importantlink: ~16 rows (approximately)
+-- Dumping data for table cgstate.main_importantlink: ~21 rows (approximately)
 /*!40000 ALTER TABLE `main_importantlink` DISABLE KEYS */;
 INSERT INTO `main_importantlink` (`dept_id`, `linkname`, `linkurl`, `doctype`, `issuedate`, `validitydate`, `isactive`) VALUES
 	(NULL, 'Corona Guideline Link, Government Of Chhattisgarh', 'http://gad.cg.gov.in/cgcorona/', 'L', NULL, NULL, 'Y'),
@@ -1742,24 +1818,35 @@ INSERT INTO `main_importantlink` (`dept_id`, `linkname`, `linkurl`, `doctype`, `
 	(2, 'Chhattisgarh State Electricity Regulatory Commission', 'http://cserc.gov.in/', 'L', '2021-06-18 00:00:00', '2021-10-30 00:00:00', 'Y'),
 	(2, 'Chhattisgarh State Renewable Energy Development Agency', 'http://www.creda.in/', 'L', '2021-06-18 00:00:00', '2021-07-31 00:00:00', 'Y'),
 	(2, 'Chhattisgarh State Power Distribution Company Limited', 'https://www.cspdcl.co.in/cseb/(S(gjkxzjbxyvtht33j1vv4zsht))/frmHome.aspx', 'L', '2021-06-18 00:00:00', '2021-07-31 00:00:00', 'Y'),
-	(3, 'Online Health Verification', 'https://hcoi2.hajcommittee.in/webapp/web21/hajcnfm/', 'L', '2021-06-22 00:00:00', '2021-07-31 00:00:00', 'Y'),
-	(3, 'Online Form', 'https://103.71.18.116/webapp/web21/', 'L', '2021-06-22 00:00:00', '2021-07-31 00:00:00', NULL),
-	(3, 'http://103.71.18.114/webapp/web18/pay/', 'http://103.71.18.114/webapp/web18/pay/', 'L', '2021-06-22 00:00:00', '2021-06-30 00:00:00', 'Y');
+	(3, 'Online Health Verification', 'https://hcoi2.hajcommittee.in/webapp/web21/hajcnfm/', 'L', '2021-06-22 00:00:00', '2022-07-31 00:00:00', 'Y'),
+	(3, 'Online Form', 'https://103.71.18.116/webapp/web21/', 'L', '2021-06-22 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(3, 'E Payment', 'http://103.71.18.114/webapp/web18/pay/', 'L', '2021-06-22 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(3, 'IAS Coaching', 'http://hajcommittee.gov.in/IAS_coaching.aspx', 'L', '2021-06-22 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(3, 'Circulars', 'http://hajcommittee.gov.in/Circulars.aspx', 'L', '2021-06-22 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(3, ' Piligrim Information Corner', 'http://www.hajcommittee.gov.in/', 'L', '2021-06-22 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(3, 'How to fill online HAF', 'haz/impinfo/file-1624355300537.pdf', 'P', '2021-06-22 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(3, 'Registered Private Tours Operator List', 'haz/impinfo/file-1624355435182.pdf', 'P', '2021-06-22 00:00:00', '2022-06-30 00:00:00', 'Y');
 /*!40000 ALTER TABLE `main_importantlink` ENABLE KEYS */;
 
 -- Dumping structure for table cgstate.main_news
 CREATE TABLE IF NOT EXISTS `main_news` (
   `dept_id` int DEFAULT NULL,
-  `linkname` varchar(50) DEFAULT NULL,
-  `linkurl` varchar(50) DEFAULT NULL,
+  `linkname` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `linkurl` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `doctype` char(1) DEFAULT NULL,
   `issuedate` timestamp NULL DEFAULT NULL,
   `validitydate` timestamp NULL DEFAULT NULL,
   `isactive` char(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table cgstate.main_news: ~0 rows (approximately)
+-- Dumping data for table cgstate.main_news: ~5 rows (approximately)
 /*!40000 ALTER TABLE `main_news` DISABLE KEYS */;
+INSERT INTO `main_news` (`dept_id`, `linkname`, `linkurl`, `doctype`, `issuedate`, `validitydate`, `isactive`) VALUES
+	(3, 'Start of Online Haj Application form', 'haz/mainnews/file-1624432713715.pdf', 'P', '2021-06-23 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(3, 'Expression of Interest- Haj 2021', 'haz/mainnews/file-1624434167344.pdf', 'P', '2021-06-23 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(3, 'Extension of Last Date for Filling of HAF-Haj 2021', 'haz/images/file-1624434496934.png', 'I', '2021-06-23 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(3, 'Application\'s Invites for Deputation to CGI Jeddah for Haj 2021', 'haz/images/file-1624435872853.png', 'I', '2021-06-23 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(3, 'Haj 2021- Online Health Verification', 'haz/images/file-1624436319113.png', 'I', '2021-06-23 00:00:00', '2022-06-30 00:00:00', 'Y');
 /*!40000 ALTER TABLE `main_news` ENABLE KEYS */;
 
 -- Dumping structure for table cgstate.main_org_table
@@ -1769,7 +1856,7 @@ CREATE TABLE IF NOT EXISTS `main_org_table` (
   `org_type` varchar(1000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table cgstate.main_org_table: ~9 rows (approximately)
+-- Dumping data for table cgstate.main_org_table: ~8 rows (approximately)
 /*!40000 ALTER TABLE `main_org_table` DISABLE KEYS */;
 INSERT INTO `main_org_table` (`org_name`, `org_link`, `org_type`) VALUES
 	('Indian Institute of Technology Raipur', 'https://www.iitbhilai.ac.in/', 'E'),
@@ -1830,9 +1917,9 @@ CREATE TABLE IF NOT EXISTS `mas_dept` (
 /*!40000 ALTER TABLE `mas_dept` DISABLE KEYS */;
 INSERT INTO `mas_dept` (`dept_id`, `deptname_en`, `deptname_hn`, `dept_minister_name_en`, `dept_minister_name_hn`, `dept_minister_post_en`, `dept_minister_post_hn`, `dept_min_pic`, `deptlogo_dark_url`, `cm_pic_url`, `cm_name_hn`, `cm_name_en`, `cm_post_hn`, `cm_post_en`, `domain_name`) VALUES
 	(0, 'CG Portal Super Admin', 'CG Portal Super Admin', '', '', '', '', '', '', '', '', '', '', NULL, 'sup'),
-	(1, 'CG GOVERNMENT', ' छत्तीसगढ़ सरकार', 'Anusuiya Uikey', 'अनुसुइया उइके', 'Hon\'ble Governor', 'माननीय राज्यपाल छत्तीसगढ', 'cgstate/images/file-1624344553281.png', 'cgstate/images/file-1624344561062.png', 'cgstate/images/file-1624344570968.png', 'भूपेश बघेल', 'Bhupesh Baghel', 'माननीय मुख्यमंत्री छत्तीसगढ़', 'Hon\'ble Chief Minister', 'cgstate'),
+	(1, 'CG GOVERNMENT', ' छत्तीसगढ़ सरकार', 'Anusuiya Uikey', 'अनुसुइया उइके', 'Hon\'ble Governor', 'माननीय राज्यपाल छत्तीसगढ', 'cgstate/images/file-1624541347754.png', 'cgstate/images/file-1624541376071.png', 'cgstate/images/file-1624541384921.png', 'भूपेश बघेल', 'Bhupesh Baghel', 'माननीय मुख्यमंत्री छत्तीसगढ़', 'Hon\'ble Chief Minister', 'cgstate'),
 	(2, 'Energy Department', 'ऊर्जा विभाग', 'Bhupesh Baghel', 'भूपेश बघेल', 'Hon. Energy Department Minister ', 'माननीय ऊर्जा विभाग मंत्री', 'eng/images/file-1623926995750.png', 'eng/images/file-1623927005671.png', 'eng/images/file-1623927065678.png', 'भूपेश बघेल', 'Bhupesh Baghel', 'माननीय मुख्यमंत्री', 'Hon. Chief Minister ', 'eng'),
-	(3, 'Chhattisgarh State Haj Committee', 'छत्तीसगढ़ राज्य हज समिति', ' ', '  ', '  ', '  ', 'haz/images/file-1624260772099.png', 'haz/images/file-1624260787596.png', 'haz/images/file-1624260759347.png', 'भूपेश बघेल', 'Bhupesh Baghel', 'माननीय मुख्यमंत्री ', 'Hon\'ble Chief Minister ', 'haz');
+	(3, 'Chhattisgarh State Haj Committee', 'छत्तीसगढ़ राज्य हज समिति', ' ', '  ', '  ', '  ', 'haz/images/file-1624260772099.png', 'haz/images/file-1624260787596.png', 'haz/images/file-1624260759347.png', 'भूपेश बघेल', 'Bhupesh Baghel', 'माननीय मुख्यमंत्री ', 'Hon\'ble Chief Minister ', 'haj');
 /*!40000 ALTER TABLE `mas_dept` ENABLE KEYS */;
 
 -- Dumping structure for table cgstate.mas_menu
@@ -3195,20 +3282,22 @@ CREATE TABLE IF NOT EXISTS `upload_data` (
   `dept_id` int DEFAULT NULL,
   `linkname` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `menu_tab_linkurl` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `uploaddate` datetime DEFAULT NULL,
   `description_hn` varchar(1000) DEFAULT NULL,
   `description_en` varchar(1000) DEFAULT NULL,
-  `issuedate` datetime DEFAULT NULL,
-  `validitydate` datetime DEFAULT NULL,
+  `issuedate` timestamp NULL DEFAULT NULL,
+  `validitydate` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`linkid`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table cgstate.upload_data: ~3 rows (approximately)
 /*!40000 ALTER TABLE `upload_data` DISABLE KEYS */;
-INSERT INTO `upload_data` (`linkid`, `menu_code`, `dept_id`, `linkname`, `menu_tab_linkurl`, `uploaddate`, `description_hn`, `description_en`, `issuedate`, `validitydate`) VALUES
-	(40, 9, 2, 'Amendment No- 2, (Package -A) Request For Proposal (RFP) of Consultancy Services for Preparation of ', 'cgstate/tenders/file-1622815079545.pdf', NULL, NULL, NULL, '2021-06-22 00:00:00', '2021-06-21 00:00:00'),
-	(43, 9, 2, 'tender for new building', 'cgstate/tenders/file-1623221399759.pdf', NULL, NULL, NULL, '2021-06-11 00:00:00', '2021-06-25 00:00:00'),
-	(44, 9, 2, '15 /2021-2022 EE RWS&S Division, Kendrap', 'cgstate/tenders/file-1623577948305.pdf', NULL, NULL, NULL, '2021-06-13 00:00:00', '2021-06-18 00:00:00');
+INSERT INTO `upload_data` (`linkid`, `menu_code`, `dept_id`, `linkname`, `menu_tab_linkurl`, `description_hn`, `description_en`, `issuedate`, `validitydate`) VALUES
+	(40, 9, 2, 'Amendment No- 2, (Package -A) Request For Proposal (RFP) of Consultancy Services for Preparation of ', 'cgstate/tenders/file-1622815079545.pdf', NULL, NULL, '2021-06-22 00:00:00', '2021-06-21 00:00:00'),
+	(43, 9, 2, 'tender for new building', 'cgstate/tenders/file-1623221399759.pdf', NULL, NULL, '2021-06-11 00:00:00', '2021-06-25 00:00:00'),
+	(44, 9, 2, '15 /2021-2022 EE RWS&S Division, Kendrap', 'cgstate/tenders/file-1623577948305.pdf', NULL, NULL, '2021-06-13 00:00:00', '2021-06-18 00:00:00'),
+	(47, 15, 3, 'Action Plan', 'haj/notification/file-1624623839042.pdf', NULL, NULL, '2021-06-25 00:00:00', '2022-06-30 00:00:00'),
+	(49, 9, 1, 'Tender for new building for department', 'cgstate/tenders/file-1624625847925.pdf', NULL, NULL, '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
+	(51, 15, 3, 'Haj Announcement 2021', 'haj/notification/file-1624626206193.pdf', NULL, NULL, '2021-06-25 00:00:00', '2022-06-30 00:00:00');
 /*!40000 ALTER TABLE `upload_data` ENABLE KEYS */;
 
 -- Dumping structure for table cgstate.upload_pic

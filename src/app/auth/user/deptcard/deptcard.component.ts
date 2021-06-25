@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { environment } from 'src/environments/environment';
+import { NavigationEnd, Router } from '@angular/router';
 
 
 @Component({
@@ -34,7 +35,18 @@ export class DeptcardComponent implements OnInit {
   folder_name: any;
   dept_id: any;
 
-  constructor(private http: HttpClient, private commonservice: CommonService, private fb: FormBuilder, private datePipe: DatePipe, private authservice: AuthService) {
+  constructor(private router: Router, private http: HttpClient, private commonservice: CommonService, private fb: FormBuilder, private datePipe: DatePipe, private authservice: AuthService) {
+
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
+
+    this.router.events.subscribe((evt) => {
+      if (evt instanceof NavigationEnd) {
+        this.router.navigated = false;
+        window.scrollTo(0, 0);
+      }
+    });
 
     this.deptcardForm = this.fb.group({
       linkname: [],
@@ -146,9 +158,9 @@ export class DeptcardComponent implements OnInit {
         timer: 5000
       });
 
-    });
+      this.router.navigate(['user/deptcard']);
 
-    this.deptcardForm.reset();
+    });
 
   }
 

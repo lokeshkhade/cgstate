@@ -22,6 +22,7 @@ export class DeptaboutusComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   public dept_id: any;
+  public data: any = [];
 
   constructor(private commonservice: CommonService, private route: ActivatedRoute, private router: Router) { }
 
