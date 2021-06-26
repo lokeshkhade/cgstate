@@ -35,7 +35,7 @@ var common = {
 
 
     getnoticeboard: function(callback) {
-        db.query(`select * from upload_data where dept_id = 1  LIMIT 5`, callback);
+        db.query(`select * from upload_data where dept_id = 1 and isactive='Y'  LIMIT 5`, callback);
     },
 
     getdeptcard: function(dept_id, callback) {
@@ -43,7 +43,7 @@ var common = {
     },
 
     getdeptnoticeboard: function(dept_id, callback) {
-        db.query(`select * from upload_data where dept_id  = ? order by issuedate LIMIT 5 `, [dept_id], callback);
+        db.query(`select * from upload_data where dept_id  = ? and isactive='Y' order by issuedate LIMIT 5 `, [dept_id], callback);
     },
 
     getuploadmenu: function(callback) {
@@ -134,15 +134,15 @@ var common = {
 
     deptlinks: function(dept_id, callback) {
         if (dept_id != 0) {
-            db.query(`select *,'' as sn from upload_data where dept_id  = ?`, [dept_id], callback);
+            db.query(`select *,'' as sn from upload_data where dept_id  = ? and isactive='Y'`, [dept_id], callback);
         } else {
-            db.query(`select *,'' as sn from upload_data `, callback);
+            db.query(`select *,'' as sn from upload_data where isactive='Y'`, callback);
         }
 
     },
 
     deptlinksbytype: function(dept_id, menu_code, callback) {
-        db.query(`select *,'' as sn from upload_data where dept_id  = ? and menu_code = ?`, [dept_id, menu_code], callback);
+        db.query(`select *,'' as sn from upload_data where dept_id  = ? and menu_code = ? and  isactive='Y'`, [dept_id, menu_code], callback);
     },
 
 

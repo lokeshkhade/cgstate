@@ -1571,7 +1571,7 @@ CREATE TABLE IF NOT EXISTS `main_aboutus` (
   `validitydate` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table cgstate.main_aboutus: ~0 rows (approximately)
+-- Dumping data for table cgstate.main_aboutus: ~10 rows (approximately)
 /*!40000 ALTER TABLE `main_aboutus` DISABLE KEYS */;
 INSERT INTO `main_aboutus` (`dept_id`, `data`, `linkname`, `linkurl`, `isactive`, `flag`, `issuedate`, `validitydate`) VALUES
 	(3, NULL, 'Acts', 'http://www.hajcommittee.gov.in/history-and-laws.aspx#verticalTab2', 'Y', 'L', '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
@@ -1644,14 +1644,15 @@ CREATE TABLE IF NOT EXISTS `main_card` (
 -- Dumping data for table cgstate.main_card: ~2 rows (approximately)
 /*!40000 ALTER TABLE `main_card` DISABLE KEYS */;
 INSERT INTO `main_card` (`dept_id`, `cardheader`, `cardflag`, `cardno`, `carddata`, `linkurl`, `isactive`, `linkname`, `issuedate`, `validitydate`) VALUES
-	(3, 'Enquiry', 'L', 1, NULL, 'http://www.hajcommittee.gov.in/', 'Y', 'Flight Schedule', '2021-06-23 00:00:00', '2022-06-30 00:00:00'),
-	(3, 'Enquiry', 'L', 2, NULL, 'http://www.hajcommittee.gov.in/', 'Y', 'Waiting list', '2021-06-23 00:00:00', '2022-06-30 00:00:00'),
 	(3, 'Quick Tour', 'P', NULL, NULL, 'haj/deptcard/file-1624645528228.pdf', 'Y', 'Quick Tour', '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
 	(3, 'Glossory', 'P', NULL, NULL, 'haj/deptcard/file-1624645609996.pdf', 'Y', 'Glossory', '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
 	(3, 'Frequently Asked Questions', 'P', NULL, NULL, 'haj/deptcard/file-1624646224718.pdf', 'Y', 'Frequently Asked Questions', '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
 	(3, 'CGI, Accomodation Locator', 'L', NULL, NULL, 'https://play.google.com/store/apps/details?id=com.cgijeddah&hl=en', 'Y', 'CGI, Accomodation Locator', '2021-06-26 00:00:00', '2021-06-30 00:00:00'),
 	(3, 'Haj Mission, Indian Consulate, Jeddah\'s Page - Fac', 'L', NULL, NULL, 'https://www.facebook.com/hajmission/', 'Y', 'Haj Mission, Indian Consulate, Jeddah\'s Page - Facebook', '2021-06-26 00:00:00', '2021-06-30 00:00:00'),
-	(2, 'सूचना का अधिकार अधिनियम 2005 - लोक प्राधिकारियों क', 'P', NULL, NULL, 'eng/deptcard/file-1624647792503.pdf', 'Y', 'सूचना का अधिकार अधिनियम 2005 - लोक प्राधिकारियों की सूची', '2021-06-26 00:00:00', '2022-06-30 00:00:00');
+	(2, 'Right to Information Act', 'P', NULL, NULL, 'eng/deptcard/file-1624689803776.pdf', 'Y', 'Right to Information Act', '2021-06-26 00:00:00', '2021-06-30 00:00:00'),
+	(2, 'Chhattisgarh State Electricity Regulatory Commissi', 'L', NULL, NULL, 'http://cserc.gov.in/', 'Y', 'Chhattisgarh State Electricity Regulatory Commission', '2021-06-26 00:00:00', '2022-06-30 00:00:00'),
+	(2, 'Chhattisgarh State Renewable Energy Development Ag', 'L', NULL, NULL, 'http://www.creda.in/', 'Y', 'Chhattisgarh State Renewable Energy Development Agency', '2021-06-26 00:00:00', '2021-06-30 00:00:00'),
+	(2, 'Chhattisgarh State Power Distribution Company Lim', 'L', NULL, NULL, 'https://cspdcl.co.in/cseb/(S(vy2fk0dklrpbc3p5lqjk5eaw))/frmCompanyProfile.aspx', 'Y', 'Chhattisgarh State Power Distribution Company Limited', '2021-06-26 00:00:00', '2021-06-30 00:00:00');
 /*!40000 ALTER TABLE `main_card` ENABLE KEYS */;
 
 -- Dumping structure for table cgstate.main_contact
@@ -1805,19 +1806,7 @@ CREATE TABLE IF NOT EXISTS `main_importantlink` (
 -- Dumping data for table cgstate.main_importantlink: ~21 rows (approximately)
 /*!40000 ALTER TABLE `main_importantlink` DISABLE KEYS */;
 INSERT INTO `main_importantlink` (`dept_id`, `linkname`, `linkurl`, `doctype`, `issuedate`, `validitydate`, `isactive`) VALUES
-	(NULL, 'Corona Guideline Link, Government Of Chhattisgarh', 'http://gad.cg.gov.in/cgcorona/', 'L', NULL, NULL, 'Y'),
-	(NULL, 'Chhattisgarh - ESDM Sector Profile - 2015', 'assets/pdf/Chhattisgarh - ESDM Sector Profile (2015)_07_05_5pm.pdf', 'P', NULL, NULL, 'Y'),
-	(NULL, 'Chhattisgarh - IT & ITeS Sector Profile - 2015', 'assets/pdf/Chhattisgarh - ESDM Sector Profile (2015)_07_05_5pm.pdf', 'P', NULL, NULL, 'Y'),
-	(NULL, 'Chhattisgarh -Electronics & IT ITeS Policy 2014-19', 'assets/pdf/Chhattisgarh - ESDM Sector Profile (2015)_07_05_5pm.pdf', 'P', NULL, NULL, 'Y'),
-	(NULL, 'Budget Speech 2017-18', 'assets/pdf/Chhattisgarh - ESDM Sector Profile (2015)_07_05_5pm.pdf', 'P', NULL, NULL, 'Y'),
-	(NULL, 'Budget 2017-18', 'http://finance.cg.gov.in/budget_doc/main_budget.asp?year1=2017', 'L', NULL, NULL, 'Y'),
-	(NULL, 'Budget 2019-20', 'http://finance.cg.gov.in/budget_doc/main_budget.asp?year1=2019', 'L', NULL, NULL, 'Y'),
-	(NULL, 'wwww', 'wwww', 'L', '2021-06-15 00:00:00', '2021-06-24 00:00:00', 'Y'),
-	(NULL, 'wcd', 'undefined/undefined/file-1623854529291.pdf', 'P', '2021-06-09 00:00:00', '2021-06-24 00:00:00', 'Y'),
 	(1, '15 /2021-2022 EE RWS&S Division, Kendrapara ', 'cgstate/impinfo/file-1623854956759.pdf', 'P', '2021-06-16 00:00:00', '2021-06-24 00:00:00', 'Y'),
-	(2, 'Chhattisgarh State Electricity Regulatory Commission', 'http://cserc.gov.in/', 'L', '2021-06-18 00:00:00', '2021-10-30 00:00:00', 'Y'),
-	(2, 'Chhattisgarh State Renewable Energy Development Agency', 'http://www.creda.in/', 'L', '2021-06-18 00:00:00', '2021-07-31 00:00:00', 'Y'),
-	(2, 'Chhattisgarh State Power Distribution Company Limited', 'https://www.cspdcl.co.in/cseb/(S(gjkxzjbxyvtht33j1vv4zsht))/frmHome.aspx', 'L', '2021-06-18 00:00:00', '2021-07-31 00:00:00', 'Y'),
 	(3, 'Online Health Verification', 'https://hcoi2.hajcommittee.in/webapp/web21/hajcnfm/', 'L', '2021-06-22 00:00:00', '2022-07-31 00:00:00', 'Y'),
 	(3, 'Online Form', 'https://103.71.18.116/webapp/web21/', 'L', '2021-06-22 00:00:00', '2022-06-30 00:00:00', 'Y'),
 	(3, 'E Payment', 'http://103.71.18.114/webapp/web18/pay/', 'L', '2021-06-22 00:00:00', '2022-06-30 00:00:00', 'Y'),
@@ -1825,7 +1814,9 @@ INSERT INTO `main_importantlink` (`dept_id`, `linkname`, `linkurl`, `doctype`, `
 	(3, 'Circulars', 'http://hajcommittee.gov.in/Circulars.aspx', 'L', '2021-06-22 00:00:00', '2022-06-30 00:00:00', 'Y'),
 	(3, ' Piligrim Information Corner', 'http://www.hajcommittee.gov.in/', 'L', '2021-06-22 00:00:00', '2022-06-30 00:00:00', 'Y'),
 	(3, 'How to fill online HAF', 'haz/impinfo/file-1624355300537.pdf', 'P', '2021-06-22 00:00:00', '2022-06-30 00:00:00', 'Y'),
-	(3, 'Registered Private Tours Operator List', 'haz/impinfo/file-1624355435182.pdf', 'P', '2021-06-22 00:00:00', '2022-06-30 00:00:00', 'Y');
+	(3, 'Registered Private Tours Operator List', 'haz/impinfo/file-1624355435182.pdf', 'P', '2021-06-22 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(2, 'छत्तीसगढ़ राज्य विद्युत होल्डिंग कंपनी मर्यादित', 'eng/impinfo/file-1624689540696.pdf', 'P', '2005-06-01 00:00:00', '2005-06-30 00:00:00', 'Y'),
+	(2, 'सूचना का अधिकार अधिनियम 2005 - लोक प्राधिकारियों की सूची', 'eng/impinfo/file-1624689636036.pdf', 'P', '2005-06-01 00:00:00', '2006-06-30 00:00:00', 'Y');
 /*!40000 ALTER TABLE `main_importantlink` ENABLE KEYS */;
 
 -- Dumping structure for table cgstate.main_news
@@ -1846,7 +1837,9 @@ INSERT INTO `main_news` (`dept_id`, `linkname`, `linkurl`, `doctype`, `issuedate
 	(3, 'Expression of Interest- Haj 2021', 'haz/mainnews/file-1624434167344.pdf', 'P', '2021-06-23 00:00:00', '2022-06-30 00:00:00', 'Y'),
 	(3, 'Extension of Last Date for Filling of HAF-Haj 2021', 'haz/images/file-1624434496934.png', 'I', '2021-06-23 00:00:00', '2022-06-30 00:00:00', 'Y'),
 	(3, 'Application\'s Invites for Deputation to CGI Jeddah for Haj 2021', 'haz/images/file-1624435872853.png', 'I', '2021-06-23 00:00:00', '2022-06-30 00:00:00', 'Y'),
-	(3, 'Haj 2021- Online Health Verification', 'haz/images/file-1624436319113.png', 'I', '2021-06-23 00:00:00', '2022-06-30 00:00:00', 'Y');
+	(3, 'Haj 2021- Online Health Verification', 'haz/images/file-1624436319113.png', 'I', '2021-06-23 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(2, 'Tender NO. T- 07/2012 for Appointment of Consultant for assistance to Commission in Scrutiny,\r\nAnalysis and Disposal of Petitions to be filed by CSPGCL, CSPTCL, CSPDCL and SLDC for Truing up of previous years and\r\nDetermination of Tariff for Ensuing Years', 'eng/mainnews/file-1624688035981.pdf', 'P', '2013-04-01 00:00:00', '2014-04-30 00:00:00', 'Y'),
+	(2, 'Detailed Tariff Order for CSPGCL, CSPTCL, SLDC and CSPDCL for FY 2012-13', 'eng/mainnews/file-1624688753565.pdf', 'P', '2012-12-26 00:00:00', '2013-12-31 00:00:00', 'Y');
 /*!40000 ALTER TABLE `main_news` ENABLE KEYS */;
 
 -- Dumping structure for table cgstate.main_org_table
@@ -1869,6 +1862,23 @@ INSERT INTO `main_org_table` (`org_name`, `org_link`, `org_type`) VALUES
 	('Government Engineering College, Jagdalpur', 'https://gecjdp.ac.in/', 'E'),
 	('Sant Gahira Guru Vishwavidyalaya,sarguja', 'http://sggcg.in/', 'E');
 /*!40000 ALTER TABLE `main_org_table` ENABLE KEYS */;
+
+-- Dumping structure for table cgstate.main_reports
+CREATE TABLE IF NOT EXISTS `main_reports` (
+  `dept_id` int DEFAULT NULL,
+  `linkname` varchar(1000) DEFAULT NULL,
+  `menu_tab_linkurl` varchar(1000) DEFAULT NULL,
+  `menu_code` int DEFAULT NULL,
+  `isactive` char(1) DEFAULT NULL,
+  `issuedate` timestamp NULL DEFAULT NULL,
+  `validitydate` timestamp NULL DEFAULT NULL,
+  KEY `reportfk` (`dept_id`),
+  CONSTRAINT `reportfk` FOREIGN KEY (`dept_id`) REFERENCES `mas_dept` (`dept_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Dumping data for table cgstate.main_reports: ~0 rows (approximately)
+/*!40000 ALTER TABLE `main_reports` DISABLE KEYS */;
+/*!40000 ALTER TABLE `main_reports` ENABLE KEYS */;
 
 -- Dumping structure for table cgstate.main_scheme
 CREATE TABLE IF NOT EXISTS `main_scheme` (
@@ -1939,7 +1949,7 @@ CREATE TABLE IF NOT EXISTS `mas_menu` (
   `end_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `havechildren` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`menu_code`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table cgstate.mas_menu: ~18 rows (approximately)
 /*!40000 ALTER TABLE `mas_menu` DISABLE KEYS */;
@@ -1961,7 +1971,9 @@ INSERT INTO `mas_menu` (`menu_code`, `display_name`, `foldername`, `menu_order`,
 	(15, 'Notification', 'notification', 4, NULL, 0, NULL, 15, 1, 'Y', 'Y', '2021-05-05 11:54:32', '2021-05-05 11:54:35', 'Y'),
 	(16, 'Quick Links', NULL, 1, NULL, 0, NULL, 16, 1, 'P', 'Y', '2021-05-05 11:54:32', '2021-05-05 11:54:35', 'Y'),
 	(17, 'Projects / Programs', NULL, 1, NULL, 0, NULL, 17, 1, 'P', 'Y', '2021-05-05 11:54:32', '2021-05-05 11:54:35', 'Y'),
-	(18, 'In Focus', NULL, 1, NULL, 0, NULL, 18, 1, 'P', 'Y', '2021-05-05 11:54:32', '2021-05-05 11:54:35', 'Y');
+	(18, 'In Focus', NULL, 1, NULL, 0, NULL, 18, 1, 'P', 'Y', '2021-05-05 11:54:32', '2021-05-05 11:54:35', 'Y'),
+	(19, 'Regulation', 'regulation', 5, NULL, 0, NULL, 19, 1, 'G', 'Y', '2021-05-05 11:54:32', '2021-05-05 11:54:35', 'Y'),
+	(20, 'Reports and Documents', 'documents', 6, NULL, 0, NULL, 20, 1, 'G', 'Y', '2021-05-05 11:54:32', '2021-05-05 11:54:35', 'Y');
 /*!40000 ALTER TABLE `mas_menu` ENABLE KEYS */;
 
 -- Dumping structure for table cgstate.mas_users
@@ -3282,43 +3294,37 @@ CREATE TABLE IF NOT EXISTS `upload_data` (
   `dept_id` int DEFAULT NULL,
   `linkname` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `menu_tab_linkurl` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `description_hn` varchar(1000) DEFAULT NULL,
-  `description_en` varchar(1000) DEFAULT NULL,
+  `description_hn` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `description_en` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `issuedate` timestamp NULL DEFAULT NULL,
   `validitydate` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`linkid`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8;
+  `isactive` char(1) DEFAULT NULL,
+  PRIMARY KEY (`linkid`),
+  KEY `uploaddeptid` (`dept_id`),
+  CONSTRAINT `uploaddeptid` FOREIGN KEY (`dept_id`) REFERENCES `mas_dept` (`dept_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table cgstate.upload_data: ~3 rows (approximately)
 /*!40000 ALTER TABLE `upload_data` DISABLE KEYS */;
-INSERT INTO `upload_data` (`linkid`, `menu_code`, `dept_id`, `linkname`, `menu_tab_linkurl`, `description_hn`, `description_en`, `issuedate`, `validitydate`) VALUES
-	(40, 9, 2, 'Amendment No- 2, (Package -A) Request For Proposal (RFP) of Consultancy Services for Preparation of ', 'cgstate/tenders/file-1622815079545.pdf', NULL, NULL, '2021-06-22 00:00:00', '2021-06-21 00:00:00'),
-	(43, 9, 2, 'tender for new building', 'cgstate/tenders/file-1623221399759.pdf', NULL, NULL, '2021-06-11 00:00:00', '2021-06-25 00:00:00'),
-	(44, 9, 2, '15 /2021-2022 EE RWS&S Division, Kendrap', 'cgstate/tenders/file-1623577948305.pdf', NULL, NULL, '2021-06-13 00:00:00', '2021-06-18 00:00:00'),
-	(47, 15, 3, 'Action Plan', 'haj/notification/file-1624623839042.pdf', NULL, NULL, '2021-06-25 00:00:00', '2022-06-30 00:00:00'),
-	(49, 9, 1, 'Tender for new building for department', 'cgstate/tenders/file-1624625847925.pdf', NULL, NULL, '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
-	(51, 15, 3, 'Haj Announcement 2021', 'haj/notification/file-1624626206193.pdf', NULL, NULL, '2021-06-25 00:00:00', '2022-06-30 00:00:00');
+INSERT INTO `upload_data` (`linkid`, `menu_code`, `dept_id`, `linkname`, `menu_tab_linkurl`, `description_hn`, `description_en`, `issuedate`, `validitydate`, `isactive`) VALUES
+	(47, 15, 3, 'Action Plan', 'haj/notification/file-1624623839042.pdf', NULL, NULL, '2021-06-25 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(49, 9, 1, 'Tender for new building for department', 'cgstate/tenders/file-1624625847925.pdf', NULL, NULL, '2021-06-25 00:00:00', '2021-06-30 00:00:00', 'Y'),
+	(51, 15, 3, 'Haj Announcement 2021', 'haj/notification/file-1624626206193.pdf', NULL, NULL, '2021-06-25 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(52, 14, 2, 'Transfer Order Letter No. F4-1/2019/13/1 on Date : 23-Aug-2019', 'eng/orders/file-1624686143385.pdf', NULL, NULL, '2019-08-23 00:00:00', '2022-08-31 00:00:00', 'Y'),
+	(53, 9, 2, 'Tender NO. T- 07/2012 for Appointment of Consultant for assistance to Commission in Scrutiny, Analysis and Disposal of Petitions to be filed by CSPGCL, CSPTCL, CSPDCL and SLDC for Truing up of previous years and Determination of Tariff for Ensuing Years. ', 'eng/tenders/file-1624686311275.pdf', NULL, NULL, '2021-06-26 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(54, 15, 2, 'Draft Regulation - CSERC (Fees and charges of State Load Despatch Centre and other related matters) Regulations, 2012. Notice inviting suggestions /objections on draft Regulations', 'eng/notification/file-1624686371200.pdf', NULL, NULL, '2021-06-26 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(58, 15, 2, 'In the matter of determination of generic levellised generation tariff for Govt. of India, Ministry of New and Renewable Energy "ROOFTOP PV AND SMALL SOLAR POWER GENERATION PROGRAMME (RPSSGP)", 2010.', 'eng/notification/file-1624687061916.pdf', NULL, NULL, '2021-06-26 00:00:00', '2022-07-31 00:00:00', 'Y'),
+	(59, 15, 2, 'Notice for inviting comments/suggestions on petition No. 39/2012(T) filed by JSPL for approval of ARR and determination of retail tariff  for FY 2012-13 along with truing up for FY 2010-11 and 2011-12 for its licensed distribution business.', 'eng/notification/file-1624687106481.pdf', NULL, NULL, '2021-06-26 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(60, 15, 2, ' Draft Regulation - CSERC (Terms and Conditions for determination of tariff according to Multi-Year Tariff principles and Methodology and Procedure for determination of Expected revenue from Tariff and charges) Regulations, 2012   Notice inviting suggestions /objections on draft Regulations', 'eng/notification/file-1624687216400.pdf', NULL, NULL, '2021-06-26 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(61, 14, 2, 'Detailed Tariff Order for FY 12-13', 'eng/orders/file-1624687277530.pdf', NULL, NULL, '2021-06-26 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(62, 13, 2, 'Advertisement for post of Directors in CSPCL by Energy Department', 'eng/recruitments/file-1624687419467.pdf', NULL, NULL, '2016-03-13 00:00:00', '2016-04-30 00:00:00', 'Y'),
+	(63, 15, 2, 'कार्यपालन अभियंता (वि.सु.) एवं संभागीय विद्युत् निरीक्षक संवर्ग के दिनांक 01/04/2015 की स्थिति दर्शाने वाली अनंतिम पदक्रम सूची', 'eng/notification/file-1624687494687.pdf', NULL, NULL, '2015-04-01 00:00:00', '2015-04-30 00:00:00', 'Y'),
+	(64, 15, 2, 'अधीक्षण अभियंता (वि.सु.) एवं मुख्य विद्युत निरीक्षक संवर्ग की दिनांक 01/04/2015 की स्थिति दर्शाने वाली अंतिम पदक्रम सूची', 'eng/notification/file-1624687572126.pdf', NULL, NULL, '2015-04-01 00:00:00', '2015-04-30 00:00:00', 'Y'),
+	(65, 15, 2, 'कार्यपालन अभियंता (वि.सु.) एवं संभागीय विद्युत निरीक्षक संवर्ग की दिनांक 01/04/2015 की स्थिति दर्शाने वाली अंतिम पदक्रम सूची', 'eng/notification/file-1624687652256.pdf', NULL, NULL, '2015-04-20 00:00:00', '2015-05-31 00:00:00', 'Y'),
+	(66, 15, 2, 'मुख्य विद्युत लेखा परीक्षक संवर्ग की दिनांक 01/04/2015 की स्थिति दर्शाने वाली अंतिम पदक्रम सूची', 'eng/notification/file-1624687733557.pdf', NULL, NULL, '2015-04-01 00:00:00', '2015-05-31 00:00:00', 'Y'),
+	(67, 15, 2, 'सहायक अभियंता (वि.सु.) एवं सहायक विद्युत् निरीक्षक की दिनांक 01/04/2017 की स्थिति में अंतिम पदक्रम सूची ।', 'eng/notification/file-1624687802809.pdf', NULL, NULL, '2017-04-01 00:00:00', '2017-05-31 00:00:00', 'Y'),
+	(68, 15, 2, 'मुख्य विद्युत् लेखा परीक्षक की दिनांक 01/04/2017 की स्थिति में अंतिम पदक्रम सूची ।', 'eng/notification/file-1624687860779.pdf', NULL, NULL, '2017-04-01 00:00:00', '2017-07-31 00:00:00', 'Y');
 /*!40000 ALTER TABLE `upload_data` ENABLE KEYS */;
-
--- Dumping structure for table cgstate.upload_pic
-CREATE TABLE IF NOT EXISTS `upload_pic` (
-  `dept_id` int DEFAULT NULL,
-  `banner_url` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `pictype` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- Dumping data for table cgstate.upload_pic: ~8 rows (approximately)
-/*!40000 ALTER TABLE `upload_pic` DISABLE KEYS */;
-INSERT INTO `upload_pic` (`dept_id`, `banner_url`, `pictype`) VALUES
-	(6, 'lawdept/banner/file-1622112630150.jpg', 'B'),
-	(6, 'lawdept/banner/1622391572712.png', 'G'),
-	(6, 'lawdept/banner/1622438929368.png', 'G'),
-	(7, 'lawdept/banner/1622481064376.png', 'B'),
-	(7, 'lawdept/banner/1622481169565.png', 'G'),
-	(25, 'lawdept/banner/1622526277239.png', 'B'),
-	(25, 'lawdept/banner/1622526305042.png', 'G'),
-	(32, 'lawdept/banner/1622616189837.png', 'B');
-/*!40000 ALTER TABLE `upload_pic` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;

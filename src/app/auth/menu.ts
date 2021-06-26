@@ -8,6 +8,7 @@ export const MENUITEMS = {
         { state: '/user/implinkform', name: 'Important Link', type: 'link', icon: 'view_list' },
         { state: '/user/schemeform', name: 'Scheme Entry', type: 'link', icon: 'view_list' },
         { state: '/user/deptpic', name: 'Image Upload', type: 'link', icon: 'view_list' },
+        { state: '/user/reportentryform', name: 'Report/Doc./Regulation', type: 'link', icon: 'view_list' },
 
     ],
     3: [

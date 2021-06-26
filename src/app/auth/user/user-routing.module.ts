@@ -1,3 +1,4 @@
+import { ReportentryformComponent } from './reportentryform/reportentryform.component';
 import { DownloadentryformComponent } from './downloadentryform/downloadentryform.component';
 import { ContactentryformComponent } from './contactentryform/contactentryform.component';
 import { AboutusentryformComponent } from './aboutusentryform/aboutusentryform.component';
@@ -62,6 +63,10 @@ const routes: Routes = [
   {
     path: 'downloadentryform',
     component: DownloadentryformComponent
+  },
+  {
+    path: 'reportentryform',
+    component: ReportentryformComponent
   }
 ];
 

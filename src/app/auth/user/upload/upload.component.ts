@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { environment } from 'src/environments/environment';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-upload',
@@ -32,7 +33,18 @@ export class UploadComponent implements OnInit {
   events: string[] = [];
   uploadForm: FormGroup;
 
-  constructor(private http: HttpClient, private commonservice: CommonService, private fb: FormBuilder, private datePipe: DatePipe, private authservice: AuthService) {
+  constructor(private router: Router, private http: HttpClient, private commonservice: CommonService, private fb: FormBuilder, private datePipe: DatePipe, private authservice: AuthService) {
+
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
+
+    this.router.events.subscribe((evt) => {
+      if (evt instanceof NavigationEnd) {
+        this.router.navigated = false;
+        window.scrollTo(0, 0);
+      }
+    });
 
     this.uploadForm = this.fb.group({
 
@@ -40,6 +52,7 @@ export class UploadComponent implements OnInit {
       linkname: ['', Validators.required],
       dept_id: [],
       menu_tab_linkurl: [''],
+      isactive: ['Y'],
       issuedate: [],
       validitydate: []
 
@@ -68,6 +81,7 @@ export class UploadComponent implements OnInit {
         text: 'Data Saved',
         timer: 2000
       });
+      this.router.navigate(['user/upload']);
     });
   }
 
@@ -117,7 +131,8 @@ export class UploadComponent implements OnInit {
             this.uploadForm.patchValue({
               menu_tab_linkurl: this.filename.filepath,
               menu_code: this.menu_code,
-              dept_id: this.dept_id
+              dept_id: this.dept_id,
+              isactive: ['Y']
             });
 
             Swal.fire({

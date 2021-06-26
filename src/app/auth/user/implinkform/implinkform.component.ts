@@ -35,6 +35,18 @@ export class ImplinkformComponent implements OnInit {
 
   constructor(private router: Router, private http: HttpClient, private commonservice: CommonService, private fb: FormBuilder, private datePipe: DatePipe, private authservice: AuthService) {
 
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
+
+    this.router.events.subscribe((evt) => {
+      if (evt instanceof NavigationEnd) {
+        this.router.navigated = false;
+        window.scrollTo(0, 0);
+      }
+    });
+
+
 
     this.implinkForm = this.fb.group({
       linkname: ['', Validators.required],
@@ -145,9 +157,11 @@ export class ImplinkformComponent implements OnInit {
         timer: 5000
       });
 
+      this.router.navigate(['user/implinkform']);
+
     });
 
-    this.implinkForm.reset();
+
 
   }
 

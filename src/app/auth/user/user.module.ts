@@ -15,9 +15,10 @@ import { WhatsnewComponent } from './whatsnew/whatsnew.component';
 import { AboutusentryformComponent } from './aboutusentryform/aboutusentryform.component';
 import { ContactentryformComponent } from './contactentryform/contactentryform.component';
 import { DownloadentryformComponent } from './downloadentryform/downloadentryform.component';
+import { ReportentryformComponent } from './reportentryform/reportentryform.component';
 
 @NgModule({
-  declarations: [UserDashboardComponent, UploadComponent, DeptconfigComponent, SchemeformComponent, DepartmententryformComponent, ImplinkformComponent, DeptpicComponent, DeptcardComponent, WhatsnewComponent, AboutusentryformComponent, ContactentryformComponent, DownloadentryformComponent],
+  declarations: [UserDashboardComponent, UploadComponent, DeptconfigComponent, SchemeformComponent, DepartmententryformComponent, ImplinkformComponent, DeptpicComponent, DeptcardComponent, WhatsnewComponent, AboutusentryformComponent, ContactentryformComponent, DownloadentryformComponent, ReportentryformComponent],
   imports: [
     CommonModule,
     UserRoutingModule,
