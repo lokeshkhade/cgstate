@@ -48,6 +48,14 @@ export class CommonService {
         );
     }
 
+    updateFuction(funtionName: any, data: any) {
+        return this.http.put(environment.rootUrl + funtionName, data).pipe(tap(res => { res }),
+            catchError(e => {
+                throw new Error(e);
+            })
+        );
+    }
+
     // upload(funtionName: any, data: any) {
     //     return this.http.post(environment.rootUrl + funtionName, data).pipe(tap(res => { res }),
     //         catchError(e => {

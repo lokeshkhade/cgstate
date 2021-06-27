@@ -1,4 +1,4 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #9db9cf;font-weight: bold; font-size:18px;">
+<nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #85af89;font-weight: bold; font-size:18px;">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -87,9 +87,15 @@
                     <div class="form-group row">
                         <div class="col-md-6" style="padding-left: 0px;padding-right: 0px;">
                             <div #dataContainer class="svg-img"></div>
+                            <div>
+                                <button type="button" (click)="svgcaptcha()">
+                                    <mat-icon>replay</mat-icon>
+                                </button>
+
+                            </div>
                         </div>
                         <div class="col-md-6" style="padding-left: 0px;padding-right: 0px;">
-                            <label for="login-captcha">Captcha:</label>
+                            <label for="login-captcha" autocomplete="off">Captcha:</label>
                             <input type="text" id="login-captcha" class="form-control" placeholder="Enter Captcha" formControlName="captcha">
                         </div>
                     </div>

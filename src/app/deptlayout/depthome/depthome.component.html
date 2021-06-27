@@ -80,7 +80,7 @@
             </div>
         </div>
         <marquee>
-            <p style=" font-family: Impact; font-size: 10pt; color: #27a7ac; ">
+            <p style=" font-family: Impact; font-size: 10pt; color: #09868b; ">
                 <i class='fa fa-bell faa-ring animated fa-2x'></i> This is the new website for CGSTATE-PORTAL
                 <a href=" " target=" _blank "><b>&nbsp;क्लिक करें</b></a>
             </p>
@@ -91,29 +91,32 @@
 <div class="my-5" id="b-homedb">
     <div class="container-fluid">
         <div class="row">
-            <div class="card col-md-4 col-sm-6">
-                <div class="card-header text-center"> <i class="fa fa-bell" aria-hidden="true"></i> Notice Board</div>
-                <div class="card-body">
-                    <ul class="list-group">
-                        <div *ngFor="let t of noticeboarddata">
-                            <li class="list-group-item">{{t.linkname}}
-                                <a style="cursor: pointer;" target="_blank" href="{{rootUrl + t.menu_tab_linkurl}}">
-                                    <mat-icon>file_download</mat-icon>
-                                    <img src="../../assets/images/pdficon.jpg" alt="">
-                                </a>
-                            </li>
-                        </div>
-                    </ul>
-                    <a class="read-more" routerLink='deptnotice'>Read more</a>
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100 ">
+                    <div class="card-header text-center"> <i class="fa fa-bell" aria-hidden="true"></i> Notice Board
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <div *ngFor="let t of noticeboarddata">
+                                <li class="list-group-item">{{t.linkname}}
+                                    <a style="cursor: pointer;" target="_blank" href="{{rootUrl + t.menu_tab_linkurl}}">
+                                        <mat-icon>file_download</mat-icon>
+                                        <img src="../../assets/images/pdficon.jpg" alt="">
+                                    </a>
+                                </li>
+                            </div>
+                        </ul>
+                        <a class="read-more" routerLink='deptnotice'>Read more</a>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-6 item">
-                <div class="card-header text-center"> <i class="fa fa-newspaper-o" aria-hidden="true"></i> What's New
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-12" *ngFor="let t of newdata">
-                            <ul>
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100 ">
+                    <div class="card-header text-center"> <i class="fa fa-newspaper-o" aria-hidden="true"></i> What's New
+                    </div>
+                    <div class="card-body">
+                        <div *ngFor="let t of newdata">
+                            <ul class="list-group">
                                 <div *ngIf=" t.doctype=='P' ">
                                     <li class=" list-group-item ">
                                         <a target=" _blank " href=" {{rootUrl + t.linkurl}} ">{{t.linkname}}
@@ -137,34 +140,37 @@
                             </ul>
                         </div>
                         <a class="read-more" routerLink='deptnew'>Read more</a>
+
                     </div>
                 </div>
             </div>
 
-            <div class="card col-md-4 col-sm-6">
-                <div class="card-header text-center"> <i class="fa fa-info-circle" aria-hidden="true"></i> Important Information
-                </div>
-                <div class="card-body">
-                    <!-- <marquee direction="up"> -->
-                    <ul class=" list-group ">
-                        <div *ngFor=" let t of impldata ">
-                            <div *ngIf=" t.doctype=='L' ">
-                                <li class=" list-group-item ">
-                                    <a target=" _blank " href=" {{t.linkurl}} ">{{t.linkname}}</a>
-                                </li>
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100 ">
+                    <div class="card-header text-center"> <i class="fa fa-info-circle" aria-hidden="true"></i> Important Information
+                    </div>
+                    <div class="card-body">
+                        <!-- <marquee direction="up"> -->
+                        <ul class=" list-group ">
+                            <div *ngFor=" let t of impldata ">
+                                <div *ngIf=" t.doctype=='L' ">
+                                    <li class=" list-group-item ">
+                                        <a target=" _blank " href=" {{t.linkurl}} ">{{t.linkname}}</a>
+                                    </li>
+                                </div>
+                                <div *ngIf=" t.doctype=='P' ">
+                                    <li class=" list-group-item ">{{t.linkname}}
+                                        <a target=" _blank " href=" {{rootUrl + t.linkurl}} ">
+                                            <mat-icon>file_download</mat-icon>
+                                            <img src=" ../../assets/images/pdficon.jpg " alt=" ">
+                                        </a>
+                                    </li>
+                                </div>
                             </div>
-                            <div *ngIf=" t.doctype=='P' ">
-                                <li class=" list-group-item ">{{t.linkname}}
-                                    <a target=" _blank " href=" {{rootUrl + t.linkurl}} ">
-                                        <mat-icon>file_download</mat-icon>
-                                        <img src=" ../../assets/images/pdficon.jpg " alt=" ">
-                                    </a>
-                                </li>
-                            </div>
-                        </div>
-                    </ul>
-                    <!-- </marquee> -->
-                    <a class="read-more" routerLink='deptimpinfo'>Read more</a>
+                        </ul>
+                        <!-- </marquee> -->
+                        <a class="read-more" routerLink='deptimpinfo'>Read more</a>
+                    </div>
                 </div>
             </div>
 
@@ -177,9 +183,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6 col-sm-6">
-
                 <div class="card h-100 ">
-
                     <div class="card-header text-center"> <i class="fa fa-external-link" aria-hidden="true"></i> Useful Links
                     </div>
                     <div class="card-body text-center">
@@ -216,11 +220,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
-
         </div>
     </div>
 </div>

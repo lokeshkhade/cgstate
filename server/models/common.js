@@ -1,4 +1,6 @@
 var db = require('../dbconnection');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 var common = {
 
     getBlock: function(district_code, callback) {
@@ -48,6 +50,10 @@ var common = {
 
     getuploadmenu: function(callback) {
         db.query(`select * from mas_menu where  uploadflag = 'Y'  and flag='Y'`, callback);
+    },
+
+    getreportmenu: function(callback) {
+        db.query(`select * from mas_menu where  uploadflag = 'Y'  and flag='G'`, callback);
     },
 
     getdesignation: function(callback) {
@@ -119,6 +125,22 @@ var common = {
         }
     },
 
+    /////////////////////////////////////////////////////
+
+    getreports: function(callback) {
+        db.query(`select * from main_reports WHERE isactive='Y' ORDER BY menu_code`, callback);
+    },
+
+    getallreports: function(menu_code, callback) {
+
+        if (menu_code != 0) {
+            db.query(`select *,'' as sn from main_reports where isactive='Y'and menu_code  = ?`, [menu_code], callback);
+        } else {
+            db.query(`select *,'' as sn from main_reports where isactive='Y' `, callback);
+        }
+    },
+
+    ////////////////////////////////////////////
 
     getscheme: function(callback) {
         db.query(`select * from main_scheme`, callback);
@@ -146,6 +168,10 @@ var common = {
     },
 
 
+
+    ////////////////////////////////////////////////////////
+
+
     checkUsernameExist: function(username, callback) {
         db.query(`SELECT COUNT(*) AS notavail FROM users u WHERE u.username=?`, [username], callback);
     },
@@ -166,16 +192,23 @@ var common = {
         db.query(`select d.domain_name,  d.deptname_en,d.deptname_hn, u.password, u.user_id, u.user_name, u.dept_id, u.role from mas_users u left JOIN mas_dept d ON u.dept_id=d.dept_id WHERE u.user_id=?`, [username], callback);
     },
 
-    getCurrentPassword: function(UserID, UserTypeCode, callback) {
+    getCurrentPassword: function(user_id, role, callback) {
 
-        return db.query(`select Password from T_lgn WHERE UserID = ${UserID} AND UserTypeCode = ${UserTypeCode}`, callback);
+        return db.query(`select password from mas_users WHERE user_id = ${user_id} AND role = ${role}`, callback);
 
     },
-    changePassword: function(Password, UserID, UserTypeCode, callback) {
+    changePassword: function(password, user_id, role, callback) {
 
-        return db.query(
-            `update T_lgn set Password = ${Password} where UserID = ${UserID} AND UserTypeCode = ${UserTypeCode}`,
-            callback);
+        bcrypt.genSalt(saltRounds, function(err, salt) {
+            bcrypt.hash(password, salt, function(err, hash) {
+                // Store hash in your password DB.
+                console.log(`update mas_users set password = '${hash}' where user_id = ${user_id} AND role = ${role}`);
+                return db.query(
+                    `update mas_users set password = '${hash}' where user_id = ${user_id} AND role = ${role}`,
+                    callback);
+            });
+        });
+
     },
     //#endregion USER
 };

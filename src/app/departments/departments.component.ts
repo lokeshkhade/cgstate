@@ -20,7 +20,7 @@ export class DepartmentsComponent implements OnInit {
 
   public data: any = [];
 
-  displayedColumns: string[] = ['sn', 'deptname_en', 'deptname_hn', 'domain_name'];
+  displayedColumns: string[] = ['sn', 'deptname_en', 'deptname_hn', 'websitelink'];
   dataSource: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -29,12 +29,12 @@ export class DepartmentsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.getDept();
+    this.getAllDept();
   }
 
-  getDept() {
+  getAllDept() {
     let index = 0;
-    this.commonservice.getFunction('dept').subscribe(res => {
+    this.commonservice.paramFunction('alldept', '0').subscribe(res => {
       this.data = res;
       this.data.forEach(e => {
         this.data[index].sn = index + 1;
@@ -54,5 +54,7 @@ export class DepartmentsComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
+
 
 }

@@ -147,6 +147,14 @@
                             </td>
                         </ng-container>
 
+                        <ng-container matColumnDef="action">
+                            <th mat-header-cell *matHeaderCellDef>Disable</th>
+                            <td mat-cell *matCellDef="let row">
+                                <mat-slide-toggle (change)="slideChange(row.dept_id)" checked="true">
+                                </mat-slide-toggle>
+                            </td>
+                        </ng-container>
+
 
                         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

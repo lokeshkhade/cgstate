@@ -37,6 +37,8 @@ import { DepartmentlistComponent } from './departmentlist/departmentlist.compone
 import { SchemedetailsComponent } from './schemedetails/schemedetails.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { GalleryComponent } from './gallery/gallery.component';
+import { ReportsComponent } from './reports/reports.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 
 @NgModule({
@@ -65,6 +67,8 @@ import { GalleryComponent } from './gallery/gallery.component';
     DepartmentlistComponent,
     SchemedetailsComponent,
     GalleryComponent,
+    ReportsComponent,
+    FeedbackComponent,
 
   ],
   imports: [

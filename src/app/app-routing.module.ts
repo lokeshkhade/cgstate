@@ -1,3 +1,5 @@
+import { FeedbackComponent } from './feedback/feedback.component';
+import { ReportsComponent } from './reports/reports.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { SchemedetailsComponent } from './schemedetails/schemedetails.component';
 import { ImpinfoComponent } from './impinfo/impinfo.component';
@@ -162,6 +164,26 @@ const routes: Routes = [
         component: SchemeComponent,
         data: {
           title: 'Scheme',
+          urls: [
+            { title: 'Home', url: '/home' }
+          ]
+        }
+      },
+      {
+        path: 'reports',
+        component: ReportsComponent,
+        data: {
+          title: 'Reports',
+          urls: [
+            { title: 'Home', url: '/home' }
+          ]
+        }
+      },
+      {
+        path: 'feedback',
+        component: FeedbackComponent,
+        data: {
+          title: 'Feedback',
           urls: [
             { title: 'Home', url: '/home' }
           ]

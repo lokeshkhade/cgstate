@@ -74,7 +74,7 @@ export const Menus: any[] = [
                 icon: '',
                 submenu: []
             }, {
-                path: '/directory',
+                path: '/reports',
                 title: 'Documents and Reports',
                 icon: '',
                 submenu: []

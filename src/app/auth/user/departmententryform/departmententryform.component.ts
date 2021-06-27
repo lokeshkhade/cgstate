@@ -26,7 +26,7 @@ export class DepartmententryformComponent implements OnInit {
   public dept_foldername: any;
   public data: any = [];
   public deptdata: any = [];
-  displayedColumns: string[] = ['sn', 'deptname_en', 'deptname_hn', 'websitelink', 'EditData'];
+  displayedColumns: string[] = ['sn', 'deptname_en', 'deptname_hn', 'websitelink', 'EditData', 'action'];
   dataSource: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -170,12 +170,31 @@ export class DepartmententryformComponent implements OnInit {
             text: 'Department Details are Entered',
             timer: 5000
           });
-
+          this.getAllDept();
         }
       })
     }
-    this.getAllDept();
 
+
+  }
+
+
+  slideChange(dept_id: any, checked) {
+    console.log(checked);
+    let body = {
+      dept_id: dept_id,
+      isactive: ['N']
+    }
+    this.commonservice.update(body, 'main_department').subscribe(res => {
+      if (res['affectedRows']) {
+        Swal.fire({
+          icon: 'success',
+          text: 'Data Disable',
+          timer: 5000
+        });
+        this.getAllDept();
+      }
+    });
   }
 
 

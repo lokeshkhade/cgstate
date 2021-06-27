@@ -90,6 +90,18 @@ router.get('/uploadmenu', function(req, res) {
     });
 });
 
+///////////////////////////////////////////////////
+
+router.get('/reportmenu', function(req, res) {
+    common.getreportmenu(function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+});
+
 /////////////////////////////////////////////////////////////////////////////////
 
 router.get('/directory/:designation_id', function(req, res, next) {
@@ -316,6 +328,17 @@ router.get('/deptlist', function(req, res) {
 });
 
 
+router.get('/reports', function(req, res) {
+    common.getreports(function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+});
+
+
 /////////////////////////////////////////////////////////////////////////////////
 
 router.get('/scheme', function(req, res) {
@@ -332,6 +355,18 @@ router.get('/scheme', function(req, res) {
 
 router.get('/deptlinks/:dept_id', function(req, res, next) {
     common.deptlinks(req.params.dept_id, function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+
+});
+
+
+router.get('/allreports/:menu_code', function(req, res, next) {
+    common.getallreports(req.params.menu_code, function(err, rows) {
         if (err) {
             res.json(err);
         } else {
@@ -546,26 +581,35 @@ router.post('/login', function(req, res) {
 
 /////////////////////////////////////////////////////////////////////////////////
 
-router.put('/changepassword', checkAuth, function(req, res) {
+router.put('/changePassword', function(req, res) {
 
-    var deNEWpassword = CryptoJS.AES.decrypt(req.body.Newpassword, key).toString(CryptoJS.enc.Utf8);
-    var depassword = CryptoJS.AES.decrypt(req.body.password, key).toString(CryptoJS.enc.Utf8);
-
-    common.getCurrentpassword(req.body.username, req.body.UserTypeCode, function(err, rows) {
+    // var deNEWpassword = CryptoJS.AES.decrypt(req.body.Newpassword, key).toString(CryptoJS.enc.Utf8);
+    // var depassword = CryptoJS.AES.decrypt(req.body.password, key).toString(CryptoJS.enc.Utf8);
+    console.log(req.body);
+    common.getCurrentPassword(req.body.user_id, req.body.role, function(err, rows) {
         if (err) {
             res.json(err);
         } else {
-            if (depassword == rows[0].password) {
-                common.changepassword(deNEWpassword, req.body.username, req.body.UserTypeCode, function(err, rows1) {
-                    if (err) {
-                        res.json(err);
-                    } else {
-                        res.json({ success: true, message: 'password changed.' });
-                    }
-                });
-            } else {
-                res.json({ success: false, message: 'वर्तमान पासवर्ड गलत है !' });
-            }
+            console.log();
+            bcrypt.compare(req.body.current_password, JSON.parse(JSON.stringify(rows[0].password)), function(err, result) {
+
+                if (err) {
+                    return res.json({
+                        success: 0,
+                        message: `Error`
+                    });
+                } else if (result) {
+                    common.changePassword(req.body.new_password, req.body.user_id, req.body.role, function(err, rows1) {
+                        if (err) {
+                            res.json(err);
+                        } else {
+                            res.json({ success: true, message: 'password changed.' });
+                        }
+                    });
+                } else {
+                    res.json({ success: false, message: 'वर्तमान पासवर्ड गलत है !' });
+                }
+            });
         }
     });
 });
