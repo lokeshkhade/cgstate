@@ -83,17 +83,45 @@ var common = {
 
 
     getwhatnew: function(dept_id, callback) {
-        db.query(`select * from main_news where dept_id  = ? order by issuedate LIMIT 3 `, [dept_id], callback);
+        db.query(`select * from main_news where dept_id  = ? and isactive='Y' order by issuedate LIMIT 3 `, [dept_id], callback);
     },
 
 
     getallwhatnew: function(dept_id, callback) {
         if (dept_id != 0) {
-            db.query(`select *,'' as sn from main_news where dept_id  = ? order by issuedate  `, [dept_id], callback);
+            db.query(`select *,'' as sn from main_news where dept_id  = ? and isactive='Y' order by issuedate  `, [dept_id], callback);
         } else {
-            db.query(`select *,'' as sn from main_news order by issuedate `, callback);
+            db.query(`select *,'' as sn from main_news where isactive='Y' order by issuedate `, callback);
         }
 
+    },
+
+    getidwhatnew: function(id, callback) {
+        if (id != 0) {
+            db.query(`select *,'' as sn from main_news where id  = ? and isactive='Y' order by issuedate  `, [id], callback);
+        } else {
+            db.query(`select *,'' as sn from main_news where isactive='Y' order by issuedate `, callback);
+        }
+    },
+
+    /////////////////////////////////////////////////////////
+
+    getidbanner: function(id, callback) {
+        if (id != 0) {
+            db.query(`select *,'' as sn from main_banner where id  = ? and isactive='Y' order by issuedate  `, [id], callback);
+        } else {
+            db.query(`select *,'' as sn from main_banner where isactive='Y' order by issuedate `, callback);
+        }
+    },
+
+    ////////////////////////////////////////////////////
+
+    getidcard: function(id, callback) {
+        if (id != 0) {
+            db.query(`select *,'' as sn from main_card where id  = ? and isactive='Y' order by issuedate  `, [id], callback);
+        } else {
+            db.query(`select *,'' as sn from main_card where isactive='Y' order by issuedate `, callback);
+        }
     },
 
     ///////////////////////////////////////////////////////

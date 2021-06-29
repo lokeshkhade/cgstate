@@ -1561,74 +1561,83 @@ INSERT INTO `ias_details` (`id`, `ias_id`, `ias_name_en`, `ias_name_hi`, `email_
 
 -- Dumping structure for table cgstate.main_aboutus
 CREATE TABLE IF NOT EXISTS `main_aboutus` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `dept_id` int DEFAULT NULL,
   `data` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `linkname` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `linkurl` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `linkurl` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `isactive` char(1) DEFAULT NULL,
   `flag` char(1) DEFAULT NULL,
   `issuedate` timestamp NULL DEFAULT NULL,
-  `validitydate` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `validitydate` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_contact_deptid` (`dept_id`),
+  CONSTRAINT `FK_contact_deptid` FOREIGN KEY (`dept_id`) REFERENCES `mas_dept` (`dept_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table cgstate.main_aboutus: ~10 rows (approximately)
 /*!40000 ALTER TABLE `main_aboutus` DISABLE KEYS */;
-INSERT INTO `main_aboutus` (`dept_id`, `data`, `linkname`, `linkurl`, `isactive`, `flag`, `issuedate`, `validitydate`) VALUES
-	(3, NULL, 'Acts', 'http://www.hajcommittee.gov.in/history-and-laws.aspx#verticalTab2', 'Y', 'L', '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
-	(3, NULL, 'Rules', 'haj/deptaboutus/file-1624621147064.pdf', 'Y', 'P', '2021-06-25 00:00:00', '2021-06-25 00:00:00'),
-	(3, NULL, 'Previous Record', 'haj/deptaboutus/file-1624621211204.pdf', 'Y', 'P', '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
-	(3, NULL, 'State Haj Committee Member', 'haj/deptaboutus/file-1624621344366.pdf', 'Y', 'P', '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
-	(3, NULL, 'Practical Guide Tour', 'https://www.youtube.com/watch?v=U5_WrDvtZEs', 'Y', 'L', '2021-06-26 00:00:00', '2022-06-30 00:00:00'),
-	(3, NULL, 'Makkah Map', 'haj/deptaboutus/file-1624646964015.pdf', 'Y', 'P', '2021-06-26 00:00:00', '2022-07-30 00:00:00'),
-	(3, NULL, 'Azizia Map', 'haj/deptaboutus/file-1624647060201.pdf', 'Y', 'P', '2021-06-26 00:00:00', '2022-06-30 00:00:00'),
-	(3, NULL, 'Mina Map', 'haj/deptaboutus/file-1624647144655.pdf', 'Y', 'P', '2021-06-26 00:00:00', '2022-06-30 00:00:00'),
-	(3, NULL, 'Arafat Map', 'haj/deptaboutus/file-1624647190657.pdf', 'Y', 'P', '2021-06-26 00:00:00', '2022-07-31 00:00:00'),
-	(2, 'छ.ग. शासन, ऊर्जा विभाग के अधीन मुख्य विद्युत निरीक्षक, छ.ग. राज्य विद्युत मंडल अंतरण योजना, 2010 के अंतर्गत राज्य में संचालित 05 विद्युत कंपनियों, विद्युत अधिनियम, 2003 के अंतर्गत गठित छ.ग. राज्य विद्युतनियामक आयोग, छ.ग. राज्य अक्षय ऊर्जा विकास अभिकरण (क्रेडा)एवं छ.ग. राज्य बायोफ्यूल विकास प्राधिकरण (सीबीडीए) कार्य रत् हैं। उक्त विभागाध्यक्षों का ऊर्जा विभाग प्रशासकीय विभाग है उक्त विभागाध्यक्षों के शासन स्तर केमामलों से संबंधित निर्णय ऊर्जा विभाग द्वारा लिये जाते हैं।', ' Energy Depatment', NULL, 'Y', 'D', '2021-06-26 00:00:00', '2022-10-31 00:00:00');
+INSERT INTO `main_aboutus` (`id`, `dept_id`, `data`, `linkname`, `linkurl`, `isactive`, `flag`, `issuedate`, `validitydate`) VALUES
+	(1, 3, NULL, 'Acts', 'http://www.hajcommittee.gov.in/history-and-laws.aspx#verticalTab2', 'Y', 'L', NULL, NULL),
+	(2, 3, NULL, 'Rules', 'haj/deptaboutus/file-1624621147064.pdf', 'Y', 'P', '2021-06-25 00:00:00', '2021-06-25 00:00:00'),
+	(3, 3, NULL, 'Previous Record', 'haj/deptaboutus/file-1624621211204.pdf', 'Y', 'P', '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
+	(4, 3, NULL, 'State Haj Committee Member', 'haj/deptaboutus/file-1624621344366.pdf', 'Y', 'P', '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
+	(5, 3, NULL, 'Practical Guide Tour', 'https://www.youtube.com/watch?v=U5_WrDvtZEs', 'N', 'L', '2021-06-26 00:00:00', '2022-06-30 00:00:00'),
+	(6, 3, NULL, 'Makkah Map', 'haj/deptaboutus/file-1624646964015.pdf', 'Y', 'P', '2021-06-26 00:00:00', '2022-07-30 00:00:00'),
+	(7, 3, NULL, 'Azizia Map', 'haj/deptaboutus/file-1624647060201.pdf', 'Y', 'P', '2021-06-26 00:00:00', '2022-06-30 00:00:00'),
+	(8, 3, NULL, 'Mina Map', 'haj/deptaboutus/file-1624647144655.pdf', 'Y', 'P', NULL, NULL),
+	(9, 3, NULL, 'Arafat Map', 'haj/deptaboutus/file-1624647190657.pdf', 'Y', 'P', NULL, NULL),
+	(10, 2, 'छ.ग. शासन, ऊर्जा विभाग के अधीन मुख्य विद्युत निरीक्षक, छ.ग. राज्य विद्युत मंडल अंतरण योजना, 2010 के अंतर्गत राज्य में संचालित 05 विद्युत कंपनियों, विद्युत अधिनियम, 2003 के अंतर्गत गठित छ.ग. राज्य विद्युतनियामक आयोग, छ.ग. राज्य अक्षय ऊर्जा विकास अभिकरण (क्रेडा)एवं छ.ग. राज्य बायोफ्यूल विकास प्राधिकरण (सीबीडीए) कार्य रत् हैं। <br> उक्त विभागाध्यक्षों का ऊर्जा विभाग प्रशासकीय विभाग है उक्त विभागाध्यक्षों के शासन स्तर केमामलों से संबंधित निर्णय ऊर्जा विभाग द्वारा लिये जाते हैं।', ' Energy Depatment', NULL, 'Y', 'D', NULL, NULL);
 /*!40000 ALTER TABLE `main_aboutus` ENABLE KEYS */;
 
 -- Dumping structure for table cgstate.main_banner
 CREATE TABLE IF NOT EXISTS `main_banner` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `dept_id` int DEFAULT NULL,
   `imagetype` char(1) DEFAULT NULL,
   `linkurl` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `isactive` char(1) DEFAULT NULL,
   `imagetitle_en` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `imagetitle_hn` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `imagetitle_hn` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK1_banner` (`dept_id`),
+  CONSTRAINT `FK1_banner` FOREIGN KEY (`dept_id`) REFERENCES `mas_dept` (`dept_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table cgstate.main_banner: ~26 rows (approximately)
 /*!40000 ALTER TABLE `main_banner` DISABLE KEYS */;
-INSERT INTO `main_banner` (`dept_id`, `imagetype`, `linkurl`, `isactive`, `imagetitle_en`, `imagetitle_hn`) VALUES
-	(1, 'B', 'cgstate/images/file-1623916240524.jpg', 'Y', 'State Capital Raipur', 'राज्य की राजधानी रायपुर'),
-	(1, 'B', 'cgstate/images/file-1623916318013.jpg', 'Y', 'The Tribes of Chhattisgarh', 'छत्तीसगढ़ की जनजाति'),
-	(1, 'B', 'cgstate/images/file-1623916353644.jpg', 'Y', 'Craft of Chhattisgarh', 'छत्तीसगढ़ का शिल्प'),
-	(1, 'B', 'cgstate/images/file-1623916390254.jpg', 'Y', 'Places of Chhattisgarh', 'छत्तीसगढ़ में स्थान'),
-	(1, 'G', 'cgstate/banner/file-1623918893482.jpg', 'Y', 'High Court Bilaspur', 'उच्च न्यायालय बिलासपुर'),
-	(1, 'G', 'cgstate/banner/file-1623918945243.jpg', 'Y', 'Indravati Bhawan', ' इंद्रावती भवन'),
-	(1, 'G', 'cgstate/banner/file-1623919035624.jpg', 'Y', 'Mantralaya Bhawan', 'मंत्रालय भवन'),
-	(1, 'G', 'cgstate/banner/file-1623919084322.jpg', 'Y', 'Police Head Quarters', 'पुलिस का मुख्यालय'),
-	(2, 'B', 'eng/banner/file-1623929487253.jpg', 'Y', 'Chhattisgarh is the country\'s \'Power Hub\'', 'छत्तीसगढ़ देश का \'पावर हब\''),
-	(2, 'B', 'eng/banner/file-1623929544605.jpg', 'Y', 'Chhattisgarh is the country\'s \'Power Hub\'', 'छत्तीसगढ़ देश का \'पावर हब\''),
-	(2, 'B', 'eng/banner/file-1623929767291.jpg', 'Y', 'Chhattisgarh is the country\'s \'Power Hub\'', 'छत्तीसगढ़ देश का \'पावर हब\''),
-	(2, 'B', 'eng/banner/file-1623929891190.jpg', 'Y', 'Chhattisgarh is the country\'s \'Power Hub\'', 'छत्तीसगढ़ देश का \'पावर हब\''),
-	(2, 'G', 'eng/banner/file-1624000080470.jpg', 'Y', 'Energy Department', 'ऊर्जा विभाग'),
-	(2, 'G', 'eng/banner/file-1624000197103.jpg', 'Y', 'Energy Department', 'ऊर्जा विभाग'),
-	(2, 'G', 'eng/banner/file-1624000301143.jpg', 'Y', 'Energy Department', 'ऊर्जा विभाग'),
-	(2, 'G', 'eng/banner/file-1624000345062.jpg', 'Y', 'Energy Department', 'ऊर्जा विभाग'),
-	(3, 'B', 'haz/banner/file-1624261048470.jpg', 'Y', ' ', ' '),
-	(3, 'B', 'haz/banner/file-1624345270927.jpg', 'Y', '', ''),
-	(3, 'B', 'haz/banner/file-1624345287844.jpg', 'Y', '', ''),
-	(3, 'B', 'haz/banner/file-1624345302509.jpg', 'Y', '', ''),
-	(3, 'G', 'haj/banner/file-1624643627008.jpg', 'Y', ' ', ' '),
-	(3, 'G', 'haj/banner/file-1624643652535.jpg', NULL, ' ', ' '),
-	(3, 'G', 'haj/banner/file-1624643909866.jpg', 'Y', ' ', ' '),
-	(3, 'G', 'haj/banner/file-1624643947419.jpg', 'Y', ' ', ' '),
-	(3, 'G', 'haj/banner/file-1624643976178.jpg', 'Y', ' ', ' '),
-	(3, 'G', 'haj/banner/file-1624643995139.jpg', 'Y', '  ', ' ');
+INSERT INTO `main_banner` (`id`, `dept_id`, `imagetype`, `linkurl`, `isactive`, `imagetitle_en`, `imagetitle_hn`) VALUES
+	(1, 1, 'B', 'cgstate/images/file-1623916240524.jpg', 'Y', 'State Capital Raipur', 'राज्य की राजधानी रायपुर'),
+	(2, 1, 'B', 'cgstate/images/file-1623916318013.jpg', 'Y', 'The Tribes of Chhattisgarh', 'छत्तीसगढ़ की जनजाति'),
+	(3, 1, 'B', 'cgstate/images/file-1623916353644.jpg', 'Y', 'Craft of Chhattisgarh', 'छत्तीसगढ़ का शिल्प'),
+	(4, 1, 'B', 'cgstate/images/file-1623916390254.jpg', 'Y', 'Places of Chhattisgarh', 'छत्तीसगढ़ में स्थान'),
+	(5, 1, 'G', 'cgstate/banner/file-1623918893482.jpg', 'Y', 'High Court Bilaspur', 'उच्च न्यायालय बिलासपुर'),
+	(6, 1, 'G', 'cgstate/banner/file-1623918945243.jpg', 'Y', 'Indravati Bhawan', ' इंद्रावती भवन'),
+	(7, 1, 'G', 'cgstate/banner/file-1623919035624.jpg', 'Y', 'Mantralaya Bhawan', 'मंत्रालय भवन'),
+	(8, 1, 'G', 'cgstate/banner/file-1623919084322.jpg', 'Y', 'Police Head Quarters', 'पुलिस का मुख्यालय'),
+	(9, 2, 'B', 'eng/banner/file-1623929487253.jpg', 'Y', 'Chhattisgarh is the country\'s \'Power Hub\'', 'छत्तीसगढ़ देश का \'पावर हब\''),
+	(10, 2, 'B', 'eng/banner/file-1623929544605.jpg', 'Y', 'Chhattisgarh is the country\'s \'Power Hub\'', 'छत्तीसगढ़ देश का \'पावर हब\''),
+	(11, 2, 'B', 'eng/banner/file-1623929767291.jpg', 'Y', 'Chhattisgarh is the country\'s \'Power Hub\'', 'छत्तीसगढ़ देश का \'पावर हब\''),
+	(12, 2, 'B', 'eng/banner/file-1623929891190.jpg', 'Y', 'Chhattisgarh is the country\'s \'Power Hub\'', 'छत्तीसगढ़ देश का \'पावर हब\''),
+	(13, 2, 'G', 'eng/banner/file-1624000080470.jpg', 'Y', 'Energy Department', 'ऊर्जा विभाग'),
+	(14, 2, 'G', 'eng/banner/file-1624000197103.jpg', 'Y', 'Energy Department', 'ऊर्जा विभाग'),
+	(15, 2, 'G', 'eng/banner/file-1624000301143.jpg', 'Y', 'Energy Department', 'ऊर्जा विभाग'),
+	(16, 2, 'G', 'eng/banner/file-1624000345062.jpg', 'Y', 'Energy Department', 'ऊर्जा विभाग'),
+	(17, 3, 'B', 'haz/banner/file-1624261048470.jpg', 'Y', ' ', ' '),
+	(18, 3, 'B', 'haz/banner/file-1624345270927.jpg', 'Y', '', ''),
+	(19, 3, 'B', 'haz/banner/file-1624345287844.jpg', 'Y', '', ''),
+	(20, 3, 'B', 'haz/banner/file-1624345302509.jpg', 'Y', '', ''),
+	(21, 3, 'G', 'haj/banner/file-1624643627008.jpg', 'Y', ' ', ' '),
+	(22, 3, 'G', 'haj/banner/file-1624643652535.jpg', NULL, ' ', ' '),
+	(23, 3, 'G', 'haj/banner/file-1624643909866.jpg', 'Y', ' ', ' '),
+	(24, 3, 'G', 'haj/banner/file-1624643947419.jpg', 'Y', ' ', ' '),
+	(25, 3, 'G', 'haj/banner/file-1624643976178.jpg', 'Y', ' ', ' '),
+	(26, 3, 'G', 'haj/banner/file-1624643995139.jpg', 'Y', '  ', ' ');
 /*!40000 ALTER TABLE `main_banner` ENABLE KEYS */;
 
 -- Dumping structure for table cgstate.main_card
 CREATE TABLE IF NOT EXISTS `main_card` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `dept_id` int DEFAULT NULL,
   `cardheader` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `cardflag` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
@@ -1638,44 +1647,73 @@ CREATE TABLE IF NOT EXISTS `main_card` (
   `isactive` char(1) DEFAULT NULL,
   `linkname` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `issuedate` timestamp NULL DEFAULT NULL,
-  `validitydate` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `validitydate` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table cgstate.main_card: ~9 rows (approximately)
 /*!40000 ALTER TABLE `main_card` DISABLE KEYS */;
-INSERT INTO `main_card` (`dept_id`, `cardheader`, `cardflag`, `cardno`, `carddata`, `linkurl`, `isactive`, `linkname`, `issuedate`, `validitydate`) VALUES
-	(3, 'Quick Tour', 'P', NULL, NULL, 'haj/deptcard/file-1624645528228.pdf', 'Y', 'Quick Tour', '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
-	(3, 'Glossory', 'P', NULL, NULL, 'haj/deptcard/file-1624645609996.pdf', 'Y', 'Glossory', '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
-	(3, 'Frequently Asked Questions', 'P', NULL, NULL, 'haj/deptcard/file-1624646224718.pdf', 'Y', 'Frequently Asked Questions', '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
-	(3, 'CGI, Accomodation Locator', 'L', NULL, NULL, 'https://play.google.com/store/apps/details?id=com.cgijeddah&hl=en', 'Y', 'CGI, Accomodation Locator', '2021-06-26 00:00:00', '2021-06-30 00:00:00'),
-	(3, 'Haj Mission, Indian Consulate, Jeddah\'s Page - Fac', 'L', NULL, NULL, 'https://www.facebook.com/hajmission/', 'Y', 'Haj Mission, Indian Consulate, Jeddah\'s Page - Facebook', '2021-06-26 00:00:00', '2021-06-30 00:00:00'),
-	(2, 'Right to Information Act', 'P', NULL, NULL, 'eng/deptcard/file-1624689803776.pdf', 'Y', 'Right to Information Act', '2021-06-26 00:00:00', '2021-06-30 00:00:00'),
-	(2, 'Chhattisgarh State Electricity Regulatory Commissi', 'L', NULL, NULL, 'http://cserc.gov.in/', 'Y', 'Chhattisgarh State Electricity Regulatory Commission', '2021-06-26 00:00:00', '2022-06-30 00:00:00'),
-	(2, 'Chhattisgarh State Renewable Energy Development Ag', 'L', NULL, NULL, 'http://www.creda.in/', 'Y', 'Chhattisgarh State Renewable Energy Development Agency', '2021-06-26 00:00:00', '2021-06-30 00:00:00'),
-	(2, 'Chhattisgarh State Power Distribution Company Lim', 'L', NULL, NULL, 'https://cspdcl.co.in/cseb/(S(vy2fk0dklrpbc3p5lqjk5eaw))/frmCompanyProfile.aspx', 'Y', 'Chhattisgarh State Power Distribution Company Limited', '2021-06-26 00:00:00', '2021-06-30 00:00:00');
+INSERT INTO `main_card` (`id`, `dept_id`, `cardheader`, `cardflag`, `cardno`, `carddata`, `linkurl`, `isactive`, `linkname`, `issuedate`, `validitydate`) VALUES
+	(1, 3, 'Quick Tours', 'P', NULL, NULL, 'haj/deptcard/file-1624645528228.pdf', 'Y', 'Quick Tour', '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
+	(2, 3, 'Glossory', 'P', NULL, NULL, 'haj/deptcard/file-1624645609996.pdf', 'Y', 'Glossory', '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
+	(3, 3, 'Frequently Asked Questions', 'P', NULL, NULL, 'haj/deptcard/file-1624646224718.pdf', 'Y', 'Frequently Asked Questions', '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
+	(4, 3, 'CGI, Accomodation Locator', 'L', NULL, NULL, 'https://play.google.com/store/apps/details?id=com.cgijeddah&hl=en', 'Y', 'CGI, Accomodation Locator', '2021-06-26 00:00:00', '2021-06-30 00:00:00'),
+	(5, 3, 'Haj Mission, Indian Consulate, Jeddah\'s Page - Fac', 'L', NULL, NULL, 'https://www.facebook.com/hajmission/', 'Y', 'Haj Mission, Indian Consulate, Jeddah\'s Page - Facebook', '2021-06-26 00:00:00', '2021-06-30 00:00:00'),
+	(6, 2, 'Right to Information Act', 'P', NULL, NULL, 'eng/deptcard/file-1624689803776.pdf', 'Y', 'Right to Information Act', '2021-06-26 00:00:00', '2021-06-30 00:00:00'),
+	(7, 2, 'Chhattisgarh State Electricity Regulatory Commissi', 'L', NULL, NULL, 'http://cserc.gov.in/', 'Y', 'Chhattisgarh State Electricity Regulatory Commission', '2021-06-26 00:00:00', '2022-06-30 00:00:00'),
+	(8, 2, 'Chhattisgarh State Renewable Energy Development Ag', 'L', NULL, NULL, 'http://www.creda.in/', 'Y', 'Chhattisgarh State Renewable Energy Development Agency', '2021-06-26 00:00:00', '2021-06-30 00:00:00'),
+	(9, 2, 'Chhattisgarh State Power Distribution Company Lim', 'L', NULL, NULL, 'https://cspdcl.co.in/cseb/(S(vy2fk0dklrpbc3p5lqjk5eaw))/frmCompanyProfile.aspx', 'Y', 'Chhattisgarh State Power Distribution Company Limited', '2021-06-26 00:00:00', '2021-06-30 00:00:00');
 /*!40000 ALTER TABLE `main_card` ENABLE KEYS */;
+
+-- Dumping structure for table cgstate.main_card_log
+CREATE TABLE IF NOT EXISTS `main_card_log` (
+  `logid` int NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL,
+  `dept_id` int DEFAULT NULL,
+  `cardheader` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `cardflag` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `cardno` int DEFAULT NULL,
+  `carddata` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `linkurl` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `isactive` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `linkname` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `issuedate` timestamp NULL DEFAULT NULL,
+  `validitydate` timestamp NULL DEFAULT NULL,
+  `triggerflag` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`logid`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table cgstate.main_card_log: ~0 rows (approximately)
+/*!40000 ALTER TABLE `main_card_log` DISABLE KEYS */;
+INSERT INTO `main_card_log` (`logid`, `id`, `dept_id`, `cardheader`, `cardflag`, `cardno`, `carddata`, `linkurl`, `isactive`, `linkname`, `issuedate`, `validitydate`, `triggerflag`) VALUES
+	(12, 1, 3, 'Quick Tours', 'P', NULL, NULL, 'haj/deptcard/file-1624645528228.pdf', 'Y', 'Quick Tour', '2021-06-25 00:00:00', '2021-06-30 00:00:00', 'beforeupdate');
+/*!40000 ALTER TABLE `main_card_log` ENABLE KEYS */;
 
 -- Dumping structure for table cgstate.main_contact
 CREATE TABLE IF NOT EXISTS `main_contact` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `dept_id` int DEFAULT NULL,
-  `data` varchar(1000) DEFAULT NULL,
-  `linkname` varchar(500) DEFAULT NULL,
+  `data` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `linkname` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `linkurl` varchar(1000) DEFAULT NULL,
   `isactive` char(1) DEFAULT NULL,
   `flag` char(1) DEFAULT NULL,
   `issuedate` timestamp NULL DEFAULT NULL,
-  `validitydate` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `validitydate` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK1contact_deptid` (`dept_id`),
+  CONSTRAINT `FK1contact_deptid` FOREIGN KEY (`dept_id`) REFERENCES `mas_dept` (`dept_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table cgstate.main_contact: ~6 rows (approximately)
 /*!40000 ALTER TABLE `main_contact` DISABLE KEYS */;
-INSERT INTO `main_contact` (`dept_id`, `data`, `linkname`, `linkurl`, `isactive`, `flag`, `issuedate`, `validitydate`) VALUES
-	(3, '', 'Haj Committee of India ', 'http://hajcommittee.gov.in/contact_us.aspx#verticalTab1', 'Y', 'L', '2021-06-25 00:00:00', '2022-06-30 00:00:00'),
-	(3, NULL, 'Ministry of Minority Affairs, Government Of India.', 'http://hajcommittee.gov.in/contact_us.aspx#verticalTab3', 'Y', 'L', '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
-	(3, 'CHHATTISGARH STATE HAJ COMMITTEE <br>  Govt of Chhattisgarh   <br> Mukharjee Bada, Byron Bazaar  Raipur (Chhattisgarh), India - 492001 <br> Phone- +91-0771-4266646, 4049289<br> Fax - +91-0771-4049289 <br> Email - hajcom.cg@gov.in, cghajcommittee.@gmail.com      <br> Website - hajcommittee.cgstate.gov.in', 'State Haj Committee', NULL, 'Y', 'D', '2021-06-25 00:00:00', '2021-06-10 00:00:00'),
-	(3, NULL, 'Contacts in Saudi Arabia', 'http://hajcommittee.gov.in/contact_us.aspx#verticalTab4', 'Y', 'L', '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
-	(3, 'Your feedback is important to us. <br> It matters a lot.  <br> You can send your feedback in the below Email Address <br> Email :- hajcom.cg@gov.in ;   cghajcommittee.@gmail.com', 'Feedback', NULL, 'Y', 'D', '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
-	(2, 'Department of Energy,  <br> Government of Chhattisgrah Irrigation Colony, Shanti Nagar, <br> Raipur (CG.) Pin-492001 <br> Phone : 91-771-4073555, <br> Fax : 4073553 <br> Email : cserc.sec.cg@nic.in', 'Energy Department Address', NULL, 'Y', 'D', '2021-06-26 00:00:00', '2022-07-31 00:00:00');
+INSERT INTO `main_contact` (`id`, `dept_id`, `data`, `linkname`, `linkurl`, `isactive`, `flag`, `issuedate`, `validitydate`) VALUES
+	(1, 3, '', 'Haj Committee of India ', 'http://hajcommittee.gov.in/contact_us.aspx#verticalTab1', 'Y', 'L', '2021-06-25 00:00:00', '2022-06-30 00:00:00'),
+	(2, 3, NULL, 'Ministry of Minority Affairs, Government Of India.', 'http://hajcommittee.gov.in/contact_us.aspx#verticalTab3', 'Y', 'L', '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
+	(3, 3, 'CHHATTISGARH STATE HAJ COMMITTEE <br>  Govt of Chhattisgarh   <br> Mukharjee Bada, Byron Bazaar  Raipur (Chhattisgarh), India - 492001 <br> Phone- +91-0771-4266646, 4049289<br> Fax - +91-0771-4049289 <br> Email - hajcom.cg@gov.in, cghajcommittee.@gmail.com      <br> Website - hajcommittee.cgstate.gov.in', 'State Haj Committee', NULL, 'Y', 'D', '2021-06-25 00:00:00', '2021-06-10 00:00:00'),
+	(4, 3, NULL, 'Contacts in Saudi Arabia', 'http://hajcommittee.gov.in/contact_us.aspx#verticalTab4', 'Y', 'L', '2021-06-25 00:00:00', '2021-06-30 00:00:00'),
+	(5, 3, 'Your feedback is important to us. <br> It matters a lot for us.  <br> You can send your feedback in the below Email Address <br> Email :- hajcom.cg@gov.in ;   cghajcommittee.@gmail.com', 'Feedback', NULL, 'Y', 'D', NULL, NULL),
+	(6, 2, 'Department of Energy,  <br> Government of Chhattisgrah Irrigation Colony, Shanti Nagar, <br> Raipur (CG.) Pin-492001 <br> Phone : 91-771-4073555, <br> Fax : 4073553 <br> Email : cserc.sec.cg@nic.in', 'Energy Department Address', NULL, 'Y', 'D', '2021-06-26 00:00:00', '2022-07-31 00:00:00');
 /*!40000 ALTER TABLE `main_contact` ENABLE KEYS */;
 
 -- Dumping structure for table cgstate.main_department
@@ -1696,7 +1734,7 @@ CREATE TABLE IF NOT EXISTS `main_department` (
 /*!40000 ALTER TABLE `main_department` DISABLE KEYS */;
 INSERT INTO `main_department` (`dept_id`, `deptname_hn`, `deptname_en`, `isactive`, `officeaddress`, `websitelink`, `logourl`, `contactno`, `display`) VALUES
 	(1, 'छत्तीसगढ़ राज्य', 'CG State', NULL, NULL, NULL, NULL, NULL, NULL),
-	(2, 'कृषि विभाग', 'Agriculture Department', 'Y', NULL, 'http://agriportal.cg.nic.in/PortHi/', 'cgstate/images/file-1624342264327.png', NULL, 'O'),
+	(2, 'कृषि विभाग', 'Agriculture Departments', 'Y', NULL, 'http://agriportal.cg.nic.in/PortHi/', NULL, NULL, 'O'),
 	(3, 'पशुपालन विभाग', 'Animal Husbandry', 'Y', NULL, 'https://agriportal.cg.nic.in/ahd/ahdEn/default.aspx', 'assets/images/department/krishi.png', NULL, 'M'),
 	(4, 'छत्तीसगढ़ राजस्व मंडल', 'Chhattisgarh Board of Revenue', 'Y', NULL, 'https://revenue.cg.nic.in/Default.aspx', 'assets/images/department/vetlogo.png ', NULL, 'M'),
 	(5, 'छत्तीसगढ़ व्यावसायिक परीक्षा मंडल', 'Chhattisgarh Professional Examination Board', 'Y', NULL, 'https://vyapam.cgstate.gov.in/', 'assets/images/department/vyapam.jpg', NULL, 'M'),
@@ -1759,6 +1797,7 @@ INSERT INTO `main_department` (`dept_id`, `deptname_hn`, `deptname_en`, `isactiv
 
 -- Dumping structure for table cgstate.main_download
 CREATE TABLE IF NOT EXISTS `main_download` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `dept_id` int DEFAULT NULL,
   `linkname` varchar(1000) DEFAULT NULL,
   `linkurl` varchar(1000) DEFAULT NULL,
@@ -1766,16 +1805,17 @@ CREATE TABLE IF NOT EXISTS `main_download` (
   `doctype` char(1) DEFAULT NULL,
   `issuedate` timestamp NULL DEFAULT NULL,
   `validitydate` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `download_dept_id` (`dept_id`),
   CONSTRAINT `download_dept_id` FOREIGN KEY (`dept_id`) REFERENCES `mas_dept` (`dept_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table cgstate.main_download: ~3 rows (approximately)
 /*!40000 ALTER TABLE `main_download` DISABLE KEYS */;
-INSERT INTO `main_download` (`dept_id`, `linkname`, `linkurl`, `isactive`, `doctype`, `issuedate`, `validitydate`) VALUES
-	(3, ' Advance & Balance Haj Amount- SBI', 'haj/download/file-1624639972402.pdf', 'Y', 'P', '2021-06-25 00:00:00', '2022-06-30 00:00:00'),
-	(3, ' Advance & Balance Haj Amount- UBI', 'haj/download/file-1624640044134.pdf', 'Y', 'P', '2021-06-25 00:00:00', '2022-06-30 00:00:00'),
-	(3, 'District Wise e-Suvidha', 'haj/download/file-1624640126052.pdf', 'Y', 'P', '2021-06-25 00:00:00', '2022-06-30 00:00:00');
+INSERT INTO `main_download` (`id`, `dept_id`, `linkname`, `linkurl`, `isactive`, `doctype`, `issuedate`, `validitydate`) VALUES
+	(1, 3, ' Advance & Balance Haj Amount- SBI', 'haj/download/file-1624639972402.pdf', 'Y', 'P', NULL, NULL),
+	(2, 3, ' Advance & Balance Haj Amount- UBI', 'haj/download/file-1624881417077.pdf', 'Y', 'P', NULL, NULL),
+	(3, 3, 'District Wise e-Suvidha', 'haj/download/file-1624640126052.pdf', 'Y', 'P', '2021-06-25 00:00:00', '2022-06-30 00:00:00');
 /*!40000 ALTER TABLE `main_download` ENABLE KEYS */;
 
 -- Dumping structure for table cgstate.main_feedback
@@ -1784,64 +1824,74 @@ CREATE TABLE IF NOT EXISTS `main_feedback` (
   `firstname` varchar(100) DEFAULT NULL,
   `lastname` varchar(100) DEFAULT NULL,
   `emailid` varchar(100) DEFAULT NULL,
-  `contactno` int DEFAULT NULL,
+  `contactno` varchar(10) DEFAULT NULL,
   `message` varchar(1000) DEFAULT NULL,
   `issuedate` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`feedback_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Dumping data for table cgstate.main_feedback: ~0 rows (approximately)
+-- Dumping data for table cgstate.main_feedback: ~1 rows (approximately)
 /*!40000 ALTER TABLE `main_feedback` DISABLE KEYS */;
+INSERT INTO `main_feedback` (`feedback_id`, `firstname`, `lastname`, `emailid`, `contactno`, `message`, `issuedate`) VALUES
+	(3, 'kavita', 'singh', 'singh.kavitamail@gmail.com', '2222222222', 'ddddddddd', NULL);
 /*!40000 ALTER TABLE `main_feedback` ENABLE KEYS */;
 
 -- Dumping structure for table cgstate.main_importantlink
 CREATE TABLE IF NOT EXISTS `main_importantlink` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `dept_id` int DEFAULT NULL,
   `linkname` varchar(1000) DEFAULT NULL,
   `linkurl` varchar(1000) DEFAULT NULL,
   `doctype` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `issuedate` timestamp NULL DEFAULT NULL,
   `validitydate` timestamp NULL DEFAULT NULL,
-  `isactive` char(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `isactive` char(1) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK1_imp` (`dept_id`),
+  CONSTRAINT `FK1_imp` FOREIGN KEY (`dept_id`) REFERENCES `mas_dept` (`dept_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table cgstate.main_importantlink: ~11 rows (approximately)
 /*!40000 ALTER TABLE `main_importantlink` DISABLE KEYS */;
-INSERT INTO `main_importantlink` (`dept_id`, `linkname`, `linkurl`, `doctype`, `issuedate`, `validitydate`, `isactive`) VALUES
-	(1, '15 /2021-2022 EE RWS&S Division, Kendrapara ', 'cgstate/impinfo/file-1623854956759.pdf', 'P', '2021-06-16 00:00:00', '2021-06-24 00:00:00', 'Y'),
-	(3, 'Online Health Verification', 'https://hcoi2.hajcommittee.in/webapp/web21/hajcnfm/', 'L', '2021-06-22 00:00:00', '2022-07-31 00:00:00', 'Y'),
-	(3, 'Online Form', 'https://103.71.18.116/webapp/web21/', 'L', '2021-06-22 00:00:00', '2022-06-30 00:00:00', 'Y'),
-	(3, 'E Payment', 'http://103.71.18.114/webapp/web18/pay/', 'L', '2021-06-22 00:00:00', '2022-06-30 00:00:00', 'Y'),
-	(3, 'IAS Coaching', 'http://hajcommittee.gov.in/IAS_coaching.aspx', 'L', '2021-06-22 00:00:00', '2022-06-30 00:00:00', 'Y'),
-	(3, 'Circulars', 'http://hajcommittee.gov.in/Circulars.aspx', 'L', '2021-06-22 00:00:00', '2022-06-30 00:00:00', 'Y'),
-	(3, ' Piligrim Information Corner', 'http://www.hajcommittee.gov.in/', 'L', '2021-06-22 00:00:00', '2022-06-30 00:00:00', 'Y'),
-	(3, 'How to fill online HAF', 'haz/impinfo/file-1624355300537.pdf', 'P', '2021-06-22 00:00:00', '2022-06-30 00:00:00', 'Y'),
-	(3, 'Registered Private Tours Operator List', 'haz/impinfo/file-1624355435182.pdf', 'P', '2021-06-22 00:00:00', '2022-06-30 00:00:00', 'Y'),
-	(2, 'छत्तीसगढ़ राज्य विद्युत होल्डिंग कंपनी मर्यादित', 'eng/impinfo/file-1624689540696.pdf', 'P', '2005-06-01 00:00:00', '2005-06-30 00:00:00', 'Y'),
-	(2, 'सूचना का अधिकार अधिनियम 2005 - लोक प्राधिकारियों की सूची', 'eng/impinfo/file-1624689636036.pdf', 'P', '2005-06-01 00:00:00', '2006-06-30 00:00:00', 'Y');
+INSERT INTO `main_importantlink` (`id`, `dept_id`, `linkname`, `linkurl`, `doctype`, `issuedate`, `validitydate`, `isactive`) VALUES
+	(1, 1, '15 /2021-2022 EE RWS&S Division, Kendrapara ', 'cgstate/impinfo/file-1623854956759.pdf', 'P', '2021-06-16 00:00:00', '2021-06-24 00:00:00', 'Y'),
+	(2, 3, 'Online Health Verification', 'https://hcoi2.hajcommittee.in/webapp/web21/hajcnfm/', 'L', '2021-06-22 00:00:00', '2022-07-31 00:00:00', 'Y'),
+	(3, 3, 'Online Form', 'https://103.71.18.116/webapp/web21/', 'L', '2021-06-22 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(4, 3, 'E Payment', 'http://103.71.18.114/webapp/web18/pay/', 'L', '2021-06-22 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(5, 3, 'IAS Coaching', 'http://hajcommittee.gov.in/IAS_coaching.aspx', 'L', '2021-06-22 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(6, 3, 'Circulars', 'http://hajcommittee.gov.in/Circulars.aspx', 'L', '2021-06-22 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(7, 3, ' Piligrim Information Corner', 'http://www.hajcommittee.gov.in/', 'L', '2021-06-22 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(8, 3, 'How to fill online HAF', 'haz/impinfo/file-1624355300537.pdf', 'P', '2021-06-22 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(9, 3, 'Registered Private Tours Operator List', 'haz/impinfo/file-1624355435182.pdf', 'P', '2021-06-22 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(10, 2, 'छत्तीसगढ़ राज्य विद्युत होल्डिंग कंपनी मर्यादित', 'eng/impinfo/file-1624689540696.pdf', 'P', '2005-06-01 00:00:00', '2005-06-30 00:00:00', 'Y'),
+	(11, 2, 'सूचना का अधिकार अधिनियम 2005 - लोक प्राधिकारियों की सूची', 'eng/impinfo/file-1624689636036.pdf', 'P', '2005-06-01 00:00:00', '2006-06-30 00:00:00', 'Y');
 /*!40000 ALTER TABLE `main_importantlink` ENABLE KEYS */;
 
 -- Dumping structure for table cgstate.main_news
 CREATE TABLE IF NOT EXISTS `main_news` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `dept_id` int DEFAULT NULL,
   `linkname` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `linkurl` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `doctype` char(1) DEFAULT NULL,
   `issuedate` timestamp NULL DEFAULT NULL,
   `validitydate` timestamp NULL DEFAULT NULL,
-  `isactive` char(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `isactive` char(1) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK1_news` (`dept_id`),
+  CONSTRAINT `FK1_news` FOREIGN KEY (`dept_id`) REFERENCES `mas_dept` (`dept_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table cgstate.main_news: ~7 rows (approximately)
 /*!40000 ALTER TABLE `main_news` DISABLE KEYS */;
-INSERT INTO `main_news` (`dept_id`, `linkname`, `linkurl`, `doctype`, `issuedate`, `validitydate`, `isactive`) VALUES
-	(3, 'Start of Online Haj Application form', 'haz/mainnews/file-1624432713715.pdf', 'P', '2021-06-23 00:00:00', '2022-06-30 00:00:00', 'Y'),
-	(3, 'Expression of Interest- Haj 2021', 'haz/mainnews/file-1624434167344.pdf', 'P', '2021-06-23 00:00:00', '2022-06-30 00:00:00', 'Y'),
-	(3, 'Extension of Last Date for Filling of HAF-Haj 2021', 'haz/images/file-1624434496934.png', 'I', '2021-06-23 00:00:00', '2022-06-30 00:00:00', 'Y'),
-	(3, 'Application\'s Invites for Deputation to CGI Jeddah for Haj 2021', 'haz/images/file-1624435872853.png', 'I', '2021-06-23 00:00:00', '2022-06-30 00:00:00', 'Y'),
-	(3, 'Haj 2021- Online Health Verification', 'haz/images/file-1624436319113.png', 'I', '2021-06-23 00:00:00', '2022-06-30 00:00:00', 'Y'),
-	(2, 'Tender NO. T- 07/2012 for Appointment of Consultant for assistance to Commission in Scrutiny,\r\nAnalysis and Disposal of Petitions to be filed by CSPGCL, CSPTCL, CSPDCL and SLDC for Truing up of previous years and\r\nDetermination of Tariff for Ensuing Years', 'eng/mainnews/file-1624688035981.pdf', 'P', '2013-04-01 00:00:00', '2014-04-30 00:00:00', 'Y'),
-	(2, 'Detailed Tariff Order for CSPGCL, CSPTCL, SLDC and CSPDCL for FY 2012-13', 'eng/mainnews/file-1624688753565.pdf', 'P', '2012-12-26 00:00:00', '2013-12-31 00:00:00', 'Y');
+INSERT INTO `main_news` (`id`, `dept_id`, `linkname`, `linkurl`, `doctype`, `issuedate`, `validitydate`, `isactive`) VALUES
+	(1, 3, 'Start of Online Haj Application form', 'haz/mainnews/file-1624432713715.pdf', 'P', '2021-06-23 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(2, 3, 'Expression of Interest- Haj 2021', 'haz/mainnews/file-1624434167344.pdf', 'P', '2021-06-23 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(3, 3, 'Extension of Last Date for Filling of HAF-Haj 2021', 'haz/images/file-1624434496934.png', 'I', '2021-06-23 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(4, 3, 'Application\'s Invites for Deputation to CGI Jeddah for Haj 2021', 'haz/images/file-1624435872853.png', 'I', '2021-06-23 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(5, 3, 'Haj 2021- Online Health Verification', 'haz/images/file-1624436319113.png', 'I', '2021-06-23 00:00:00', '2022-06-30 00:00:00', 'Y'),
+	(6, 2, 'Tender NO. T- 07/2012 for Appointment of Consultant for assistance to Commission in Scrutiny,\r\nAnalysis and Disposal of Petitions to be filed by CSPGCL, CSPTCL, CSPDCL and SLDC for Truing up of previous years and\r\nDetermination of Tariff for Ensuing Years', 'eng/mainnews/file-1624688035981.pdf', 'P', '2013-04-01 00:00:00', '2014-04-30 00:00:00', 'Y'),
+	(7, 2, 'Detailed Tariff Order for CSPGCL, CSPTCL, SLDC and CSPDCL for FY 2012-13', 'eng/mainnews/file-1624688753565.pdf', 'P', '2012-12-26 00:00:00', '2013-12-31 00:00:00', 'Y');
 /*!40000 ALTER TABLE `main_news` ENABLE KEYS */;
 
 -- Dumping structure for table cgstate.main_org_table
@@ -1867,6 +1917,7 @@ INSERT INTO `main_org_table` (`org_name`, `org_link`, `org_type`) VALUES
 
 -- Dumping structure for table cgstate.main_reports
 CREATE TABLE IF NOT EXISTS `main_reports` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `dept_id` int DEFAULT NULL,
   `linkname` varchar(1000) DEFAULT NULL,
   `menu_tab_linkurl` varchar(1000) DEFAULT NULL,
@@ -1874,21 +1925,22 @@ CREATE TABLE IF NOT EXISTS `main_reports` (
   `isactive` char(1) DEFAULT NULL,
   `issuedate` timestamp NULL DEFAULT NULL,
   `validitydate` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `reportfk` (`dept_id`),
   CONSTRAINT `reportfk` FOREIGN KEY (`dept_id`) REFERENCES `mas_dept` (`dept_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table cgstate.main_reports: ~2 rows (approximately)
 /*!40000 ALTER TABLE `main_reports` DISABLE KEYS */;
-INSERT INTO `main_reports` (`dept_id`, `linkname`, `menu_tab_linkurl`, `menu_code`, `isactive`, `issuedate`, `validitydate`) VALUES
-	(1, 'छत्तीसगढ़ राज्य विद्युत् नियामक आयोग विनियम 2016', 'cgstate/regulation/file-1624699547566.pdf', 19, 'Y', '2021-06-26 00:00:00', '2022-06-30 00:00:00'),
-	(1, 'छत्तीसगढ़ राज्य विद्युत् नियामक आयोग विनियम 2015', 'cgstate/regulation/file-1624699710408.pdf', 19, 'Y', '2021-06-26 00:00:00', '2022-06-30 00:00:00');
+INSERT INTO `main_reports` (`id`, `dept_id`, `linkname`, `menu_tab_linkurl`, `menu_code`, `isactive`, `issuedate`, `validitydate`) VALUES
+	(1, 1, 'छत्तीसगढ़ राज्य विद्युत् नियामक आयोग विनियम 2016', 'cgstate/regulation/file-1624699547566.pdf', 19, 'Y', '2021-06-26 00:00:00', '2022-06-30 00:00:00'),
+	(2, 1, 'छत्तीसगढ़ राज्य विद्युत् नियामक आयोग विनियम 2015', 'cgstate/regulation/file-1624699710408.pdf', 19, 'Y', '2021-06-26 00:00:00', '2022-06-30 00:00:00');
 /*!40000 ALTER TABLE `main_reports` ENABLE KEYS */;
 
 -- Dumping structure for table cgstate.main_scheme
 CREATE TABLE IF NOT EXISTS `main_scheme` (
-  `dept_id` int DEFAULT NULL,
   `scheme_id` int NOT NULL AUTO_INCREMENT,
+  `dept_id` int DEFAULT NULL,
   `scheme_name` varchar(50) DEFAULT NULL,
   `scheme_data` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `img_link` varchar(50) DEFAULT NULL,
@@ -1899,11 +1951,11 @@ CREATE TABLE IF NOT EXISTS `main_scheme` (
 
 -- Dumping data for table cgstate.main_scheme: ~4 rows (approximately)
 /*!40000 ALTER TABLE `main_scheme` DISABLE KEYS */;
-INSERT INTO `main_scheme` (`dept_id`, `scheme_id`, `scheme_name`, `scheme_data`, `img_link`, `isactive`, `scheme_namehn`) VALUES
-	(2, 1, 'Naruwa Yojana', 'किसानों की आय बढ़ाने की दिशा में सुराजी गांव योजना महत्वपूर्ण कड़ी साबित होगी। राज्य सरकार द्वारा शुरू किए गए इस योजना में नदी-नालों को पुर्नजीवन ने का भी काम किया जा रहा है। नदी-नालों के पुर्नजीवन से किसानों को सिंचाई के लिए जहां भरपुर पानी मिलेगा वहीं किसान दोहरी फसल भी ले सकेंगे। नरवा कार्यक्रम के तहत् वैज्ञानिक पद्धति से उपचार और वर्षा जल के संचयन करने अनेक स्थानों पर स्टाॅप डैम, कंटूरबण्ड आदि संरचनाएं बनाई जाएगी। वर्षा जल के संचयन और नदी नालों के उपचार से आसपास के क्षेत्र की मिट्टी में नमी बढ़ेगी साथ ही फसलों की सिंचाई के लिए जल उपलब्ध रहेगा। वर्षा जल के संचयन से भूजल स्तर में भी वृद्धि होगी। नदी नालों के पुर्नजीवन की योजना के पूर्ण होने से न केवल इसके दूरगामी जनहितकारी परिणाम निकलेंगे, बल्कि जल संरक्षण एवं संवर्धन की दिशा में यह योजना मील का पत्थर साबित होगा। प्रदेश के कई क्षेत्र में छोटे-छोटे नदी नाले है जिनके जल संसाधन का उपयोग नहीं हो सका है पहले ऐसे नदी नालों में वर्ष के छह से आठ महीने भरपूर पानी रहता था, परन्तु वर्तमान में अनवरत भूगर्भीय, जलादोहन से इनके जल भराव की क्षमता घट गई', 'cgstate/images/file-1623829310631.jpg', 'Y', 'नरुवा योजना'),
+INSERT INTO `main_scheme` (`scheme_id`, `dept_id`, `scheme_name`, `scheme_data`, `img_link`, `isactive`, `scheme_namehn`) VALUES
+	(1, 2, 'Naruwa Yojana', 'किसानों की आय बढ़ाने की दिशा में सुराजी गांव योजना महत्वपूर्ण कड़ी साबित होगी। राज्य सरकार द्वारा शुरू किए गए इस योजना में नदी-नालों को पुर्नजीवन ने का भी काम किया जा रहा है। नदी-नालों के पुर्नजीवन से किसानों को सिंचाई के लिए जहां भरपुर पानी मिलेगा वहीं किसान दोहरी फसल भी ले सकेंगे। नरवा कार्यक्रम के तहत् वैज्ञानिक पद्धति से उपचार और वर्षा जल के संचयन करने अनेक स्थानों पर स्टाॅप डैम, कंटूरबण्ड आदि संरचनाएं बनाई जाएगी। वर्षा जल के संचयन और नदी नालों के उपचार से आसपास के क्षेत्र की मिट्टी में नमी बढ़ेगी साथ ही फसलों की सिंचाई के लिए जल उपलब्ध रहेगा। वर्षा जल के संचयन से भूजल स्तर में भी वृद्धि होगी। नदी नालों के पुर्नजीवन की योजना के पूर्ण होने से न केवल इसके दूरगामी जनहितकारी परिणाम निकलेंगे, बल्कि जल संरक्षण एवं संवर्धन की दिशा में यह योजना मील का पत्थर साबित होगा। प्रदेश के कई क्षेत्र में छोटे-छोटे नदी नाले है जिनके जल संसाधन का उपयोग नहीं हो सका है पहले ऐसे नदी नालों में वर्ष के छह से आठ महीने भरपूर पानी रहता था, परन्तु वर्तमान में अनवरत भूगर्भीय, जलादोहन से इनके जल भराव की क्षमता घट गई', 'cgstate/images/file-1623829310631.jpg', 'Y', 'नरुवा योजना'),
 	(2, 2, 'Garuwa Yojana', 'प्रदेश सरकार की महत्वकांक्षी सुराजी गांव योजना के अन्तर्गत नरवा, गरूवा, घुरवा एवं बाड़ी योजना का क्रियान्वयन विभिन्न विभागों जैसे - पंचायत एवं ग्रामीण विकास, कृषि, पशुधन विकास, उद्यानिकी, ऊर्जा, लोक स्वास्थ्य यांत्रिकी आदि के समन्वय से किया जा रहा है। समस्त जिलों में जिला कलेक्टर की अध्यक्षता में ग्राम पंचायत स्तर पर गोचर भूमि आरक्षित कर गौठानों एवं चारागाहों का निर्माण किया जा रहा है। योजना का मुख्य उद्देश्य प्रदेश के गौवंशीय-भैंसवंशीय पशुधन को गौठानो के माध्यम से एक स्थान पर छाया, शुद्ध पेयजल, सूखा एवं हरा चारा उपलब्ध कराना है, जिससे खुले में घूम रहे पशुओं से किसानो की फसलों को हो रहे नुकसान से बचाया जा सके। साथ ही पशुओं को मूलभूत सुविधा के साथ-साथ स्वास्थ्य संबंधी लाभ भी उपलब्ध करायी जा सके। योजना अन्तर्गत प्रदेश के लगभग 50 प्रतिशत ग्राम पंचायतों में गौठान निर्माण का लक्ष्य निर्धारित किया गया है। गौठानो में सी.पी.टी. एवं तार फेंसिंग कर आरक्षित भूमि को घेरा कर पशुओं के लिए स्थान सुरक्षित किया गया है, जहां डे-केयर सेन्टर के रूप में ग्राम के पशुओं को चरवाहा के माध्यम से प्रातः कालीन गौठ', 'cgstate/images/file-1623829648848.jpg', 'Y', 'गरुवा योजना'),
-	(2, 3, 'Ghurwa Yojna', 'घुरूवा कार्यक्रम का मुख्य उद्देश्य है कि ग्रामों में उपलब्ध पशुधन से प्राप्त गोबर एवं फसल अवशेष से वैज्ञानिक विधि से उच्च गुणवत्तायुक्त जैविक खाद उत्पादन कर कृषि में जैविक खाद के उपयोग को प्रोत्साहित कर काश्त लागत में कमी लाना एवं मृदा स्वास्थ्य एवं फसल उत्पादकता में वृद्धि करना है। घुरूवा कार्यक्रम अंतर्गत प्रथम में 1968 ग्राम पंचायतो का चयन कर कृषको द्वारा स्वप्रेरणा से 51,551 भू-नोडेप, 9,881 नोडेप टांके, 10,117 वर्मी टांके, 9,700 वर्मी बेड एवं 621 नये बायोगैस संयंत्र निर्माण का कार्य पूर्ण कर लिया गया है। इस प्रकार कुल 2.73 लाख कृषक घुरूवा घटक अंतर्गत लाभान्वित हुए। लगभग 3,43,032 मे. टन जैविक खार का निर्माण हुआ, जिसका कृषकों द्वारा खेतो में उपयोग किया गया तथा 381.80 टन खाद विक्रय कर 26.59 लाख रूपये प्राप्त किया गया । वर्ष 2019-20 में गौठान ग्रामों में कुल 1.49 लाख हेक्टेयर में रबी फसल लिया जाकर द्विफसलीय क्षेत्र का विस्तार किया गया । यह योजना गौ-वंश से संरक्षण की प्रमुख रूप से संचालन कर रहे है। गौ-वंश को काटने एवं उनको तस्करी पर अंकुश लगाने के लिए यह सरकार का प्रभावी कदम भी कायम होग', 'cgstate/images/file-1623829878381.jpg', 'Y', 'घुरूवा योजना'),
-	(2, 4, 'Badi Yojana', 'परिवार के दैनिक उपयोग हेतु कुपोषणता को दूर करने के लिए एवं अतिरिक्त आमदनी के स्रोत का सृजन कर, ग्रामीण अर्थव्यवस्था के सुदृढ़ीकरण सुनिश्चित करने के उद्देश्य से निवास स्थान के समीप उपलब्ध भूमि पर फल, सब्जी एवं पुष्प की खेती कृषकों द्वारा कराया जाना ही सुराजी गांव योजना अंतर्गत बाड़ी की परिकल्पना का मुख्य आधार हैं। योजनान्तर्गत महिलाओं /महिला स्व-सहायकता समूह को तथा ग्राम के गरीब तबके और कमजोर वर्गों के परिवारों को जिनके घर पर बाड़ी के लिए जगह हैं, किन्तु बाड़ी की गतिविधि नहीं कर रहे है को योजना का लाभ दिये जाने हेतु चिन्हित कर योजना का क्रियान्वयन किया जा रहा हैं। बाड़ी से ग्रामीण परिवारों के अतिरिक्त आय में वृद्धि हो रहा हैं। भूमिहिनों को रोजगार के अवसर मिल रहे हैं तथा कृषक परिवार का भोजन संतुलित हो रहा है । “पोषण बाड़ी विकास योजना“ में स्थानीय प्रजातियों को बढ़ावा देना मुख्य रूप से शामिल हैं। जिसमें भाजी की स्थानीय प्रजातियों को अधिक से अधिक बढ़ावा दिया जा रहा हैं। इसका प्रमुख कारण कारण भाजियों में उपलब्ध पोषक तत्व हैं। भाजी के अधिकाधिक उपयोग से आयरन एवं आयोडीन की कमी को दूर किया जा स', 'cgstate/images/file-1623830263168.jpg', 'Y', 'बाड़ी योजना');
+	(3, 2, 'Ghurwa Yojna', 'घुरूवा कार्यक्रम का मुख्य उद्देश्य है कि ग्रामों में उपलब्ध पशुधन से प्राप्त गोबर एवं फसल अवशेष से वैज्ञानिक विधि से उच्च गुणवत्तायुक्त जैविक खाद उत्पादन कर कृषि में जैविक खाद के उपयोग को प्रोत्साहित कर काश्त लागत में कमी लाना एवं मृदा स्वास्थ्य एवं फसल उत्पादकता में वृद्धि करना है। घुरूवा कार्यक्रम अंतर्गत प्रथम में 1968 ग्राम पंचायतो का चयन कर कृषको द्वारा स्वप्रेरणा से 51,551 भू-नोडेप, 9,881 नोडेप टांके, 10,117 वर्मी टांके, 9,700 वर्मी बेड एवं 621 नये बायोगैस संयंत्र निर्माण का कार्य पूर्ण कर लिया गया है। इस प्रकार कुल 2.73 लाख कृषक घुरूवा घटक अंतर्गत लाभान्वित हुए। लगभग 3,43,032 मे. टन जैविक खार का निर्माण हुआ, जिसका कृषकों द्वारा खेतो में उपयोग किया गया तथा 381.80 टन खाद विक्रय कर 26.59 लाख रूपये प्राप्त किया गया । वर्ष 2019-20 में गौठान ग्रामों में कुल 1.49 लाख हेक्टेयर में रबी फसल लिया जाकर द्विफसलीय क्षेत्र का विस्तार किया गया । यह योजना गौ-वंश से संरक्षण की प्रमुख रूप से संचालन कर रहे है। गौ-वंश को काटने एवं उनको तस्करी पर अंकुश लगाने के लिए यह सरकार का प्रभावी कदम भी कायम होग', 'cgstate/images/file-1623829878381.jpg', 'Y', 'घुरूवा योजना'),
+	(4, 2, 'Badi Yojana', 'परिवार के दैनिक उपयोग हेतु कुपोषणता को दूर करने के लिए एवं अतिरिक्त आमदनी के स्रोत का सृजन कर, ग्रामीण अर्थव्यवस्था के सुदृढ़ीकरण सुनिश्चित करने के उद्देश्य से निवास स्थान के समीप उपलब्ध भूमि पर फल, सब्जी एवं पुष्प की खेती कृषकों द्वारा कराया जाना ही सुराजी गांव योजना अंतर्गत बाड़ी की परिकल्पना का मुख्य आधार हैं। योजनान्तर्गत महिलाओं /महिला स्व-सहायकता समूह को तथा ग्राम के गरीब तबके और कमजोर वर्गों के परिवारों को जिनके घर पर बाड़ी के लिए जगह हैं, किन्तु बाड़ी की गतिविधि नहीं कर रहे है को योजना का लाभ दिये जाने हेतु चिन्हित कर योजना का क्रियान्वयन किया जा रहा हैं। बाड़ी से ग्रामीण परिवारों के अतिरिक्त आय में वृद्धि हो रहा हैं। भूमिहिनों को रोजगार के अवसर मिल रहे हैं तथा कृषक परिवार का भोजन संतुलित हो रहा है । “पोषण बाड़ी विकास योजना“ में स्थानीय प्रजातियों को बढ़ावा देना मुख्य रूप से शामिल हैं। जिसमें भाजी की स्थानीय प्रजातियों को अधिक से अधिक बढ़ावा दिया जा रहा हैं। इसका प्रमुख कारण कारण भाजियों में उपलब्ध पोषक तत्व हैं। भाजी के अधिकाधिक उपयोग से आयरन एवं आयोडीन की कमी को दूर किया जा स', 'cgstate/images/file-1623830263168.jpg', 'Y', 'बाड़ी योजना');
 /*!40000 ALTER TABLE `main_scheme` ENABLE KEYS */;
 
 -- Dumping structure for table cgstate.mas_dept
@@ -1935,33 +1987,6 @@ INSERT INTO `mas_dept` (`dept_id`, `deptname_en`, `deptname_hn`, `dept_minister_
 	(2, 'Energy Department', 'ऊर्जा विभाग', 'Ankit Anand', 'अंकित आनंद', 'Secretary Energy Department  ', 'सचिव ऊर्जा विभाग ', 'eng/images/file-1624802048707.png', 'eng/images/file-1623927005671.png', 'eng/images/file-1623927065678.png', 'भूपेश बघेल', 'Bhupesh Baghel', 'माननीय मुख्यमंत्री', 'Hon. Chief Minister ', 'eng'),
 	(3, 'Chhattisgarh State Haj Committee', 'छत्तीसगढ़ राज्य हज समिति', ' ', '  ', '  ', '  ', 'haz/images/file-1624260772099.png', 'haz/images/file-1624260787596.png', 'haz/images/file-1624260759347.png', 'भूपेश बघेल', 'Bhupesh Baghel', 'माननीय मुख्यमंत्री ', 'Hon\'ble Chief Minister ', 'haj');
 /*!40000 ALTER TABLE `mas_dept` ENABLE KEYS */;
-
--- Dumping structure for table cgstate.mas_dept_log
-CREATE TABLE IF NOT EXISTS `mas_dept_log` (
-  `dept_id` int NOT NULL,
-  `deptname_en` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT '',
-  `deptname_hn` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT '',
-  `dept_minister_name_en` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `dept_minister_name_hn` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `dept_minister_post_en` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `dept_minister_post_hn` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `dept_min_pic` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `deptlogo_dark_url` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `cm_pic_url` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `cm_name_hn` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `cm_name_en` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `cm_post_hn` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT '',
-  `cm_post_en` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `domain_name` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `log_id` int NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`log_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
--- Dumping data for table cgstate.mas_dept_log: ~0 rows (approximately)
-/*!40000 ALTER TABLE `mas_dept_log` DISABLE KEYS */;
-INSERT INTO `mas_dept_log` (`dept_id`, `deptname_en`, `deptname_hn`, `dept_minister_name_en`, `dept_minister_name_hn`, `dept_minister_post_en`, `dept_minister_post_hn`, `dept_min_pic`, `deptlogo_dark_url`, `cm_pic_url`, `cm_name_hn`, `cm_name_en`, `cm_post_hn`, `cm_post_en`, `domain_name`, `log_id`) VALUES
-	(2, 'Energy Department', 'ऊर्जा विभाग', 'Bhupesh Baghel', 'भूपेश बघेल', 'Hon. Energy Department Minister ', 'माननीय ऊर्जा विभाग मंत्री', 'eng/images/file-1623926995750.png', 'eng/images/file-1623927005671.png', 'eng/images/file-1623927065678.png', 'भूपेश बघेल', 'Bhupesh Baghel', 'माननीय मुख्यमंत्री', 'Hon. Chief Minister ', 'eng', 1);
-/*!40000 ALTER TABLE `mas_dept_log` ENABLE KEYS */;
 
 -- Dumping structure for table cgstate.mas_menu
 CREATE TABLE IF NOT EXISTS `mas_menu` (
@@ -3358,21 +3383,16 @@ INSERT INTO `upload_data` (`linkid`, `menu_code`, `dept_id`, `linkname`, `menu_t
 	(68, 15, 2, 'मुख्य विद्युत् लेखा परीक्षक की दिनांक 01/04/2017 की स्थिति में अंतिम पदक्रम सूची ।', 'eng/notification/file-1624687860779.pdf', NULL, NULL, '2017-04-01 00:00:00', '2017-07-31 00:00:00', 'Y');
 /*!40000 ALTER TABLE `upload_data` ENABLE KEYS */;
 
--- Dumping structure for trigger cgstate.before_mas_dept_update
-SET @OLDTMP_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO';
+-- Dumping structure for trigger cgstate.before_main_card_log
+SET @OLDTMP_SQL_MODE=@@SQL_MODE, SQL_MODE='STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION';
 DELIMITER //
-CREATE TRIGGER `before_mas_dept_update` BEFORE UPDATE ON `mas_dept` FOR EACH ROW BEGIN
+CREATE TRIGGER `before_main_card_log` BEFORE UPDATE ON `main_card` FOR EACH ROW BEGIN	
 
-	
-
-INSERT INTO mas_dept_log (`dept_id`, `deptname_en`, `deptname_hn`, `dept_minister_name_en`, `dept_minister_name_hn`, `dept_minister_post_en`, `dept_minister_post_hn`, `dept_min_pic`, `deptlogo_dark_url`, `cm_pic_url`, `cm_name_hn`, `cm_name_en`, `cm_post_hn`, `cm_post_en`, `domain_name`) 
+INSERT INTO main_card_log (`id`, `dept_id`, `cardheader`, `cardflag`, `cardno`, `carddata`, `linkurl`, `isactive`, `linkname`, `issuedate`, `validitydate`,`triggerflag`) 
 
 
 
-SELECT `dept_id`, `deptname_en`, `deptname_hn`, `dept_minister_name_en`, `dept_minister_name_hn`, `dept_minister_post_en`, `dept_minister_post_hn`, `dept_min_pic`, `deptlogo_dark_url`, `cm_pic_url`, `cm_name_hn`, `cm_name_en`, `cm_post_hn`, `cm_post_en`, `domain_name` from mas_dept  where dept_id=old.dept_id;
-
-
-
+SELECT `id`, `dept_id`, `cardheader`, `cardflag`, `cardno`, `carddata`, `linkurl`, `isactive`, `linkname`, `issuedate`, `validitydate`, "beforeupdate"  from main_card where id=old.id;
     END//
 DELIMITER ;
 SET SQL_MODE=@OLDTMP_SQL_MODE;

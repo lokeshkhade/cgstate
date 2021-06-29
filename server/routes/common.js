@@ -305,6 +305,45 @@ router.get('/allwhatnew/:dept_id', function(req, res, next) {
 });
 
 
+router.get('/idwhatnew/:id', function(req, res, next) {
+    common.getidwhatnew(req.params.id, function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+
+});
+
+
+
+
+router.get('/idbanner/:id', function(req, res, next) {
+    common.getidbanner(req.params.id, function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+
+});
+
+
+
+router.get('/idallcard/:id', function(req, res, next) {
+    common.getidcard(req.params.id, function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+
+});
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 

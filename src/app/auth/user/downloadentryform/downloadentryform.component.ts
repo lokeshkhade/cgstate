@@ -58,11 +58,14 @@ export class DownloadentryformComponent implements OnInit {
     });
   }
 
+  ///////////////////////////////////////////////////////
+
   isValidInput(fieldName: any): boolean {
     return this.downloadForm.controls[fieldName].invalid &&
       (this.downloadForm.controls[fieldName].dirty || this.downloadForm.controls[fieldName].touched);
   }
 
+  ///////////////////////////////////////////////
 
   ngOnInit(): void {
 
@@ -74,7 +77,7 @@ export class DownloadentryformComponent implements OnInit {
       dept_id: [],
       id: [],
       isactive: ['Y'],
-      flag: []
+      doctype: []
     });
 
     let user = this.authservice.currentUser;
@@ -98,8 +101,9 @@ export class DownloadentryformComponent implements OnInit {
     this.downloadForm.patchValue({
       issuedate: this.datePipe.transform(this.downloadForm.get("issuedate")?.value, "yyyy-MM-dd")
     });
-
   }
+
+  /////////////////////////////////////////////////////////
 
   addvaliditydate(type: string, event: MatDatepickerInputEvent<Date>) {
     this.events.push(`${type}: ${event.value}`);
@@ -159,11 +163,7 @@ export class DownloadentryformComponent implements OnInit {
 
   /////////////////////////////////////////////////
 
-
-
-
   EditDept(id: any) {
-
     this.commonservice.paramFunction('alldeptdownload', id).subscribe(res => {
       this.deptdata = res[0];
       this.downloadForm.patchValue({
@@ -175,7 +175,7 @@ export class DownloadentryformComponent implements OnInit {
         // validitydate: this.deptdata.validitydate,
         dept_id: this.deptdata.dept_id,
         isactive: this.deptdata.isactive,
-        flag: this.deptdata.flag
+        doctype: this.deptdata.doctype
       });
     });
   }
@@ -252,9 +252,6 @@ export class DownloadentryformComponent implements OnInit {
     }
   }
 
-
-
-
   /////////////////////////////////////////////////////////////////
 
   getAllDownloads() {
@@ -272,6 +269,6 @@ export class DownloadentryformComponent implements OnInit {
   }
 
 
-
+  ///////////////////////////////////////////////////
 
 }
