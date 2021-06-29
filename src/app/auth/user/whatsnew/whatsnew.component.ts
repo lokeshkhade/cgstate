@@ -55,28 +55,6 @@ export class WhatsnewComponent implements OnInit {
         window.scrollTo(0, 0);
       }
     });
-
-    this.mainnewsForm = this.fb.group({
-      linkname: ['', Validators.required],
-      linkurl: ['', Validators.required],
-      issuedate: [],
-      dept_id: [],
-      id: [],
-      validitydate: [],
-      isactive: ['Y'],
-      doctype: []
-    });
-
-    let user = this.authservice.currentUser;
-    this.user_id = user.user_id;
-    this.dept_id = user.dept_id;
-    this.dept_foldername = user.dept_foldername;
-    this.mainnewsForm.patchValue({
-      dept_id: this.dept_id,
-      isactive: 'Y'
-    });
-
-    this.getNews();
   }
 
   ////////////////////////////////////////////////
@@ -89,6 +67,19 @@ export class WhatsnewComponent implements OnInit {
   ////////////////////////////////////////////
 
   ngOnInit(): void {
+
+    this.mainnewsForm = this.fb.group({
+      linkname: ['', Validators.required],
+      linkurl: ['', Validators.required],
+      issuedate: [],
+      dept_id: [],
+      id: [],
+      validitydate: [],
+      isactive: ['Y'],
+      doctype: []
+    });
+
+
     let user = this.authservice.currentUser;
     this.user_id = user.user_id;
     this.dept_id = user.dept_id;
@@ -98,6 +89,8 @@ export class WhatsnewComponent implements OnInit {
       dept_id: this.dept_id,
       isactive: 'Y'
     });
+
+    this.getNews();
   }
 
   /////////////////////////////////////////////////

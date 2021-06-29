@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonService } from './../../../services/common.service';
 import { AuthService } from './../../../services/auth.service';
+import { NavigationEnd, Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { DatePipe } from '@angular/common';
@@ -8,6 +9,9 @@ import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { environment } from 'src/environments/environment';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-schemeform',
@@ -21,8 +25,38 @@ export class SchemeformComponent implements OnInit {
   filename: any;
   public dept_foldername: any;
   public deptlist: any = [];
+  public data: any = [];
+  public deptdata: any = [];
+  user_id: any;
+  folder_name: any;
+  dept_id: any;
 
-  constructor(private http: HttpClient, private commonservice: CommonService, private fb: FormBuilder, private datePipe: DatePipe, private authservice: AuthService) {
+  displayedColumns: string[] = ['sn', 'scheme_name', 'img_link', 'scheme_data', 'scheme_namehn', 'EditData', 'action'];
+  dataSource: MatTableDataSource<any>;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
+  constructor(private router: Router, private http: HttpClient, private commonservice: CommonService, private fb: FormBuilder, private datePipe: DatePipe, private authservice: AuthService) {
+
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
+
+    this.router.events.subscribe((evt) => {
+      if (evt instanceof NavigationEnd) {
+        this.router.navigated = false;
+        window.scrollTo(0, 0);
+      }
+    });
+
+  }
+
+  isValidInput(fieldName: any): boolean {
+    return this.schemeForm.controls[fieldName].invalid &&
+      (this.schemeForm.controls[fieldName].dirty || this.schemeForm.controls[fieldName].touched);
+  }
+
+  ngOnInit(): void {
 
     this.schemeForm = this.fb.group({
       dept_id: ['', Validators.required],
@@ -33,18 +67,30 @@ export class SchemeformComponent implements OnInit {
       scheme_namehn: ['', Validators.required],
       isactive: ['Y']
     });
-  }
 
-  isValidInput(fieldName: any): boolean {
-    return this.schemeForm.controls[fieldName].invalid &&
-      (this.schemeForm.controls[fieldName].dirty || this.schemeForm.controls[fieldName].touched);
-  }
-
-  ngOnInit(): void {
     let user = this.authservice.currentUser;
+    this.user_id = user.user_id;
+    this.dept_id = user.dept_id;
     this.dept_foldername = user.dept_foldername;
+    this.schemeForm.patchValue({
+      dept_id: this.dept_id,
+      isactive: 'Y'
+    });
     this.getDept();
+    this.getAllSchemes();
   }
+
+  //////////////////////////////////////////////////////
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
 
 
   getDept() {
@@ -112,5 +158,28 @@ export class SchemeformComponent implements OnInit {
     this.schemeForm.reset();
 
   }
+
+
+
+
+
+  /////////////////////////////////////////////////////////////////
+
+  getAllSchemes() {
+    let index = 0;
+    this.commonservice.paramFunction('deptscheme', this.dept_id).subscribe(res => {
+      this.data = res;
+      this.data.forEach(e => {
+        this.data[index].sn = index + 1;
+        index++;
+      });
+      this.dataSource = new MatTableDataSource(this.data);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
+
+  }
+
+  ///////////////////////////////////////////////
 
 }

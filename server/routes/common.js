@@ -382,6 +382,19 @@ router.get('/scheme', function(req, res) {
     });
 });
 
+
+
+router.get('/deptscheme/:dept_id', function(req, res, next) {
+    common.getdeptscheme(req.params.dept_id, function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+
+});
+
 /////////////////////////////////////////////////////////////////////////////////
 
 router.get('/deptlinks/:dept_id', function(req, res, next) {

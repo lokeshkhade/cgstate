@@ -200,8 +200,23 @@ var common = {
     ////////////////////////////////////////////
 
     getscheme: function(callback) {
-        db.query(`select * from main_scheme`, callback);
+        db.query(`select * from main_scheme where isactive='Y'`, callback);
     },
+
+    getdeptscheme: function(id, callback) {
+        db.query(`select * from main_scheme where id  = ? and isactive='Y'`, callback);
+    },
+
+    getidscheme: function(id, callback) {
+        if (id != 0) {
+            db.query(`select *,'' as sn from main_scheme where id  = ? and isactive='Y'`, [id], callback);
+        } else {
+            db.query(`select *,'' as sn from main_scheme where isactive='Y'`, callback);
+        }
+    },
+
+
+    //////////////////////////////////////////////////////////////////////
 
     getdirectory: function(designation_id, callback) {
         if (designation_id != 0) {
