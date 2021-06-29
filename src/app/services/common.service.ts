@@ -48,6 +48,16 @@ export class CommonService {
         );
     }
 
+
+    updatedata(data: any, table_name: any) {
+        const url = `${environment.rootUrl + 'updatedata'}/${table_name}`;
+        return this.http.put(url, data).pipe(tap(res => { res }),
+            catchError(e => {
+                throw new Error(e);
+            })
+        );
+    }
+
     updateFuction(funtionName: any, data: any) {
         return this.http.put(environment.rootUrl + funtionName, data).pipe(tap(res => { res }),
             catchError(e => {

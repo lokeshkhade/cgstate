@@ -102,7 +102,7 @@
                     <div class="text-danger text-center" *ngIf="showInvalid"><strong> {{errorText}}</strong></div>
                     <p class="text-danger text-center" *ngIf="showCaptchaError"><strong>Wrong Captcha</strong></p>
                     <div class="text-center py-4">
-                        <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary b-btn">Log
+                        <button type="submit" class="btn btn-primary b-btn">Log
                             In</button>
                     </div>
 
@@ -111,4 +111,5 @@
         </div>
     </div>
 </div>
+<!-- [disabled]="!loginForm.valid" -->
 <app-loader></app-loader>

@@ -20,8 +20,8 @@ export const MENUITEMS = {
         { state: '/user/deptpic', name: 'Image Upload', type: 'link', icon: 'view_list' },
         { state: '/user/deptcard', name: 'Dept. Card', type: 'link', icon: 'view_list' },
         { state: '/user/whatsnew', name: 'Whats New', type: 'link', icon: 'view_list' },
-        { state: '/user/aboutusentryform', name: 'About Department', type: 'link', icon: 'view_list' },
-        { state: '/user/contactentryform', name: 'Contact Info.', type: 'link', icon: 'view_list' },
+        { state: '/user/aboutusentryform', name: 'About Us', type: 'link', icon: 'view_list' },
+        { state: '/user/contactentryform', name: 'Contact Us', type: 'link', icon: 'view_list' },
         { state: '/user/downloadentryform', name: 'Downloads', type: 'link', icon: 'view_list' },
 
     ],

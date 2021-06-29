@@ -256,15 +256,7 @@ router.get('/allimpinformation/:dept_id', function(req, res, next) {
 
 /////////////////////////////////////////////////////////////////////
 
-router.get('/deptaboutus/:dept_id', function(req, res, next) {
-    common.getdeptaboutus(req.params.dept_id, function(err, rows) {
-        if (err) {
-            res.json(err);
-        } else {
-            res.json(rows);
-        }
-    });
-});
+
 
 router.get('/deptcontact/:dept_id', function(req, res, next) {
     common.getdeptcontact(req.params.dept_id, function(err, rows) {
@@ -463,6 +455,54 @@ router.put('/updateRevisit', checkAuth, function(req, res) {
     });
 });
 
+////////////////////////////////////////////////////////////////////////
+
+
+router.get('/deptaboutus/:dept_id', function(req, res, next) {
+    common.getdeptaboutus(req.params.dept_id, function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+});
+
+
+
+router.get('/alldeptaboutus/:id', function(req, res) {
+    common.getalldeptaboutus(req.params.id, function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+});
+
+
+router.get('/allcontactus/:id', function(req, res) {
+    common.getalldeptcontactus(req.params.id, function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+});
+
+
+
+router.get('/alldeptdownload/:id', function(req, res) {
+    common.getalldeptdownload(req.params.id, function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+});
+
 /////////////////////////////////////////////////////////////////////////////////
 
 router.post('/insert/:table_name', function(req, res, next) {
@@ -485,6 +525,21 @@ router.put('/update/:table_name', function(req, res, next) {
     var tablename = req.params.table_name;
 
     db.query(query, [tablename, data, data.dept_id], function(error, results, fields) {
+        if (error) throw error;
+        res.json(results);
+
+    });
+});
+
+/////////////////////////////////////////////////////////////////////////////////
+
+router.put('/updatedata/:table_name', function(req, res, next) {
+    var data = req.body;
+    console.log(data);
+    var query = "UPDATE ?? set ? WHERE id=?";
+    var tablename = req.params.table_name;
+
+    db.query(query, [tablename, data, data.id], function(error, results, fields) {
         if (error) throw error;
         res.json(results);
 

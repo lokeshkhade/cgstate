@@ -27,14 +27,9 @@ export class DeptaboutusComponent implements OnInit {
   constructor(private commonservice: CommonService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-
-
     this.domain_name = window.location.href.split('/')[5];
     console.log(window.location.href.split('/')[5]);
-
     this.getDeptID();
-
-    console.log(this.dept_id);
   }
 
   getDeptID() {
@@ -42,7 +37,6 @@ export class DeptaboutusComponent implements OnInit {
       this.dept_id = res[0].dept_id;
       console.log(this.dept_id);
       this.getaboutus(this.dept_id);
-
     });
   }
 

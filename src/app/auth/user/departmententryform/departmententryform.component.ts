@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-departmententryform',
@@ -31,7 +32,18 @@ export class DepartmententryformComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private http: HttpClient, private commonservice: CommonService, private fb: FormBuilder, private datePipe: DatePipe, private authservice: AuthService) {
+  constructor(private router: Router, private http: HttpClient, private commonservice: CommonService, private fb: FormBuilder, private datePipe: DatePipe, private authservice: AuthService) {
+
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
+
+    this.router.events.subscribe((evt) => {
+      if (evt instanceof NavigationEnd) {
+        this.router.navigated = false;
+        window.scrollTo(0, 0);
+      }
+    });
   }
 
   isValidInput(fieldName: any): boolean {
@@ -86,7 +98,6 @@ export class DepartmententryformComponent implements OnInit {
   }
 
   EditDept(dept_id: any) {
-
     this.commonservice.paramFunction('alldept', dept_id).subscribe(res => {
       this.deptdata = res[0];
       this.deptentryForm.patchValue({
@@ -174,7 +185,7 @@ export class DepartmententryformComponent implements OnInit {
         }
       })
     }
-
+    this.router.navigate(['user/departmententryform']);
 
   }
 

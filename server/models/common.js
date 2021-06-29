@@ -96,18 +96,47 @@ var common = {
 
     },
 
+    ///////////////////////////////////////////////////////
+
+
+    getalldeptaboutus: function(id, callback) {
+        if (id != 0) {
+            db.query(`select *,'' as sn from main_aboutus where id  = ? and isactive='Y' order by issuedate  `, [id], callback);
+        } else {
+            db.query(`select *,'' as sn from main_aboutus and isactive='Y' order by issuedate `, callback);
+        }
+    },
+
+
     /////////////////////////////////////////////////////
 
     getdeptaboutus: function(dept_id, callback) {
-        db.query(`select * from main_aboutus where dept_id  = ? order by issuedate `, [dept_id], callback);
+        db.query(`select * from main_aboutus where dept_id  = ? and isactive='Y' order by issuedate `, [dept_id], callback);
     },
 
     getdeptcontact: function(dept_id, callback) {
-        db.query(`select * from main_contact where dept_id  = ? order by issuedate `, [dept_id], callback);
+        db.query(`select * from main_contact where dept_id  = ? and isactive='Y' order by issuedate `, [dept_id], callback);
+    },
+
+
+    getalldeptcontactus: function(id, callback) {
+        if (id != 0) {
+            db.query(`select *,'' as sn from main_contact where id  = ? and isactive='Y' order by issuedate  `, [id], callback);
+        } else {
+            db.query(`select *,'' as sn from main_contact and isactive='Y' order by issuedate `, callback);
+        }
     },
 
     getdownload: function(dept_id, callback) {
-        db.query(`select * from main_download where dept_id  = ? order by issuedate `, [dept_id], callback);
+        db.query(`select * from main_download where dept_id  = ? and isactive='Y' order by issuedate `, [dept_id], callback);
+    },
+
+    getalldeptdownload: function(id, callback) {
+        if (id != 0) {
+            db.query(`select *,'' as sn from main_download where id  = ? and isactive='Y' order by issuedate  `, [id], callback);
+        } else {
+            db.query(`select *,'' as sn from main_download and isactive='Y' order by issuedate `, callback);
+        }
     },
 
     //////////////////////////////////////////////////////////////

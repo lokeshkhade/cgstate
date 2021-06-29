@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonService } from './../../../services/common.service';
 import { AuthService } from './../../../services/auth.service';
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
@@ -8,6 +8,9 @@ import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { environment } from 'src/environments/environment';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
@@ -33,6 +36,14 @@ export class DownloadentryformComponent implements OnInit {
   folder_name: any;
   dept_id: any;
 
+  public data: any = [];
+  public deptdata: any = [];
+
+  displayedColumns: string[] = ['sn', 'linkname', 'linkurl', 'EditData', 'action'];
+  dataSource: MatTableDataSource<any>;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
   constructor(private router: Router, private http: HttpClient, private commonservice: CommonService, private fb: FormBuilder, private datePipe: DatePipe, private authservice: AuthService) {
 
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
@@ -45,9 +56,6 @@ export class DownloadentryformComponent implements OnInit {
         window.scrollTo(0, 0);
       }
     });
-
-
-
   }
 
   isValidInput(fieldName: any): boolean {
@@ -59,23 +67,28 @@ export class DownloadentryformComponent implements OnInit {
   ngOnInit(): void {
 
     this.downloadForm = this.fb.group({
-      linkname: ['', Validators.required],
-      linkurl: ['', Validators.required],
+      linkname: [],
+      linkurl: [],
       issuedate: [],
-      dept_id: [],
       validitydate: [],
+      dept_id: [],
+      id: [],
       isactive: ['Y'],
-      doctype: []
+      flag: []
     });
 
     let user = this.authservice.currentUser;
     this.user_id = user.user_id;
     this.dept_id = user.dept_id;
     this.dept_foldername = user.dept_foldername;
+
     this.downloadForm.patchValue({
       dept_id: this.dept_id,
       isactive: 'Y'
     });
+
+    this.getAllDownloads();
+
   }
 
   /////////////////////////////////////////
@@ -146,20 +159,78 @@ export class DownloadentryformComponent implements OnInit {
 
   /////////////////////////////////////////////////
 
-  save(form: NgForm) {
 
-    this.commonservice.insert(form, 'main_download').subscribe(res => {
 
-      Swal.fire({
-        icon: 'success',
-        text: 'Details are Entered',
-        timer: 5000
+
+  EditDept(id: any) {
+
+    this.commonservice.paramFunction('alldeptdownload', id).subscribe(res => {
+      this.deptdata = res[0];
+      this.downloadForm.patchValue({
+        id: this.deptdata.id,
+        data: this.deptdata.data,
+        linkname: this.deptdata.linkname,
+        linkurl: this.deptdata.linkurl,
+        // issuedate: this.deptdata.issuedate,
+        // validitydate: this.deptdata.validitydate,
+        dept_id: this.deptdata.dept_id,
+        isactive: this.deptdata.isactive,
+        flag: this.deptdata.flag
       });
-
-      this.router.navigate(['user/downloadentryform']);
-
     });
+  }
 
+  ///////////////////////////////////////////////////
+
+  save(form: NgForm) {
+    console.log(form["id"]);
+    if (form["id"] == null) {
+      this.commonservice.insert(form, 'main_download').subscribe(res => {
+        if (res['affectedRows']) {
+          Swal.fire({
+            icon: 'success',
+            text: '"Downloads" Data Entered',
+            timer: 5000
+          });
+        }
+      });
+      this.getAllDownloads();
+      this.router.navigate(['user/contactentryform']);
+    }
+    else {
+      this.commonservice.updatedata(form, 'main_download').subscribe(res => {
+        if (res['affectedRows']) {
+          Swal.fire({
+            icon: 'success',
+            text: '"Downloads" Data Updated',
+            timer: 5000
+          });
+        }
+      })
+      this.getAllDownloads();
+    }
+    this.router.navigate(['user/downloadentryform']);
+
+  }
+
+  ///////////////////////////////////////////////////
+
+  slideChange(id: any, checked) {
+    console.log(checked);
+    let body = {
+      id: id,
+      isactive: ['N']
+    }
+    this.commonservice.updatedata(body, 'main_download').subscribe(res => {
+      if (res['affectedRows']) {
+        Swal.fire({
+          icon: 'success',
+          text: 'Data Disable',
+          timer: 5000
+        });
+        this.getAllDownloads();
+      }
+    });
   }
 
   ////////////////////////////////////////////
@@ -169,6 +240,38 @@ export class DownloadentryformComponent implements OnInit {
     if (event.value == 'P') { this.showwebsite = false; this.showpdf = true; }
 
   }
+
+  //////////////////////////////////////////////////////
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
+
+
+
+  /////////////////////////////////////////////////////////////////
+
+  getAllDownloads() {
+    let index = 0;
+    this.commonservice.paramFunction('deptdownload', this.dept_id).subscribe(res => {
+      this.data = res;
+      this.data.forEach(e => {
+        this.data[index].sn = index + 1;
+        index++;
+      });
+      this.dataSource = new MatTableDataSource(this.data);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
+  }
+
+
 
 
 }

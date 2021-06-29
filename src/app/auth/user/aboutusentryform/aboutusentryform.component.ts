@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonService } from './../../../services/common.service';
 import { AuthService } from './../../../services/auth.service';
 import { NavigationEnd, Router } from '@angular/router';
@@ -9,12 +9,16 @@ import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { environment } from 'src/environments/environment';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-aboutusentryform',
   templateUrl: './aboutusentryform.component.html',
   styleUrls: ['./aboutusentryform.component.scss']
 })
+
 export class AboutusentryformComponent implements OnInit {
 
   public deptaboutusForm: FormGroup;
@@ -32,8 +36,16 @@ export class AboutusentryformComponent implements OnInit {
   user_id: any;
   folder_name: any;
   dept_id: any;
+  public data: any = [];
+  public deptdata: any = [];
+
+  displayedColumns: string[] = ['sn', 'data', 'linkname', 'linkurl', 'EditData', 'action'];
+  dataSource: MatTableDataSource<any>;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(private router: Router, private http: HttpClient, private commonservice: CommonService, private fb: FormBuilder, private datePipe: DatePipe, private authservice: AuthService) {
+
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
     };
@@ -45,7 +57,7 @@ export class AboutusentryformComponent implements OnInit {
       }
     });
   }
-
+  /////////////////////////////////////
   // patch() {
   //   this.file = null;
   //   this.filename = null;
@@ -62,9 +74,9 @@ export class AboutusentryformComponent implements OnInit {
 
   //   });
   // }
+  /////////////////////////////////////////////////////////////////
 
   ngOnInit(): void {
-
     this.deptaboutusForm = this.fb.group({
       linkname: [],
       linkurl: [],
@@ -72,13 +84,12 @@ export class AboutusentryformComponent implements OnInit {
       validitydate: [],
       data: [],
       dept_id: [],
+      id: [],
       isactive: ['Y'],
       flag: []
     });
 
-  }
 
-  ngAfterViewInit() {
     let user = this.authservice.currentUser;
     this.user_id = user.user_id;
     this.dept_id = user.dept_id;
@@ -89,13 +100,20 @@ export class AboutusentryformComponent implements OnInit {
       isactive: 'Y'
 
     });
+
+
+    this.getAllAboutUs();
   }
 
+  /////////////////////////////////////////////////////
 
   isValidInput(fieldName: any): boolean {
     return this.deptaboutusForm.controls[fieldName].invalid &&
       (this.deptaboutusForm.controls[fieldName].dirty || this.deptaboutusForm.controls[fieldName].touched);
   }
+
+
+  ////////////////////////////////////////////////////////////////////
 
   upload(event: any) {
 
@@ -143,6 +161,8 @@ export class AboutusentryformComponent implements OnInit {
     }
   }
 
+  /////////////////////////////////////////////////////
+
   addissuedate(type: string, event: MatDatepickerInputEvent<Date>) {
     this.events.push(`${type}: ${event.value}`);
     this.deptaboutusForm.patchValue({
@@ -151,6 +171,8 @@ export class AboutusentryformComponent implements OnInit {
 
   }
 
+  //////////////////////////////////////
+
   addvaliditydate(type: string, event: MatDatepickerInputEvent<Date>) {
     this.events.push(`${type}: ${event.value}`);
     this.deptaboutusForm.patchValue({
@@ -158,28 +180,114 @@ export class AboutusentryformComponent implements OnInit {
     });
   }
 
+  //////////////////////////////////////////////
+
   onChange(event: any) {
     if (event.value == 'L') { this.showwebsite = true; this.showpdf = false; this.showdata = false; }
     if (event.value == 'P') { this.showpdf = true; this.showwebsite = false; this.showdata = false; }
     if (event.value == 'D') { this.showdata = true; this.showwebsite = false; this.showpdf = false; }
   }
 
+  ///////////////////////////////////////////////////
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
+
+  ////////////////////////////////////////////////////////////
+
+  EditDept(id: any) {
+
+    this.commonservice.paramFunction('alldeptaboutus', id).subscribe(res => {
+      this.deptdata = res[0];
+      this.deptaboutusForm.patchValue({
+        id: this.deptdata.id,
+        data: this.deptdata.data,
+        linkname: this.deptdata.linkname,
+        linkurl: this.deptdata.linkurl,
+        // issuedate: this.deptdata.issuedate,
+        // validitydate: this.deptdata.validitydate,
+        dept_id: this.deptdata.dept_id,
+        isactive: this.deptdata.isactive,
+        flag: this.deptdata.flag
+      });
+    });
+  }
+
+  /////////////////////////////////////////////////
+
 
   save(form: NgForm) {
-
-    console.log(form);
-    this.commonservice.insert(form, 'main_aboutus').subscribe(res => {
-
-      Swal.fire({
-        icon: 'success',
-        text: 'Department About Us Details are Entered',
-        timer: 5000
+    console.log("....................................");
+    console.log(form["id"]);
+    if (form["id"] == null) {
+      this.commonservice.insert(form, 'main_aboutus').subscribe(res => {
+        if (res['affectedRows']) {
+          Swal.fire({
+            icon: 'success',
+            text: '"AboutUs" Data Entered',
+            timer: 5000
+          });
+        }
       });
-      this.router.navigate(['user/aboutusentryform']);
-    });
-
-
+      this.getAllAboutUs();
+    }
+    else {
+      this.commonservice.updatedata(form, 'main_aboutus').subscribe(res => {
+        if (res['affectedRows']) {
+          Swal.fire({
+            icon: 'success',
+            text: '"AboutUs" Data Updated',
+            timer: 5000
+          });
+        }
+      })
+      this.getAllAboutUs();
+    }
+    this.router.navigate(['user/aboutusentryform']);
 
   }
+
+  slideChange(id: any, checked) {
+    console.log(checked);
+    let body = {
+      id: id,
+      isactive: ['N']
+    }
+    this.commonservice.updatedata(body, 'main_aboutus').subscribe(res => {
+      if (res['affectedRows']) {
+        Swal.fire({
+          icon: 'success',
+          text: 'Data Disable',
+          timer: 5000
+        });
+        this.getAllAboutUs();
+      }
+    });
+  }
+
+  ////////////////////////////////////////////////////////////////
+
+  getAllAboutUs() {
+    let index = 0;
+    this.commonservice.paramFunction('deptaboutus', this.dept_id).subscribe(res => {
+      this.data = res;
+      this.data.forEach(e => {
+        this.data[index].sn = index + 1;
+        index++;
+      });
+      this.dataSource = new MatTableDataSource(this.data);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
+  }
+
+
 
 }
